@@ -36,17 +36,17 @@ class InventoryWbResponseItemsInner(BaseModel):
     )
     warehouse_id: Optional[StrictInt] = Field(
         default=None,
-        description="ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`",
+        description="[ID склада](https://dev.wildberries.ru/release-notes?id=605) ",
         alias="warehouseId",
     )
     warehouse_name: Optional[StrictStr] = Field(
         default=None,
-        description="Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`",
+        description="[Название склада](https://dev.wildberries.ru/release-notes?id=605) ",
         alias="warehouseName",
     )
     region_name: Optional[StrictStr] = Field(
         default=None,
-        description="Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`",
+        description="[Страна отгрузки](https://dev.wildberries.ru/release-notes?id=605) ",
         alias="regionName",
     )
     quantity: Optional[StrictInt] = Field(

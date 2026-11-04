@@ -1595,19 +1595,19 @@ export interface InventoryWbResponseItemsInner {
    */
   chrtId?: number;
   /**
-   * ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `-999999`
+   * [ID склада](https://dev.wildberries.ru/release-notes?id=605)
    * @type {number}
    * @memberof InventoryWbResponseItemsInner
    */
   warehouseId?: number;
   /**
-   * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
+   * [Название склада](https://dev.wildberries.ru/release-notes?id=605)
    * @type {string}
    * @memberof InventoryWbResponseItemsInner
    */
   warehouseName?: string;
   /**
-   * Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `Склад WB`
+   * [Страна отгрузки](https://dev.wildberries.ru/release-notes?id=605)
    * @type {string}
    * @memberof InventoryWbResponseItemsInner
    */
@@ -6175,19 +6175,19 @@ export interface TableItemStMetricsAllOfCurrentPrice {
  */
 export interface TableOfficeItem {
   /**
-   * Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
+   * [Страна отгрузки](https://dev.wildberries.ru/release-notes?id=605)
    * @type {string}
    * @memberof TableOfficeItem
    */
   regionName?: string;
   /**
-   * ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `-999999`
+   * [ID склада](https://dev.wildberries.ru/release-notes?id=605)
    * @type {number}
    * @memberof TableOfficeItem
    */
   officeID?: number;
   /**
-   * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `\"\"`
+   * [Название склада](https://dev.wildberries.ru/release-notes?id=605)
    * @type {string}
    * @memberof TableOfficeItem
    */
@@ -6535,7 +6535,7 @@ export interface TableSearchTextItemAllOfVisibility {
  */
 export interface TableShippingOfficeItem {
   /**
-   * Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
+   * [Страна отгрузки](https://dev.wildberries.ru/release-notes?id=605)
    * @type {string}
    * @memberof TableShippingOfficeItem
    */
@@ -6547,7 +6547,7 @@ export interface TableShippingOfficeItem {
    */
   metrics?: TableShippingOfficeMetrics;
   /**
-   * Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) может быть только `[]`
+   * [Данные по складам](https://dev.wildberries.ru/release-notes?id=605)
    * @type {Array<TableShippingOfficeItemOfficesInner>}
    * @memberof TableShippingOfficeItem
    */
@@ -6560,13 +6560,13 @@ export interface TableShippingOfficeItem {
  */
 export interface TableShippingOfficeItemOfficesInner {
   /**
-   * ID склада
+   * [ID склада](https://dev.wildberries.ru/release-notes?id=605)
    * @type {number}
    * @memberof TableShippingOfficeItemOfficesInner
    */
   officeID?: number;
   /**
-   * Название склада
+   * [Название склада](https://dev.wildberries.ru/release-notes?id=605)
    * @type {string}
    * @memberof TableShippingOfficeItemOfficesInner
    */
@@ -7907,7 +7907,7 @@ export const AnalyticsApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
+     * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
      * @summary Данные по складам
      * @param {TableShippingOfficeRequest} tableShippingOfficeRequest
      * @param {*} [options] Override http request option.
@@ -8081,7 +8081,7 @@ export const AnalyticsApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод формирует набор данных об остатках по размерам товара.  Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым. Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`. Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"officeName\":\"\"`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
+     * Метод формирует набор данных об остатках по размерам товара.  Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым. Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`. Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"officeName\":\"\"`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
      * @summary Данные по размерам
      * @param {TableSizeRequest} tableSizeRequest
      * @param {*} [options] Override http request option.
@@ -8762,7 +8762,7 @@ export const AnalyticsApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
+     * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
      * @summary Данные по складам
      * @param {TableShippingOfficeRequest} tableShippingOfficeRequest
      * @param {*} [options] Override http request option.
@@ -8864,7 +8864,7 @@ export const AnalyticsApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод формирует набор данных об остатках по размерам товара.  Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым. Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`. Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"officeName\":\"\"`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
+     * Метод формирует набор данных об остатках по размерам товара.  Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым. Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`. Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"officeName\":\"\"`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
      * @summary Данные по размерам
      * @param {TableSizeRequest} tableSizeRequest
      * @param {*} [options] Override http request option.
@@ -9209,7 +9209,7 @@ export const AnalyticsApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
+     * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
      * @summary Данные по складам
      * @param {TableShippingOfficeRequest} tableShippingOfficeRequest
      * @param {*} [options] Override http request option.
@@ -9254,7 +9254,7 @@ export const AnalyticsApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод формирует набор данных об остатках по размерам товара.  Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым. Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`. Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"officeName\":\"\"`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
+     * Метод формирует набор данных об остатках по размерам товара.  Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым. Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`. Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"officeName\":\"\"`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
      * @summary Данные по размерам
      * @param {TableSizeRequest} tableSizeRequest
      * @param {*} [options] Override http request option.
@@ -9492,7 +9492,7 @@ export interface AnalyticsApiInterface {
   ): AxiosPromise<PostV2SearchReportTableGroupsResponse200>;
 
   /**
-   * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
+   * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
    * @summary Данные по складам
    * @param {TableShippingOfficeRequest} tableShippingOfficeRequest
    * @param {*} [options] Override http request option.
@@ -9531,7 +9531,7 @@ export interface AnalyticsApiInterface {
   ): AxiosPromise<PostV2StocksReportProductsProductsResponse200>;
 
   /**
-   * Метод формирует набор данных об остатках по размерам товара.  Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым. Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`. Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"officeName\":\"\"`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
+   * Метод формирует набор данных об остатках по размерам товара.  Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым. Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`. Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"officeName\":\"\"`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
    * @summary Данные по размерам
    * @param {TableSizeRequest} tableSizeRequest
    * @param {*} [options] Override http request option.
@@ -9812,7 +9812,7 @@ export class AnalyticsApi extends BaseAPI implements AnalyticsApiInterface {
   }
 
   /**
-   * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
+   * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
    * @summary Данные по складам
    * @param {TableShippingOfficeRequest} tableShippingOfficeRequest
    * @param {*} [options] Override http request option.
@@ -9863,7 +9863,7 @@ export class AnalyticsApi extends BaseAPI implements AnalyticsApiInterface {
   }
 
   /**
-   * Метод формирует набор данных об остатках по размерам товара.  Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым. Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`. Данные по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` и `\"officeName\":\"\"`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
+   * Метод формирует набор данных об остатках по размерам товара.  Возможны случаи: 1. Товар имеет размеры и `\"includeOffice\":true`, тогда в ответе будут данные об остатках по каждому из размеров с вложенной детализацией по складам. 2. Товар имеет размеры и `\"includeOffice\":false`, тогда в ответе будут данные об остатках по каждому из размеров без вложенной детализации по складам. 3. Товар не имеет размера и `\"includeOffice\":true`, тогда в ответе будет детализация по складам. Без данных об остатках по каждому из размеров. 4. Товар не имеет размера и `\"includeOffice\":false`, тогда тело ответа будет пустым. Товар не имеет размера, если у него единственный размер с `\"techSize\":\"0\"`. В ответах метода получения данных по [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts) у таких товаров `\"hasSizes\":false`. Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"officeName\":\"\"`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-products-sizes
    * @summary Данные по размерам
    * @param {TableSizeRequest} tableSizeRequest
    * @param {*} [options] Override http request option.

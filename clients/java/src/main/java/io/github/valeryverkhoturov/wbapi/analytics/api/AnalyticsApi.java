@@ -501,6 +501,7 @@ public class AnalyticsApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -592,6 +593,7 @@ public class AnalyticsApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -630,6 +632,7 @@ public class AnalyticsApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -669,6 +672,7 @@ public class AnalyticsApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -698,6 +702,7 @@ public class AnalyticsApi {
    * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -791,6 +796,7 @@ public class AnalyticsApi {
    * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -825,6 +831,7 @@ public class AnalyticsApi {
    * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -862,6 +869,7 @@ public class AnalyticsApi {
    * <tr><td> 204 </td><td> Нет данных </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -1093,6 +1101,7 @@ public class AnalyticsApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -1184,6 +1193,7 @@ public class AnalyticsApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -1216,6 +1226,7 @@ public class AnalyticsApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -1248,6 +1259,7 @@ public class AnalyticsApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -2849,8 +2861,9 @@ public class AnalyticsApi {
 
   /**
    * Данные по складам Метод формирует набор данных об остатках по складам. Данные по складам
-   * продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам
-   * — эти записи будут с &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; и
+   * продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи
+   * будут с &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; или
+   * &#x60;\&quot;regionName\&quot;:\&quot;Свой склад СГТ\&quot;&#x60; и
    * &#x60;\&quot;offices\&quot;:[]&#x60;. Данные отчёта обновляются 1 раз в 2 часа. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -2884,8 +2897,9 @@ public class AnalyticsApi {
 
   /**
    * Данные по складам Метод формирует набор данных об остатках по складам. Данные по складам
-   * продавца приходят в агрегированном виде — по всем сразу, без детализации по конкретным складам
-   * — эти записи будут с &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; и
+   * продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи
+   * будут с &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; или
+   * &#x60;\&quot;regionName\&quot;:\&quot;Свой склад СГТ\&quot;&#x60; и
    * &#x60;\&quot;offices\&quot;:[]&#x60;. Данные отчёта обновляются 1 раз в 2 часа. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -2920,10 +2934,10 @@ public class AnalyticsApi {
 
   /**
    * Данные по складам (asynchronously) Метод формирует набор данных об остатках по складам. Данные
-   * по складам продавца приходят в агрегированном виде — по всем сразу, без детализации по
-   * конкретным складам — эти записи будут с &#x60;\&quot;regionName\&quot;:\&quot;Свой
-   * склад\&quot;&#x60; и &#x60;\&quot;offices\&quot;:[]&#x60;. Данные отчёта обновляются 1 раз в 2
-   * часа. [Лимит
+   * по складам продавца приходят в агрегированном виде — без детализации по конкретным складам —
+   * эти записи будут с &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; или
+   * &#x60;\&quot;regionName\&quot;:\&quot;Свой склад СГТ\&quot;&#x60; и
+   * &#x60;\&quot;offices\&quot;:[]&#x60;. Данные отчёта обновляются 1 раз в 2 часа. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3
@@ -3452,8 +3466,9 @@ public class AnalyticsApi {
    * В ответах метода получения данных по
    * [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts)
    * у таких товаров &#x60;\&quot;hasSizes\&quot;:false&#x60;. Данные по складам продавца приходят в
-   * агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с
-   * &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; и
+   * агрегированном виде — без детализации по конкретным складам — эти записи будут с
+   * &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; или
+   * &#x60;\&quot;regionName\&quot;:\&quot;Свой склад СГТ\&quot;&#x60; и
    * &#x60;\&quot;officeName\&quot;:\&quot;\&quot;&#x60;. Данные отчёта обновляются 1 раз в 2 часа.
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
@@ -3499,8 +3514,9 @@ public class AnalyticsApi {
    * В ответах метода получения данных по
    * [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts)
    * у таких товаров &#x60;\&quot;hasSizes\&quot;:false&#x60;. Данные по складам продавца приходят в
-   * агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с
-   * &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; и
+   * агрегированном виде — без детализации по конкретным складам — эти записи будут с
+   * &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; или
+   * &#x60;\&quot;regionName\&quot;:\&quot;Свой склад СГТ\&quot;&#x60; и
    * &#x60;\&quot;officeName\&quot;:\&quot;\&quot;&#x60;. Данные отчёта обновляются 1 раз в 2 часа.
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
@@ -3549,8 +3565,9 @@ public class AnalyticsApi {
    * &#x60;\&quot;techSize\&quot;:\&quot;0\&quot;&#x60;. В ответах метода получения данных по
    * [товарам](https://dev.wildberries.ru/openapi/analytics#tag/stocksReport/operation/postV2StocksReportProductsProducts)
    * у таких товаров &#x60;\&quot;hasSizes\&quot;:false&#x60;. Данные по складам продавца приходят в
-   * агрегированном виде — по всем сразу, без детализации по конкретным складам — эти записи будут с
-   * &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; и
+   * агрегированном виде — без детализации по конкретным складам — эти записи будут с
+   * &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; или
+   * &#x60;\&quot;regionName\&quot;:\&quot;Свой склад СГТ\&quot;&#x60; и
    * &#x60;\&quot;officeName\&quot;:\&quot;\&quot;&#x60;. Данные отчёта обновляются 1 раз в 2 часа.
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)

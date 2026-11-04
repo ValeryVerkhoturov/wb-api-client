@@ -1293,6 +1293,7 @@ class InStorePickupApi:
             "200": "ApiOrdersFinalPriceResponse",
             "400": "ApiBatchError",
             "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
             "403": "ApiBatchError",
             "429": "GetV3ClickCollectOrdersNew401Response",
         }
@@ -1361,6 +1362,7 @@ class InStorePickupApi:
             "200": "ApiOrdersFinalPriceResponse",
             "400": "ApiBatchError",
             "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
             "403": "ApiBatchError",
             "429": "GetV3ClickCollectOrdersNew401Response",
         }
@@ -1429,6 +1431,7 @@ class InStorePickupApi:
             "200": "ApiOrdersFinalPriceResponse",
             "400": "ApiBatchError",
             "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
             "403": "ApiBatchError",
             "429": "GetV3ClickCollectOrdersNew401Response",
         }
@@ -1558,6 +1561,7 @@ class InStorePickupApi:
             "200": "ApiCustomsDeclarationSetResponse",
             "400": "ApiBatchError",
             "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
             "403": "Error",
             "429": "GetV3ClickCollectOrdersNew401Response",
         }
@@ -1626,6 +1630,7 @@ class InStorePickupApi:
             "200": "ApiCustomsDeclarationSetResponse",
             "400": "ApiBatchError",
             "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
             "403": "Error",
             "429": "GetV3ClickCollectOrdersNew401Response",
         }
@@ -1694,6 +1699,7 @@ class InStorePickupApi:
             "200": "ApiCustomsDeclarationSetResponse",
             "400": "ApiBatchError",
             "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
             "403": "Error",
             "429": "GetV3ClickCollectOrdersNew401Response",
         }
@@ -2094,6 +2100,7 @@ class InStorePickupApi:
             "200": "ApiOrdersMetaDetailsResponse",
             "400": "ApiBatchError",
             "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
             "403": "ApiBatchError",
             "429": "GetV3ClickCollectOrdersNew401Response",
         }
@@ -2162,6 +2169,7 @@ class InStorePickupApi:
             "200": "ApiOrdersMetaDetailsResponse",
             "400": "ApiBatchError",
             "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
             "403": "ApiBatchError",
             "429": "GetV3ClickCollectOrdersNew401Response",
         }
@@ -2230,6 +2238,7 @@ class InStorePickupApi:
             "200": "ApiOrdersMetaDetailsResponse",
             "400": "ApiBatchError",
             "401": "GetV3ClickCollectOrdersNew401Response",
+            "402": "GetV3ClickCollectOrdersNew402Response",
             "403": "ApiBatchError",
             "429": "GetV3ClickCollectOrdersNew401Response",
         }

@@ -163,6 +163,8 @@ paths:
                 $ref: '#/components/schemas/GetV1WarehousesResponse200'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/403'
         '404':
@@ -206,6 +208,8 @@ paths:
                   $ref: '#/components/examples/ResponseTariffs'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/403'
         '429':
@@ -661,6 +665,8 @@ paths:
                   $ref: '#/components/examples/BadOffsetFormat'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/403'
         '429':
@@ -700,6 +706,8 @@ paths:
                 $ref: '#/components/schemas/models.DraftCreateResponse'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/403'
         '429':
@@ -758,6 +766,8 @@ paths:
                 origin: supply-api
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/403'
         '404':
@@ -842,6 +852,8 @@ paths:
                   $ref: '#/components/examples/BadDraftIdFormat'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/403'
         '404':
@@ -933,6 +945,8 @@ paths:
                   $ref: '#/components/examples/ItemsArrayLimitExceeded'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/403'
         '404':
@@ -1017,6 +1031,8 @@ paths:
                   $ref: '#/components/examples/BadRequestDraftItems1'
         '401':
           $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
         '403':
           $ref: '#/components/responses/403'
         '404':

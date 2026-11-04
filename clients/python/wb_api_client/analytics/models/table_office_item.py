@@ -31,17 +31,17 @@ class TableOfficeItem(BaseModel):
 
     region_name: Optional[StrictStr] = Field(
         default=None,
-        description="Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`",
+        description="[Страна отгрузки](https://dev.wildberries.ru/release-notes?id=605) ",
         alias="regionName",
     )
     office_id: Optional[StrictInt] = Field(
         default=None,
-        description="ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `-999999`",
+        description="[ID склада](https://dev.wildberries.ru/release-notes?id=605) ",
         alias="officeID",
     )
     office_name: Optional[StrictStr] = Field(
         default=None,
-        description='Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `""`',
+        description="[Название склада](https://dev.wildberries.ru/release-notes?id=605) ",
         alias="officeName",
     )
     metrics: Optional[TableCommonMetrics] = Field(

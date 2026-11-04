@@ -34,8 +34,8 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableShippingOfficeItemOfficesInner" /> class.
         /// </summary>
-        /// <param name="officeID">ID склада.</param>
-        /// <param name="officeName">Название склада.</param>
+        /// <param name="officeID">[ID склада](https://dev.wildberries.ru/release-notes?id&#x3D;605) .</param>
+        /// <param name="officeName">[Название склада](https://dev.wildberries.ru/release-notes?id&#x3D;605) .</param>
         /// <param name="metrics">Метрики по складу.</param>
         public TableShippingOfficeItemOfficesInner(long officeID = default(long), string officeName = default(string), TableShippingOfficeMetrics metrics = default(TableShippingOfficeMetrics))
         {
@@ -45,21 +45,21 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         }
 
         /// <summary>
-        /// ID склада
+        /// [ID склада](https://dev.wildberries.ru/release-notes?id&#x3D;605) 
         /// </summary>
-        /// <value>ID склада</value>
+        /// <value>[ID склада](https://dev.wildberries.ru/release-notes?id&#x3D;605) </value>
         /*
-        <example>123456</example>
+        <example>-999999</example>
         */
         [DataMember(Name = "officeID", EmitDefaultValue = false)]
         public long OfficeID { get; set; }
 
         /// <summary>
-        /// Название склада
+        /// [Название склада](https://dev.wildberries.ru/release-notes?id&#x3D;605) 
         /// </summary>
-        /// <value>Название склада</value>
+        /// <value>[Название склада](https://dev.wildberries.ru/release-notes?id&#x3D;605) </value>
         /*
-        <example>Коледино</example>
+        <example>Склад WB РФ</example>
         */
         [DataMember(Name = "officeName", EmitDefaultValue = false)]
         public string OfficeName { get; set; }

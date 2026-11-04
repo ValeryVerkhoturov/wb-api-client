@@ -32,10 +32,14 @@ class TableShippingOfficeItemOfficesInner(BaseModel):
     """  # noqa: E501
 
     office_id: Optional[StrictInt] = Field(
-        default=None, description="ID склада", alias="officeID"
+        default=None,
+        description="[ID склада](https://dev.wildberries.ru/release-notes?id=605) ",
+        alias="officeID",
     )
     office_name: Optional[StrictStr] = Field(
-        default=None, description="Название склада", alias="officeName"
+        default=None,
+        description="[Название склада](https://dev.wildberries.ru/release-notes?id=605) ",
+        alias="officeName",
     )
     metrics: Optional[TableShippingOfficeMetrics] = Field(
         default=None, description="Метрики по складу"

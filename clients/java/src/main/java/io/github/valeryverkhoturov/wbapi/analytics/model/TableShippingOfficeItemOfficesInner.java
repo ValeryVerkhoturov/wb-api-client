@@ -59,7 +59,7 @@ public class TableShippingOfficeItemOfficesInner {
   }
 
   /**
-   * ID склада
+   * [ID склада](https://dev.wildberries.ru/release-notes?id&#x3D;605)
    *
    * @return officeID
    */
@@ -79,7 +79,7 @@ public class TableShippingOfficeItemOfficesInner {
   }
 
   /**
-   * Название склада
+   * [Название склада](https://dev.wildberries.ru/release-notes?id&#x3D;605)
    *
    * @return officeName
    */

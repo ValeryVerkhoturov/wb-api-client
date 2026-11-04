@@ -935,6 +935,7 @@ public class InStorePickupApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -1021,6 +1022,7 @@ public class InStorePickupApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -1054,6 +1056,7 @@ public class InStorePickupApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -1088,6 +1091,7 @@ public class InStorePickupApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -1117,6 +1121,7 @@ public class InStorePickupApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -1227,6 +1232,7 @@ public class InStorePickupApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -1274,6 +1280,7 @@ public class InStorePickupApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -1324,6 +1331,7 @@ public class InStorePickupApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -1596,6 +1604,7 @@ public class InStorePickupApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -1707,6 +1716,7 @@ public class InStorePickupApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -1759,6 +1769,7 @@ public class InStorePickupApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
@@ -1812,6 +1823,7 @@ public class InStorePickupApi {
    * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
    * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 402 </td><td> Требуется платёж </td><td>  -  </td></tr>
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>

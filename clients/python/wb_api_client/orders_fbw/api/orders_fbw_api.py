@@ -132,6 +132,7 @@ class OrdersFbwApi:
             "204": None,
             "400": "ErrorsDraftError",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "404": "ErrorsDraftError",
             "429": "PostV1AcceptanceOptions401Response",
@@ -201,6 +202,7 @@ class OrdersFbwApi:
             "204": None,
             "400": "ErrorsDraftError",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "404": "ErrorsDraftError",
             "429": "PostV1AcceptanceOptions401Response",
@@ -270,6 +272,7 @@ class OrdersFbwApi:
             "204": None,
             "400": "ErrorsDraftError",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "404": "ErrorsDraftError",
             "429": "PostV1AcceptanceOptions401Response",
@@ -394,6 +397,7 @@ class OrdersFbwApi:
             "200": "ModelsDraftDeleteItemsErrorResponse",
             "400": "ErrorsDraftError",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "404": "ErrorsDraftError",
             "429": "PostV1AcceptanceOptions401Response",
@@ -467,6 +471,7 @@ class OrdersFbwApi:
             "200": "ModelsDraftDeleteItemsErrorResponse",
             "400": "ErrorsDraftError",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "404": "ErrorsDraftError",
             "429": "PostV1AcceptanceOptions401Response",
@@ -540,6 +545,7 @@ class OrdersFbwApi:
             "200": "ModelsDraftDeleteItemsErrorResponse",
             "400": "ErrorsDraftError",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "404": "ErrorsDraftError",
             "429": "PostV1AcceptanceOptions401Response",
@@ -703,6 +709,7 @@ class OrdersFbwApi:
             "200": "ModelsListDraftsResponse",
             "400": "ErrorsDraftError",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "429": "PostV1AcceptanceOptions401Response",
         }
@@ -801,6 +808,7 @@ class OrdersFbwApi:
             "200": "ModelsListDraftsResponse",
             "400": "ErrorsDraftError",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "429": "PostV1AcceptanceOptions401Response",
         }
@@ -899,6 +907,7 @@ class OrdersFbwApi:
             "200": "ModelsListDraftsResponse",
             "400": "ErrorsDraftError",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "429": "PostV1AcceptanceOptions401Response",
         }
@@ -1035,6 +1044,7 @@ class OrdersFbwApi:
             "200": "ModelsListDraftItemsResponse",
             "400": "ErrorsDraftError",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "404": "ErrorsDraftError",
             "429": "PostV1AcceptanceOptions401Response",
@@ -1104,6 +1114,7 @@ class OrdersFbwApi:
             "200": "ModelsListDraftItemsResponse",
             "400": "ErrorsDraftError",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "404": "ErrorsDraftError",
             "429": "PostV1AcceptanceOptions401Response",
@@ -1173,6 +1184,7 @@ class OrdersFbwApi:
             "200": "ModelsListDraftItemsResponse",
             "400": "ErrorsDraftError",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "404": "ErrorsDraftError",
             "429": "PostV1AcceptanceOptions401Response",
@@ -2443,6 +2455,7 @@ class OrdersFbwApi:
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "List[ModelsTransitTariff]",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "429": "PostV1AcceptanceOptions401Response",
         }
@@ -2506,6 +2519,7 @@ class OrdersFbwApi:
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "List[ModelsTransitTariff]",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "429": "PostV1AcceptanceOptions401Response",
         }
@@ -2569,6 +2583,7 @@ class OrdersFbwApi:
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "List[ModelsTransitTariff]",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "429": "PostV1AcceptanceOptions401Response",
         }
@@ -2680,6 +2695,7 @@ class OrdersFbwApi:
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "List[ModelsWarehousesResultItems]",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "404": None,
             "429": "PostV1AcceptanceOptions401Response",
@@ -2744,6 +2760,7 @@ class OrdersFbwApi:
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "List[ModelsWarehousesResultItems]",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "404": None,
             "429": "PostV1AcceptanceOptions401Response",
@@ -2808,6 +2825,7 @@ class OrdersFbwApi:
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "List[ModelsWarehousesResultItems]",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "404": None,
             "429": "PostV1AcceptanceOptions401Response",
@@ -3225,6 +3243,7 @@ class OrdersFbwApi:
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "ModelsDraftCreateResponse",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "429": "PostV1AcceptanceOptions401Response",
         }
@@ -3288,6 +3307,7 @@ class OrdersFbwApi:
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "ModelsDraftCreateResponse",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "429": "PostV1AcceptanceOptions401Response",
         }
@@ -3351,6 +3371,7 @@ class OrdersFbwApi:
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "ModelsDraftCreateResponse",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "429": "PostV1AcceptanceOptions401Response",
         }
@@ -3471,6 +3492,7 @@ class OrdersFbwApi:
             "200": "ModelsDraftAddItemsErrorResponse",
             "400": "ErrorsDraftError",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "404": "ErrorsDraftError",
             "429": "PostV1AcceptanceOptions401Response",
@@ -3544,6 +3566,7 @@ class OrdersFbwApi:
             "200": "ModelsDraftAddItemsErrorResponse",
             "400": "ErrorsDraftError",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "404": "ErrorsDraftError",
             "429": "PostV1AcceptanceOptions401Response",
@@ -3617,6 +3640,7 @@ class OrdersFbwApi:
             "200": "ModelsDraftAddItemsErrorResponse",
             "400": "ErrorsDraftError",
             "401": "PostV1AcceptanceOptions401Response",
+            "402": "PostV1AcceptanceOptions402Response",
             "403": "PostV1AcceptanceOptions403Response",
             "404": "ErrorsDraftError",
             "429": "PostV1AcceptanceOptions401Response",

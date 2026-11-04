@@ -36,9 +36,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// </summary>
         /// <param name="nmId">Артикул WB.</param>
         /// <param name="chrtId">ID размера.</param>
-        /// <param name="warehouseId">ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;-999999&#x60;.</param>
-        /// <param name="warehouseName">Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;.</param>
-        /// <param name="regionName">Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;.</param>
+        /// <param name="warehouseId">[ID склада](https://dev.wildberries.ru/release-notes?id&#x3D;605) .</param>
+        /// <param name="warehouseName">[Название склада](https://dev.wildberries.ru/release-notes?id&#x3D;605) .</param>
+        /// <param name="regionName">[Страна отгрузки](https://dev.wildberries.ru/release-notes?id&#x3D;605) .</param>
         /// <param name="quantity">Количество товара на складе, доступное клиентам для добавления в корзину.</param>
         /// <param name="inWayToClient">В пути к клиенту.</param>
         /// <param name="inWayFromClient">В пути от клиента.</param>
@@ -75,9 +75,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public long ChrtId { get; set; }
 
         /// <summary>
-        /// ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;-999999&#x60;
+        /// [ID склада](https://dev.wildberries.ru/release-notes?id&#x3D;605) 
         /// </summary>
-        /// <value>ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;-999999&#x60;</value>
+        /// <value>[ID склада](https://dev.wildberries.ru/release-notes?id&#x3D;605) </value>
         /*
         <example>-999999</example>
         */
@@ -85,21 +85,21 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public long WarehouseId { get; set; }
 
         /// <summary>
-        /// Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;
+        /// [Название склада](https://dev.wildberries.ru/release-notes?id&#x3D;605) 
         /// </summary>
-        /// <value>Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;</value>
+        /// <value>[Название склада](https://dev.wildberries.ru/release-notes?id&#x3D;605) </value>
         /*
-        <example>Склад WB</example>
+        <example>Склад WB РФ</example>
         */
         [DataMember(Name = "warehouseName", EmitDefaultValue = false)]
         public string WarehouseName { get; set; }
 
         /// <summary>
-        /// Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;
+        /// [Страна отгрузки](https://dev.wildberries.ru/release-notes?id&#x3D;605) 
         /// </summary>
-        /// <value>Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB&#x60;</value>
+        /// <value>[Страна отгрузки](https://dev.wildberries.ru/release-notes?id&#x3D;605) </value>
         /*
-        <example>Склад WB</example>
+        <example>Россия</example>
         */
         [DataMember(Name = "regionName", EmitDefaultValue = false)]
         public string RegionName { get; set; }

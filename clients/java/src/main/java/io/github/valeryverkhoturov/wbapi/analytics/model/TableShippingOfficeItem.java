@@ -62,8 +62,7 @@ public class TableShippingOfficeItem {
   }
 
   /**
-   * Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для
-   * складов WB может быть только &#x60;Склад WB&#x60;
+   * [Страна отгрузки](https://dev.wildberries.ru/release-notes?id&#x3D;605)
    *
    * @return regionName
    */
@@ -111,8 +110,7 @@ public class TableShippingOfficeItem {
   }
 
   /**
-   * Данные по складам. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570)
-   * может быть только &#x60;[]&#x60;
+   * [Данные по складам](https://dev.wildberries.ru/release-notes?id&#x3D;605)
    *
    * @return offices
    */

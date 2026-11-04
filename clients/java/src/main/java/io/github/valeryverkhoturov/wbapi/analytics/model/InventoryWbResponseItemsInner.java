@@ -127,8 +127,7 @@ public class InventoryWbResponseItemsInner {
   }
 
   /**
-   * ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть
-   * только &#x60;-999999&#x60;
+   * [ID склада](https://dev.wildberries.ru/release-notes?id&#x3D;605)
    *
    * @return warehouseId
    */
@@ -148,8 +147,7 @@ public class InventoryWbResponseItemsInner {
   }
 
   /**
-   * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может
-   * быть только &#x60;Склад WB&#x60;
+   * [Название склада](https://dev.wildberries.ru/release-notes?id&#x3D;605)
    *
    * @return warehouseName
    */
@@ -168,8 +166,7 @@ public class InventoryWbResponseItemsInner {
   }
 
   /**
-   * Регион отгрузки. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может
-   * быть только &#x60;Склад WB&#x60;
+   * [Страна отгрузки](https://dev.wildberries.ru/release-notes?id&#x3D;605)
    *
    * @return regionName
    */
