@@ -71,7 +71,7 @@ public class GetV1PromotionCountResponse200AdvertsInner {
   /**
    * Тип кампании: - &#x60;8&#x60; — кампания с единой ставкой (**устаревший тип**) - &#x60;9&#x60;
    * — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода
-   * [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле
+   * [Информация о кампаниях](./promotion#tag/campaigns/operation/getV3Adverts), поле
    * &#x60;bid_type&#x60;
    *
    * @return type

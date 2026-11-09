@@ -38,6 +38,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         public PostV3MediaFileRequest(System.IO.Stream uploadfile = default(System.IO.Stream))
         {
             this.Uploadfile = uploadfile;
+            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -45,6 +46,12 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
         /// </summary>
         [DataMember(Name = "uploadfile", EmitDefaultValue = false)]
         public System.IO.Stream Uploadfile { get; set; }
+
+        /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,6 +62,7 @@ namespace ValeryVerkhoturov.WbApiClient.Items.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PostV3MediaFileRequest {\n");
             sb.Append("  Uploadfile: ").Append(Uploadfile).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -875,7 +875,7 @@ paths:
         Moves the assembly orders to `cancel` ("Canceled by the seller") status.
 
         You can cancel an assembly order before it is handed over to Wildberries.
-        To check whether an assembly order can be canceled, use the [POST /api/v3/orders/status](https://dev.wildberries.ru/en/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) method and the `isCancellable` field.
+        To check whether an assembly order can be canceled, use the method for getting [assembly order statuses](https://dev.wildberries.ru/en/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus) and the `isCancellable` field.
 
         [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
         | Period | Limit | Interval | Burst |

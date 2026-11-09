@@ -37,13 +37,11 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="created">Время создания кампании.</param>
         /// <param name="updated">Время последнего изменения кампании.</param>
         /// <param name="started">Время последнего запуска кампании.</param>
-        /// <param name="deleted">Время удаления кампании. Если кампания не удалена, время указывается в будущем.</param>
-        public Timestamps(string created = default(string), string updated = default(string), string started = default(string), string deleted = default(string))
+        public Timestamps(string created = default(string), string updated = default(string), string started = default(string))
         {
             this.Created = created;
             this.Updated = updated;
             this.Started = started;
-            this.Deleted = deleted;
         }
 
         /// <summary>
@@ -68,13 +66,6 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public string Started { get; set; }
 
         /// <summary>
-        /// Время удаления кампании. Если кампания не удалена, время указывается в будущем
-        /// </summary>
-        /// <value>Время удаления кампании. Если кампания не удалена, время указывается в будущем</value>
-        [DataMember(Name = "deleted", EmitDefaultValue = false)]
-        public string Deleted { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,7 +76,6 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("  Started: ").Append(Started).Append("\n");
-            sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

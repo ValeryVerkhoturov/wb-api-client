@@ -51,12 +51,6 @@ public class Timestamps {
   @jakarta.annotation.Nullable
   private String started;
 
-  public static final String SERIALIZED_NAME_DELETED = "deleted";
-
-  @SerializedName(SERIALIZED_NAME_DELETED)
-  @jakarta.annotation.Nullable
-  private String deleted;
-
   public Timestamps() {}
 
   public Timestamps created(@jakarta.annotation.Nullable String created) {
@@ -116,25 +110,6 @@ public class Timestamps {
     this.started = started;
   }
 
-  public Timestamps deleted(@jakarta.annotation.Nullable String deleted) {
-    this.deleted = deleted;
-    return this;
-  }
-
-  /**
-   * Время удаления кампании. Если кампания не удалена, время указывается в будущем
-   *
-   * @return deleted
-   */
-  @jakarta.annotation.Nullable
-  public String getDeleted() {
-    return deleted;
-  }
-
-  public void setDeleted(@jakarta.annotation.Nullable String deleted) {
-    this.deleted = deleted;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -146,13 +121,12 @@ public class Timestamps {
     Timestamps timestamps = (Timestamps) o;
     return Objects.equals(this.created, timestamps.created)
         && Objects.equals(this.updated, timestamps.updated)
-        && Objects.equals(this.started, timestamps.started)
-        && Objects.equals(this.deleted, timestamps.deleted);
+        && Objects.equals(this.started, timestamps.started);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(created, updated, started, deleted);
+    return Objects.hash(created, updated, started);
   }
 
   @Override
@@ -162,7 +136,6 @@ public class Timestamps {
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("    started: ").append(toIndentedString(started)).append("\n");
-    sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -186,7 +159,6 @@ public class Timestamps {
     openapiFields.add("created");
     openapiFields.add("updated");
     openapiFields.add("started");
-    openapiFields.add("deleted");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -240,13 +212,6 @@ public class Timestamps {
           String.format(
               "Expected the field `started` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("started").toString()));
-    }
-    if ((jsonObj.get("deleted") != null && !jsonObj.get("deleted").isJsonNull())
-        && !jsonObj.get("deleted").isJsonPrimitive()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `deleted` to be a primitive type in the JSON string but got `%s`",
-              jsonObj.get("deleted").toString()));
     }
   }
 

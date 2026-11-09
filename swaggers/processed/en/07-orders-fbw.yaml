@@ -668,7 +668,16 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/403'
+          description: Access denied
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: supplyDrafts
@@ -709,7 +718,16 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/403'
+          description: Access denied
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: supplyDrafts
@@ -769,7 +787,16 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/403'
+          description: Access denied
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '404':
           description: Not found
           content:
@@ -855,7 +882,16 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/403'
+          description: Access denied
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '404':
           description: Not found
           content:
@@ -948,7 +984,16 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/403'
+          description: Access denied
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '404':
           description: Not found
           content:
@@ -1034,7 +1079,16 @@ paths:
         '402':
           $ref: '#/components/responses/402'
         '403':
-          $ref: '#/components/responses/403'
+          description: Access denied
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Response4XX'
+              examples:
+                Response403TokenCategory:
+                  $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '404':
           description: Not found
           content:
@@ -1133,20 +1187,16 @@ paths:
         '401':
           $ref: '#/components/responses/401'
         '403':
-          description: Доступ запрещён
+          description: Access denied
           content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/models.SupplyAcceptedMoreThanYearAgo'
-              examples:
-                SupplyAcceptedMoreThanYearAgo:
-                  $ref: '#/components/examples/SupplyAcceptedMoreThanYearAgo'
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Response4XX'
               examples:
                 Response403TokenCategory:
                   $ref: '#/components/examples/Response403TokenCategory'
+                Response403TokenType:
+                  $ref: '#/components/examples/Response403TokenType'
         '404':
           description: Not found
           content:
@@ -2026,6 +2076,12 @@ components:
           description: Request ID if an error is present
     models.SupplyAcceptedMoreThanYearAgo:
       type: object
+      required:
+      - status
+      - title
+      - detail
+      - requestId
+      - origin
       properties:
         status:
           type: integer
@@ -2348,6 +2404,17 @@ components:
         origin: ag-marketplace
         timestamp: '2026-09-03T13:55:15Z'
       description: Invalid token category
+    Response403TokenType:
+      value:
+        title: forbidden
+        detail: base token is not allowed
+        code: base token is not allowed for this path
+        requestId: 722199b2e15bbca48cc1d488a7989976
+        origin: ag-marketplace
+        status: 403
+        statusText: Forbidden
+        timestamp: '2026-05-25T02:47:09Z'
+      description: Invalid token type
   responses:
     '401':
       description: Unauthorized

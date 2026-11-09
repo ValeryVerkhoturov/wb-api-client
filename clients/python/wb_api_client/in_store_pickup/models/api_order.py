@@ -57,7 +57,7 @@ class ApiOrder(BaseModel):
     )
     final_price: Optional[StrictInt] = Field(
         default=None,
-        description='Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.  Код валюты продажи указан в поле `currencyCode`.  Предоставляется в информационных целях.  Используйте значение поля `finalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода',
+        description='Сумма к оплате покупателем в валюте продажи с учётом всех скидок, умноженная на 100.  Код валюты продажи указан в поле `currencyCode`.  Предоставляется в информационных целях.  Используйте значение поля `finalPrice`, только если в ответе метода получения [цены продавца и суммы к оплате](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `originalFinalPrice` из ответа указанного метода',
         alias="finalPrice",
     )
     converted_price: Optional[StrictInt] = Field(
@@ -67,7 +67,7 @@ class ApiOrder(BaseModel):
     )
     converted_final_price: Optional[StrictInt] = Field(
         default=None,
-        description='Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.  Предоставляется в информационных целях.  Используйте значение поля `convertedFinalPrice`, только если в ответе метода [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода',
+        description='Сумма к оплате покупателем в валюте страны продавца с учетом всех скидок, умноженная на 100.  Предоставляется в информационных целях.  Используйте значение поля `convertedFinalPrice`, только если в ответе метода получения [цены продавца и суммы к оплате](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) вернулось `"data": null`. Во всех остальных случаях используйте значение поля `convertedOriginalFinalPrice` из ответа того же метода',
         alias="convertedFinalPrice",
     )
     currency_code: Optional[StrictInt] = Field(

@@ -33,7 +33,7 @@ class GetV1PromotionCountResponse200AdvertsInner(BaseModel):
 
     type: Optional[StrictInt] = Field(
         default=None,
-        description="Тип кампании:   - `8` — кампания с единой ставкой (**устаревший тип**)   - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле `bid_type` ",
+        description="Тип кампании:   - `8` — кампания с единой ставкой (**устаревший тип**)   - `9` — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV3Adverts), поле `bid_type` ",
     )
     status: Optional[StrictInt] = Field(default=None, description="Статус кампании")
     count: Optional[StrictInt] = Field(default=None, description="Количество кампаний")

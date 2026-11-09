@@ -944,31 +944,31 @@ export interface ModelsSupplyAcceptedMoreThanYearAgo {
    * @type {number}
    * @memberof ModelsSupplyAcceptedMoreThanYearAgo
    */
-  status?: number;
+  status: number;
   /**
    * Краткое описание ошибки
    * @type {string}
    * @memberof ModelsSupplyAcceptedMoreThanYearAgo
    */
-  title?: string;
+  title: string;
   /**
    * Подробное описание ошибки
    * @type {string}
    * @memberof ModelsSupplyAcceptedMoreThanYearAgo
    */
-  detail?: string;
+  detail: string;
   /**
    * ID запроса
    * @type {string}
    * @memberof ModelsSupplyAcceptedMoreThanYearAgo
    */
-  requestId?: string;
+  requestId: string;
   /**
    * Сервис, в котором произошла ошибка
    * @type {string}
    * @memberof ModelsSupplyAcceptedMoreThanYearAgo
    */
-  origin?: string;
+  origin: string;
 }
 /**
  *

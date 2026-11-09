@@ -1735,7 +1735,7 @@ components:
 
             Provided for informational purposes only.
 
-            Use the value of the `finalPrice` field only if the response of the method [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) returned `"data": null`. In all other cases, use the value of the `originalFinalPrice` field from the response of the specified method
+            Use the value of the `finalPrice` field only if the response of the method for getting [seller prices and amounts charged to the buyer](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) returned `"data": null`. In all other cases, use the value of the `originalFinalPrice` field from the response of the specified method
           type: integer
           example: 1014
           format: int64
@@ -1750,7 +1750,7 @@ components:
 
             Provided for informational purposes only.
 
-            Use the value of the `convertedFinalPrice` field only if the response of the method [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) returned `"data": null`. In all other cases, use the value of the `convertedOriginalFinalPrice` field from the response of the same method
+            Use the value of the `convertedFinalPrice` field only if the response of the method for getting [seller prices and amounts charged to the buyer](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) returned `"data": null`. In all other cases, use the value of the `convertedOriginalFinalPrice` field from the response of the same method
           type: integer
           example: 1014
           format: int64
@@ -1852,7 +1852,7 @@ components:
 
             Provided for informational purposes only.
 
-            Use the value of the `finalPrice` field only if the response of the method [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) returned `"data": null`. In all other cases, use the value of the `originalFinalPrice` field from the response of the specified methodd
+            Use the value of the `finalPrice` field only if the response of the method for getting [seller prices and amounts charged to the buyer](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) returned `"data": null`. In all other cases, use the value of the `originalFinalPrice` field from the response of the specified methodd
           type: integer
           example: 1014
           format: int64
@@ -1867,7 +1867,7 @@ components:
 
             Provided for informational purposes only.
 
-            Use the value of the `convertedFinalPrice` field only if the response of the method [POST /api/marketplace/v3/click-collect/orders/final-price](./docs/openapi/in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) returned `"data": null`. In all other cases, use the value of the `convertedOriginalFinalPrice` field from the response of the same method
+            Use the value of the `convertedFinalPrice` field only if the response of the method for getting [seller prices and amounts charged to the buyer](./in-store-pickup#tag/inStorePickupAssemblyOrders/operation/postV3ClickCollectOrdersFinalPrice) returned `"data": null`. In all other cases, use the value of the `convertedOriginalFinalPrice` field from the response of the same method
           type: integer
           example: 1014
           format: int64

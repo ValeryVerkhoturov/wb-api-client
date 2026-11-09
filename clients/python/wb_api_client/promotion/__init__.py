@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.20261104.0"
+__version__ = "1.20261109.0"
 
 # import apis into sdk package
 from wb_api_client.promotion.api.promotion_api import PromotionApi
@@ -444,3 +444,13 @@ from wb_api_client.promotion.models.v1_set_norm_query_bids_success_response_item
 from wb_api_client.promotion.models.v2_budget_request import V2BudgetRequest
 from wb_api_client.promotion.models.v2_budget_response import V2BudgetResponse
 from wb_api_client.promotion.models.v2_get_config_response import V2GetConfigResponse
+from wb_api_client.promotion.models.v3_advert_bids_kopecks import V3AdvertBidsKopecks
+from wb_api_client.promotion.models.v3_advert_nms_settings import V3AdvertNMsSettings
+from wb_api_client.promotion.models.v3_advert_settings import V3AdvertSettings
+from wb_api_client.promotion.models.v3_advert_subject import V3AdvertSubject
+from wb_api_client.promotion.models.v3_get_adverts import V3GetAdverts
+from wb_api_client.promotion.models.v3_get_adverts_response import V3GetAdvertsResponse
+from wb_api_client.promotion.models.v3_get_adverts_restrictions import (
+    V3GetAdvertsRestrictions,
+)
+from wb_api_client.promotion.models.v3_placements import V3Placements

@@ -101,7 +101,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Удаление кампании
         /// </summary>
         /// <remarks>
-        /// Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
+        /// Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -113,7 +113,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Удаление кампании
         /// </summary>
         /// <remarks>
-        /// Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
+        /// Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -124,7 +124,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Пауза кампании
         /// </summary>
         /// <remarks>
-        /// Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
+        /// Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -136,7 +136,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Пауза кампании
         /// </summary>
         /// <remarks>
-        /// Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
+        /// Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -147,7 +147,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Запуск кампании
         /// </summary>
         /// <remarks>
-        /// Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
+        /// Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -159,7 +159,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Запуск кампании
         /// </summary>
         /// <remarks>
-        /// Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
+        /// Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -170,7 +170,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Завершение кампании
         /// </summary>
         /// <remarks>
-        /// Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
+        /// Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -182,7 +182,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Завершение кампании
         /// </summary>
         /// <remarks>
-        /// Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
+        /// Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -378,7 +378,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Конфигурационные значения продвижения
         /// </summary>
         /// <remarks>
-        /// Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
+        /// Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [установки ставок для поисковых кластеров в валюте профиля продавца](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -389,7 +389,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Конфигурационные значения продвижения
         /// </summary>
         /// <remarks>
-        /// Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
+        /// Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [установки ставок для поисковых кластеров в валюте профиля продавца](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -445,7 +445,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Списки кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает списки всех [рекламных кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
+        /// Метод возвращает списки всех [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -456,7 +456,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Списки кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает списки всех [рекламных кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
+        /// Метод возвращает списки всех [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -466,7 +466,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Предметы для кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
+        /// Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional, default to &quot;cpm&quot;)</param>
@@ -478,7 +478,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Предметы для кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
+        /// Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional, default to &quot;cpm&quot;)</param>
@@ -514,7 +514,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Информация о кампаниях
         /// </summary>
         /// <remarks>
-        /// Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
+        /// Метод будет отключен [10 января](https://dev.wildberries.ru/release-notes?id&#x3D;597).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">ID кампаний, максимум 50 (optional)</param>
@@ -522,13 +522,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetAdverts</returns>
+        [Obsolete]
         GetAdverts GetV2Adverts(string? ids = default(string?), string? statuses = default(string?), string? paymentType = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Информация о кампаниях
         /// </summary>
         /// <remarks>
-        /// Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
+        /// Метод будет отключен [10 января](https://dev.wildberries.ru/release-notes?id&#x3D;597).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">ID кампаний, максимум 50 (optional)</param>
@@ -536,7 +537,39 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetAdverts</returns>
+        [Obsolete]
         ApiResponse<GetAdverts> GetV2AdvertsWithHttpInfo(string? ids = default(string?), string? statuses = default(string?), string? paymentType = default(string?), int operationIndex = 0);
+        /// <summary>
+        /// Информация о кампаниях
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.  Чтобы получить все кампании:   1. Сделайте первый запрос без параметра &#x60;next&#x60;.   2. Повторяйте запрос со значением параметра &#x60;next&#x60; из ответа на предыдущий запрос, пока &#x60;next&#x60; не вернётся пустым &#x60;\&quot;\&quot;&#x60;. Это будет означать, что вы получили все кампании.  Чтобы получить конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте &#x60;advertIds&#x60; в одном запросе с другими параметрами.  RL  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">ID кампаний  (optional)</param>
+        /// <param name="statuses">Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе  (optional)</param>
+        /// <param name="next">Параметр пагинации (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Количество кампаний в ответе  (optional, default to 50)</param>
+        /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>V3GetAdvertsResponse</returns>
+        V3GetAdvertsResponse GetV3Adverts(string? advertIds = default(string?), string? statuses = default(string?), string? next = default(string?), long? limit = default(long?), string? paymentType = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// Информация о кампаниях
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.  Чтобы получить все кампании:   1. Сделайте первый запрос без параметра &#x60;next&#x60;.   2. Повторяйте запрос со значением параметра &#x60;next&#x60; из ответа на предыдущий запрос, пока &#x60;next&#x60; не вернётся пустым &#x60;\&quot;\&quot;&#x60;. Это будет означать, что вы получили все кампании.  Чтобы получить конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте &#x60;advertIds&#x60; в одном запросе с другими параметрами.  RL  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">ID кампаний  (optional)</param>
+        /// <param name="statuses">Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе  (optional)</param>
+        /// <param name="next">Параметр пагинации (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Количество кампаний в ответе  (optional, default to 50)</param>
+        /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of V3GetAdvertsResponse</returns>
+        ApiResponse<V3GetAdvertsResponse> GetV3AdvertsWithHttpInfo(string? advertIds = default(string?), string? statuses = default(string?), string? next = default(string?), long? limit = default(long?), string? paymentType = default(string?), int operationIndex = 0);
         /// <summary>
         /// Статистика кампаний
         /// </summary>
@@ -752,7 +785,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Переименование кампании
         /// </summary>
         /// <remarks>
-        /// Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
+        /// Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV0RenameRequest"> (optional)</param>
@@ -764,7 +797,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Переименование кампании
         /// </summary>
         /// <remarks>
-        /// Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
+        /// Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV0RenameRequest"> (optional)</param>
@@ -915,7 +948,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Остатки бюджетов кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
+        /// Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="v2BudgetRequest"></param>
@@ -927,7 +960,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Остатки бюджетов кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
+        /// Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="v2BudgetRequest"></param>
@@ -961,7 +994,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Карточки товаров для кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
+        /// Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">ID предметов, для которых нужно получить карточки товаров (optional)</param>
@@ -973,7 +1006,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Карточки товаров для кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
+        /// Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">ID предметов, для которых нужно получить карточки товаров (optional)</param>
@@ -1116,7 +1149,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Удаление кампании
         /// </summary>
         /// <remarks>
-        /// Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
+        /// Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -1129,7 +1162,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Удаление кампании
         /// </summary>
         /// <remarks>
-        /// Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
+        /// Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -1141,7 +1174,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Пауза кампании
         /// </summary>
         /// <remarks>
-        /// Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
+        /// Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -1154,7 +1187,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Пауза кампании
         /// </summary>
         /// <remarks>
-        /// Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
+        /// Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -1166,7 +1199,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Запуск кампании
         /// </summary>
         /// <remarks>
-        /// Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
+        /// Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -1179,7 +1212,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Запуск кампании
         /// </summary>
         /// <remarks>
-        /// Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
+        /// Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -1191,7 +1224,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Завершение кампании
         /// </summary>
         /// <remarks>
-        /// Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
+        /// Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -1204,7 +1237,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Завершение кампании
         /// </summary>
         /// <remarks>
-        /// Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
+        /// Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -1415,7 +1448,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Конфигурационные значения продвижения
         /// </summary>
         /// <remarks>
-        /// Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
+        /// Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [установки ставок для поисковых кластеров в валюте профиля продавца](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1427,7 +1460,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Конфигурационные значения продвижения
         /// </summary>
         /// <remarks>
-        /// Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
+        /// Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [установки ставок для поисковых кластеров в валюте профиля продавца](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1488,7 +1521,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Списки кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает списки всех [рекламных кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
+        /// Метод возвращает списки всех [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1500,7 +1533,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Списки кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает списки всех [рекламных кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
+        /// Метод возвращает списки всех [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1511,7 +1544,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Предметы для кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
+        /// Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional, default to &quot;cpm&quot;)</param>
@@ -1524,7 +1557,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Предметы для кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
+        /// Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional, default to &quot;cpm&quot;)</param>
@@ -1563,7 +1596,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Информация о кампаниях
         /// </summary>
         /// <remarks>
-        /// Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
+        /// Метод будет отключен [10 января](https://dev.wildberries.ru/release-notes?id&#x3D;597).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">ID кампаний, максимум 50 (optional)</param>
@@ -1572,13 +1605,14 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetAdverts</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<GetAdverts> GetV2AdvertsAsync(string? ids = default(string?), string? statuses = default(string?), string? paymentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Информация о кампаниях
         /// </summary>
         /// <remarks>
-        /// Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
+        /// Метод будет отключен [10 января](https://dev.wildberries.ru/release-notes?id&#x3D;597).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">ID кампаний, максимум 50 (optional)</param>
@@ -1587,7 +1621,41 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetAdverts)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<GetAdverts>> GetV2AdvertsWithHttpInfoAsync(string? ids = default(string?), string? statuses = default(string?), string? paymentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Информация о кампаниях
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.  Чтобы получить все кампании:   1. Сделайте первый запрос без параметра &#x60;next&#x60;.   2. Повторяйте запрос со значением параметра &#x60;next&#x60; из ответа на предыдущий запрос, пока &#x60;next&#x60; не вернётся пустым &#x60;\&quot;\&quot;&#x60;. Это будет означать, что вы получили все кампании.  Чтобы получить конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте &#x60;advertIds&#x60; в одном запросе с другими параметрами.  RL  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">ID кампаний  (optional)</param>
+        /// <param name="statuses">Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе  (optional)</param>
+        /// <param name="next">Параметр пагинации (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Количество кампаний в ответе  (optional, default to 50)</param>
+        /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of V3GetAdvertsResponse</returns>
+        System.Threading.Tasks.Task<V3GetAdvertsResponse> GetV3AdvertsAsync(string? advertIds = default(string?), string? statuses = default(string?), string? next = default(string?), long? limit = default(long?), string? paymentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Информация о кампаниях
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.  Чтобы получить все кампании:   1. Сделайте первый запрос без параметра &#x60;next&#x60;.   2. Повторяйте запрос со значением параметра &#x60;next&#x60; из ответа на предыдущий запрос, пока &#x60;next&#x60; не вернётся пустым &#x60;\&quot;\&quot;&#x60;. Это будет означать, что вы получили все кампании.  Чтобы получить конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте &#x60;advertIds&#x60; в одном запросе с другими параметрами.  RL  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">ID кампаний  (optional)</param>
+        /// <param name="statuses">Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе  (optional)</param>
+        /// <param name="next">Параметр пагинации (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Количество кампаний в ответе  (optional, default to 50)</param>
+        /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (V3GetAdvertsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<V3GetAdvertsResponse>> GetV3AdvertsWithHttpInfoAsync(string? advertIds = default(string?), string? statuses = default(string?), string? next = default(string?), long? limit = default(long?), string? paymentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Статистика кампаний
         /// </summary>
@@ -1821,7 +1889,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Переименование кампании
         /// </summary>
         /// <remarks>
-        /// Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
+        /// Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV0RenameRequest"> (optional)</param>
@@ -1834,7 +1902,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Переименование кампании
         /// </summary>
         /// <remarks>
-        /// Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
+        /// Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV0RenameRequest"> (optional)</param>
@@ -1998,7 +2066,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Остатки бюджетов кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
+        /// Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="v2BudgetRequest"></param>
@@ -2011,7 +2079,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Остатки бюджетов кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
+        /// Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="v2BudgetRequest"></param>
@@ -2048,7 +2116,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Карточки товаров для кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
+        /// Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">ID предметов, для которых нужно получить карточки товаров (optional)</param>
@@ -2061,7 +2129,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// Карточки товаров для кампаний
         /// </summary>
         /// <remarks>
-        /// Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
+        /// Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">ID предметов, для которых нужно получить карточки товаров (optional)</param>
@@ -2710,7 +2778,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Удаление кампании Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
+        /// Удаление кампании Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -2722,7 +2790,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Удаление кампании Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
+        /// Удаление кампании Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -2780,7 +2848,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Удаление кампании Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
+        /// Удаление кампании Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -2793,7 +2861,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Удаление кампании Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
+        /// Удаление кампании Метод удаляет [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;4&#x60; — готова к запуску.  После удаления кампания некоторое время будет находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании занимает от 3 до 10 минут.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-delete
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -2854,7 +2922,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Пауза кампании Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
+        /// Пауза кампании Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -2866,7 +2934,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Пауза кампании Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
+        /// Пауза кампании Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -2925,7 +2993,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Пауза кампании Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
+        /// Пауза кампании Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -2938,7 +3006,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Пауза кампании Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
+        /// Пауза кампании Метод ставит [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусе &#x60;9&#x60; — активна — на паузу.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-pause
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -3000,7 +3068,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Запуск кампании Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
+        /// Запуск кампании Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -3012,7 +3080,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Запуск кампании Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
+        /// Запуск кампании Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -3071,7 +3139,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Запуск кампании Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
+        /// Запуск кампании Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -3084,7 +3152,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Запуск кампании Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
+        /// Запуск кампании Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -3146,7 +3214,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Завершение кампании Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
+        /// Завершение кампании Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -3158,7 +3226,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Завершение кампании Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
+        /// Завершение кампании Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -3217,7 +3285,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Завершение кампании Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
+        /// Завершение кампании Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -3230,7 +3298,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Завершение кампании Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
+        /// Завершение кампании Метод завершает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-stop
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID кампании</param>
@@ -4484,7 +4552,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Конфигурационные значения продвижения Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
+        /// Конфигурационные значения продвижения Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [установки ставок для поисковых кластеров в валюте профиля продавца](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -4496,7 +4564,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Конфигурационные значения продвижения Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
+        /// Конфигурационные значения продвижения Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [установки ставок для поисковых кластеров в валюте профиля продавца](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -4552,7 +4620,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Конфигурационные значения продвижения Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
+        /// Конфигурационные значения продвижения Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [установки ставок для поисковых кластеров в валюте профиля продавца](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -4565,7 +4633,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Конфигурационные значения продвижения Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [POST /api/advert/v1/normquery/bids](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
+        /// Конфигурационные значения продвижения Метод возвращает валюту, код валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода [установки ставок для поисковых кластеров в валюте профиля продавца](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)  Метод [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API) по **Персональному** токену, **Сервисному** токену  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 1 запрос | 1 мин | 10 запросов |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v1-config
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -4928,7 +4996,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Списки кампаний Метод возвращает списки всех [рекламных кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
+        /// Списки кампаний Метод возвращает списки всех [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -4940,7 +5008,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Списки кампаний Метод возвращает списки всех [рекламных кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
+        /// Списки кампаний Метод возвращает списки всех [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -4996,7 +5064,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Списки кампаний Метод возвращает списки всех [рекламных кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
+        /// Списки кампаний Метод возвращает списки всех [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -5009,7 +5077,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Списки кампаний Метод возвращает списки всех [рекламных кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
+        /// Списки кампаний Метод возвращает списки всех [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего изменения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-promotion-count
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -5068,7 +5136,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Предметы для кампаний Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
+        /// Предметы для кампаний Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional, default to &quot;cpm&quot;)</param>
@@ -5081,7 +5149,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Предметы для кампаний Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
+        /// Предметы для кампаний Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional, default to &quot;cpm&quot;)</param>
@@ -5142,7 +5210,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Предметы для кампаний Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
+        /// Предметы для кампаний Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional, default to &quot;cpm&quot;)</param>
@@ -5156,7 +5224,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Предметы для кампаний Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
+        /// Предметы для кампаний Метод возвращает список [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Сервисный | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый с секретом | 12 сек | 1 запрос | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-supplier-subjects
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional, default to &quot;cpm&quot;)</param>
@@ -5398,7 +5466,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Информация о кампаниях Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
+        /// Информация о кампаниях Метод будет отключен [10 января](https://dev.wildberries.ru/release-notes?id&#x3D;597).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">ID кампаний, максимум 50 (optional)</param>
@@ -5406,6 +5474,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetAdverts</returns>
+        [Obsolete]
         public GetAdverts GetV2Adverts(string? ids = default(string?), string? statuses = default(string?), string? paymentType = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<GetAdverts> localVarResponse = GetV2AdvertsWithHttpInfo(ids, statuses, paymentType);
@@ -5413,7 +5482,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Информация о кампаниях Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
+        /// Информация о кампаниях Метод будет отключен [10 января](https://dev.wildberries.ru/release-notes?id&#x3D;597).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">ID кампаний, максимум 50 (optional)</param>
@@ -5421,6 +5490,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetAdverts</returns>
+        [Obsolete]
         public ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<GetAdverts> GetV2AdvertsWithHttpInfo(string? ids = default(string?), string? statuses = default(string?), string? paymentType = default(string?), int operationIndex = 0)
         {
             ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions();
@@ -5484,7 +5554,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Информация о кампаниях Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
+        /// Информация о кампаниях Метод будет отключен [10 января](https://dev.wildberries.ru/release-notes?id&#x3D;597).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">ID кампаний, максимум 50 (optional)</param>
@@ -5493,6 +5563,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetAdverts</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<GetAdverts> GetV2AdvertsAsync(string? ids = default(string?), string? statuses = default(string?), string? paymentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<GetAdverts> localVarResponse = await GetV2AdvertsWithHttpInfoAsync(ids, statuses, paymentType, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -5500,7 +5571,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Информация о кампаниях Метод возвращает информацию о рекламных кампаниях с единой или ручной ставкой по их статусам, типам оплаты и ID.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
+        /// Информация о кампаниях Метод будет отключен [10 января](https://dev.wildberries.ru/release-notes?id&#x3D;597).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v2-adverts
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">ID кампаний, максимум 50 (optional)</param>
@@ -5509,6 +5580,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetAdverts)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<GetAdverts>> GetV2AdvertsWithHttpInfoAsync(string? ids = default(string?), string? statuses = default(string?), string? paymentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
@@ -5564,6 +5636,206 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetV2Adverts", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Информация о кампаниях Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.  Чтобы получить все кампании:   1. Сделайте первый запрос без параметра &#x60;next&#x60;.   2. Повторяйте запрос со значением параметра &#x60;next&#x60; из ответа на предыдущий запрос, пока &#x60;next&#x60; не вернётся пустым &#x60;\&quot;\&quot;&#x60;. Это будет означать, что вы получили все кампании.  Чтобы получить конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте &#x60;advertIds&#x60; в одном запросе с другими параметрами.  RL  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">ID кампаний  (optional)</param>
+        /// <param name="statuses">Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе  (optional)</param>
+        /// <param name="next">Параметр пагинации (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Количество кампаний в ответе  (optional, default to 50)</param>
+        /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>V3GetAdvertsResponse</returns>
+        public V3GetAdvertsResponse GetV3Adverts(string? advertIds = default(string?), string? statuses = default(string?), string? next = default(string?), long? limit = default(long?), string? paymentType = default(string?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<V3GetAdvertsResponse> localVarResponse = GetV3AdvertsWithHttpInfo(advertIds, statuses, next, limit, paymentType);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Информация о кампаниях Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.  Чтобы получить все кампании:   1. Сделайте первый запрос без параметра &#x60;next&#x60;.   2. Повторяйте запрос со значением параметра &#x60;next&#x60; из ответа на предыдущий запрос, пока &#x60;next&#x60; не вернётся пустым &#x60;\&quot;\&quot;&#x60;. Это будет означать, что вы получили все кампании.  Чтобы получить конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте &#x60;advertIds&#x60; в одном запросе с другими параметрами.  RL  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">ID кампаний  (optional)</param>
+        /// <param name="statuses">Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе  (optional)</param>
+        /// <param name="next">Параметр пагинации (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Количество кампаний в ответе  (optional, default to 50)</param>
+        /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of V3GetAdvertsResponse</returns>
+        public ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<V3GetAdvertsResponse> GetV3AdvertsWithHttpInfo(string? advertIds = default(string?), string? statuses = default(string?), string? next = default(string?), long? limit = default(long?), string? paymentType = default(string?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (advertIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "advertIds", advertIds));
+            }
+            if (statuses != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "statuses", statuses));
+            }
+            if (next != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "next", next));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (paymentType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "paymentType", paymentType));
+            }
+
+            localVarRequestOptions.Operation = "PromotionApi.GetV3Adverts";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<V3GetAdvertsResponse>("/api/advert/v3/adverts", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV3Adverts", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Информация о кампаниях Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.  Чтобы получить все кампании:   1. Сделайте первый запрос без параметра &#x60;next&#x60;.   2. Повторяйте запрос со значением параметра &#x60;next&#x60; из ответа на предыдущий запрос, пока &#x60;next&#x60; не вернётся пустым &#x60;\&quot;\&quot;&#x60;. Это будет означать, что вы получили все кампании.  Чтобы получить конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте &#x60;advertIds&#x60; в одном запросе с другими параметрами.  RL  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">ID кампаний  (optional)</param>
+        /// <param name="statuses">Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе  (optional)</param>
+        /// <param name="next">Параметр пагинации (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Количество кампаний в ответе  (optional, default to 50)</param>
+        /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of V3GetAdvertsResponse</returns>
+        public async System.Threading.Tasks.Task<V3GetAdvertsResponse> GetV3AdvertsAsync(string? advertIds = default(string?), string? statuses = default(string?), string? next = default(string?), long? limit = default(long?), string? paymentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<V3GetAdvertsResponse> localVarResponse = await GetV3AdvertsWithHttpInfoAsync(advertIds, statuses, next, limit, paymentType, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Информация о кампаниях Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.  Чтобы получить все кампании:   1. Сделайте первый запрос без параметра &#x60;next&#x60;.   2. Повторяйте запрос со значением параметра &#x60;next&#x60; из ответа на предыдущий запрос, пока &#x60;next&#x60; не вернётся пустым &#x60;\&quot;\&quot;&#x60;. Это будет означать, что вы получили все кампании.  Чтобы получить конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте &#x60;advertIds&#x60; в одном запросе с другими параметрами.  RL  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">ID кампаний  (optional)</param>
+        /// <param name="statuses">Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе  (optional)</param>
+        /// <param name="next">Параметр пагинации (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Количество кампаний в ответе  (optional, default to 50)</param>
+        /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (V3GetAdvertsResponse)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<V3GetAdvertsResponse>> GetV3AdvertsWithHttpInfoAsync(string? advertIds = default(string?), string? statuses = default(string?), string? next = default(string?), long? limit = default(long?), string? paymentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (advertIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "advertIds", advertIds));
+            }
+            if (statuses != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "statuses", statuses));
+            }
+            if (next != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "next", next));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (paymentType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "paymentType", paymentType));
+            }
+
+            localVarRequestOptions.Operation = "PromotionApi.GetV3Adverts";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<V3GetAdvertsResponse>("/api/advert/v3/adverts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV3Adverts", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -7044,7 +7316,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Переименование кампании Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
+        /// Переименование кампании Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV0RenameRequest"> (optional)</param>
@@ -7056,7 +7328,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Переименование кампании Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
+        /// Переименование кампании Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV0RenameRequest"> (optional)</param>
@@ -7115,7 +7387,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Переименование кампании Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
+        /// Переименование кампании Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV0RenameRequest"> (optional)</param>
@@ -7128,7 +7400,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Переименование кампании Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
+        /// Переименование кампании Метод меняет название [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Это можно сделать в любой момент существования кампании.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v0-rename
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV0RenameRequest"> (optional)</param>
@@ -8156,7 +8428,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Остатки бюджетов кампаний Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
+        /// Остатки бюджетов кампаний Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="v2BudgetRequest"></param>
@@ -8169,7 +8441,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Остатки бюджетов кампаний Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
+        /// Остатки бюджетов кампаний Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="v2BudgetRequest"></param>
@@ -8235,7 +8507,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Остатки бюджетов кампаний Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
+        /// Остатки бюджетов кампаний Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="v2BudgetRequest"></param>
@@ -8249,7 +8521,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Остатки бюджетов кампаний Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
+        /// Остатки бюджетов кампаний Метод возвращает информацию об остатках бюджетов [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для кампаний в [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount): - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Сервисный | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый с секретом | 1 мин | 20 запросов | 3 сек | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-api-advert-v2-budget
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="v2BudgetRequest"></param>
@@ -8466,7 +8738,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Карточки товаров для кампаний Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
+        /// Карточки товаров для кампаний Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">ID предметов, для которых нужно получить карточки товаров (optional)</param>
@@ -8479,7 +8751,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Карточки товаров для кампаний Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
+        /// Карточки товаров для кампаний Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">ID предметов, для которых нужно получить карточки товаров (optional)</param>
@@ -8539,7 +8811,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Карточки товаров для кампаний Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
+        /// Карточки товаров для кампаний Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">ID предметов, для которых нужно получить карточки товаров (optional)</param>
@@ -8553,7 +8825,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         }
 
         /// <summary>
-        /// Карточки товаров для кампаний Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
+        /// Карточки товаров для кампаний Метод возвращает список [карточек товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), которые можно добавить в рекламную [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts). Для получения карточек необходимы ID [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects), также доступных для добавления в кампанию.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Сервисный | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый с секретом | 1 мин | 5 запросов | 12 сек | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/post-adv-v2-supplier-nms
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">ID предметов, для которых нужно получить карточки товаров (optional)</param>

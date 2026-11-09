@@ -992,7 +992,7 @@ paths:
 
         <div class="description_important">
         You can cancel an assembly order before it is handed over to Wildberries.
-        To check whether an assembly order can be canceled, use the <a href ="/en/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus">POST /api/v3/orders/status</a> method and the <code>isCancellable</code> field.
+        To check whether an assembly order can be canceled, use the method for getting <a href ="/en/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus">assembly order statuses</a> and the <code>isCancellable</code> field.
         </div>
 
         <div class="description_limit">

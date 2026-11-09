@@ -3751,6 +3751,7 @@ paths:
                 uploadfile:
                   type: string
                   format: binary
+              additionalProperties: true
       responses:
         '200':
           description: Success

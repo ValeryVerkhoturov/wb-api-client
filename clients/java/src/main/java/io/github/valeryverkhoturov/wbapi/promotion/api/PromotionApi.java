@@ -71,6 +71,7 @@ import io.github.valeryverkhoturov.wbapi.promotion.model.V1SetNormQueryBidsRespo
 import io.github.valeryverkhoturov.wbapi.promotion.model.V2BudgetRequest;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V2BudgetResponse;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V2GetConfigResponse;
+import io.github.valeryverkhoturov.wbapi.promotion.model.V3GetAdvertsResponse;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -787,7 +788,7 @@ public class PromotionApi {
 
   /**
    * Удаление кампании Метод удаляет
-   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в
+   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в
    * статусе &#x60;4&#x60; — готова к запуску. После удаления кампания некоторое время будет
    * находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании
    * занимает от 3 до 10 минут. [Лимит
@@ -818,7 +819,7 @@ public class PromotionApi {
 
   /**
    * Удаление кампании Метод удаляет
-   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в
+   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в
    * статусе &#x60;4&#x60; — готова к запуску. После удаления кампания некоторое время будет
    * находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании
    * занимает от 3 до 10 минут. [Лимит
@@ -851,7 +852,7 @@ public class PromotionApi {
 
   /**
    * Удаление кампании (asynchronously) Метод удаляет
-   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в
+   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в
    * статусе &#x60;4&#x60; — готова к запуску. После удаления кампания некоторое время будет
    * находиться в статусе &#x60;-1&#x60; — кампания в процессе удаления. Полное удаление кампании
    * занимает от 3 до 10 минут. [Лимит
@@ -974,7 +975,7 @@ public class PromotionApi {
 
   /**
    * Пауза кампании Метод ставит
-   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в
+   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в
    * статусе &#x60;9&#x60; — активна — на паузу. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -1004,7 +1005,7 @@ public class PromotionApi {
 
   /**
    * Пауза кампании Метод ставит
-   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в
+   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в
    * статусе &#x60;9&#x60; — активна — на паузу. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -1036,7 +1037,7 @@ public class PromotionApi {
 
   /**
    * Пауза кампании (asynchronously) Метод ставит
-   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в
+   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в
    * статусе &#x60;9&#x60; — активна — на паузу. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -1158,7 +1159,7 @@ public class PromotionApi {
 
   /**
    * Запуск кампании Метод запускает
-   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в
+   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в
    * статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить
    * кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните
    * его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).
@@ -1191,7 +1192,7 @@ public class PromotionApi {
 
   /**
    * Запуск кампании Метод запускает
-   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в
+   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в
    * статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить
    * кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните
    * его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).
@@ -1226,7 +1227,7 @@ public class PromotionApi {
 
   /**
    * Запуск кампании (asynchronously) Метод запускает
-   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в
+   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в
    * статусах &#x60;4&#x60; — готово к запуску — или &#x60;11&#x60; — пауза. Чтобы запустить
    * кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните
    * его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).
@@ -1351,7 +1352,7 @@ public class PromotionApi {
 
   /**
    * Завершение кампании Метод завершает
-   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в
+   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в
    * статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -1381,7 +1382,7 @@ public class PromotionApi {
 
   /**
    * Завершение кампании Метод завершает
-   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в
+   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в
    * статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -1413,7 +1414,7 @@ public class PromotionApi {
 
   /**
    * Завершение кампании (asynchronously) Метод завершает
-   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts) в
+   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в
    * статусах: - &#x60;9&#x60; — активна - &#x60;11&#x60; — пауза [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -3091,8 +3092,8 @@ public class PromotionApi {
   /**
    * Конфигурационные значения продвижения Метод возвращает валюту, код валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода
-   * [POST
-   * /api/advert/v1/normquery/bids](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)
+   * [установки ставок для поисковых кластеров в валюте профиля
+   * продавца](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)
    * Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
    * по **Персональному** токену, **Сервисному** токену [Лимит
@@ -3122,8 +3123,8 @@ public class PromotionApi {
   /**
    * Конфигурационные значения продвижения Метод возвращает валюту, код валюты [профиля
    * продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для метода
-   * [POST
-   * /api/advert/v1/normquery/bids](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)
+   * [установки ставок для поисковых кластеров в валюте профиля
+   * продавца](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)
    * Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
    * по **Персональному** токену, **Сервисному** токену [Лимит
@@ -3154,8 +3155,8 @@ public class PromotionApi {
   /**
    * Конфигурационные значения продвижения (asynchronously) Метод возвращает валюту, код валюты
    * [профиля продавца](https://cmp.wildberries.ru/campaigns/finances) и допустимые шаги ставок для
-   * метода [POST
-   * /api/advert/v1/normquery/bids](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)
+   * метода [установки ставок для поисковых кластеров в валюте профиля
+   * продавца](https://dev.wildberries.ru/openapi/promotion#tag/searchClusters/operation/postV1NormqueryBids)
    * Метод
    * [доступен](https://dev.wildberries.ru/openapi/api-information#tag/authorization/Pravila-ispolzovaniya-tokenov-dostupa-k-API)
    * по **Персональному** токену, **Сервисному** токену [Лимит
@@ -3622,8 +3623,8 @@ public class PromotionApi {
   }
 
   /**
-   * Списки кампаний Метод возвращает списки всех [рекламных
-   * кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts)
+   * Списки кампаний Метод возвращает списки всех
+   * [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts)
    * продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего
    * изменения. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
@@ -3652,8 +3653,8 @@ public class PromotionApi {
   }
 
   /**
-   * Списки кампаний Метод возвращает списки всех [рекламных
-   * кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts)
+   * Списки кампаний Метод возвращает списки всех
+   * [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts)
    * продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего
    * изменения. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
@@ -3684,8 +3685,8 @@ public class PromotionApi {
   }
 
   /**
-   * Списки кампаний (asynchronously) Метод возвращает списки всех [рекламных
-   * кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts)
+   * Списки кампаний (asynchronously) Метод возвращает списки всех
+   * [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts)
    * продавца с их ID. Кампании сгруппированы по типу и статусу, у каждой указана дата последнего
    * изменения. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
@@ -3804,7 +3805,7 @@ public class PromotionApi {
    * Предметы для кампаний Метод возвращает список
    * [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll),
    * которые можно добавить в рекламную
-   * [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+   * [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -3840,7 +3841,7 @@ public class PromotionApi {
    * Предметы для кампаний Метод возвращает список
    * [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll),
    * которые можно добавить в рекламную
-   * [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+   * [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -3877,7 +3878,7 @@ public class PromotionApi {
    * Предметы для кампаний (asynchronously) Метод возвращает список
    * [предметов](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll),
    * которые можно добавить в рекламную
-   * [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+   * [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -4132,7 +4133,10 @@ public class PromotionApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public okhttp3.Call getV2AdvertsCall(
       String ids, String statuses, String paymentType, final ApiCallback _callback)
       throws ApiException {
@@ -4200,6 +4204,7 @@ public class PromotionApi {
         _callback);
   }
 
+  @Deprecated
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getV2AdvertsValidateBeforeCall(
       String ids, String statuses, String paymentType, final ApiCallback _callback)
@@ -4208,8 +4213,8 @@ public class PromotionApi {
   }
 
   /**
-   * Информация о кампаниях Метод возвращает информацию о рекламных кампаниях с единой или ручной
-   * ставкой по их статусам, типам оплаты и ID. [Лимит
+   * Информация о кампаниях Метод будет отключен [10
+   * января](https://dev.wildberries.ru/release-notes?id&#x3D;597). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
@@ -4236,7 +4241,10 @@ public class PromotionApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public GetAdverts getV2Adverts(String ids, String statuses, String paymentType)
       throws ApiException {
     ApiResponse<GetAdverts> localVarResp = getV2AdvertsWithHttpInfo(ids, statuses, paymentType);
@@ -4244,8 +4252,8 @@ public class PromotionApi {
   }
 
   /**
-   * Информация о кампаниях Метод возвращает информацию о рекламных кампаниях с единой или ручной
-   * ставкой по их статусам, типам оплаты и ID. [Лимит
+   * Информация о кампаниях Метод будет отключен [10
+   * января](https://dev.wildberries.ru/release-notes?id&#x3D;597). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
@@ -4272,7 +4280,10 @@ public class PromotionApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetAdverts> getV2AdvertsWithHttpInfo(
       String ids, String statuses, String paymentType) throws ApiException {
     okhttp3.Call localVarCall = getV2AdvertsValidateBeforeCall(ids, statuses, paymentType, null);
@@ -4281,8 +4292,8 @@ public class PromotionApi {
   }
 
   /**
-   * Информация о кампаниях (asynchronously) Метод возвращает информацию о рекламных кампаниях с
-   * единой или ручной ставкой по их статусам, типам оплаты и ID. [Лимит
+   * Информация о кампаниях (asynchronously) Метод будет отключен [10
+   * января](https://dev.wildberries.ru/release-notes?id&#x3D;597). [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
@@ -4309,7 +4320,10 @@ public class PromotionApi {
    * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public okhttp3.Call getV2AdvertsAsync(
       String ids, String statuses, String paymentType, final ApiCallback<GetAdverts> _callback)
       throws ApiException {
@@ -4317,6 +4331,244 @@ public class PromotionApi {
     okhttp3.Call localVarCall =
         getV2AdvertsValidateBeforeCall(ids, statuses, paymentType, _callback);
     Type localVarReturnType = new TypeToken<GetAdverts>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * Build call for getV3Adverts
+   *
+   * @param advertIds ID кампаний (optional)
+   * @param statuses Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания
+   *     завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе (optional)
+   * @param next Параметр пагинации (optional, default to )
+   * @param limit Количество кампаний в ответе (optional, default to 50)
+   * @param paymentType Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик
+   *     (optional)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV3AdvertsCall(
+      String advertIds,
+      String statuses,
+      String next,
+      Long limit,
+      String paymentType,
+      final ApiCallback _callback)
+      throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = null;
+
+    // create path and map variables
+    String localVarPath = "/api/advert/v3/adverts";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    if (advertIds != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("advertIds", advertIds));
+    }
+
+    if (statuses != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("statuses", statuses));
+    }
+
+    if (next != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("next", next));
+    }
+
+    if (limit != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+    }
+
+    if (paymentType != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("paymentType", paymentType));
+    }
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call getV3AdvertsValidateBeforeCall(
+      String advertIds,
+      String statuses,
+      String next,
+      Long limit,
+      String paymentType,
+      final ApiCallback _callback)
+      throws ApiException {
+    return getV3AdvertsCall(advertIds, statuses, next, limit, paymentType, _callback);
+  }
+
+  /**
+   * Информация о кампаниях Метод возвращает информацию о кампаниях с единой или ручной ставкой по
+   * их статусам, типам оплаты или списку ID. Чтобы получить все кампании: 1. Сделайте первый запрос
+   * без параметра &#x60;next&#x60;. 2. Повторяйте запрос со значением параметра &#x60;next&#x60; из
+   * ответа на предыдущий запрос, пока &#x60;next&#x60; не вернётся пустым
+   * &#x60;\&quot;\&quot;&#x60;. Это будет означать, что вы получили все кампании. Чтобы получить
+   * конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте
+   * &#x60;advertIds&#x60; в одном запросе с другими параметрами. RL Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+   *
+   * @param advertIds ID кампаний (optional)
+   * @param statuses Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания
+   *     завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе (optional)
+   * @param next Параметр пагинации (optional, default to )
+   * @param limit Количество кампаний в ответе (optional, default to 50)
+   * @param paymentType Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик
+   *     (optional)
+   * @return V3GetAdvertsResponse
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public V3GetAdvertsResponse getV3Adverts(
+      String advertIds, String statuses, String next, Long limit, String paymentType)
+      throws ApiException {
+    ApiResponse<V3GetAdvertsResponse> localVarResp =
+        getV3AdvertsWithHttpInfo(advertIds, statuses, next, limit, paymentType);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Информация о кампаниях Метод возвращает информацию о кампаниях с единой или ручной ставкой по
+   * их статусам, типам оплаты или списку ID. Чтобы получить все кампании: 1. Сделайте первый запрос
+   * без параметра &#x60;next&#x60;. 2. Повторяйте запрос со значением параметра &#x60;next&#x60; из
+   * ответа на предыдущий запрос, пока &#x60;next&#x60; не вернётся пустым
+   * &#x60;\&quot;\&quot;&#x60;. Это будет означать, что вы получили все кампании. Чтобы получить
+   * конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте
+   * &#x60;advertIds&#x60; в одном запросе с другими параметрами. RL Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+   *
+   * @param advertIds ID кампаний (optional)
+   * @param statuses Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания
+   *     завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе (optional)
+   * @param next Параметр пагинации (optional, default to )
+   * @param limit Количество кампаний в ответе (optional, default to 50)
+   * @param paymentType Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик
+   *     (optional)
+   * @return ApiResponse&lt;V3GetAdvertsResponse&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<V3GetAdvertsResponse> getV3AdvertsWithHttpInfo(
+      String advertIds, String statuses, String next, Long limit, String paymentType)
+      throws ApiException {
+    okhttp3.Call localVarCall =
+        getV3AdvertsValidateBeforeCall(advertIds, statuses, next, limit, paymentType, null);
+    Type localVarReturnType = new TypeToken<V3GetAdvertsResponse>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Информация о кампаниях (asynchronously) Метод возвращает информацию о кампаниях с единой или
+   * ручной ставкой по их статусам, типам оплаты или списку ID. Чтобы получить все кампании: 1.
+   * Сделайте первый запрос без параметра &#x60;next&#x60;. 2. Повторяйте запрос со значением
+   * параметра &#x60;next&#x60; из ответа на предыдущий запрос, пока &#x60;next&#x60; не вернётся
+   * пустым &#x60;\&quot;\&quot;&#x60;. Это будет означать, что вы получили все кампании. Чтобы
+   * получить конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте
+   * &#x60;advertIds&#x60; в одном запросе с другими параметрами. RL Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+   *
+   * @param advertIds ID кампаний (optional)
+   * @param statuses Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания
+   *     завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе (optional)
+   * @param next Параметр пагинации (optional, default to )
+   * @param limit Количество кампаний в ответе (optional, default to 50)
+   * @param paymentType Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик
+   *     (optional)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV3AdvertsAsync(
+      String advertIds,
+      String statuses,
+      String next,
+      Long limit,
+      String paymentType,
+      final ApiCallback<V3GetAdvertsResponse> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        getV3AdvertsValidateBeforeCall(advertIds, statuses, next, limit, paymentType, _callback);
+    Type localVarReturnType = new TypeToken<V3GetAdvertsResponse>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -6132,7 +6384,7 @@ public class PromotionApi {
 
   /**
    * Переименование кампании Метод меняет название
-   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).
    * Это можно сделать в любой момент существования кампании. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -6162,7 +6414,7 @@ public class PromotionApi {
 
   /**
    * Переименование кампании Метод меняет название
-   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).
    * Это можно сделать в любой момент существования кампании. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -6195,7 +6447,7 @@ public class PromotionApi {
 
   /**
    * Переименование кампании (asynchronously) Метод меняет название
-   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+   * [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).
    * Это можно сделать в любой момент существования кампании. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
@@ -7512,7 +7764,7 @@ public class PromotionApi {
 
   /**
    * Остатки бюджетов кампаний Метод возвращает информацию об остатках бюджетов
-   * [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+   * [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).
    * Для кампаний в
    * [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount):
    * - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе [Лимит
@@ -7545,7 +7797,7 @@ public class PromotionApi {
 
   /**
    * Остатки бюджетов кампаний Метод возвращает информацию об остатках бюджетов
-   * [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+   * [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).
    * Для кампаний в
    * [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount):
    * - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе [Лимит
@@ -7580,7 +7832,7 @@ public class PromotionApi {
 
   /**
    * Остатки бюджетов кампаний (asynchronously) Метод возвращает информацию об остатках бюджетов
-   * [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+   * [кампаний](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).
    * Для кампаний в
    * [статусах](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV1PromotionCount):
    * - &#x60;4&#x60; — готова к запуску - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе [Лимит
@@ -7881,7 +8133,7 @@ public class PromotionApi {
    * Карточки товаров для кампаний Метод возвращает список [карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList),
    * которые можно добавить в рекламную
-   * [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+   * [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).
    * Для получения карточек необходимы ID
    * [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects),
    * также доступных для добавления в кампанию. [Лимит
@@ -7918,7 +8170,7 @@ public class PromotionApi {
    * Карточки товаров для кампаний Метод возвращает список [карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList),
    * которые можно добавить в рекламную
-   * [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+   * [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).
    * Для получения карточек необходимы ID
    * [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects),
    * также доступных для добавления в кампанию. [Лимит
@@ -7955,7 +8207,7 @@ public class PromotionApi {
    * Карточки товаров для кампаний (asynchronously) Метод возвращает список [карточек
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList),
    * которые можно добавить в рекламную
-   * [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV2Adverts).
+   * [кампанию](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts).
    * Для получения карточек необходимы ID
    * [предметов](https://dev.wildberries.ru/openapi/promotion#tag/creatingCampaigns/operation/getV1SupplierSubjects),
    * также доступных для добавления в кампанию. [Лимит

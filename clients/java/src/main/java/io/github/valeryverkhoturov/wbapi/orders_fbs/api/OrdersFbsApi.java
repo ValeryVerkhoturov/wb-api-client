@@ -5556,8 +5556,9 @@ public class OrdersFbsApi {
    * и переводит в
    * [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus)
    * &#x60;cancel&#x60; — отменено продавцом. Сборочное задание можно отменить до его передачи
-   * Wildberries. Чтобы проверить, можно ли отменить сборочное задание, используйте метод [POST
-   * /api/v3/orders/status](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus),
+   * Wildberries. Чтобы проверить, можно ли отменить сборочное задание, используйте метод получения
+   * [статусов сборочных
+   * заданий](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus),
    * поле &#x60;isCancellable&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
@@ -5593,8 +5594,9 @@ public class OrdersFbsApi {
    * и переводит в
    * [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus)
    * &#x60;cancel&#x60; — отменено продавцом. Сборочное задание можно отменить до его передачи
-   * Wildberries. Чтобы проверить, можно ли отменить сборочное задание, используйте метод [POST
-   * /api/v3/orders/status](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus),
+   * Wildberries. Чтобы проверить, можно ли отменить сборочное задание, используйте метод получения
+   * [статусов сборочных
+   * заданий](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus),
    * поле &#x60;isCancellable&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
@@ -5633,8 +5635,9 @@ public class OrdersFbsApi {
    * и переводит в
    * [статус](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus)
    * &#x60;cancel&#x60; — отменено продавцом. Сборочное задание можно отменить до его передачи
-   * Wildberries. Чтобы проверить, можно ли отменить сборочное задание, используйте метод [POST
-   * /api/v3/orders/status](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus),
+   * Wildberries. Чтобы проверить, можно ли отменить сборочное задание, используйте метод получения
+   * [статусов сборочных
+   * заданий](https://dev.wildberries.ru/docs/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus),
    * поле &#x60;isCancellable&#x60;. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1

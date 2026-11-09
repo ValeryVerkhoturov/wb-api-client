@@ -4037,6 +4037,8 @@ export interface PostV2UploadTaskSizeRequest {
  * @interface PostV3MediaFileRequest
  */
 export interface PostV3MediaFileRequest {
+  [key: string]: any;
+
   /**
    *
    * @type {File}

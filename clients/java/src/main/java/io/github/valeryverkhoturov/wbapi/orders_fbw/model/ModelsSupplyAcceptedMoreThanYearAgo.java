@@ -36,36 +36,36 @@ public class ModelsSupplyAcceptedMoreThanYearAgo {
   public static final String SERIALIZED_NAME_STATUS = "status";
 
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private Long status;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
 
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String title;
 
   public static final String SERIALIZED_NAME_DETAIL = "detail";
 
   @SerializedName(SERIALIZED_NAME_DETAIL)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String detail;
 
   public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
 
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String requestId;
 
   public static final String SERIALIZED_NAME_ORIGIN = "origin";
 
   @SerializedName(SERIALIZED_NAME_ORIGIN)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String origin;
 
   public ModelsSupplyAcceptedMoreThanYearAgo() {}
 
-  public ModelsSupplyAcceptedMoreThanYearAgo status(@jakarta.annotation.Nullable Long status) {
+  public ModelsSupplyAcceptedMoreThanYearAgo status(@jakarta.annotation.Nonnull Long status) {
     this.status = status;
     return this;
   }
@@ -75,16 +75,16 @@ public class ModelsSupplyAcceptedMoreThanYearAgo {
    *
    * @return status
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public Long getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nullable Long status) {
+  public void setStatus(@jakarta.annotation.Nonnull Long status) {
     this.status = status;
   }
 
-  public ModelsSupplyAcceptedMoreThanYearAgo title(@jakarta.annotation.Nullable String title) {
+  public ModelsSupplyAcceptedMoreThanYearAgo title(@jakarta.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
@@ -94,16 +94,16 @@ public class ModelsSupplyAcceptedMoreThanYearAgo {
    *
    * @return title
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@jakarta.annotation.Nullable String title) {
+  public void setTitle(@jakarta.annotation.Nonnull String title) {
     this.title = title;
   }
 
-  public ModelsSupplyAcceptedMoreThanYearAgo detail(@jakarta.annotation.Nullable String detail) {
+  public ModelsSupplyAcceptedMoreThanYearAgo detail(@jakarta.annotation.Nonnull String detail) {
     this.detail = detail;
     return this;
   }
@@ -113,17 +113,17 @@ public class ModelsSupplyAcceptedMoreThanYearAgo {
    *
    * @return detail
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getDetail() {
     return detail;
   }
 
-  public void setDetail(@jakarta.annotation.Nullable String detail) {
+  public void setDetail(@jakarta.annotation.Nonnull String detail) {
     this.detail = detail;
   }
 
   public ModelsSupplyAcceptedMoreThanYearAgo requestId(
-      @jakarta.annotation.Nullable String requestId) {
+      @jakarta.annotation.Nonnull String requestId) {
     this.requestId = requestId;
     return this;
   }
@@ -133,16 +133,16 @@ public class ModelsSupplyAcceptedMoreThanYearAgo {
    *
    * @return requestId
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getRequestId() {
     return requestId;
   }
 
-  public void setRequestId(@jakarta.annotation.Nullable String requestId) {
+  public void setRequestId(@jakarta.annotation.Nonnull String requestId) {
     this.requestId = requestId;
   }
 
-  public ModelsSupplyAcceptedMoreThanYearAgo origin(@jakarta.annotation.Nullable String origin) {
+  public ModelsSupplyAcceptedMoreThanYearAgo origin(@jakarta.annotation.Nonnull String origin) {
     this.origin = origin;
     return this;
   }
@@ -152,12 +152,12 @@ public class ModelsSupplyAcceptedMoreThanYearAgo {
    *
    * @return origin
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getOrigin() {
     return origin;
   }
 
-  public void setOrigin(@jakarta.annotation.Nullable String origin) {
+  public void setOrigin(@jakarta.annotation.Nonnull String origin) {
     this.origin = origin;
   }
 
@@ -220,6 +220,11 @@ public class ModelsSupplyAcceptedMoreThanYearAgo {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("status");
+    openapiRequiredFields.add("title");
+    openapiRequiredFields.add("detail");
+    openapiRequiredFields.add("requestId");
+    openapiRequiredFields.add("origin");
   }
 
   /**
@@ -250,30 +255,36 @@ public class ModelsSupplyAcceptedMoreThanYearAgo {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+
+    // check to make sure all required properties/fields are present in the JSON string
+    for (String requiredField : ModelsSupplyAcceptedMoreThanYearAgo.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(
+            String.format(
+                "The required field `%s` is not found in the JSON string: %s",
+                requiredField, jsonElement.toString()));
+      }
+    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
-        && !jsonObj.get("title").isJsonPrimitive()) {
+    if (!jsonObj.get("title").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("title").toString()));
     }
-    if ((jsonObj.get("detail") != null && !jsonObj.get("detail").isJsonNull())
-        && !jsonObj.get("detail").isJsonPrimitive()) {
+    if (!jsonObj.get("detail").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `detail` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("detail").toString()));
     }
-    if ((jsonObj.get("requestId") != null && !jsonObj.get("requestId").isJsonNull())
-        && !jsonObj.get("requestId").isJsonPrimitive()) {
+    if (!jsonObj.get("requestId").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `requestId` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("requestId").toString()));
     }
-    if ((jsonObj.get("origin") != null && !jsonObj.get("origin").isJsonNull())
-        && !jsonObj.get("origin").isJsonPrimitive()) {
+    if (!jsonObj.get("origin").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `origin` to be a primitive type in the JSON string but got `%s`",

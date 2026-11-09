@@ -215,6 +215,12 @@ export const operationServerMap: ServerMap = {
       description: "No description provided",
     },
   ],
+  "PromotionApi.getV3Adverts": [
+    {
+      url: "https://advert-api.wildberries.ru",
+      description: "**Prod** ",
+    },
+  ],
   "PromotionApi.getV3Fullstats": [
     {
       url: "https://advert-api.wildberries.ru",

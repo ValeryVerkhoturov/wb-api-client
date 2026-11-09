@@ -34,7 +34,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1PromotionCountResponse200AdvertsInner" /> class.
         /// </summary>
-        /// <param name="type">Тип кампании:   - &#x60;8&#x60; — кампания с единой ставкой (**устаревший тип**)   - &#x60;9&#x60; — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле &#x60;bid_type&#x60; .</param>
+        /// <param name="type">Тип кампании:   - &#x60;8&#x60; — кампания с единой ставкой (**устаревший тип**)   - &#x60;9&#x60; — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV3Adverts), поле &#x60;bid_type&#x60; .</param>
         /// <param name="status">Статус кампании.</param>
         /// <param name="count">Количество кампаний.</param>
         /// <param name="advertList">Список кампаний.</param>
@@ -47,9 +47,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         }
 
         /// <summary>
-        /// Тип кампании:   - &#x60;8&#x60; — кампания с единой ставкой (**устаревший тип**)   - &#x60;9&#x60; — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле &#x60;bid_type&#x60; 
+        /// Тип кампании:   - &#x60;8&#x60; — кампания с единой ставкой (**устаревший тип**)   - &#x60;9&#x60; — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV3Adverts), поле &#x60;bid_type&#x60; 
         /// </summary>
-        /// <value>Тип кампании:   - &#x60;8&#x60; — кампания с единой ставкой (**устаревший тип**)   - &#x60;9&#x60; — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV2Adverts), поле &#x60;bid_type&#x60; </value>
+        /// <value>Тип кампании:   - &#x60;8&#x60; — кампания с единой ставкой (**устаревший тип**)   - &#x60;9&#x60; — кампания с единой или ручной ставкой. Тип ставки вы можете получить с помощью метода [Информация о кампаниях](./promotion#tag/campaigns/operation/getV3Adverts), поле &#x60;bid_type&#x60; </value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public long Type { get; set; }
 

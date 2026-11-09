@@ -37,11 +37,7 @@ class Timestamps(BaseModel):
     started: Optional[StrictStr] = Field(
         default=None, description="Время последнего запуска кампании"
     )
-    deleted: Optional[StrictStr] = Field(
-        default=None,
-        description="Время удаления кампании. Если кампания не удалена, время указывается в будущем",
-    )
-    __properties: ClassVar[List[str]] = ["created", "updated", "started", "deleted"]
+    __properties: ClassVar[List[str]] = ["created", "updated", "started"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -101,7 +97,6 @@ class Timestamps(BaseModel):
                 "created": obj.get("created"),
                 "updated": obj.get("updated"),
                 "started": obj.get("started"),
-                "deleted": obj.get("deleted"),
             }
         )
         return _obj

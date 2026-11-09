@@ -522,7 +522,7 @@ class Configuration:
             "OS: {env}\n"
             "Python Version: {pyversion}\n"
             "Version of the API: instorepickup\n"
-            "SDK Package Version: 1.20261104.0".format(
+            "SDK Package Version: 1.20261109.0".format(
                 env=sys.platform, pyversion=sys.version
             )
         )
