@@ -40,9 +40,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="actualInstance">An instance of ArhiveOrderError400.</param>
         public GetV3FbsOrdersArchive403Response(ArhiveOrderError400 actualInstance)
         {
-            this.IsNullable = false;
-            this.SchemaType = "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            IsNullable = false;
+            SchemaType = "anyOf";
+            ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
         /// <summary>
@@ -52,9 +52,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="actualInstance">An instance of Response4XX.</param>
         public GetV3FbsOrdersArchive403Response(Response4XX actualInstance)
         {
-            this.IsNullable = false;
-            this.SchemaType = "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            IsNullable = false;
+            SchemaType = "anyOf";
+            ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
 
@@ -71,13 +71,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             }
             set
             {
-                if (value.GetType() == typeof(ArhiveOrderError400) || value is ArhiveOrderError400)
+                if (value.GetType() == typeof(ArhiveOrderError400))
                 {
-                    this._actualInstance = value;
+                    _actualInstance = value;
                 }
-                else if (value.GetType() == typeof(Response4XX) || value is Response4XX)
+                else if (value.GetType() == typeof(Response4XX))
                 {
-                    this._actualInstance = value;
+                    _actualInstance = value;
                 }
                 else
                 {
@@ -93,7 +93,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <returns>An instance of ArhiveOrderError400</returns>
         public ArhiveOrderError400 GetArhiveOrderError400()
         {
-            return (ArhiveOrderError400)this.ActualInstance;
+            return (ArhiveOrderError400)ActualInstance;
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <returns>An instance of Response4XX</returns>
         public Response4XX GetResponse4XX()
         {
-            return (Response4XX)this.ActualInstance;
+            return (Response4XX)ActualInstance;
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GetV3FbsOrdersArchive403Response {\n");
-            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
+            sb.Append("  ActualInstance: ").Append(ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,7 +125,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, GetV3FbsOrdersArchive403Response.SerializerSettings);
+            return JsonConvert.SerializeObject(ActualInstance, GetV3FbsOrdersArchive403Response.SerializerSettings);
         }
 
         /// <summary>
@@ -141,22 +141,12 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             {
                 return newGetV3FbsOrdersArchive403Response;
             }
-            int match = 0;
-            List<string> matchedTypes = new List<string>();
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(ArhiveOrderError400).GetProperty("AdditionalProperties") == null)
-                {
-                    newGetV3FbsOrdersArchive403Response = new GetV3FbsOrdersArchive403Response(JsonConvert.DeserializeObject<ArhiveOrderError400>(jsonString, GetV3FbsOrdersArchive403Response.SerializerSettings));
-                }
-                else
-                {
-                    newGetV3FbsOrdersArchive403Response = new GetV3FbsOrdersArchive403Response(JsonConvert.DeserializeObject<ArhiveOrderError400>(jsonString, GetV3FbsOrdersArchive403Response.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("ArhiveOrderError400");
-                match++;
+                newGetV3FbsOrdersArchive403Response = new GetV3FbsOrdersArchive403Response(JsonConvert.DeserializeObject<ArhiveOrderError400>(jsonString, GetV3FbsOrdersArchive403Response.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newGetV3FbsOrdersArchive403Response;
             }
             catch (Exception exception)
             {
@@ -166,17 +156,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Response4XX).GetProperty("AdditionalProperties") == null)
-                {
-                    newGetV3FbsOrdersArchive403Response = new GetV3FbsOrdersArchive403Response(JsonConvert.DeserializeObject<Response4XX>(jsonString, GetV3FbsOrdersArchive403Response.SerializerSettings));
-                }
-                else
-                {
-                    newGetV3FbsOrdersArchive403Response = new GetV3FbsOrdersArchive403Response(JsonConvert.DeserializeObject<Response4XX>(jsonString, GetV3FbsOrdersArchive403Response.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("Response4XX");
-                match++;
+                newGetV3FbsOrdersArchive403Response = new GetV3FbsOrdersArchive403Response(JsonConvert.DeserializeObject<Response4XX>(jsonString, GetV3FbsOrdersArchive403Response.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newGetV3FbsOrdersArchive403Response;
             }
             catch (Exception exception)
             {
@@ -184,19 +166,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Response4XX: {1}", jsonString, exception.ToString()));
             }
 
-            if (match == 0)
-            {
-                throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
-            }
-            else if (match > 1)
-            {
-                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + String.Join(",", matchedTypes));
-            }
-
-            // deserialization is considered successful at this point if no exception has been thrown.
-            return newGetV3FbsOrdersArchive403Response;
+            // no match found, throw an exception
+            throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
         }
-
 
         /// <summary>
         /// To validate all properties of the instance

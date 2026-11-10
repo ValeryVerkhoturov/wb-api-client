@@ -34,7 +34,9 @@ class V3AdvertNMsSettings(BaseModel):
         default=None, description="Артикул WB", alias="nmId"
     )
     subject: Optional[V3AdvertSubject] = None
-    bids: Optional[V3AdvertBidsKopecks] = None
+    bids: Optional[List[V3AdvertBidsKopecks]] = Field(
+        default=None, description="Ставки"
+    )
     __properties: ClassVar[List[str]] = ["nmId", "subject", "bids"]
 
     model_config = ConfigDict(
@@ -77,9 +79,13 @@ class V3AdvertNMsSettings(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of subject
         if self.subject:
             _dict["subject"] = self.subject.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of bids
+        # override the default output from pydantic by calling `to_dict()` of each item in bids (list)
+        _items = []
         if self.bids:
-            _dict["bids"] = self.bids.to_dict()
+            for _item_bids in self.bids:
+                if _item_bids:
+                    _items.append(_item_bids.to_dict())
+            _dict["bids"] = _items
         return _dict
 
     @classmethod
@@ -100,7 +106,7 @@ class V3AdvertNMsSettings(BaseModel):
                     else None
                 ),
                 "bids": (
-                    V3AdvertBidsKopecks.from_dict(obj["bids"])
+                    [V3AdvertBidsKopecks.from_dict(_item) for _item in obj["bids"]]
                     if obj.get("bids") is not None
                     else None
                 ),

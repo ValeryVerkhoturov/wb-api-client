@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="paymentType">Тип оплаты: - &#x60;cpm&#x60; — за показы - &#x60;cpc&#x60; — за клик .</param>
         /// <param name="name">Название кампании.</param>
         /// <param name="placements">placements.</param>
-        public V3AdvertSettings(string paymentType = default(string), string name = default(string), V3Placements placements = default(V3Placements))
+        public V3AdvertSettings(string paymentType = default(string), string name = default(string), List<V3Placements> placements = default(List<V3Placements>))
         {
             this.PaymentType = paymentType;
             this.Name = name;
@@ -62,7 +62,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Gets or Sets Placements
         /// </summary>
         [DataMember(Name = "placements", EmitDefaultValue = false)]
-        public V3Placements Placements { get; set; }
+        public List<V3Placements> Placements { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

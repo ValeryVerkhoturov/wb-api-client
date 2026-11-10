@@ -37,7 +37,10 @@ class Timestamps(BaseModel):
     started: Optional[StrictStr] = Field(
         default=None, description="Время последнего запуска кампании"
     )
-    __properties: ClassVar[List[str]] = ["created", "updated", "started"]
+    ended: Optional[StrictStr] = Field(
+        default=None, description="Время завершения кампании"
+    )
+    __properties: ClassVar[List[str]] = ["created", "updated", "started", "ended"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +84,11 @@ class Timestamps(BaseModel):
         if self.started is None and "started" in self.model_fields_set:
             _dict["started"] = None
 
+        # set to None if ended (nullable) is None
+        # and model_fields_set contains the field
+        if self.ended is None and "ended" in self.model_fields_set:
+            _dict["ended"] = None
+
         return _dict
 
     @classmethod
@@ -97,6 +105,7 @@ class Timestamps(BaseModel):
                 "created": obj.get("created"),
                 "updated": obj.get("updated"),
                 "started": obj.get("started"),
+                "ended": obj.get("ended"),
             }
         )
         return _obj

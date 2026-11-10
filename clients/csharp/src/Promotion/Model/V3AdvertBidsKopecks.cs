@@ -31,30 +31,29 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
     [DataContract(Name = "V3AdvertBidsKopecks")]
     public partial class V3AdvertBidsKopecks : IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public V3Placements? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="V3AdvertBidsKopecks" /> class.
         /// </summary>
-        /// <param name="search">Ставка в поиске.</param>
-        /// <param name="recommendations">Ставка в рекомендациях.</param>
-        public V3AdvertBidsKopecks(long search = default(long), long recommendations = default(long))
+        /// <param name="type">type.</param>
+        /// <param name="value">Ставка.</param>
+        public V3AdvertBidsKopecks(V3Placements? type = default(V3Placements?), long value = default(long))
         {
-            this.Search = search;
-            this.Recommendations = recommendations;
+            this.Type = type;
+            this.Value = value;
         }
 
         /// <summary>
-        /// Ставка в поиске
+        /// Ставка
         /// </summary>
-        /// <value>Ставка в поиске</value>
-        [DataMember(Name = "search", EmitDefaultValue = false)]
-        public long Search { get; set; }
-
-        /// <summary>
-        /// Ставка в рекомендациях
-        /// </summary>
-        /// <value>Ставка в рекомендациях</value>
-        [DataMember(Name = "recommendations", EmitDefaultValue = false)]
-        public long Recommendations { get; set; }
+        /// <value>Ставка</value>
+        [DataMember(Name = "value", EmitDefaultValue = false)]
+        public long Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +63,8 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class V3AdvertBidsKopecks {\n");
-            sb.Append("  Search: ").Append(Search).Append("\n");
-            sb.Append("  Recommendations: ").Append(Recommendations).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

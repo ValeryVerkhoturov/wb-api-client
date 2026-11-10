@@ -1191,12 +1191,16 @@ paths:
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Response4XX'
+                anyOf:
+                - $ref: '#/components/schemas/Response4XX'
+                - $ref: '#/components/schemas/models.SupplyAcceptedMoreThanYearAgo'
               examples:
                 Response403TokenCategory:
                   $ref: '#/components/examples/Response403TokenCategory'
                 Response403TokenType:
                   $ref: '#/components/examples/Response403TokenType'
+                SupplyAcceptedMoreThanYearAgo:
+                  $ref: '#/components/examples/SupplyAcceptedMoreThanYearAgo'
         '404':
           description: Not found
           content:
@@ -2076,12 +2080,6 @@ components:
           description: Request ID if an error is present
     models.SupplyAcceptedMoreThanYearAgo:
       type: object
-      required:
-      - status
-      - title
-      - detail
-      - requestId
-      - origin
       properties:
         status:
           type: integer

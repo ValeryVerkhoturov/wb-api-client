@@ -34,7 +34,9 @@ class V3GetAdverts(BaseModel):
     V3GetAdverts
     """  # noqa: E501
 
-    id: Optional[StrictInt] = Field(default=None, description="ID кампании")
+    advert_id: Optional[StrictInt] = Field(
+        default=None, description="ID кампании", alias="advertId"
+    )
     status: Optional[StrictInt] = Field(
         default=None,
         description="Статус кампании: - `4` — готова к запуску - `7` — завершена - `9` — активна - `11` — на паузе ",
@@ -47,7 +49,7 @@ class V3GetAdverts(BaseModel):
     currency: Optional[StrictStr] = Field(default=None, description="Код валюты")
     restrictions: Optional[V3GetAdvertsRestrictions] = None
     __properties: ClassVar[List[str]] = [
-        "id",
+        "advertId",
         "status",
         "timestamps",
         "settings",
@@ -132,7 +134,7 @@ class V3GetAdverts(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "id": obj.get("id"),
+                "advertId": obj.get("advertId"),
                 "status": obj.get("status"),
                 "timestamps": (
                     Timestamps.from_dict(obj["timestamps"])

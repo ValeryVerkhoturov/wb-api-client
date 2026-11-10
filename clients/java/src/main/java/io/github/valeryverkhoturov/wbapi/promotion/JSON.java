@@ -404,6 +404,9 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.promotion.model.Timestamps
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.promotion.model.TimestampsV2
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.promotion.model.V0BidRecommendationBase
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
@@ -585,9 +588,6 @@ public class JSON {
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.promotion.model.V3GetAdvertsRestrictions
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.promotion.model.V3Placements
             .CustomTypeAdapterFactory());
     gson = gsonBuilder.create();
   }

@@ -23,7 +23,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -49,7 +51,7 @@ public class V3AdvertSettings {
 
   @SerializedName(SERIALIZED_NAME_PLACEMENTS)
   @jakarta.annotation.Nullable
-  private V3Placements placements;
+  private List<V3Placements> placements = new ArrayList<>();
 
   public V3AdvertSettings() {}
 
@@ -91,8 +93,16 @@ public class V3AdvertSettings {
     this.name = name;
   }
 
-  public V3AdvertSettings placements(@jakarta.annotation.Nullable V3Placements placements) {
+  public V3AdvertSettings placements(@jakarta.annotation.Nullable List<V3Placements> placements) {
     this.placements = placements;
+    return this;
+  }
+
+  public V3AdvertSettings addPlacementsItem(V3Placements placementsItem) {
+    if (this.placements == null) {
+      this.placements = new ArrayList<>();
+    }
+    this.placements.add(placementsItem);
     return this;
   }
 
@@ -102,11 +112,11 @@ public class V3AdvertSettings {
    * @return placements
    */
   @jakarta.annotation.Nullable
-  public V3Placements getPlacements() {
+  public List<V3Placements> getPlacements() {
     return placements;
   }
 
-  public void setPlacements(@jakarta.annotation.Nullable V3Placements placements) {
+  public void setPlacements(@jakarta.annotation.Nullable List<V3Placements> placements) {
     this.placements = placements;
   }
 
@@ -206,9 +216,14 @@ public class V3AdvertSettings {
               "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("name").toString()));
     }
-    // validate the optional field `placements`
-    if (jsonObj.get("placements") != null && !jsonObj.get("placements").isJsonNull()) {
-      V3Placements.validateJsonElement(jsonObj.get("placements"));
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("placements") != null
+        && !jsonObj.get("placements").isJsonNull()
+        && !jsonObj.get("placements").isJsonArray()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `placements` to be an array in the JSON string but got `%s`",
+              jsonObj.get("placements").toString()));
     }
   }
 

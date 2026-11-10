@@ -166,15 +166,16 @@ paths:
       summary: Campaigns Information
       description: |-
         The method returns information about campaigns with a standard or custom bid by their statuses, payment types, or list of IDs.
-
         To get all campaigns:
-          1. Make the first request without the `next` parameter.
-          2. Repeat the request with the value of the `next` parameter from the previous response until `next` returns an empty value `""`. This means you have got all campaigns.
-
+        1. Make the first request without the `next` parameter.
+        2. Repeat the request with the value of the `next` parameter from the previous response until `next` returns an empty value `""`. This means you have got all campaigns.
         To get specific campaigns, pass their IDs in the `advertIds` parameter.
         Do not use `advertIds` in the same request with other parameters.
 
-        RL
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        | Period | Limit | Interval | Burst |
+        | --- | --- | --- | --- |
+        |  |  |  |  |
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
       operationId: getV3Adverts
@@ -1882,7 +1883,7 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
+                anyOf:
                 - $ref: '#/components/schemas/V0BidsRecommendationsCpmResponse1'
                 - $ref: '#/components/schemas/V0BidsRecommendationsCpcResponse2'
               examples:
@@ -3991,7 +3992,7 @@ components:
     V3GetAdverts:
       type: object
       properties:
-        id:
+        advertId:
           description: Campaign ID
           type: integer
           format: int64
@@ -4046,7 +4047,8 @@ components:
           type: string
           description: Campaign name
         placements:
-          $ref: '#/components/schemas/V3Placements'
+          items:
+            $ref: '#/components/schemas/V3Placements'
     V3AdvertNMsSettings:
       type: object
       properties:
@@ -4057,7 +4059,10 @@ components:
         subject:
           $ref: '#/components/schemas/V3AdvertSubject'
         bids:
-          $ref: '#/components/schemas/V3AdvertBidsKopecks'
+          type: array
+          description: Bids
+          items:
+            $ref: '#/components/schemas/V3AdvertBidsKopecks'
     V3AdvertSubject:
       type: object
       properties:
@@ -4071,29 +4076,23 @@ components:
     V3AdvertBidsKopecks:
       type: object
       properties:
-        search:
-          type: integer
-          format: int64
-          description: Bid in search
-        recommendations:
+        type:
+          $ref: '#/components/schemas/V3Placements'
+        value:
           type: integer
           format: int64
           description: Bid in recommendations
     V3Placements:
-      type: object
-      properties:
-        search:
-          type: boolean
-          description: |
-            Placement in search:
-              - `false` — disabled
-              - `true` — enabled
-        recommendations:
-          description: |
-            Placement in recommendations:
-              - `false` — disabled
-              - `true` — enabled
-          type: boolean
+      type: string
+      enum:
+      - search
+      - recommendations
+      - combined
+      description: |
+        Campaign placement:
+          - `search` — search
+          - `recommendations` — recommendations
+          - `combined` — search and recommendations with a standard bid
     V0GetDailyLimitsResponse:
       type: object
       properties:
@@ -5171,7 +5170,7 @@ components:
                 type: integer
                 format: int64
               timestamps:
-                $ref: '#/components/schemas/Timestamps'
+                $ref: '#/components/schemas/TimestampsV2'
     AdvertNMsSettings:
       type: object
       properties:
@@ -5236,6 +5235,24 @@ components:
                   - `true` — enabled
               type: boolean
     Timestamps:
+      description: Timestamps
+      type: object
+      properties:
+        created:
+          description: Campaign create time
+          type: string
+        updated:
+          description: Campaign last update time
+          type: string
+        started:
+          description: Campaign launch time
+          nullable: true
+          type: string
+        ended:
+          description: Campaign ended time
+          nullable: true
+          type: string
+    TimestampsV2:
       description: Timestamps
       type: object
       properties:
@@ -7116,7 +7133,7 @@ components:
                 example: Failed to parse data
   examples:
     ConflictingModes:
-      summary: Недопустимо одновременное применение параметра advertIds с другими параметрами
+      summary: Недопустимо одновременное применение параметра `advertIds` с другими параметрами
       value:
         title: invalid payload
         detail: advertIds cannot be used together with statuses, next or limit
@@ -7126,26 +7143,26 @@ components:
     GetV3AdvertsSuccessResponse:
       value:
         adverts:
-        - id: 12345
+        - advertId: 12345
           status: 9
           settings:
             name: Моя кампания
             paymentType: cpm
             placements:
-              search: true
-              recommendations: true
+            - combined
           nms:
           - nmId: 12345678
             subject:
               id: 270
               name: Парашюты
             bids:
-              search: 63300
-              recommendations: 65000
+            - type: search
+              value: 65000
           timestamps:
             created: '2024-01-01T10:00:00+03:00'
             updated: '2024-01-02T15:30:00+03:00'
             started: '2024-01-01T10:05:00+03:00'
+            ended:
           currency: RUB
           restrictions:
             canChangeNms: true

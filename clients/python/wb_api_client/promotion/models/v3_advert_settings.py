@@ -35,7 +35,7 @@ class V3AdvertSettings(BaseModel):
         alias="paymentType",
     )
     name: Optional[StrictStr] = Field(default=None, description="Название кампании")
-    placements: Optional[V3Placements] = None
+    placements: Optional[List[V3Placements]] = None
     __properties: ClassVar[List[str]] = ["paymentType", "name", "placements"]
 
     model_config = ConfigDict(
@@ -75,9 +75,6 @@ class V3AdvertSettings(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of placements
-        if self.placements:
-            _dict["placements"] = self.placements.to_dict()
         return _dict
 
     @classmethod
@@ -93,11 +90,7 @@ class V3AdvertSettings(BaseModel):
             {
                 "paymentType": obj.get("paymentType"),
                 "name": obj.get("name"),
-                "placements": (
-                    V3Placements.from_dict(obj["placements"])
-                    if obj.get("placements") is not None
-                    else None
-                ),
+                "placements": obj.get("placements"),
             }
         )
         return _obj

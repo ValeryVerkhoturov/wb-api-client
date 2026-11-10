@@ -37,11 +37,13 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="created">Время создания кампании.</param>
         /// <param name="updated">Время последнего изменения кампании.</param>
         /// <param name="started">Время последнего запуска кампании.</param>
-        public Timestamps(string created = default(string), string updated = default(string), string started = default(string))
+        /// <param name="ended">Время завершения кампании.</param>
+        public Timestamps(string created = default(string), string updated = default(string), string started = default(string), string ended = default(string))
         {
             this.Created = created;
             this.Updated = updated;
             this.Started = started;
+            this.Ended = ended;
         }
 
         /// <summary>
@@ -66,6 +68,13 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public string Started { get; set; }
 
         /// <summary>
+        /// Время завершения кампании
+        /// </summary>
+        /// <value>Время завершения кампании</value>
+        [DataMember(Name = "ended", EmitDefaultValue = true)]
+        public string Ended { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +85,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("  Started: ").Append(Started).Append("\n");
+            sb.Append("  Ended: ").Append(Ended).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

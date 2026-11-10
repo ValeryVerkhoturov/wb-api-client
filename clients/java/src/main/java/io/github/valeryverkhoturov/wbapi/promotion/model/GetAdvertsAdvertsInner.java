@@ -146,7 +146,7 @@ public class GetAdvertsAdvertsInner {
 
   @SerializedName(SERIALIZED_NAME_TIMESTAMPS)
   @jakarta.annotation.Nullable
-  private Timestamps timestamps;
+  private TimestampsV2 timestamps;
 
   public GetAdvertsAdvertsInner() {}
 
@@ -296,7 +296,7 @@ public class GetAdvertsAdvertsInner {
     this.status = status;
   }
 
-  public GetAdvertsAdvertsInner timestamps(@jakarta.annotation.Nullable Timestamps timestamps) {
+  public GetAdvertsAdvertsInner timestamps(@jakarta.annotation.Nullable TimestampsV2 timestamps) {
     this.timestamps = timestamps;
     return this;
   }
@@ -307,11 +307,11 @@ public class GetAdvertsAdvertsInner {
    * @return timestamps
    */
   @jakarta.annotation.Nullable
-  public Timestamps getTimestamps() {
+  public TimestampsV2 getTimestamps() {
     return timestamps;
   }
 
-  public void setTimestamps(@jakarta.annotation.Nullable Timestamps timestamps) {
+  public void setTimestamps(@jakarta.annotation.Nullable TimestampsV2 timestamps) {
     this.timestamps = timestamps;
   }
 
@@ -459,7 +459,7 @@ public class GetAdvertsAdvertsInner {
     }
     // validate the optional field `timestamps`
     if (jsonObj.get("timestamps") != null && !jsonObj.get("timestamps").isJsonNull()) {
-      Timestamps.validateJsonElement(jsonObj.get("timestamps"));
+      TimestampsV2.validateJsonElement(jsonObj.get("timestamps"));
     }
   }
 

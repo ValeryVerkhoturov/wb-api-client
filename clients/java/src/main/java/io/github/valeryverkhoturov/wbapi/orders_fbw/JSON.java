@@ -95,6 +95,9 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.orders_fbw.model.ErrorsDraftError
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbw.model
+            .GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response.CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbw.model.ModelsBox
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(

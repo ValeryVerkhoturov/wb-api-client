@@ -51,6 +51,12 @@ public class Timestamps {
   @jakarta.annotation.Nullable
   private String started;
 
+  public static final String SERIALIZED_NAME_ENDED = "ended";
+
+  @SerializedName(SERIALIZED_NAME_ENDED)
+  @jakarta.annotation.Nullable
+  private String ended;
+
   public Timestamps() {}
 
   public Timestamps created(@jakarta.annotation.Nullable String created) {
@@ -110,6 +116,25 @@ public class Timestamps {
     this.started = started;
   }
 
+  public Timestamps ended(@jakarta.annotation.Nullable String ended) {
+    this.ended = ended;
+    return this;
+  }
+
+  /**
+   * Время завершения кампании
+   *
+   * @return ended
+   */
+  @jakarta.annotation.Nullable
+  public String getEnded() {
+    return ended;
+  }
+
+  public void setEnded(@jakarta.annotation.Nullable String ended) {
+    this.ended = ended;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -121,12 +146,13 @@ public class Timestamps {
     Timestamps timestamps = (Timestamps) o;
     return Objects.equals(this.created, timestamps.created)
         && Objects.equals(this.updated, timestamps.updated)
-        && Objects.equals(this.started, timestamps.started);
+        && Objects.equals(this.started, timestamps.started)
+        && Objects.equals(this.ended, timestamps.ended);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(created, updated, started);
+    return Objects.hash(created, updated, started, ended);
   }
 
   @Override
@@ -136,6 +162,7 @@ public class Timestamps {
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("    started: ").append(toIndentedString(started)).append("\n");
+    sb.append("    ended: ").append(toIndentedString(ended)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -159,6 +186,7 @@ public class Timestamps {
     openapiFields.add("created");
     openapiFields.add("updated");
     openapiFields.add("started");
+    openapiFields.add("ended");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -212,6 +240,13 @@ public class Timestamps {
           String.format(
               "Expected the field `started` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("started").toString()));
+    }
+    if ((jsonObj.get("ended") != null && !jsonObj.get("ended").isJsonNull())
+        && !jsonObj.get("ended").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `ended` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("ended").toString()));
     }
   }
 

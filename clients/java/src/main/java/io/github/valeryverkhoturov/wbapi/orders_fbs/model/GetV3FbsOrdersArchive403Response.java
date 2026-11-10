@@ -74,7 +74,7 @@ public class GetV3FbsOrdersArchive403Response extends AbstractOpenApiSchema {
                 return;
               }
               throw new IOException(
-                  "Failed to serialize as the type doesn't match oneOf schemas: ArhiveOrderError400, Response4XX");
+                  "Failed to serialize as the type doesn't match anyOf schemas: ArhiveOrderError400, Response4XX");
             }
 
             @Override
@@ -82,7 +82,6 @@ public class GetV3FbsOrdersArchive403Response extends AbstractOpenApiSchema {
               Object deserialized = null;
               JsonElement jsonElement = elementAdapter.read(in);
 
-              int match = 0;
               ArrayList<String> errorMessages = new ArrayList<>();
               TypeAdapter actualAdapter = elementAdapter;
 
@@ -91,8 +90,9 @@ public class GetV3FbsOrdersArchive403Response extends AbstractOpenApiSchema {
                 // validate the JSON object to see if any exception is thrown
                 ArhiveOrderError400.validateJsonElement(jsonElement);
                 actualAdapter = adapterArhiveOrderError400;
-                match++;
-                log.log(Level.FINER, "Input data matches schema 'ArhiveOrderError400'");
+                GetV3FbsOrdersArchive403Response ret = new GetV3FbsOrdersArchive403Response();
+                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                return ret;
               } catch (Exception e) {
                 // deserialization failed, continue
                 errorMessages.add(
@@ -106,8 +106,9 @@ public class GetV3FbsOrdersArchive403Response extends AbstractOpenApiSchema {
                 // validate the JSON object to see if any exception is thrown
                 Response4XX.validateJsonElement(jsonElement);
                 actualAdapter = adapterResponse4XX;
-                match++;
-                log.log(Level.FINER, "Input data matches schema 'Response4XX'");
+                GetV3FbsOrdersArchive403Response ret = new GetV3FbsOrdersArchive403Response();
+                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                return ret;
               } catch (Exception e) {
                 // deserialization failed, continue
                 errorMessages.add(
@@ -116,30 +117,24 @@ public class GetV3FbsOrdersArchive403Response extends AbstractOpenApiSchema {
                 log.log(Level.FINER, "Input data does not match schema 'Response4XX'", e);
               }
 
-              if (match == 1) {
-                GetV3FbsOrdersArchive403Response ret = new GetV3FbsOrdersArchive403Response();
-                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                return ret;
-              }
-
               throw new IOException(
                   String.format(
-                      "Failed deserialization for GetV3FbsOrdersArchive403Response: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
-                      match, errorMessages, jsonElement.toString()));
+                      "Failed deserialization for GetV3FbsOrdersArchive403Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
+                      errorMessages, jsonElement.toString()));
             }
           }.nullSafe();
     }
   }
 
-  // store a list of schema names defined in oneOf
+  // store a list of schema names defined in anyOf
   public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
 
   public GetV3FbsOrdersArchive403Response() {
-    super("oneOf", Boolean.FALSE);
+    super("anyOf", Boolean.FALSE);
   }
 
   public GetV3FbsOrdersArchive403Response(Object o) {
-    super("oneOf", Boolean.FALSE);
+    super("anyOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
@@ -154,10 +149,10 @@ public class GetV3FbsOrdersArchive403Response extends AbstractOpenApiSchema {
   }
 
   /**
-   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: ArhiveOrderError400, Response4XX
+   * Set the instance that matches the anyOf child schema, check the instance parameter is valid
+   * against the anyOf child schemas: ArhiveOrderError400, Response4XX
    *
-   * <p>It could be an instance of the 'oneOf' schemas.
+   * <p>It could be an instance of the 'anyOf' schemas.
    */
   @Override
   public void setActualInstance(Object instance) {
@@ -215,13 +210,12 @@ public class GetV3FbsOrdersArchive403Response extends AbstractOpenApiSchema {
    *     GetV3FbsOrdersArchive403Response
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    // validate oneOf schemas one by one
-    int validCount = 0;
+    // validate anyOf schemas one by one
     ArrayList<String> errorMessages = new ArrayList<>();
     // validate the json string with ArhiveOrderError400
     try {
       ArhiveOrderError400.validateJsonElement(jsonElement);
-      validCount++;
+      return;
     } catch (Exception e) {
       errorMessages.add(
           String.format(
@@ -231,18 +225,16 @@ public class GetV3FbsOrdersArchive403Response extends AbstractOpenApiSchema {
     // validate the json string with Response4XX
     try {
       Response4XX.validateJsonElement(jsonElement);
-      validCount++;
+      return;
     } catch (Exception e) {
       errorMessages.add(
           String.format("Deserialization for Response4XX failed with `%s`.", e.getMessage()));
       // continue to the next one
     }
-    if (validCount != 1) {
-      throw new IOException(
-          String.format(
-              "The JSON string is invalid for GetV3FbsOrdersArchive403Response with oneOf schemas: ArhiveOrderError400, Response4XX. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
-              validCount, errorMessages, jsonElement.toString()));
-    }
+    throw new IOException(
+        String.format(
+            "The JSON string is invalid for GetV3FbsOrdersArchive403Response with anyOf schemas: ArhiveOrderError400, Response4XX. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
+            errorMessages, jsonElement.toString()));
   }
 
   /**

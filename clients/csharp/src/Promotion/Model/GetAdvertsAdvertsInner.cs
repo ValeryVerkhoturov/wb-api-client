@@ -86,7 +86,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="restrictions">restrictions.</param>
         /// <param name="status">Статус кампании: - &#x60;-1&#x60; — удалена, процесс удаления будет завершён в течение 10 минут - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — завершена - &#x60;8&#x60; — отменена - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе .</param>
         /// <param name="timestamps">timestamps.</param>
-        public GetAdvertsAdvertsInner(string bidType = default(string), string currency = default(string), long id = default(long), List<AdvertNMsSettings> nmSettings = default(List<AdvertNMsSettings>), AdvertSettings settings = default(AdvertSettings), GetAdvertsAdvertsInnerRestrictions restrictions = default(GetAdvertsAdvertsInnerRestrictions), StatusEnum? status = default(StatusEnum?), Timestamps timestamps = default(Timestamps))
+        public GetAdvertsAdvertsInner(string bidType = default(string), string currency = default(string), long id = default(long), List<AdvertNMsSettings> nmSettings = default(List<AdvertNMsSettings>), AdvertSettings settings = default(AdvertSettings), GetAdvertsAdvertsInnerRestrictions restrictions = default(GetAdvertsAdvertsInnerRestrictions), StatusEnum? status = default(StatusEnum?), TimestampsV2 timestamps = default(TimestampsV2))
         {
             this.BidType = bidType;
             this.Currency = currency;
@@ -142,7 +142,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Gets or Sets Timestamps
         /// </summary>
         [DataMember(Name = "timestamps", EmitDefaultValue = false)]
-        public Timestamps Timestamps { get; set; }
+        public TimestampsV2 Timestamps { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

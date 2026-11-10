@@ -13,6 +13,7 @@
 package io.github.valeryverkhoturov.wbapi.promotion.model;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -23,7 +24,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.valeryverkhoturov.wbapi.promotion.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -49,7 +52,7 @@ public class V3AdvertNMsSettings {
 
   @SerializedName(SERIALIZED_NAME_BIDS)
   @jakarta.annotation.Nullable
-  private V3AdvertBidsKopecks bids;
+  private List<V3AdvertBidsKopecks> bids = new ArrayList<>();
 
   public V3AdvertNMsSettings() {}
 
@@ -91,22 +94,30 @@ public class V3AdvertNMsSettings {
     this.subject = subject;
   }
 
-  public V3AdvertNMsSettings bids(@jakarta.annotation.Nullable V3AdvertBidsKopecks bids) {
+  public V3AdvertNMsSettings bids(@jakarta.annotation.Nullable List<V3AdvertBidsKopecks> bids) {
     this.bids = bids;
     return this;
   }
 
+  public V3AdvertNMsSettings addBidsItem(V3AdvertBidsKopecks bidsItem) {
+    if (this.bids == null) {
+      this.bids = new ArrayList<>();
+    }
+    this.bids.add(bidsItem);
+    return this;
+  }
+
   /**
-   * Get bids
+   * Ставки
    *
    * @return bids
    */
   @jakarta.annotation.Nullable
-  public V3AdvertBidsKopecks getBids() {
+  public List<V3AdvertBidsKopecks> getBids() {
     return bids;
   }
 
-  public void setBids(@jakarta.annotation.Nullable V3AdvertBidsKopecks bids) {
+  public void setBids(@jakarta.annotation.Nullable List<V3AdvertBidsKopecks> bids) {
     this.bids = bids;
   }
 
@@ -196,9 +207,23 @@ public class V3AdvertNMsSettings {
     if (jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonNull()) {
       V3AdvertSubject.validateJsonElement(jsonObj.get("subject"));
     }
-    // validate the optional field `bids`
     if (jsonObj.get("bids") != null && !jsonObj.get("bids").isJsonNull()) {
-      V3AdvertBidsKopecks.validateJsonElement(jsonObj.get("bids"));
+      JsonArray jsonArraybids = jsonObj.getAsJsonArray("bids");
+      if (jsonArraybids != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("bids").isJsonArray()) {
+          throw new IllegalArgumentException(
+              String.format(
+                  "Expected the field `bids` to be an array in the JSON string but got `%s`",
+                  jsonObj.get("bids").toString()));
+        }
+
+        // validate the optional field `bids` (array)
+        for (int i = 0; i < jsonArraybids.size(); i++) {
+          V3AdvertBidsKopecks.validateJsonElement(jsonArraybids.get(i));
+        }
+        ;
+      }
     }
   }
 

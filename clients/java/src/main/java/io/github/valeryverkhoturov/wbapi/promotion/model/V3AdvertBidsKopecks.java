@@ -33,56 +33,56 @@ import java.util.Set;
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
 public class V3AdvertBidsKopecks {
-  public static final String SERIALIZED_NAME_SEARCH = "search";
+  public static final String SERIALIZED_NAME_TYPE = "type";
 
-  @SerializedName(SERIALIZED_NAME_SEARCH)
+  @SerializedName(SERIALIZED_NAME_TYPE)
   @jakarta.annotation.Nullable
-  private Long search;
+  private V3Placements type;
 
-  public static final String SERIALIZED_NAME_RECOMMENDATIONS = "recommendations";
+  public static final String SERIALIZED_NAME_VALUE = "value";
 
-  @SerializedName(SERIALIZED_NAME_RECOMMENDATIONS)
+  @SerializedName(SERIALIZED_NAME_VALUE)
   @jakarta.annotation.Nullable
-  private Long recommendations;
+  private Long value;
 
   public V3AdvertBidsKopecks() {}
 
-  public V3AdvertBidsKopecks search(@jakarta.annotation.Nullable Long search) {
-    this.search = search;
+  public V3AdvertBidsKopecks type(@jakarta.annotation.Nullable V3Placements type) {
+    this.type = type;
     return this;
   }
 
   /**
-   * Ставка в поиске
+   * Get type
    *
-   * @return search
+   * @return type
    */
   @jakarta.annotation.Nullable
-  public Long getSearch() {
-    return search;
+  public V3Placements getType() {
+    return type;
   }
 
-  public void setSearch(@jakarta.annotation.Nullable Long search) {
-    this.search = search;
+  public void setType(@jakarta.annotation.Nullable V3Placements type) {
+    this.type = type;
   }
 
-  public V3AdvertBidsKopecks recommendations(@jakarta.annotation.Nullable Long recommendations) {
-    this.recommendations = recommendations;
+  public V3AdvertBidsKopecks value(@jakarta.annotation.Nullable Long value) {
+    this.value = value;
     return this;
   }
 
   /**
-   * Ставка в рекомендациях
+   * Ставка
    *
-   * @return recommendations
+   * @return value
    */
   @jakarta.annotation.Nullable
-  public Long getRecommendations() {
-    return recommendations;
+  public Long getValue() {
+    return value;
   }
 
-  public void setRecommendations(@jakarta.annotation.Nullable Long recommendations) {
-    this.recommendations = recommendations;
+  public void setValue(@jakarta.annotation.Nullable Long value) {
+    this.value = value;
   }
 
   @Override
@@ -94,21 +94,21 @@ public class V3AdvertBidsKopecks {
       return false;
     }
     V3AdvertBidsKopecks v3AdvertBidsKopecks = (V3AdvertBidsKopecks) o;
-    return Objects.equals(this.search, v3AdvertBidsKopecks.search)
-        && Objects.equals(this.recommendations, v3AdvertBidsKopecks.recommendations);
+    return Objects.equals(this.type, v3AdvertBidsKopecks.type)
+        && Objects.equals(this.value, v3AdvertBidsKopecks.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(search, recommendations);
+    return Objects.hash(type, value);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V3AdvertBidsKopecks {\n");
-    sb.append("    search: ").append(toIndentedString(search)).append("\n");
-    sb.append("    recommendations: ").append(toIndentedString(recommendations)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -129,8 +129,8 @@ public class V3AdvertBidsKopecks {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("search");
-    openapiFields.add("recommendations");
+    openapiFields.add("type");
+    openapiFields.add("value");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -164,6 +164,10 @@ public class V3AdvertBidsKopecks {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
+    // validate the optional field `type`
+    if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
+      V3Placements.validateJsonElement(jsonObj.get("type"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

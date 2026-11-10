@@ -240,13 +240,66 @@ export interface DeleteV3SuppliesSupplyIdTrbxRequest {
   trbxIds: Array<string>;
 }
 /**
- * @type GetV3FbsOrdersArchive403Response
+ *
  * @export
+ * @interface GetV3FbsOrdersArchive403Response
  */
-export type GetV3FbsOrdersArchive403Response =
-  | ArhiveOrderError400
-  | Response4XX;
-
+export interface GetV3FbsOrdersArchive403Response {
+  /**
+   * Внутренний код ошибки
+   * @type {string}
+   * @memberof GetV3FbsOrdersArchive403Response
+   */
+  code?: string;
+  /**
+   * Детали ошибки
+   * @type {string}
+   * @memberof GetV3FbsOrdersArchive403Response
+   */
+  detail?: string;
+  /**
+   * Информация об ошибке
+   * @type {Array<ArhiveOrderError400ErrorsInner>}
+   * @memberof GetV3FbsOrdersArchive403Response
+   */
+  errors?: Array<ArhiveOrderError400ErrorsInner>;
+  /**
+   * ID внутреннего сервиса WB
+   * @type {string}
+   * @memberof GetV3FbsOrdersArchive403Response
+   */
+  origin?: string;
+  /**
+   * ID запроса
+   * @type {string}
+   * @memberof GetV3FbsOrdersArchive403Response
+   */
+  requestId?: string;
+  /**
+   * HTTP статус-код
+   * @type {number}
+   * @memberof GetV3FbsOrdersArchive403Response
+   */
+  status?: number;
+  /**
+   * Заголовок ошибки
+   * @type {string}
+   * @memberof GetV3FbsOrdersArchive403Response
+   */
+  title?: string;
+  /**
+   * Расшифровка HTTP статус-кода
+   * @type {string}
+   * @memberof GetV3FbsOrdersArchive403Response
+   */
+  statusText?: string;
+  /**
+   * Дата и время запроса
+   * @type {string}
+   * @memberof GetV3FbsOrdersArchive403Response
+   */
+  timestamp?: string;
+}
 /**
  *
  * @export

@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.20261109.0"
+__version__ = "1.20261110.0"
 
 # import apis into sdk package
 from wb_api_client.promotion.api.promotion_api import PromotionApi
@@ -292,6 +292,7 @@ from wb_api_client.promotion.models.stats_blok2_daily_stats_inner_app_type_stats
     StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner,
 )
 from wb_api_client.promotion.models.timestamps import Timestamps
+from wb_api_client.promotion.models.timestamps_v2 import TimestampsV2
 from wb_api_client.promotion.models.v0_bid_recommendation_base import (
     V0BidRecommendationBase,
 )

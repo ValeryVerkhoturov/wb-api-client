@@ -79,6 +79,61 @@ export interface ErrorsDraftError {
 /**
  *
  * @export
+ * @interface GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response
+ */
+export interface GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response {
+  /**
+   * Краткое описание ошибки
+   * @type {string}
+   * @memberof GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response
+   */
+  title?: string;
+  /**
+   * Подробное описание ошибки
+   * @type {string}
+   * @memberof GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response
+   */
+  detail?: string;
+  /**
+   * Внутренний код ошибки
+   * @type {string}
+   * @memberof GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response
+   */
+  code?: string;
+  /**
+   * ID запроса
+   * @type {string}
+   * @memberof GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response
+   */
+  requestId?: string;
+  /**
+   * Сервис, в котором произошла ошибка
+   * @type {string}
+   * @memberof GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response
+   */
+  origin?: string;
+  /**
+   * HTTP-статус код
+   * @type {number}
+   * @memberof GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response
+   */
+  status?: number;
+  /**
+   * Расшифровка HTTP статус-кода
+   * @type {string}
+   * @memberof GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response
+   */
+  statusText?: string;
+  /**
+   * Дата и время запроса
+   * @type {string}
+   * @memberof GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response
+   */
+  timestamp?: string;
+}
+/**
+ *
+ * @export
  * @interface ModelsBox
  */
 export interface ModelsBox {
@@ -944,31 +999,31 @@ export interface ModelsSupplyAcceptedMoreThanYearAgo {
    * @type {number}
    * @memberof ModelsSupplyAcceptedMoreThanYearAgo
    */
-  status: number;
+  status?: number;
   /**
    * Краткое описание ошибки
    * @type {string}
    * @memberof ModelsSupplyAcceptedMoreThanYearAgo
    */
-  title: string;
+  title?: string;
   /**
    * Подробное описание ошибки
    * @type {string}
    * @memberof ModelsSupplyAcceptedMoreThanYearAgo
    */
-  detail: string;
+  detail?: string;
   /**
    * ID запроса
    * @type {string}
    * @memberof ModelsSupplyAcceptedMoreThanYearAgo
    */
-  requestId: string;
+  requestId?: string;
   /**
    * Сервис, в котором произошла ошибка
    * @type {string}
    * @memberof ModelsSupplyAcceptedMoreThanYearAgo
    */
-  origin: string;
+  origin?: string;
 }
 /**
  *

@@ -36,8 +36,8 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="nmId">Артикул WB.</param>
         /// <param name="subject">subject.</param>
-        /// <param name="bids">bids.</param>
-        public V3AdvertNMsSettings(long nmId = default(long), V3AdvertSubject subject = default(V3AdvertSubject), V3AdvertBidsKopecks bids = default(V3AdvertBidsKopecks))
+        /// <param name="bids">Ставки.</param>
+        public V3AdvertNMsSettings(long nmId = default(long), V3AdvertSubject subject = default(V3AdvertSubject), List<V3AdvertBidsKopecks> bids = default(List<V3AdvertBidsKopecks>))
         {
             this.NmId = nmId;
             this.Subject = subject;
@@ -58,10 +58,11 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public V3AdvertSubject Subject { get; set; }
 
         /// <summary>
-        /// Gets or Sets Bids
+        /// Ставки
         /// </summary>
+        /// <value>Ставки</value>
         [DataMember(Name = "bids", EmitDefaultValue = false)]
-        public V3AdvertBidsKopecks Bids { get; set; }
+        public List<V3AdvertBidsKopecks> Bids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

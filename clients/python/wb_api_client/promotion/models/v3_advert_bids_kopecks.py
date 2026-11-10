@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
+from wb_api_client.promotion.models.v3_placements import V3Placements
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,11 +29,9 @@ class V3AdvertBidsKopecks(BaseModel):
     V3AdvertBidsKopecks
     """  # noqa: E501
 
-    search: Optional[StrictInt] = Field(default=None, description="Ставка в поиске")
-    recommendations: Optional[StrictInt] = Field(
-        default=None, description="Ставка в рекомендациях"
-    )
-    __properties: ClassVar[List[str]] = ["search", "recommendations"]
+    type: Optional[V3Placements] = None
+    value: Optional[StrictInt] = Field(default=None, description="Ставка")
+    __properties: ClassVar[List[str]] = ["type", "value"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,7 +81,5 @@ class V3AdvertBidsKopecks(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate(
-            {"search": obj.get("search"), "recommendations": obj.get("recommendations")}
-        )
+        _obj = cls.model_validate({"type": obj.get("type"), "value": obj.get("value")})
         return _obj

@@ -37,11 +37,11 @@ import java.util.Set;
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
 public class V3GetAdverts {
-  public static final String SERIALIZED_NAME_ID = "id";
+  public static final String SERIALIZED_NAME_ADVERT_ID = "advertId";
 
-  @SerializedName(SERIALIZED_NAME_ID)
+  @SerializedName(SERIALIZED_NAME_ADVERT_ID)
   @jakarta.annotation.Nullable
-  private Long id;
+  private Long advertId;
 
   /**
    * Статус кампании: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — завершена - &#x60;9&#x60;
@@ -139,23 +139,23 @@ public class V3GetAdverts {
 
   public V3GetAdverts() {}
 
-  public V3GetAdverts id(@jakarta.annotation.Nullable Long id) {
-    this.id = id;
+  public V3GetAdverts advertId(@jakarta.annotation.Nullable Long advertId) {
+    this.advertId = advertId;
     return this;
   }
 
   /**
    * ID кампании
    *
-   * @return id
+   * @return advertId
    */
   @jakarta.annotation.Nullable
-  public Long getId() {
-    return id;
+  public Long getAdvertId() {
+    return advertId;
   }
 
-  public void setId(@jakarta.annotation.Nullable Long id) {
-    this.id = id;
+  public void setAdvertId(@jakarta.annotation.Nullable Long advertId) {
+    this.advertId = advertId;
   }
 
   public V3GetAdverts status(@jakarta.annotation.Nullable StatusEnum status) {
@@ -291,7 +291,7 @@ public class V3GetAdverts {
       return false;
     }
     V3GetAdverts v3GetAdverts = (V3GetAdverts) o;
-    return Objects.equals(this.id, v3GetAdverts.id)
+    return Objects.equals(this.advertId, v3GetAdverts.advertId)
         && Objects.equals(this.status, v3GetAdverts.status)
         && Objects.equals(this.timestamps, v3GetAdverts.timestamps)
         && Objects.equals(this.settings, v3GetAdverts.settings)
@@ -302,14 +302,14 @@ public class V3GetAdverts {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, status, timestamps, settings, nms, currency, restrictions);
+    return Objects.hash(advertId, status, timestamps, settings, nms, currency, restrictions);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V3GetAdverts {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    advertId: ").append(toIndentedString(advertId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    timestamps: ").append(toIndentedString(timestamps)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
@@ -336,7 +336,7 @@ public class V3GetAdverts {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("id");
+    openapiFields.add("advertId");
     openapiFields.add("status");
     openapiFields.add("timestamps");
     openapiFields.add("settings");

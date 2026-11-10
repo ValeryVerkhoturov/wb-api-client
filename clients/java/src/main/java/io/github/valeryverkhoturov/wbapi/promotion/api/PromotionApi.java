@@ -4457,7 +4457,10 @@ public class PromotionApi {
    * ответа на предыдущий запрос, пока &#x60;next&#x60; не вернётся пустым
    * &#x60;\&quot;\&quot;&#x60;. Это будет означать, что вы получили все кампании. Чтобы получить
    * конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте
-   * &#x60;advertIds&#x60; в одном запросе с другими параметрами. RL Library doc:
+   * &#x60;advertIds&#x60; в одном запросе с другими параметрами. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | |
+   * | | | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
    *
    * @param advertIds ID кампаний (optional)
@@ -4495,7 +4498,10 @@ public class PromotionApi {
    * ответа на предыдущий запрос, пока &#x60;next&#x60; не вернётся пустым
    * &#x60;\&quot;\&quot;&#x60;. Это будет означать, что вы получили все кампании. Чтобы получить
    * конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте
-   * &#x60;advertIds&#x60; в одном запросе с другими параметрами. RL Library doc:
+   * &#x60;advertIds&#x60; в одном запросе с другими параметрами. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | |
+   * | | | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
    *
    * @param advertIds ID кампаний (optional)
@@ -4534,7 +4540,10 @@ public class PromotionApi {
    * параметра &#x60;next&#x60; из ответа на предыдущий запрос, пока &#x60;next&#x60; не вернётся
    * пустым &#x60;\&quot;\&quot;&#x60;. Это будет означать, что вы получили все кампании. Чтобы
    * получить конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте
-   * &#x60;advertIds&#x60; в одном запросе с другими параметрами. RL Library doc:
+   * &#x60;advertIds&#x60; в одном запросе с другими параметрами. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | |
+   * | | | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
    *
    * @param advertIds ID кампаний (optional)

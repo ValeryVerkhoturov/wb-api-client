@@ -24,7 +24,7 @@ from wb_api_client.promotion.models.advert_settings import AdvertSettings
 from wb_api_client.promotion.models.get_adverts_adverts_inner_restrictions import (
     GetAdvertsAdvertsInnerRestrictions,
 )
-from wb_api_client.promotion.models.timestamps import Timestamps
+from wb_api_client.promotion.models.timestamps_v2 import TimestampsV2
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -52,7 +52,7 @@ class GetAdvertsAdvertsInner(BaseModel):
         default=None,
         description="Статус кампании: - `-1` — удалена, процесс удаления будет завершён в течение 10 минут - `4` — готова к запуску - `7` — завершена - `8` — отменена - `9` — активна - `11` — на паузе ",
     )
-    timestamps: Optional[Timestamps] = None
+    timestamps: Optional[TimestampsV2] = None
     __properties: ClassVar[List[str]] = [
         "bid_type",
         "currency",
@@ -165,7 +165,7 @@ class GetAdvertsAdvertsInner(BaseModel):
                 ),
                 "status": obj.get("status"),
                 "timestamps": (
-                    Timestamps.from_dict(obj["timestamps"])
+                    TimestampsV2.from_dict(obj["timestamps"])
                     if obj.get("timestamps") is not None
                     else None
                 ),

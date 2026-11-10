@@ -15,6 +15,9 @@
 
 # import models into model package
 from wb_api_client.orders_fbw.models.errors_draft_error import ErrorsDraftError
+from wb_api_client.orders_fbw.models.get_v1_supplies_supply_id_discrepancies_quantity403_response import (
+    GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response,
+)
 from wb_api_client.orders_fbw.models.models_box import ModelsBox
 from wb_api_client.orders_fbw.models.models_date_filter_request import (
     ModelsDateFilterRequest,

@@ -26,68 +26,29 @@ using OpenAPIDateConverter = ValeryVerkhoturov.WbApiClient.Promotion.Client.Open
 namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
 {
     /// <summary>
-    /// V3Placements
+    /// Место размещения кампании: - &#x60;search&#x60; - поиск - &#x60;recommendations&#x60; - рекомендации - &#x60;combined&#x60; - поиск и рекомендации с единой ставкой 
     /// </summary>
-    [DataContract(Name = "V3Placements")]
-    public partial class V3Placements : IValidatableObject
+    /// <value>Место размещения кампании: - &#x60;search&#x60; - поиск - &#x60;recommendations&#x60; - рекомендации - &#x60;combined&#x60; - поиск и рекомендации с единой ставкой </value>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum V3Placements
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="V3Placements" /> class.
+        /// Enum Search for value: search
         /// </summary>
-        /// <param name="search">Размещение в поиске:   - &#x60;false&#x60; — выключено   - &#x60;true&#x60; — включено .</param>
-        /// <param name="recommendations">Размещение в рекомендациях:   - &#x60;false&#x60; — выключено   - &#x60;true&#x60; — включено .</param>
-        public V3Placements(bool search = default(bool), bool recommendations = default(bool))
-        {
-            this.Search = search;
-            this.Recommendations = recommendations;
-        }
+        [EnumMember(Value = "search")]
+        Search = 1,
 
         /// <summary>
-        /// Размещение в поиске:   - &#x60;false&#x60; — выключено   - &#x60;true&#x60; — включено 
+        /// Enum Recommendations for value: recommendations
         /// </summary>
-        /// <value>Размещение в поиске:   - &#x60;false&#x60; — выключено   - &#x60;true&#x60; — включено </value>
-        [DataMember(Name = "search", EmitDefaultValue = true)]
-        public bool Search { get; set; }
+        [EnumMember(Value = "recommendations")]
+        Recommendations = 2,
 
         /// <summary>
-        /// Размещение в рекомендациях:   - &#x60;false&#x60; — выключено   - &#x60;true&#x60; — включено 
+        /// Enum Combined for value: combined
         /// </summary>
-        /// <value>Размещение в рекомендациях:   - &#x60;false&#x60; — выключено   - &#x60;true&#x60; — включено </value>
-        [DataMember(Name = "recommendations", EmitDefaultValue = true)]
-        public bool Recommendations { get; set; }
-
-        /// <summary>
-        /// Returns the string presentation of the object
-        /// </summary>
-        /// <returns>String presentation of the object</returns>
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("class V3Placements {\n");
-            sb.Append("  Search: ").Append(Search).Append("\n");
-            sb.Append("  Recommendations: ").Append(Recommendations).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
-        }
-
-        /// <summary>
-        /// Returns the JSON string presentation of the object
-        /// </summary>
-        /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
-        }
+        [EnumMember(Value = "combined")]
+        Combined = 3
     }
 
 }

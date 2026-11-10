@@ -40,9 +40,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="actualInstance">An instance of V0BidsRecommendationsCpmResponse1.</param>
         public GetV0BidsRecommendations200Response(V0BidsRecommendationsCpmResponse1 actualInstance)
         {
-            this.IsNullable = false;
-            this.SchemaType = "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            IsNullable = false;
+            SchemaType = "anyOf";
+            ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
         /// <summary>
@@ -52,9 +52,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="actualInstance">An instance of V0BidsRecommendationsCpcResponse2.</param>
         public GetV0BidsRecommendations200Response(V0BidsRecommendationsCpcResponse2 actualInstance)
         {
-            this.IsNullable = false;
-            this.SchemaType = "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            IsNullable = false;
+            SchemaType = "anyOf";
+            ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
 
@@ -71,13 +71,13 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
             }
             set
             {
-                if (value.GetType() == typeof(V0BidsRecommendationsCpcResponse2) || value is V0BidsRecommendationsCpcResponse2)
+                if (value.GetType() == typeof(V0BidsRecommendationsCpcResponse2))
                 {
-                    this._actualInstance = value;
+                    _actualInstance = value;
                 }
-                else if (value.GetType() == typeof(V0BidsRecommendationsCpmResponse1) || value is V0BidsRecommendationsCpmResponse1)
+                else if (value.GetType() == typeof(V0BidsRecommendationsCpmResponse1))
                 {
-                    this._actualInstance = value;
+                    _actualInstance = value;
                 }
                 else
                 {
@@ -93,7 +93,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <returns>An instance of V0BidsRecommendationsCpmResponse1</returns>
         public V0BidsRecommendationsCpmResponse1 GetV0BidsRecommendationsCpmResponse1()
         {
-            return (V0BidsRecommendationsCpmResponse1)this.ActualInstance;
+            return (V0BidsRecommendationsCpmResponse1)ActualInstance;
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <returns>An instance of V0BidsRecommendationsCpcResponse2</returns>
         public V0BidsRecommendationsCpcResponse2 GetV0BidsRecommendationsCpcResponse2()
         {
-            return (V0BidsRecommendationsCpcResponse2)this.ActualInstance;
+            return (V0BidsRecommendationsCpcResponse2)ActualInstance;
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GetV0BidsRecommendations200Response {\n");
-            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
+            sb.Append("  ActualInstance: ").Append(ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,7 +125,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, GetV0BidsRecommendations200Response.SerializerSettings);
+            return JsonConvert.SerializeObject(ActualInstance, GetV0BidsRecommendations200Response.SerializerSettings);
         }
 
         /// <summary>
@@ -141,22 +141,12 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
             {
                 return newGetV0BidsRecommendations200Response;
             }
-            int match = 0;
-            List<string> matchedTypes = new List<string>();
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(V0BidsRecommendationsCpcResponse2).GetProperty("AdditionalProperties") == null)
-                {
-                    newGetV0BidsRecommendations200Response = new GetV0BidsRecommendations200Response(JsonConvert.DeserializeObject<V0BidsRecommendationsCpcResponse2>(jsonString, GetV0BidsRecommendations200Response.SerializerSettings));
-                }
-                else
-                {
-                    newGetV0BidsRecommendations200Response = new GetV0BidsRecommendations200Response(JsonConvert.DeserializeObject<V0BidsRecommendationsCpcResponse2>(jsonString, GetV0BidsRecommendations200Response.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("V0BidsRecommendationsCpcResponse2");
-                match++;
+                newGetV0BidsRecommendations200Response = new GetV0BidsRecommendations200Response(JsonConvert.DeserializeObject<V0BidsRecommendationsCpcResponse2>(jsonString, GetV0BidsRecommendations200Response.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newGetV0BidsRecommendations200Response;
             }
             catch (Exception exception)
             {
@@ -166,17 +156,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(V0BidsRecommendationsCpmResponse1).GetProperty("AdditionalProperties") == null)
-                {
-                    newGetV0BidsRecommendations200Response = new GetV0BidsRecommendations200Response(JsonConvert.DeserializeObject<V0BidsRecommendationsCpmResponse1>(jsonString, GetV0BidsRecommendations200Response.SerializerSettings));
-                }
-                else
-                {
-                    newGetV0BidsRecommendations200Response = new GetV0BidsRecommendations200Response(JsonConvert.DeserializeObject<V0BidsRecommendationsCpmResponse1>(jsonString, GetV0BidsRecommendations200Response.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("V0BidsRecommendationsCpmResponse1");
-                match++;
+                newGetV0BidsRecommendations200Response = new GetV0BidsRecommendations200Response(JsonConvert.DeserializeObject<V0BidsRecommendationsCpmResponse1>(jsonString, GetV0BidsRecommendations200Response.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newGetV0BidsRecommendations200Response;
             }
             catch (Exception exception)
             {
@@ -184,19 +166,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into V0BidsRecommendationsCpmResponse1: {1}", jsonString, exception.ToString()));
             }
 
-            if (match == 0)
-            {
-                throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
-            }
-            else if (match > 1)
-            {
-                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + String.Join(",", matchedTypes));
-            }
-
-            // deserialization is considered successful at this point if no exception has been thrown.
-            return newGetV0BidsRecommendations200Response;
+            // no match found, throw an exception
+            throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
         }
-
 
         /// <summary>
         /// To validate all properties of the instance

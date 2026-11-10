@@ -664,10 +664,10 @@ export interface GetAdvertsAdvertsInner {
   status?: GetAdvertsAdvertsInnerStatusEnum;
   /**
    *
-   * @type {Timestamps}
+   * @type {TimestampsV2}
    * @memberof GetAdvertsAdvertsInner
    */
-  timestamps?: Timestamps;
+  timestamps?: TimestampsV2;
 }
 
 export const GetAdvertsAdvertsInnerStatusEnum = {
@@ -696,12 +696,55 @@ export interface GetAdvertsAdvertsInnerRestrictions {
   can_change_nms?: boolean;
 }
 /**
- * @type GetV0BidsRecommendations200Response
+ *
  * @export
+ * @interface GetV0BidsRecommendations200Response
  */
-export type GetV0BidsRecommendations200Response =
-  | V0BidsRecommendationsCpcResponse2
-  | V0BidsRecommendationsCpmResponse1;
+export interface GetV0BidsRecommendations200Response {
+  /**
+   * ID кампании
+   * @type {number}
+   * @memberof GetV0BidsRecommendations200Response
+   */
+  advertId?: number;
+  /**
+   *
+   * @type {V0BidRecommendationBase}
+   * @memberof GetV0BidsRecommendations200Response
+   */
+  base?: V0BidRecommendationBase;
+  /**
+   * Артикул WB
+   * @type {number}
+   * @memberof GetV0BidsRecommendations200Response
+   */
+  nmId?: number;
+  /**
+   * Рекомендуемые ставки для поисковых кластеров
+   * @type {Array<V0BidRecommendationNormQuery>}
+   * @memberof GetV0BidsRecommendations200Response
+   */
+  normQueries?: Array<V0BidRecommendationNormQuery>;
+  /**
+   * Тип оплаты:   - `cpc` — за клики
+   * @type {string}
+   * @memberof GetV0BidsRecommendations200Response
+   */
+  paymentType?: GetV0BidsRecommendations200ResponsePaymentTypeEnum;
+  /**
+   * Рекомендуемые ставки для карточек товаров
+   * @type {Array<V0BidRecommendationCPCLevels>}
+   * @memberof GetV0BidsRecommendations200Response
+   */
+  levels?: Array<V0BidRecommendationCPCLevels>;
+}
+
+export const GetV0BidsRecommendations200ResponsePaymentTypeEnum = {
+  Cpc: "cpc",
+} as const;
+
+export type GetV0BidsRecommendations200ResponsePaymentTypeEnum =
+  (typeof GetV0BidsRecommendations200ResponsePaymentTypeEnum)[keyof typeof GetV0BidsRecommendations200ResponsePaymentTypeEnum];
 
 /**
  *
@@ -3309,6 +3352,37 @@ export interface Timestamps {
    * @memberof Timestamps
    */
   started?: string | null;
+  /**
+   * Время завершения кампании
+   * @type {string}
+   * @memberof Timestamps
+   */
+  ended?: string | null;
+}
+/**
+ * Временные отметки
+ * @export
+ * @interface TimestampsV2
+ */
+export interface TimestampsV2 {
+  /**
+   * Время создания кампании
+   * @type {string}
+   * @memberof TimestampsV2
+   */
+  created?: string;
+  /**
+   * Время последнего изменения кампании
+   * @type {string}
+   * @memberof TimestampsV2
+   */
+  updated?: string;
+  /**
+   * Время последнего запуска кампании
+   * @type {string}
+   * @memberof TimestampsV2
+   */
+  started?: string | null;
 }
 /**
  * Рекомендуемые ставки для карточек товаров
@@ -4611,18 +4685,19 @@ export interface V2GetConfigResponse {
  */
 export interface V3AdvertBidsKopecks {
   /**
-   * Ставка в поиске
-   * @type {number}
+   *
+   * @type {V3Placements}
    * @memberof V3AdvertBidsKopecks
    */
-  search?: number;
+  type?: V3Placements;
   /**
-   * Ставка в рекомендациях
+   * Ставка
    * @type {number}
    * @memberof V3AdvertBidsKopecks
    */
-  recommendations?: number;
+  value?: number;
 }
+
 /**
  *
  * @export
@@ -4642,11 +4717,11 @@ export interface V3AdvertNMsSettings {
    */
   subject?: V3AdvertSubject;
   /**
-   *
-   * @type {V3AdvertBidsKopecks}
+   * Ставки
+   * @type {Array<V3AdvertBidsKopecks>}
    * @memberof V3AdvertNMsSettings
    */
-  bids?: V3AdvertBidsKopecks;
+  bids?: Array<V3AdvertBidsKopecks>;
 }
 /**
  * Настройки кампании
@@ -4668,10 +4743,10 @@ export interface V3AdvertSettings {
   name?: string;
   /**
    *
-   * @type {V3Placements}
+   * @type {Array<V3Placements>}
    * @memberof V3AdvertSettings
    */
-  placements?: V3Placements;
+  placements?: Array<V3Placements>;
 }
 /**
  *
@@ -4703,7 +4778,7 @@ export interface V3GetAdverts {
    * @type {number}
    * @memberof V3GetAdverts
    */
-  id?: number;
+  advertId?: number;
   /**
    * Статус кампании: - `4` — готова к запуску - `7` — завершена - `9` — активна - `11` — на паузе
    * @type {number}
@@ -4785,24 +4860,18 @@ export interface V3GetAdvertsRestrictions {
   canChangeNms?: boolean;
 }
 /**
- *
+ * Место размещения кампании: - `search` - поиск - `recommendations` - рекомендации - `combined` - поиск и рекомендации с единой ставкой
  * @export
- * @interface V3Placements
+ * @enum {string}
  */
-export interface V3Placements {
-  /**
-   * Размещение в поиске:   - `false` — выключено   - `true` — включено
-   * @type {boolean}
-   * @memberof V3Placements
-   */
-  search?: boolean;
-  /**
-   * Размещение в рекомендациях:   - `false` — выключено   - `true` — включено
-   * @type {boolean}
-   * @memberof V3Placements
-   */
-  recommendations?: boolean;
-}
+
+export const V3Placements = {
+  Search: "search",
+  Recommendations: "recommendations",
+  Combined: "combined",
+} as const;
+
+export type V3Placements = (typeof V3Placements)[keyof typeof V3Placements];
 
 /**
  * PromotionApi - axios parameter creator
@@ -5981,7 +6050,7 @@ export const PromotionApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.  Чтобы получить все кампании:   1. Сделайте первый запрос без параметра `next`.   2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `next` не вернётся пустым `\"\"`. Это будет означать, что вы получили все кампании.  Чтобы получить конкретные кампании, передайте их ID в параметре `advertIds`. Не передавайте `advertIds` в одном запросе с другими параметрами.  RL  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+     * Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID. Чтобы получить все кампании: 1. Сделайте первый запрос без параметра `next`. 2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `next` не вернётся пустым `\"\"`. Это будет означать, что вы получили все кампании. Чтобы получить конкретные кампании, передайте их ID в параметре `advertIds`. Не передавайте `advertIds` в одном запросе с другими параметрами.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | |  |  |  |  |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
      * @summary Информация о кампаниях
      * @param {string} [advertIds] ID кампаний
      * @param {string} [statuses] Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе
@@ -7994,7 +8063,7 @@ export const PromotionApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.  Чтобы получить все кампании:   1. Сделайте первый запрос без параметра `next`.   2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `next` не вернётся пустым `\"\"`. Это будет означать, что вы получили все кампании.  Чтобы получить конкретные кампании, передайте их ID в параметре `advertIds`. Не передавайте `advertIds` в одном запросе с другими параметрами.  RL  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+     * Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID. Чтобы получить все кампании: 1. Сделайте первый запрос без параметра `next`. 2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `next` не вернётся пустым `\"\"`. Это будет означать, что вы получили все кампании. Чтобы получить конкретные кампании, передайте их ID в параметре `advertIds`. Не передавайте `advertIds` в одном запросе с другими параметрами.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | |  |  |  |  |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
      * @summary Информация о кампаниях
      * @param {string} [advertIds] ID кампаний
      * @param {string} [statuses] Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе
@@ -9105,7 +9174,7 @@ export const PromotionApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.  Чтобы получить все кампании:   1. Сделайте первый запрос без параметра `next`.   2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `next` не вернётся пустым `\"\"`. Это будет означать, что вы получили все кампании.  Чтобы получить конкретные кампании, передайте их ID в параметре `advertIds`. Не передавайте `advertIds` в одном запросе с другими параметрами.  RL  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+     * Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID. Чтобы получить все кампании: 1. Сделайте первый запрос без параметра `next`. 2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `next` не вернётся пустым `\"\"`. Это будет означать, что вы получили все кампании. Чтобы получить конкретные кампании, передайте их ID в параметре `advertIds`. Не передавайте `advertIds` в одном запросе с другими параметрами.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | |  |  |  |  |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
      * @summary Информация о кампаниях
      * @param {string} [advertIds] ID кампаний
      * @param {string} [statuses] Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе
@@ -9750,7 +9819,7 @@ export interface PromotionApiInterface {
   ): AxiosPromise<GetAdverts>;
 
   /**
-   * Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.  Чтобы получить все кампании:   1. Сделайте первый запрос без параметра `next`.   2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `next` не вернётся пустым `\"\"`. Это будет означать, что вы получили все кампании.  Чтобы получить конкретные кампании, передайте их ID в параметре `advertIds`. Не передавайте `advertIds` в одном запросе с другими параметрами.  RL  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+   * Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID. Чтобы получить все кампании: 1. Сделайте первый запрос без параметра `next`. 2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `next` не вернётся пустым `\"\"`. Это будет означать, что вы получили все кампании. Чтобы получить конкретные кампании, передайте их ID в параметре `advertIds`. Не передавайте `advertIds` в одном запросе с другими параметрами.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | |  |  |  |  |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
    * @summary Информация о кампаниях
    * @param {string} [advertIds] ID кампаний
    * @param {string} [statuses] Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе
@@ -10423,7 +10492,7 @@ export class PromotionApi extends BaseAPI implements PromotionApiInterface {
   }
 
   /**
-   * Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID.  Чтобы получить все кампании:   1. Сделайте первый запрос без параметра `next`.   2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `next` не вернётся пустым `\"\"`. Это будет означать, что вы получили все кампании.  Чтобы получить конкретные кампании, передайте их ID в параметре `advertIds`. Не передавайте `advertIds` в одном запросе с другими параметрами.  RL  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
+   * Метод возвращает информацию о кампаниях с единой или ручной ставкой по их статусам, типам оплаты или списку ID. Чтобы получить все кампании: 1. Сделайте первый запрос без параметра `next`. 2. Повторяйте запрос со значением параметра `next` из ответа на предыдущий запрос, пока `next` не вернётся пустым `\"\"`. Это будет означать, что вы получили все кампании. Чтобы получить конкретные кампании, передайте их ID в параметре `advertIds`. Не передавайте `advertIds` в одном запросе с другими параметрами.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | |  |  |  |  |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
    * @summary Информация о кампаниях
    * @param {string} [advertIds] ID кампаний
    * @param {string} [statuses] Статусы кампаний: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — кампания завершена - &#x60;9&#x60; — идут показы - &#x60;11&#x60; — кампания на паузе

@@ -68,16 +68,16 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V3GetAdverts" /> class.
         /// </summary>
-        /// <param name="id">ID кампании.</param>
+        /// <param name="advertId">ID кампании.</param>
         /// <param name="status">Статус кампании: - &#x60;4&#x60; — готова к запуску - &#x60;7&#x60; — завершена - &#x60;9&#x60; — активна - &#x60;11&#x60; — на паузе .</param>
         /// <param name="timestamps">timestamps.</param>
         /// <param name="settings">settings.</param>
         /// <param name="nms">Настройки товаров.</param>
         /// <param name="currency">Код валюты.</param>
         /// <param name="restrictions">restrictions.</param>
-        public V3GetAdverts(long id = default(long), StatusEnum? status = default(StatusEnum?), Timestamps timestamps = default(Timestamps), V3AdvertSettings settings = default(V3AdvertSettings), List<V3AdvertNMsSettings> nms = default(List<V3AdvertNMsSettings>), string currency = default(string), V3GetAdvertsRestrictions restrictions = default(V3GetAdvertsRestrictions))
+        public V3GetAdverts(long advertId = default(long), StatusEnum? status = default(StatusEnum?), Timestamps timestamps = default(Timestamps), V3AdvertSettings settings = default(V3AdvertSettings), List<V3AdvertNMsSettings> nms = default(List<V3AdvertNMsSettings>), string currency = default(string), V3GetAdvertsRestrictions restrictions = default(V3GetAdvertsRestrictions))
         {
-            this.Id = id;
+            this.AdvertId = advertId;
             this.Status = status;
             this.Timestamps = timestamps;
             this.Settings = settings;
@@ -90,8 +90,8 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// ID кампании
         /// </summary>
         /// <value>ID кампании</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public long Id { get; set; }
+        [DataMember(Name = "advertId", EmitDefaultValue = false)]
+        public long AdvertId { get; set; }
 
         /// <summary>
         /// Gets or Sets Timestamps
@@ -133,7 +133,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class V3GetAdverts {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  AdvertId: ").Append(AdvertId).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Timestamps: ").Append(Timestamps).Append("\n");
             sb.Append("  Settings: ").Append(Settings).Append("\n");

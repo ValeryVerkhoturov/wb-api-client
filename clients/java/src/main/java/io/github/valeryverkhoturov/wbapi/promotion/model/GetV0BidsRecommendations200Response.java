@@ -77,7 +77,7 @@ public class GetV0BidsRecommendations200Response extends AbstractOpenApiSchema {
                 return;
               }
               throw new IOException(
-                  "Failed to serialize as the type doesn't match oneOf schemas: V0BidsRecommendationsCpcResponse2, V0BidsRecommendationsCpmResponse1");
+                  "Failed to serialize as the type doesn't match anyOf schemas: V0BidsRecommendationsCpcResponse2, V0BidsRecommendationsCpmResponse1");
             }
 
             @Override
@@ -85,7 +85,6 @@ public class GetV0BidsRecommendations200Response extends AbstractOpenApiSchema {
               Object deserialized = null;
               JsonElement jsonElement = elementAdapter.read(in);
 
-              int match = 0;
               ArrayList<String> errorMessages = new ArrayList<>();
               TypeAdapter actualAdapter = elementAdapter;
 
@@ -94,9 +93,9 @@ public class GetV0BidsRecommendations200Response extends AbstractOpenApiSchema {
                 // validate the JSON object to see if any exception is thrown
                 V0BidsRecommendationsCpmResponse1.validateJsonElement(jsonElement);
                 actualAdapter = adapterV0BidsRecommendationsCpmResponse1;
-                match++;
-                log.log(
-                    Level.FINER, "Input data matches schema 'V0BidsRecommendationsCpmResponse1'");
+                GetV0BidsRecommendations200Response ret = new GetV0BidsRecommendations200Response();
+                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                return ret;
               } catch (Exception e) {
                 // deserialization failed, continue
                 errorMessages.add(
@@ -113,9 +112,9 @@ public class GetV0BidsRecommendations200Response extends AbstractOpenApiSchema {
                 // validate the JSON object to see if any exception is thrown
                 V0BidsRecommendationsCpcResponse2.validateJsonElement(jsonElement);
                 actualAdapter = adapterV0BidsRecommendationsCpcResponse2;
-                match++;
-                log.log(
-                    Level.FINER, "Input data matches schema 'V0BidsRecommendationsCpcResponse2'");
+                GetV0BidsRecommendations200Response ret = new GetV0BidsRecommendations200Response();
+                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                return ret;
               } catch (Exception e) {
                 // deserialization failed, continue
                 errorMessages.add(
@@ -128,30 +127,24 @@ public class GetV0BidsRecommendations200Response extends AbstractOpenApiSchema {
                     e);
               }
 
-              if (match == 1) {
-                GetV0BidsRecommendations200Response ret = new GetV0BidsRecommendations200Response();
-                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                return ret;
-              }
-
               throw new IOException(
                   String.format(
-                      "Failed deserialization for GetV0BidsRecommendations200Response: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
-                      match, errorMessages, jsonElement.toString()));
+                      "Failed deserialization for GetV0BidsRecommendations200Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
+                      errorMessages, jsonElement.toString()));
             }
           }.nullSafe();
     }
   }
 
-  // store a list of schema names defined in oneOf
+  // store a list of schema names defined in anyOf
   public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
 
   public GetV0BidsRecommendations200Response() {
-    super("oneOf", Boolean.FALSE);
+    super("anyOf", Boolean.FALSE);
   }
 
   public GetV0BidsRecommendations200Response(Object o) {
-    super("oneOf", Boolean.FALSE);
+    super("anyOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
@@ -166,11 +159,11 @@ public class GetV0BidsRecommendations200Response extends AbstractOpenApiSchema {
   }
 
   /**
-   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: V0BidsRecommendationsCpcResponse2,
+   * Set the instance that matches the anyOf child schema, check the instance parameter is valid
+   * against the anyOf child schemas: V0BidsRecommendationsCpcResponse2,
    * V0BidsRecommendationsCpmResponse1
    *
-   * <p>It could be an instance of the 'oneOf' schemas.
+   * <p>It could be an instance of the 'anyOf' schemas.
    */
   @Override
   public void setActualInstance(Object instance) {
@@ -233,13 +226,12 @@ public class GetV0BidsRecommendations200Response extends AbstractOpenApiSchema {
    *     GetV0BidsRecommendations200Response
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    // validate oneOf schemas one by one
-    int validCount = 0;
+    // validate anyOf schemas one by one
     ArrayList<String> errorMessages = new ArrayList<>();
     // validate the json string with V0BidsRecommendationsCpmResponse1
     try {
       V0BidsRecommendationsCpmResponse1.validateJsonElement(jsonElement);
-      validCount++;
+      return;
     } catch (Exception e) {
       errorMessages.add(
           String.format(
@@ -250,7 +242,7 @@ public class GetV0BidsRecommendations200Response extends AbstractOpenApiSchema {
     // validate the json string with V0BidsRecommendationsCpcResponse2
     try {
       V0BidsRecommendationsCpcResponse2.validateJsonElement(jsonElement);
-      validCount++;
+      return;
     } catch (Exception e) {
       errorMessages.add(
           String.format(
@@ -258,12 +250,10 @@ public class GetV0BidsRecommendations200Response extends AbstractOpenApiSchema {
               e.getMessage()));
       // continue to the next one
     }
-    if (validCount != 1) {
-      throw new IOException(
-          String.format(
-              "The JSON string is invalid for GetV0BidsRecommendations200Response with oneOf schemas: V0BidsRecommendationsCpcResponse2, V0BidsRecommendationsCpmResponse1. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
-              validCount, errorMessages, jsonElement.toString()));
-    }
+    throw new IOException(
+        String.format(
+            "The JSON string is invalid for GetV0BidsRecommendations200Response with anyOf schemas: V0BidsRecommendationsCpcResponse2, V0BidsRecommendationsCpmResponse1. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
+            errorMessages, jsonElement.toString()));
   }
 
   /**
