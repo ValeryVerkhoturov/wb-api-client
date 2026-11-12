@@ -4459,8 +4459,10 @@ public class PromotionApi {
    * конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте
    * &#x60;advertIds&#x60; в одном запросе с другими параметрами. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | |
-   * | | | Library doc:
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
+   * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
    *
    * @param advertIds ID кампаний (optional)
@@ -4500,8 +4502,10 @@ public class PromotionApi {
    * конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте
    * &#x60;advertIds&#x60; в одном запросе с другими параметрами. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | |
-   * | | | Library doc:
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
+   * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
    *
    * @param advertIds ID кампаний (optional)
@@ -4542,8 +4546,10 @@ public class PromotionApi {
    * получить конкретные кампании, передайте их ID в параметре &#x60;advertIds&#x60;. Не передавайте
    * &#x60;advertIds&#x60; в одном запросе с другими параметрами. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | |
-   * | | | Library doc:
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5
+   * запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5
+   * запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v3-adverts
    *
    * @param advertIds ID кампаний (optional)

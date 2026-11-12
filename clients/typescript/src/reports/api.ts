@@ -476,80 +476,6 @@ export interface GetV1AnalyticsGoodsLabeling200ResponseReportInner {
 /**
  *
  * @export
- * @interface GetV1AnalyticsRegionSale200Response
- */
-export interface GetV1AnalyticsRegionSale200Response {
-  /**
-   *
-   * @type {Array<GetV1AnalyticsRegionSale200ResponseReportInner>}
-   * @memberof GetV1AnalyticsRegionSale200Response
-   */
-  report?: Array<GetV1AnalyticsRegionSale200ResponseReportInner>;
-}
-/**
- *
- * @export
- * @interface GetV1AnalyticsRegionSale200ResponseReportInner
- */
-export interface GetV1AnalyticsRegionSale200ResponseReportInner {
-  /**
-   * Населённый пункт
-   * @type {string}
-   * @memberof GetV1AnalyticsRegionSale200ResponseReportInner
-   */
-  cityName?: string;
-  /**
-   * Страна
-   * @type {string}
-   * @memberof GetV1AnalyticsRegionSale200ResponseReportInner
-   */
-  countryName?: string;
-  /**
-   * Федеральный округ
-   * @type {string}
-   * @memberof GetV1AnalyticsRegionSale200ResponseReportInner
-   */
-  foName?: string;
-  /**
-   * Артикул WB
-   * @type {number}
-   * @memberof GetV1AnalyticsRegionSale200ResponseReportInner
-   */
-  nmID?: number;
-  /**
-   * Регион
-   * @type {string}
-   * @memberof GetV1AnalyticsRegionSale200ResponseReportInner
-   */
-  regionName?: string;
-  /**
-   * Артикул продавца
-   * @type {string}
-   * @memberof GetV1AnalyticsRegionSale200ResponseReportInner
-   */
-  sa?: string;
-  /**
-   * К перечислению за товар, ₽
-   * @type {number}
-   * @memberof GetV1AnalyticsRegionSale200ResponseReportInner
-   */
-  saleInvoiceCostPrice?: number;
-  /**
-   * Доля, %
-   * @type {number}
-   * @memberof GetV1AnalyticsRegionSale200ResponseReportInner
-   */
-  saleInvoiceCostPricePerc?: number;
-  /**
-   * Выкупили, шт.
-   * @type {number}
-   * @memberof GetV1AnalyticsRegionSale200ResponseReportInner
-   */
-  saleItemInvoiceQty?: number;
-}
-/**
- *
- * @export
  * @interface GetV1Deductions200Response
  */
 export interface GetV1Deductions200Response {
@@ -2613,66 +2539,6 @@ export const ReportsApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
-     * @summary Получить отчёт
-     * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-     * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    getV1AnalyticsRegionSale: async (
-      dateFrom: string,
-      dateTo: string,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      // verify required parameter 'dateFrom' is not null or undefined
-      assertParamExists("getV1AnalyticsRegionSale", "dateFrom", dateFrom);
-      // verify required parameter 'dateTo' is not null or undefined
-      assertParamExists("getV1AnalyticsRegionSale", "dateTo", dateTo);
-      const localVarPath = `/api/v1/analytics/region-sale`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "GET",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      if (dateFrom !== undefined) {
-        localVarQueryParameter["dateFrom"] = dateFrom;
-      }
-
-      if (dateTo !== undefined) {
-        localVarQueryParameter["dateTo"] = dateTo;
-      }
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
      * Метод возвращает отчёт об удержаниях за [подмены и неверные вложения](https://seller.wildberries.ru/analytics-reports/dimensions-penalties/retentions)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-deductions
      * @summary Подмены и неверные вложения
      * @param {string} dateTo Конец отчётного периода
@@ -3869,44 +3735,6 @@ export const ReportsApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
-     * @summary Получить отчёт
-     * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-     * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    async getV1AnalyticsRegionSale(
-      dateFrom: string,
-      dateTo: string,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<GetV1AnalyticsRegionSale200Response>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.getV1AnalyticsRegionSale(
-          dateFrom,
-          dateTo,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["ReportsApi.getV1AnalyticsRegionSale"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
      * Метод возвращает отчёт об удержаниях за [подмены и неверные вложения](https://seller.wildberries.ru/analytics-reports/dimensions-penalties/retentions)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-deductions
      * @summary Подмены и неверные вложения
      * @param {string} dateTo Конец отчётного периода
@@ -4606,24 +4434,6 @@ export const ReportsApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
-     * @summary Получить отчёт
-     * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-     * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    getV1AnalyticsRegionSale(
-      dateFrom: string,
-      dateTo: string,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<GetV1AnalyticsRegionSale200Response> {
-      return localVarFp
-        .getV1AnalyticsRegionSale(dateFrom, dateTo, options)
-        .then((request) => request(axios, basePath));
-    },
-    /**
      * Метод возвращает отчёт об удержаниях за [подмены и неверные вложения](https://seller.wildberries.ru/analytics-reports/dimensions-penalties/retentions)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-deductions
      * @summary Подмены и неверные вложения
      * @param {string} dateTo Конец отчётного периода
@@ -5039,22 +4849,6 @@ export interface ReportsApiInterface {
   ): AxiosPromise<GetV1AnalyticsGoodsLabeling200Response>;
 
   /**
-   * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
-   * @summary Получить отчёт
-   * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-   * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-   * @param {*} [options] Override http request option.
-   * @deprecated
-   * @throws {RequiredError}
-   * @memberof ReportsApiInterface
-   */
-  getV1AnalyticsRegionSale(
-    dateFrom: string,
-    dateTo: string,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<GetV1AnalyticsRegionSale200Response>;
-
-  /**
    * Метод возвращает отчёт об удержаниях за [подмены и неверные вложения](https://seller.wildberries.ru/analytics-reports/dimensions-penalties/retentions)  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Сервисный | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый с секретом | 1 мин | 1 запрос | 1 мин | 1 запрос | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-analytics-v1-deductions
    * @summary Подмены и неверные вложения
    * @param {string} dateTo Конец отчётного периода
@@ -5459,26 +5253,6 @@ export class ReportsApi extends BaseAPI implements ReportsApiInterface {
   ) {
     return ReportsApiFp(this.configuration)
       .getV1AnalyticsGoodsLabeling(dateFrom, dateTo, options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод будет отключен [3 ноября](https://dev.wildberries.ru/release-notes?id=590).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Сервисный | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый с секретом | 10 сек | 1 запрос | 10 сек | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
-   * @summary Получить отчёт
-   * @param {string} dateFrom Начало отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-   * @param {string} dateTo Конец отчётного периода, &#x60;ГГГГ-ММ-ДД&#x60;
-   * @param {*} [options] Override http request option.
-   * @deprecated
-   * @throws {RequiredError}
-   * @memberof ReportsApi
-   */
-  public getV1AnalyticsRegionSale(
-    dateFrom: string,
-    dateTo: string,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return ReportsApiFp(this.configuration)
-      .getV1AnalyticsRegionSale(dateFrom, dateTo, options)
       .then((request) => request(this.axios, this.basePath));
   }
 

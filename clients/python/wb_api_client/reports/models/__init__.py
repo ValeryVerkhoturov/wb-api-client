@@ -61,12 +61,6 @@ from wb_api_client.reports.models.get_v1_analytics_goods_labeling200_response im
 from wb_api_client.reports.models.get_v1_analytics_goods_labeling200_response_report_inner import (
     GetV1AnalyticsGoodsLabeling200ResponseReportInner,
 )
-from wb_api_client.reports.models.get_v1_analytics_region_sale200_response import (
-    GetV1AnalyticsRegionSale200Response,
-)
-from wb_api_client.reports.models.get_v1_analytics_region_sale200_response_report_inner import (
-    GetV1AnalyticsRegionSale200ResponseReportInner,
-)
 from wb_api_client.reports.models.get_v1_deductions200_response import (
     GetV1Deductions200Response,
 )

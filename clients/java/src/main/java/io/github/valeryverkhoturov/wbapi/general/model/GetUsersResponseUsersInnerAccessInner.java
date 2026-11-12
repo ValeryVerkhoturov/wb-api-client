@@ -50,7 +50,8 @@ public class GetUsersResponseUsersInnerAccessInner {
    * &#x60;copyrightComplaints&#x60; — Обращения правообладателей * &#x60;pretrialClaims&#x60; —
    * Досудебные претензии * &#x60;sellersChat&#x60; — Чат с покупателями * &#x60;brandzone&#x60; —
    * Бренд-зона. Публикация изменений * &#x60;brandzoneSubscribe&#x60; — Управление подпиской
-   * бренд-зоны
+   * бренд-зоны * &#x60;reportRating&#x60; — Отчёт [Оценка
+   * товара](https://seller.wildberries.ru/content-ratings)
    */
   @JsonAdapter(CodeEnum.Adapter.class)
   public enum CodeEnum {
@@ -92,7 +93,9 @@ public class GetUsersResponseUsersInnerAccessInner {
 
     BRANDZONE("brandzone"),
 
-    BRANDZONE_SUBSCRIBE("brandzoneSubscribe");
+    BRANDZONE_SUBSCRIBE("brandzoneSubscribe"),
+
+    REPORT_RATING("reportRating");
 
     private String value;
 
@@ -173,7 +176,8 @@ public class GetUsersResponseUsersInnerAccessInner {
    * &#x60;copyrightComplaints&#x60; — Обращения правообладателей * &#x60;pretrialClaims&#x60; —
    * Досудебные претензии * &#x60;sellersChat&#x60; — Чат с покупателями * &#x60;brandzone&#x60; —
    * Бренд-зона. Публикация изменений * &#x60;brandzoneSubscribe&#x60; — Управление подпиской
-   * бренд-зоны
+   * бренд-зоны * &#x60;reportRating&#x60; — Отчёт [Оценка
+   * товара](https://seller.wildberries.ru/content-ratings)
    *
    * @return code
    */

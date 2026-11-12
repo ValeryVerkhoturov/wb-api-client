@@ -546,6 +546,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetV1SuppliesIdPackageResponse200'
+              examples:
+                GetPackageSuccessResponse:
+                  $ref: '#/components/examples/GetPackageSuccessResponse'
         '400':
           description: Неправильный запрос
           content:
@@ -1553,7 +1556,10 @@ components:
       properties:
         packageCode:
           type: string
-          description: Штрих-код упаковки
+          description: Закодированное значение стикера упаковки
+        packageId:
+          type: string
+          description: ID стикера упаковки
         quantity:
           type: integer
           description: Суммарное количество товара в упаковке, шт
@@ -1563,12 +1569,6 @@ components:
           description: Список упакованных товаров
           items:
             $ref: '#/components/schemas/models.GoodInBox'
-      example:
-        packageCode: WB_689
-        quantity: 1
-        barcodes:
-        - barcode: '1234567891234'
-          quantity: 1
     models.GoodInBox:
       type: object
       properties:
@@ -2313,6 +2313,14 @@ components:
         requestId: aee7d3a5378ef3c7ec0e7a5bc94abfcf
         origin: supply-api
       description: Значение параметра `ID` не указано или некорректно
+    GetPackageSuccessResponse:
+      value:
+      - packageCode: $Ts;G8Z;tXcC;1;TuLY5Lo;TAS
+        packageId: '123456'
+        quantity: 1
+        barcodes:
+        - barcode: '1234567891234'
+          quantity: 1
     PreorderIdSearchError:
       value:
         status: 400

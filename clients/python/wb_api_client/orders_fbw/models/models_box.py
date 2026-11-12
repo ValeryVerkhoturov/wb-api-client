@@ -30,7 +30,12 @@ class ModelsBox(BaseModel):
     """  # noqa: E501
 
     package_code: Optional[StrictStr] = Field(
-        default=None, description="Штрих-код упаковки", alias="packageCode"
+        default=None,
+        description="Закодированное значение стикера упаковки",
+        alias="packageCode",
+    )
+    package_id: Optional[StrictStr] = Field(
+        default=None, description="ID стикера упаковки", alias="packageId"
     )
     quantity: Optional[StrictInt] = Field(
         default=None, description="Суммарное количество товара в упаковке, шт"
@@ -38,7 +43,12 @@ class ModelsBox(BaseModel):
     barcodes: Optional[List[ModelsGoodInBox]] = Field(
         default=None, description="Список упакованных товаров"
     )
-    __properties: ClassVar[List[str]] = ["packageCode", "quantity", "barcodes"]
+    __properties: ClassVar[List[str]] = [
+        "packageCode",
+        "packageId",
+        "quantity",
+        "barcodes",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -98,6 +108,7 @@ class ModelsBox(BaseModel):
         _obj = cls.model_validate(
             {
                 "packageCode": obj.get("packageCode"),
+                "packageId": obj.get("packageId"),
                 "quantity": obj.get("quantity"),
                 "barcodes": (
                     [ModelsGoodInBox.from_dict(_item) for _item in obj["barcodes"]]

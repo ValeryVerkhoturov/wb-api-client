@@ -544,6 +544,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetV1SuppliesIdPackageResponse200'
+              examples:
+                GetPackageSuccessResponse:
+                  $ref: '#/components/examples/GetPackageSuccessResponse'
         '400':
           description: Bad request
           content:
@@ -1551,7 +1554,10 @@ components:
       properties:
         packageCode:
           type: string
-          description: Package SKU
+          description: The encoded value of the packaging sticker
+        packageId:
+          type: string
+          description: Packaging sticker ID
         quantity:
           type: integer
           description: Total quantity of items in the package, pieces
@@ -1561,12 +1567,6 @@ components:
           description: List of packed items
           items:
             $ref: '#/components/schemas/models.GoodInBox'
-      example:
-        packageCode: WB_689
-        quantity: 1
-        barcodes:
-        - barcode: '1234567891234'
-          quantity: 1
     models.GoodInBox:
       type: object
       properties:
@@ -2311,6 +2311,14 @@ components:
         requestId: aee7d3a5378ef3c7ec0e7a5bc94abfcf
         origin: supply-api
       description: The value of the parameter `ID` is either not specified or specified incorrectly
+    GetPackageSuccessResponse:
+      value:
+      - packageCode: $Ts;G8Z;tXcC;1;TuLY5Lo;TAS
+        packageId: '123456'
+        quantity: 1
+        barcodes:
+        - barcode: '1234567891234'
+          quantity: 1
     PreorderIdSearchError:
       value:
         status: 400

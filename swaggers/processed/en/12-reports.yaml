@@ -74,14 +74,6 @@ tags:
       1. [Generate the report](./reports#tag/paidStorage/operation/getV1PaidStorage)
       2. Check if the report is generated with [Check the status](./reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdStatus) method. Generated report is available during 2 hours.
       3. [Get the report](./reports#tag/paidStorage/operation/getV1PaidStorageTasksTaskIdDownload)
-- name: Sales by Regions
-  x-displayName: Sales by Regions
-  description: ''
-  x-tagKey: salesByRegions
-  x-description: |
-    <div class="description_auth">
-      To access the methods, use a <a href="./api-information#tag/authorization/How-to-create-a-personal-access-base-or-test-token">token</a> for the <strong>Analytics</strong> category
-    </div>
 - name: Share of Brand in Sales
   x-displayName: Share of Brand in Sales
   description: ''
@@ -1571,65 +1563,6 @@ paths:
       x-tagKey: paidStorage
       x-original-tags:
       - Paid Storage
-  /api/v1/analytics/region-sale:
-    servers:
-    - url: https://seller-analytics-api.wildberries.ru
-    get:
-      operationId: getV1AnalyticsRegionSale
-      x-readonly-method: true
-      deprecated: true
-      x-category: contentanalytics
-      security:
-      - BearerAuth: []
-      tags:
-      - Reports
-      summary: Get Report
-      description: |-
-        The deprecated method will be disabled on [November 3](https://dev.wildberries.ru/en/release-notes?id=590).
-
-        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
-        | Type | Period | Limit | Interval | Burst |
-        | --- | --- | --- | --- | --- |
-        | Personal | 10 s | 1 request | 10 s | 5 requests |
-        | Service | 10 s | 1 request | 10 s | 5 requests |
-        | Base with secret | 10 s | 1 request | 10 s | 5 requests |
-        | Base | 1 h | 1 request | 1 h | 1 request |
-
-        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/reports/get-api-v1-analytics-region-sale
-      parameters:
-      - $ref: '#/components/parameters/DateFrom'
-      - $ref: '#/components/parameters/DateTo'
-      responses:
-        '200':
-          $ref: '#/components/responses/SuccessRegionSaleResponse'
-        '400':
-          description: Bad request
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Http4XXResponse'
-              examples:
-                MissingDateTimeFrom:
-                  $ref: '#/components/examples/MissingDateTimeFrom'
-                MissingDateTimeTo:
-                  $ref: '#/components/examples/MissingDateTimeTo'
-                IncorrectDateTimeFrom:
-                  $ref: '#/components/examples/IncorrectDateTimeFrom'
-                IncorrectDateTimeTo:
-                  $ref: '#/components/examples/IncorrectDateTimeTo'
-                DateRangeExceeded:
-                  $ref: '#/components/examples/DateRangeExceeded'
-                DateRanges:
-                  $ref: '#/components/examples/DateRanges'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '429':
-          $ref: '#/components/responses/429'
-      x-tagKey: salesByRegions
-      x-original-tags:
-      - Sales by Regions
   /api/v1/analytics/brand-share/brands:
     servers:
     - url: https://seller-analytics-api.wildberries.ru
@@ -3440,58 +3373,6 @@ components:
             status: 429
             statusText: Too Many Requests
             timestamp: '2024-09-30T06:52:38Z'
-    SuccessRegionSaleResponse:
-      description: Success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              report:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    cityName:
-                      type: string
-                      description: Location
-                      example: деревня Суханово
-                    countryName:
-                      type: string
-                      description: Country
-                      example: Россия
-                    foName:
-                      type: string
-                      description: Federal district
-                      example: Центральный федеральный округ
-                    nmID:
-                      type: integer
-                      description: WB item number
-                      example: 177974431
-                      format: int64
-                    regionName:
-                      type: string
-                      description: Region
-                      example: Московская область
-                    sa:
-                      type: string
-                      description: Seller item number
-                      example: '112233445566778899'
-                    saleInvoiceCostPrice:
-                      type: number
-                      format: float
-                      description: To payment for the item, rub.
-                      example: 592.11
-                    saleInvoiceCostPricePerc:
-                      type: number
-                      format: float
-                      description: Fraction, %
-                      example: 43.0547333297454
-                    saleItemInvoiceQty:
-                      type: integer
-                      description: Redeemed, pcs.
-                      example: 4
-                      format: int64
     SuccessTaskResponse:
       description: Self-purchase deductions
       content:

@@ -138,11 +138,17 @@ export interface GetV1SuppliesSupplyIdDiscrepanciesQuantity403Response {
  */
 export interface ModelsBox {
   /**
-   * Штрих-код упаковки
+   * Закодированное значение стикера упаковки
    * @type {string}
    * @memberof ModelsBox
    */
   packageCode?: string;
+  /**
+   * ID стикера упаковки
+   * @type {string}
+   * @memberof ModelsBox
+   */
+  packageId?: string;
   /**
    * Суммарное количество товара в упаковке, шт
    * @type {number}

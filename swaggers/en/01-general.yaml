@@ -793,7 +793,7 @@ paths:
                   sid:
                     format: UUID
                     type: string
-                    description: Wildberries Seller [ID](./api-information#tag/authorization/Kak-ustroen-token)
+                    description: Wildberries Seller [ID](./api-information#tag/authorization/About-the-token)
                   tin:
                     type: string
                     description: Taxpayer identification number of the partner (INN in Russian)
@@ -1612,6 +1612,7 @@ components:
               * `sellersChat` — Chat with Users
               * `brandzone` — Edit Brand Zone
               * `brandzoneSubscribe` — Manage Brand Zone Subscription
+              * `reportRating` — [Item Rating](https://seller.wildberries.ru/content-ratings) Report
             enum:
               - balance
               - brands
@@ -1633,6 +1634,7 @@ components:
               - sellersChat
               - brandzone
               - brandzoneSubscribe
+              - reportRating
           disabled:
             type: boolean
             description: |

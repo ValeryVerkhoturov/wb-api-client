@@ -143,12 +143,6 @@ export const operationServerMap: ServerMap = {
       description: "No description provided",
     },
   ],
-  "ReportsApi.getV1AnalyticsRegionSale": [
-    {
-      url: "https://seller-analytics-api.wildberries.ru",
-      description: "No description provided",
-    },
-  ],
   "ReportsApi.getV1Deductions": [
     {
       url: "https://seller-analytics-api.wildberries.ru",

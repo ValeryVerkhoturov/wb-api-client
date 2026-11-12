@@ -34,22 +34,31 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsBox" /> class.
         /// </summary>
-        /// <param name="packageCode">Штрих-код упаковки.</param>
+        /// <param name="packageCode">Закодированное значение стикера упаковки.</param>
+        /// <param name="packageId">ID стикера упаковки.</param>
         /// <param name="quantity">Суммарное количество товара в упаковке, шт.</param>
         /// <param name="barcodes">Список упакованных товаров.</param>
-        public ModelsBox(string packageCode = default(string), long quantity = default(long), List<ModelsGoodInBox> barcodes = default(List<ModelsGoodInBox>))
+        public ModelsBox(string packageCode = default(string), string packageId = default(string), long quantity = default(long), List<ModelsGoodInBox> barcodes = default(List<ModelsGoodInBox>))
         {
             this.PackageCode = packageCode;
+            this.PackageId = packageId;
             this.Quantity = quantity;
             this.Barcodes = barcodes;
         }
 
         /// <summary>
-        /// Штрих-код упаковки
+        /// Закодированное значение стикера упаковки
         /// </summary>
-        /// <value>Штрих-код упаковки</value>
+        /// <value>Закодированное значение стикера упаковки</value>
         [DataMember(Name = "packageCode", EmitDefaultValue = false)]
         public string PackageCode { get; set; }
+
+        /// <summary>
+        /// ID стикера упаковки
+        /// </summary>
+        /// <value>ID стикера упаковки</value>
+        [DataMember(Name = "packageId", EmitDefaultValue = false)]
+        public string PackageId { get; set; }
 
         /// <summary>
         /// Суммарное количество товара в упаковке, шт
@@ -74,6 +83,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ModelsBox {\n");
             sb.Append("  PackageCode: ").Append(PackageCode).Append("\n");
+            sb.Append("  PackageId: ").Append(PackageId).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  Barcodes: ").Append(Barcodes).Append("\n");
             sb.Append("}\n");

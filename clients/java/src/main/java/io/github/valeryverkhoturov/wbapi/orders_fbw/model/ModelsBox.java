@@ -42,6 +42,12 @@ public class ModelsBox {
   @jakarta.annotation.Nullable
   private String packageCode;
 
+  public static final String SERIALIZED_NAME_PACKAGE_ID = "packageId";
+
+  @SerializedName(SERIALIZED_NAME_PACKAGE_ID)
+  @jakarta.annotation.Nullable
+  private String packageId;
+
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
 
   @SerializedName(SERIALIZED_NAME_QUANTITY)
@@ -62,7 +68,7 @@ public class ModelsBox {
   }
 
   /**
-   * Штрих-код упаковки
+   * Закодированное значение стикера упаковки
    *
    * @return packageCode
    */
@@ -73,6 +79,25 @@ public class ModelsBox {
 
   public void setPackageCode(@jakarta.annotation.Nullable String packageCode) {
     this.packageCode = packageCode;
+  }
+
+  public ModelsBox packageId(@jakarta.annotation.Nullable String packageId) {
+    this.packageId = packageId;
+    return this;
+  }
+
+  /**
+   * ID стикера упаковки
+   *
+   * @return packageId
+   */
+  @jakarta.annotation.Nullable
+  public String getPackageId() {
+    return packageId;
+  }
+
+  public void setPackageId(@jakarta.annotation.Nullable String packageId) {
+    this.packageId = packageId;
   }
 
   public ModelsBox quantity(@jakarta.annotation.Nullable Long quantity) {
@@ -131,13 +156,14 @@ public class ModelsBox {
     }
     ModelsBox modelsBox = (ModelsBox) o;
     return Objects.equals(this.packageCode, modelsBox.packageCode)
+        && Objects.equals(this.packageId, modelsBox.packageId)
         && Objects.equals(this.quantity, modelsBox.quantity)
         && Objects.equals(this.barcodes, modelsBox.barcodes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageCode, quantity, barcodes);
+    return Objects.hash(packageCode, packageId, quantity, barcodes);
   }
 
   @Override
@@ -145,6 +171,7 @@ public class ModelsBox {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModelsBox {\n");
     sb.append("    packageCode: ").append(toIndentedString(packageCode)).append("\n");
+    sb.append("    packageId: ").append(toIndentedString(packageId)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    barcodes: ").append(toIndentedString(barcodes)).append("\n");
     sb.append("}");
@@ -168,6 +195,7 @@ public class ModelsBox {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("packageCode");
+    openapiFields.add("packageId");
     openapiFields.add("quantity");
     openapiFields.add("barcodes");
 
@@ -209,6 +237,13 @@ public class ModelsBox {
           String.format(
               "Expected the field `packageCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("packageCode").toString()));
+    }
+    if ((jsonObj.get("packageId") != null && !jsonObj.get("packageId").isJsonNull())
+        && !jsonObj.get("packageId").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `packageId` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("packageId").toString()));
     }
     if (jsonObj.get("barcodes") != null && !jsonObj.get("barcodes").isJsonNull()) {
       JsonArray jsonArraybarcodes = jsonObj.getAsJsonArray("barcodes");

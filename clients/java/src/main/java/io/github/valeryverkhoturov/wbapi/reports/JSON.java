@@ -149,12 +149,6 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.reports.model
             .GetV1AnalyticsGoodsLabeling200ResponseReportInner.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.reports.model.GetV1AnalyticsRegionSale200Response
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.reports.model
-            .GetV1AnalyticsRegionSale200ResponseReportInner.CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.reports.model.GetV1Deductions200Response
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
