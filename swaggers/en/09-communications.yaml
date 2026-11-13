@@ -108,6 +108,11 @@ paths:
         | Service | 1 s | 3 requests | 333 ms | 6 requests |
         | Base with secret | 1 s | 3 requests | 333 ms | 6 requests |
         | Base | 1 h | 5 requests | 12 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       tags:
         - Questions
@@ -201,6 +206,11 @@ paths:
         | Service | 1 s | 3 requests | 333 ms | 6 requests |
         | Base with secret | 1 s | 3 requests | 333 ms | 6 requests |
         | Base | 1 h | 5 requests | 12 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       tags:
         - Questions
@@ -288,6 +298,11 @@ paths:
         | Service | 1 s | 3 requests | 333 ms | 6 requests |
         | Base with secret | 1 s | 3 requests | 333 ms | 6 requests |
         | Base | 1 h | 5 requests | 12 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       tags:
         - Questions
@@ -404,6 +419,11 @@ paths:
         | Service | 1 s | 3 requests | 333 ms | 6 requests |
         | Base with secret | 1 s | 3 requests | 333 ms | 6 requests |
         | Base | 1 h | 5 requests | 12 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       tags:
         - Questions
@@ -638,6 +658,11 @@ paths:
         | Service | 1 s | 3 requests | 333 ms | 6 requests |
         | Base with secret | 1 s | 3 requests | 333 ms | 6 requests |
         | Base | 1 h | 5 requests | 12 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       tags:
         - Questions
@@ -808,6 +833,11 @@ paths:
         | Service | 1 s | 3 requests | 333 ms | 6 requests |
         | Base with secret | 1 s | 3 requests | 333 ms | 6 requests |
         | Base | 1 h | 5 requests | 12 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       tags:
         - Questions
@@ -989,6 +1019,11 @@ paths:
         | Service | 1 s | 3 requests | 333 ms | 6 requests |
         | Base with secret | 1 s | 3 requests | 333 ms | 6 requests |
         | Base | 1 h | 5 requests | 12 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       tags:
         - Feedbacks
@@ -1076,6 +1111,11 @@ paths:
         | Service | 1 s | 3 requests | 333 ms | 6 requests |
         | Base with secret | 1 s | 3 requests | 333 ms | 6 requests |
         | Base | 1 h | 5 requests | 12 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       tags:
         - Feedbacks
@@ -1192,6 +1232,11 @@ paths:
         | Service | 1 s | 3 requests | 333 ms | 6 requests |
         | Base with secret | 1 s | 3 requests | 333 ms | 6 requests |
         | Base | 1 h | 5 requests | 12 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       tags:
         - Feedbacks
@@ -1397,6 +1442,11 @@ paths:
         | Service | 1 s | 3 requests | 333 ms | 6 requests |
         | Base with secret | 1 s | 3 requests | 333 ms | 6 requests |
         | Base | 1 h | 5 requests | 12 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       requestBody:
         content:
@@ -1470,6 +1520,11 @@ paths:
         | Service | 1 s | 3 requests | 333 ms | 6 requests |
         | Base with secret | 1 s | 3 requests | 333 ms | 6 requests |
         | Base | 1 h | 5 requests | 12 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       requestBody:
         content:
@@ -1531,6 +1586,11 @@ paths:
         | Service | 1 s | 3 requests | 333 ms | 6 requests |
         | Base with secret | 1 s | 3 requests | 333 ms | 6 requests |
         | Base | 1 h | 5 requests | 12 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       tags:
         - Feedbacks
@@ -1630,6 +1690,11 @@ paths:
         | Service | 1 s | 3 requests | 333 ms | 6 requests |
         | Base with secret | 1 s | 3 requests | 333 ms | 6 requests |
         | Base | 1 h | 5 requests | 12 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       tags:
         - Feedbacks
@@ -1952,6 +2017,11 @@ paths:
         | Service | 1 s | 3 requests | 333 ms | 6 requests |
         | Base with secret | 1 s | 3 requests | 333 ms | 6 requests |
         | Base | 1 h | 5 requests | 12 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       tags:
         - Feedbacks

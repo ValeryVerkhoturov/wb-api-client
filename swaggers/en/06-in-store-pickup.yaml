@@ -243,17 +243,13 @@ paths:
           - sums charged to the buyer including all discounts and cashback
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Rate-Limits">Request limit</a> per one seller account for all methods for <strong>getting and deleting In-Store Pickup label identifiers</strong>:
+        <a href="/openapi/api-information#tag/introduction/Rate-Limits">Request limit</a> per one seller account for <strong>In-Store Pickup assembly orders</strong> methods:
 
         | Period | Limit | Interval | Burst |
         | --- | --- | --- | --- |
         | 1 min | 150 requests | 400 ms | 20 requests |
 
         One request with <code>4XX</code> response codes is counted as 10 requests.
-
-        <hr>
-
-        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Marketplace</strong> methods in total.
 
         </div>
       requestBody:

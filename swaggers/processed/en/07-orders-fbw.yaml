@@ -3,9 +3,10 @@ info:
   title: FBW Supplies
   version: ordersfbw
   description: |-
-    This section describes the methods for getting:
-    - [information for forming supplies](https://dev.wildberries.ru/openapi/orders-fbw#tag/informationForFormingSupplies)
-    - [supplies information](https://dev.wildberries.ru/openapi/orders-fbw#tag/suppliesInformation)
+    Use the FBW Supplies methods to:
+    - get [information for forming supplies](https://dev.wildberries.ru/openapi/orders-fbw#tag/informationForFormingSupplies)
+    - get [supplies information](https://dev.wildberries.ru/openapi/orders-fbw#tag/suppliesInformation)
+    - manage [supplies drafts](https://dev.wildberries.ru/openapi/orders-fbw#tag/suppliesInformation)
   x-file-name: orders-fbw
 security:
 - BearerAuth: []

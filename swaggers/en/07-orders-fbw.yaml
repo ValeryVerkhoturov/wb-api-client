@@ -5,9 +5,10 @@ info:
   description: |
     <div class="api-block">
 
-    This section describes the methods for getting:
-      - [information for forming supplies](/openapi/orders-fbw#tag/informationForFormingSupplies)
-      - [supplies information](/openapi/orders-fbw#tag/suppliesInformation)
+    Use the FBW Supplies methods to:
+      - get [information for forming supplies](/openapi/orders-fbw#tag/informationForFormingSupplies)
+      - get [supplies information](/openapi/orders-fbw#tag/suppliesInformation)
+      - manage [supplies drafts](/openapi/orders-fbw#tag/suppliesInformation)
 
     </div>
   x-file-name: orders-fbw

@@ -1387,7 +1387,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Marketplace** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Marketplace** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-sgtin
       requestBody:

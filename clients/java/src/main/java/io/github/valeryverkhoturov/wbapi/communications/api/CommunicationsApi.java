@@ -645,7 +645,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedback
    *
    * @param id ID отзыва (required)
@@ -678,7 +679,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedback
    *
    * @param id ID отзыва (required)
@@ -713,7 +715,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedback
    *
    * @param id ID отзыва (required)
@@ -902,7 +905,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks
    *
    * @param isAnswered Вернуть только обработанные отзывы: - &#x60;true&#x60; — да -
@@ -946,7 +950,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks
    *
    * @param isAnswered Вернуть только обработанные отзывы: - &#x60;true&#x60; — да -
@@ -993,7 +998,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks
    *
    * @param isAnswered Вернуть только обработанные отзывы: - &#x60;true&#x60; — да -
@@ -1164,7 +1170,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-archive
    *
    * @param take Количество отзывов (max. 5 000) (required)
@@ -1204,7 +1211,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-archive
    *
    * @param take Количество отзывов (max. 5 000) (required)
@@ -1245,7 +1253,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-archive
    *
    * @param take Количество отзывов (max. 5 000) (required)
@@ -1398,7 +1407,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count
    *
    * @param isAnswered Вернуть только обработанные отзывы: - &#x60;true&#x60; — да -
@@ -1437,7 +1447,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count
    *
    * @param isAnswered Вернуть только обработанные отзывы: - &#x60;true&#x60; — да -
@@ -1477,7 +1488,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count
    *
    * @param isAnswered Вернуть только обработанные отзывы: - &#x60;true&#x60; — да -
@@ -1602,7 +1614,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count-unanswered
    *
    * @return GetV1FeedbacksCountUnansweredResponse200
@@ -1635,7 +1648,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count-unanswered
    *
    * @return ApiResponse&lt;GetV1FeedbacksCountUnansweredResponse200&gt;
@@ -1669,7 +1683,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count-unanswered
    *
    * @param _callback The callback to be executed when the API call finishes
@@ -1788,7 +1803,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-new-feedbacks-questions
    *
    * @return GetV1NewFeedbacksQuestionsResponse200
@@ -1823,7 +1839,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-new-feedbacks-questions
    *
    * @return ApiResponse&lt;GetV1NewFeedbacksQuestionsResponse200&gt;
@@ -1859,7 +1876,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-new-feedbacks-questions
    *
    * @param _callback The callback to be executed when the API call finishes
@@ -2808,7 +2826,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-question
    *
    * @param id ID вопроса (required)
@@ -2843,7 +2862,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-question
    *
    * @param id ID вопроса (required)
@@ -2880,7 +2900,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-question
    *
    * @param id ID вопроса (required)
@@ -3072,7 +3093,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions
    *
    * @param isAnswered Есть ли ответ на вопрос: - &#x60;true&#x60; — да - &#x60;false&#x60; — нет
@@ -3119,7 +3141,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions
    *
    * @param isAnswered Есть ли ответ на вопрос: - &#x60;true&#x60; — да - &#x60;false&#x60; — нет
@@ -3169,7 +3192,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions
    *
    * @param isAnswered Есть ли ответ на вопрос: - &#x60;true&#x60; — да - &#x60;false&#x60; — нет
@@ -3326,7 +3350,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count
    *
    * @param dateFrom Дата начала периода в формате Unix timestamp (optional)
@@ -3364,7 +3389,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count
    *
    * @param dateFrom Дата начала периода в формате Unix timestamp (optional)
@@ -3403,7 +3429,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count
    *
    * @param dateFrom Дата начала периода в формате Unix timestamp (optional)
@@ -3528,7 +3555,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count-unanswered
    *
    * @return GetV1QuestionsCountUnansweredResponse200
@@ -3561,7 +3589,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count-unanswered
    *
    * @return ApiResponse&lt;GetV1QuestionsCountUnansweredResponse200&gt;
@@ -3595,7 +3624,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count-unanswered
    *
    * @param _callback The callback to be executed when the API call finishes
@@ -4476,7 +4506,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-feedbacks-answer
    *
    * @param patchV1FeedbacksAnswerRequest (optional)
@@ -4509,7 +4540,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-feedbacks-answer
    *
    * @param patchV1FeedbacksAnswerRequest (optional)
@@ -4546,7 +4578,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-feedbacks-answer
    *
    * @param patchV1FeedbacksAnswerRequest (optional)
@@ -4672,7 +4705,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-questions
    *
    * @param patchV1QuestionsRequest (optional)
@@ -4711,7 +4745,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-questions
    *
    * @param patchV1QuestionsRequest (optional)
@@ -4750,7 +4785,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-questions
    *
    * @param patchV1QuestionsRequest (optional)
@@ -4877,7 +4913,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-answer
    *
    * @param postV1FeedbacksAnswerRequest (optional)
@@ -4910,7 +4947,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-answer
    *
    * @param postV1FeedbacksAnswerRequest (optional)
@@ -4946,7 +4984,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-answer
    *
    * @param postV1FeedbacksAnswerRequest (optional)
@@ -5078,7 +5117,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-order-return
    *
    * @param postV1FeedbacksOrderReturnRequest (required)
@@ -5115,7 +5155,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-order-return
    *
    * @param postV1FeedbacksOrderReturnRequest (required)
@@ -5154,7 +5195,8 @@ public class CommunicationsApi {
    * Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 3 запроса
    * | 333 мс | 6 запросов | | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый с
    * секретом | 1 сек | 3 запроса | 333 мс | 6 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1
-   * запрос | Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов категории **Вопросы и отзывы**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-order-return
    *
    * @param postV1FeedbacksOrderReturnRequest (required)

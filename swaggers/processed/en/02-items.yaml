@@ -455,7 +455,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-colors
       tags:
@@ -533,7 +533,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-kinds
       tags:
@@ -694,7 +694,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-seasons
       tags:
@@ -772,7 +772,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-vat
       tags:
@@ -1149,10 +1149,6 @@ paths:
         * [getting item recommendation list](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
         * [setting item recommendations](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
 
-        ---
-
-        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
-
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-okpd-all
       parameters:
       - name: search
@@ -1314,7 +1310,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-tags
       tags:
@@ -1385,7 +1381,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag
       tags:
@@ -1485,7 +1481,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/patch-content-v2-tag-id
       tags:
@@ -1576,7 +1572,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-content-v2-tag-id
       tags:
@@ -1662,7 +1658,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag-nomenclature-link
       tags:
@@ -1789,7 +1785,11 @@ paths:
         [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
         | Period | Limit | Interval | Burst |
         | --- | --- | --- | --- |
-        | 1 min | 100 requests | 600 ms | 5 requests |
+        | 1 min | 80 requests | 750 ms | 5 requests |
+
+        ---
+
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-list
       parameters:
@@ -2078,11 +2078,11 @@ paths:
 
         | Period | Limit | Interval | Burst |
         | --- | --- | --- | --- |
-        | 1 min | 10 requests | 6 s | 5 requests |
+        | 1 min | 8 requests | 7500 ms | 5 requests |
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-error-list
       tags:
@@ -2254,10 +2254,22 @@ paths:
 
         Not all the documents that you can add are required and are being validated. You independently determine which permits are required for the item in accordance with the law.
 
-        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for all methods in the **Content** category:
         | Period | Limit | Interval | Burst |
         | --- | --- | --- | --- |
         | 1 min | 10 requests | 6 s | 5 requests |
+        Exceptions are the methods:
+
+        * [creating listings](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+        * [creating listings with merge](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+        * [editing listings](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+        * [recovering product card from trash](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+        * [getting item recommendation list](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+        * [setting item recommendations](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+
+        ---
+
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-update
       requestBody:
@@ -2629,6 +2641,10 @@ paths:
         | Base with secret | 1 min | 100 requests | 600 ms | 5 requests |
         | Base | 1 h | 2 requests | 30 min | 1 request |
 
+        ---
+
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all methods in total.
+
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-delete-trash
       tags:
       - Items
@@ -2717,6 +2733,10 @@ paths:
         | Service | 1 min | 3 requests | 20 s | 5 requests |
         | Base with secret | 1 min | 3 requests | 20 s | 5 requests |
         | Base | 1 h | 2 requests | 30 min | 1 request |
+
+        ---
+
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-recover
       tags:
@@ -3022,7 +3042,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-cards-limits
       tags:
@@ -3153,7 +3173,8 @@ paths:
       tags:
       - Items
       summary: List Items
-      description: "Lists items. You can specify item description and characteristics.\nHow to list an item:\n1. Get [parent categories list](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll)\n2. Get [the category and get all subcategories](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll)\n3. Choose [the subcategory and get all available characteristics](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId). For `Color`, `Gender`, `Country of origin`, `Season`, `VAT rate`, `HS-code` characteristics use values from [category](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics).\n4. Send the request. If the response is Success (`200`) but the item was not listed, check errors using [failed listing with errors](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList) method.\nThe dimensions of the items can only be specified in `centimeters`, and the weight of packed items must be specified in `kilograms`.\nWith one request you can list maximum 100 individual items or 100 groups of [merged](https://dev.wildberries.ru/en/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/working-with-items#merging-and-unmerging-listings) listings, 30 listings (`nmID`) in each. Maximum request size is 10 Mb.\nItems are listed asynchronously. The process of synchronizing a new listing with services may take up to 30 minutes. During this time, you can't add inventory to warehouses and set prices. In the sandbox, the product card is created immediately, without waiting.\n\nTo add documents to the listing, pass the document data in the `documents` request object.\nTo confirm that no documents are required for the item, pass `true` in the `excludeDocuments` parameter.\n\nDocument validation is performed asynchronously and can take up to 3 days. When the listing or document is changed, the validation is started again.\nThe validation results are displayed in the [listings](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), the `documents` object:\n- the result for each document in the `verdict` fields of the `items` object. If `verdict` is not returned in the response, the document validation is not completed yet\n- the final overall result for the listing in the `overallVerdict` field. During the listing validation, not only the results of the document validation are taken into account, but also other data. For example, the data of required labeling codes and information from external registries. If `overallVerdict` is not returned in the response, the listing validation is not completed yet\n\nThe types of documents that you can add for the item are specified in [subcategory characteristics](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId).\n\nNot all the documents that you can add are required and are being validated. You independently determine which permits are required for the item in accordance with the law.\n\n[Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:\n| Period | Limit | Interval | Burst |\n| --- | --- | --- | --- |\n| 1 min | 10 requests | 6 s | 5 requests |\n\nLibrary doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload"
+      description: "Lists items. You can specify item description and characteristics.\nHow to list an item:\n1. Get [parent categories list](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll)\n2. Get [the category and get all subcategories](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll)\n3. Choose [the subcategory and get all available characteristics](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId). For `Color`, `Gender`, `Country of origin`, `Season`, `VAT rate`, `HS-code` characteristics use values from [category](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics).\n4. Send the request. If the response is Success (`200`) but the item was not listed, check errors using [failed listing with errors](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList) method.\nThe dimensions of the items can only be specified in `centimeters`, and the weight of packed items must be specified in `kilograms`.\nWith one request you can list maximum 100 individual items or 100 groups of [merged](https://dev.wildberries.ru/en/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/working-with-items#merging-and-unmerging-listings) listings, 30 listings (`nmID`) in each. Maximum request size is 10 Mb.\nItems are listed asynchronously. The process of synchronizing a new listing with services may take up to 30 minutes. During this time, you can't add inventory to warehouses and set prices. In the sandbox, the product card is created immediately, without waiting.\n\nTo add documents to the listing, pass the document data in the `documents` request object.\nTo confirm that no documents are required for the item, pass `true` in the `excludeDocuments` parameter.\n\nDocument validation is performed asynchronously and can take up to 3 days. When the listing or document is changed, the validation is started again.\nThe validation results are displayed in the [listings](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2GetCardsList), the `documents` object:\n- the result for each document in the `verdict` fields of the `items` object. If `verdict` is not returned in the response, the document validation is not completed yet\n- the final overall result for the listing in the `overallVerdict` field. During the listing validation, not only the results of the document validation are taken into account, but also other data. For example, the data of required labeling codes and information from external registries. If `overallVerdict` is not returned in the response, the listing validation is not completed yet\n\nThe types of documents that you can add for the item are specified in [subcategory characteristics](https://dev.wildberries.ru/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId).\n\nNot all the documents that you can add are required and are being validated. You independently determine which permits are required for the item in accordance with the law.\n\n[Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for all methods in the **Content** category:\n| Period | Limit | Interval | Burst |\n| --- | --- | --- | --- |\n| 1 min | 10 requests | 6 s | 5 requests |\nExceptions are the methods:\n\n* [creating listings](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)\n* [creating listings with merge](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)\n* [editing listings](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)\n* [recovering product card from trash](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)\n\
+        * [getting item recommendation list](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)\n* [setting item recommendations](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)\n\n---\n\nIn [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.\n\nLibrary doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload"
       requestBody:
         content:
           application/json:
@@ -3423,6 +3444,10 @@ paths:
         | Service | 1 min | 10 requests | 6 s | 5 requests |
         | Base with secret | 1 min | 10 requests | 6 s | 5 requests |
         | Base | 2 h | 1 request | 2 h | 1 request |
+
+        ---
+
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload-add
       requestBody:
@@ -3722,7 +3747,7 @@ paths:
       security:
       - BearerAuth: []
       summary: Upload Media File
-      description: "Uploads and adds one media file for the listing.\nRequirements for images:\n\\* maximum images for each listing  — 30,\n\\* minimal resolution – 700 × 900 pixels,\n\\* maximum size — 32 МB,\n\\* minimal quality — 65%,\n\\* formats — JPG, PNG, BMP, GIF (static), WebP.\nRequirements for video:\n\\* maximum one video for each listing\n\\* maximum size — 50 MB\n\\* formats — MOV, MP4\n\n[Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for all **Media Files** methods:\n| Type | Period | Limit | Interval | Burst |\n| --- | --- | --- | --- | --- |\n| Personal | 1 min | 100 requests | 600 ms | 5 requests |\n| Service | 1 min | 100 requests | 600 ms | 5 requests |\n| Base with secret | 1 min | 100 requests | 600 ms | 5 requests |\n| Base | 1 h | 2 requests | 30 min | 1 request |\n\n---\n\nIn Sandbox — maximum of 1 request per second for all **Content** methods in total.\n\nLibrary doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-file"
+      description: "Uploads and adds one media file for the listing.\nRequirements for images:\n\\* maximum images for each listing  — 30,\n\\* minimal resolution – 700 × 900 pixels,\n\\* maximum size — 32 МB,\n\\* minimal quality — 65%,\n\\* formats — JPG, PNG, BMP, GIF (static), WebP.\nRequirements for video:\n\\* maximum one video for each listing\n\\* maximum size — 50 MB\n\\* formats — MOV, MP4\n\n[Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for all **Media Files** methods:\n| Type | Period | Limit | Interval | Burst |\n| --- | --- | --- | --- | --- |\n| Personal | 1 min | 100 requests | 600 ms | 5 requests |\n| Service | 1 min | 100 requests | 600 ms | 5 requests |\n| Base with secret | 1 min | 100 requests | 600 ms | 5 requests |\n| Base | 1 h | 2 requests | 30 min | 1 request |\n\n---\n\nIn [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.\n\nLibrary doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-file"
       tags:
       - Items
       parameters:
@@ -3808,7 +3833,7 @@ paths:
       security:
       - BearerAuth: []
       summary: Upload Media Files via Links
-      description: "The method uploads a set of media files to a listing by specifying links in the request.\n\nNew media files (`data`) replace old ones (`mediaFiles`). To add new files, set links both to new and old files.\n\nRequirements for links:\n\\* no authorization is required to access the file via the link\n\\* the link must point directly to the file. Ensure the link does not lead to a preview or authentication page. The link must end with the file name including its extension — for example, `/file\\_name.jpg`. If the link opens a TXT or HTML page, it is considered invalid.\nNote that some storage services do not generate direct links and therefore are not suitable for use. \\*\\*Google Drive\\*\\* is an example of such a service, as it only generates links to a file preview or internal service pages.\nRequirements for images:\n\\* maximum images for each listing — 30\n\\* minimal resolution – 700 × 900 pixels\n\\* maximum size — 32 MB\n\\* minimal quality — 65%\n\\* formats — JPG, PNG, BMP, GIF (static), WebP\nRequirements for video:\n\\* maximum one video for each listing\n\\* maximum size — 50 MB\n\\* formats — MOV, MP4\nIf one or several images or a video do not meet the requirements, no images and a video will be uploaded even if you have the success response (`200`)\n\n[Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for all **Media Files** methods:\n| Type | Period | Limit | Interval | Burst |\n| --- | --- | --- | --- | --- |\n| Personal | 1 min | 100 requests | 600 ms | 5 requests |\n| Service | 1 min | 100 requests | 600 ms | 5 requests |\n| Base with secret | 1 min | 100 requests | 600 ms | 5 requests |\n| Base | 1 h | 2 requests | 30 min | 1 request |\n\n---\n\nIn Sandbox — maximum of 1 request per second for all **Content** methods in total.\n\nLibrary doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-save"
+      description: "The method uploads a set of media files to a listing by specifying links in the request.\n\nNew media files (`data`) replace old ones (`mediaFiles`). To add new files, set links both to new and old files.\n\nRequirements for links:\n\\* no authorization is required to access the file via the link\n\\* the link must point directly to the file. Ensure the link does not lead to a preview or authentication page. The link must end with the file name including its extension — for example, `/file\\_name.jpg`. If the link opens a TXT or HTML page, it is considered invalid.\nNote that some storage services do not generate direct links and therefore are not suitable for use. \\*\\*Google Drive\\*\\* is an example of such a service, as it only generates links to a file preview or internal service pages.\nRequirements for images:\n\\* maximum images for each listing — 30\n\\* minimal resolution – 700 × 900 pixels\n\\* maximum size — 32 MB\n\\* minimal quality — 65%\n\\* formats — JPG, PNG, BMP, GIF (static), WebP\nRequirements for video:\n\\* maximum one video for each listing\n\\* maximum size — 50 MB\n\\* formats — MOV, MP4\nIf one or several images or a video do not meet the requirements, no images and a video will be uploaded even if you have the success response (`200`)\n\n[Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for all **Media Files** methods:\n| Type | Period | Limit | Interval | Burst |\n| --- | --- | --- | --- | --- |\n| Personal | 1 min | 100 requests | 600 ms | 5 requests |\n| Service | 1 min | 100 requests | 600 ms | 5 requests |\n| Base with secret | 1 min | 100 requests | 600 ms | 5 requests |\n| Base | 1 h | 2 requests | 30 min | 1 request |\n\n---\n\nIn [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.\n\nLibrary doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-save"
       tags:
       - Items
       requestBody:
@@ -4047,7 +4072,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task
       requestBody:
@@ -4159,7 +4184,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-size
       requestBody:
@@ -4272,7 +4297,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-club-discount
       requestBody:
@@ -4439,7 +4464,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-tasks
       parameters:
@@ -4508,7 +4533,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-goods-task
       parameters:
@@ -4579,7 +4604,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-tasks
       parameters:
@@ -4648,7 +4673,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-goods-task
       parameters:
@@ -4727,7 +4752,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-filter
       parameters:
@@ -4800,7 +4825,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-list-goods-filter
       requestBody:
@@ -4871,7 +4896,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-size-nm
       parameters:
@@ -4952,7 +4977,7 @@ paths:
 
         ---
 
-        In Sandbox — maximum of 1 request per second for all **Content** methods in total.
+        In [Sandbox](https://dev.wildberries.ru/en/sandbox) — maximum of 1 request per second for all **Content** methods in total.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-quarantine-goods
       parameters:

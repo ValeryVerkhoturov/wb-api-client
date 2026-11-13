@@ -149,6 +149,10 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+        ---
+
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-new-feedbacks-questions
       tags:
       - Communications
@@ -209,6 +213,10 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+        ---
+
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count-unanswered
       tags:
       - Communications
@@ -268,6 +276,10 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        ---
+
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions-count
       tags:
@@ -371,6 +383,10 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        ---
+
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-questions
       tags:
@@ -515,6 +531,10 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        ---
+
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-questions
       tags:
@@ -671,6 +691,10 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+        ---
+
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-question
       tags:
       - Communications
@@ -771,6 +795,10 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+        ---
+
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count-unanswered
       tags:
       - Communications
@@ -833,6 +861,10 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        ---
+
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-count
       tags:
@@ -937,6 +969,10 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        ---
+
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks
       tags:
@@ -1124,6 +1160,10 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+        ---
+
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-answer
       requestBody:
         content:
@@ -1197,6 +1237,10 @@ paths:
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
 
+        ---
+
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
+
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/patch-api-v1-feedbacks-answer
       requestBody:
         content:
@@ -1258,6 +1302,10 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        ---
+
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/post-api-v1-feedbacks-order-return
       tags:
@@ -1341,6 +1389,10 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        ---
+
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedback
       tags:
@@ -1464,6 +1516,10 @@ paths:
         | Сервисный | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый с секретом | 1 сек | 3 запроса | 333 мс | 6 запросов |
         | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |
+
+        ---
+
+        В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов категории **Вопросы и отзывы**.
 
         Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/communications/get-api-v1-feedbacks-archive
       tags:

@@ -615,7 +615,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       tags:
@@ -720,7 +720,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       tags:
@@ -934,7 +934,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       tags:
@@ -1033,7 +1033,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       tags:
@@ -1527,10 +1527,6 @@ paths:
             <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet">setting item recommendations</a></li>
         </ul>
 
-        <hr>
-
-        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
-
         </div>
       parameters:
         - name: search
@@ -1727,7 +1723,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       tags:
@@ -1826,7 +1822,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       tags:
@@ -1927,7 +1923,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       tags:
@@ -2018,7 +2014,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       tags:
@@ -2104,7 +2100,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       tags:
@@ -2231,7 +2227,12 @@ paths:
 
         | Period | Limit | Interval | Burst |
         | --- | --- | --- | --- |
-        | 1 min | 100 requests | 600 ms | 5 requests |
+        | 1 min | 80 requests | 750 ms | 5 requests |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       parameters:
         - name: locale
@@ -2828,11 +2829,11 @@ paths:
 
         | Period | Limit | Interval | Burst |
         | --- | --- | --- | --- |
-        | 1 min | 10 requests | 6 s | 5 requests |
+        | 1 min | 8 requests | 7500 ms | 5 requests |
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       tags:
@@ -3009,11 +3010,26 @@ paths:
         </div>
 
         <div class="description_limit">
-        <a href="/openapi/api-information#tag/introduction/Rate-Limits">Request limit</a> per one seller account:
+        <a href="/openapi/api-information#tag/introduction/Rate-Limits">Request limit</a> per one seller account for all methods in the <strong>Content</strong> category:
 
         | Period | Limit | Interval | Burst |
         | --- | --- | --- | --- |
         | 1 min | 10 requests | 6 s | 5 requests |
+
+        Exceptions are the methods:
+        <ul>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUpload">creating listings</a></li>
+            <li><a href="/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd">creating listings with merge</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsUpdate">editing listings</a></li>
+            <li><a href="/openapi/item-management#tag/listings/operation/postV2CardsRecover">recovering product card from trash</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList">getting item recommendation list</a></li>
+            <li><a href="/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet">setting item recommendations</a></li>
+        </ul>
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+
         </div>
       requestBody:
         content:
@@ -3408,6 +3424,11 @@ paths:
         | Service | 1 min | 100 requests | 600 ms | 5 requests |
         | Base with secret | 1 min | 100 requests | 600 ms | 5 requests |
         | Base | 1 h | 2 requests | 30 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       tags:
         - Listings
@@ -3512,6 +3533,11 @@ paths:
         | Service | 1 min | 3 requests | 20 s | 5 requests |
         | Base with secret | 1 min | 3 requests | 20 s | 5 requests |
         | Base | 1 h | 2 requests | 30 min | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       tags:
         - Listings
@@ -3977,7 +4003,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       tags:
@@ -4147,7 +4173,7 @@ paths:
       tags:
         - Listing Items
       summary: List Items
-      description: "Lists items. You can specify item description and characteristics.<br>\n\nHow to list an item:\n\n  1. Get [parent categories list](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll)\n  2. Get [the category and get all subcategories](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll)\n  3. Choose [the subcategory and get all available characteristics](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId). For `Color`, `Gender`, `Country of origin`, `Season`, `VAT rate`, `HS-code` characteristics use values from [category](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics).\n  4. Send the request. If the response is Success (`200`) but the item was not listed, check errors using [failed listing with errors](/openapi/item-management#tag/listings/operation/postV2CardsErrorList) method.\n\nThe dimensions of the items can only be specified in `centimeters`, and the weight of packed items must be specified in `kilograms`.<br>\n\nWith one request you can list maximum 100\_individual items or 100 groups of [merged](/en/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/working-with-items#merging-and-unmerging-listings) listings, 30\_listings (`nmID`) in\_each. Maximum request size is 10 Mb.<br>\n\nItems are listed asynchronously. The process of synchronizing a new listing with services may take up to 30 minutes. During this time, you can't add inventory to warehouses and set prices. In the sandbox, the product card is created immediately, without waiting.<br><br>\n\nTo add documents to the listing, pass the document data in the `documents` request object.<br>\nTo confirm that no documents are required for the item, pass `true` in the `excludeDocuments` parameter.<br><br>\nDocument validation is performed asynchronously and can take up to 3 days. When the listing or document is changed, the validation is started again.<br>\nThe validation results are displayed in the [listings](/openapi/item-management#tag/listings/operation/postV2GetCardsList), the `documents` object:\n  - the result for each document in the `verdict` fields of the `items` object. If `verdict` is not returned in the response, the document validation is not completed yet\n  - the final overall result for the listing in the `overallVerdict` field. During the listing validation, not only the results of the document validation are taken into account, but also other data. For example, the data of required labeling codes and information from external registries. If `overallVerdict` is not returned in the response, the listing validation is not completed yet\n\n<div class=\"description_important\">\n  The types of documents that you can add for the item are specified in <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId\">subcategory characteristics</a>.\n  <br>\n  Not all the documents that you can add are required and are being validated. You independently determine which permits are required for the item in accordance with the law.\n</div>\n\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Rate-Limits\">Request limit</a> per one seller account:\n\n| Period | Limit | Interval | Burst |\n| --- | --- | --- | --- |\n| 1 min | 10 requests | 6 s | 5 requests |\n</div>\n"
+      description: "Lists items. You can specify item description and characteristics.<br>\n\nHow to list an item:\n\n  1. Get [parent categories list](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectParentAll)\n  2. Get [the category and get all subcategories](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectAll)\n  3. Choose [the subcategory and get all available characteristics](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId). For `Color`, `Gender`, `Country of origin`, `Season`, `VAT rate`, `HS-code` characteristics use values from [category](/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics).\n  4. Send the request. If the response is Success (`200`) but the item was not listed, check errors using [failed listing with errors](/openapi/item-management#tag/listings/operation/postV2CardsErrorList) method.\n\nThe dimensions of the items can only be specified in `centimeters`, and the weight of packed items must be specified in `kilograms`.<br>\n\nWith one request you can list maximum 100\_individual items or 100 groups of [merged](/en/knowledge-base/articles/019d49a4-1320-71bb-9dac-8ba07e7177ce/working-with-items#merging-and-unmerging-listings) listings, 30\_listings (`nmID`) in\_each. Maximum request size is 10 Mb.<br>\n\nItems are listed asynchronously. The process of synchronizing a new listing with services may take up to 30 minutes. During this time, you can't add inventory to warehouses and set prices. In the sandbox, the product card is created immediately, without waiting.<br><br>\n\nTo add documents to the listing, pass the document data in the `documents` request object.<br>\nTo confirm that no documents are required for the item, pass `true` in the `excludeDocuments` parameter.<br><br>\nDocument validation is performed asynchronously and can take up to 3 days. When the listing or document is changed, the validation is started again.<br>\nThe validation results are displayed in the [listings](/openapi/item-management#tag/listings/operation/postV2GetCardsList), the `documents` object:\n  - the result for each document in the `verdict` fields of the `items` object. If `verdict` is not returned in the response, the document validation is not completed yet\n  - the final overall result for the listing in the `overallVerdict` field. During the listing validation, not only the results of the document validation are taken into account, but also other data. For example, the data of required labeling codes and information from external registries. If `overallVerdict` is not returned in the response, the listing validation is not completed yet\n\n<div class=\"description_important\">\n  The types of documents that you can add for the item are specified in <a href=\"/openapi/item-management#tag/categoriesSubcategoriesAndCharacteristics/operation/getV2ObjectCharcsSubjectId\">subcategory characteristics</a>.\n  <br>\n  Not all the documents that you can add are required and are being validated. You independently determine which permits are required for the item in accordance with the law.\n</div>\n\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Rate-Limits\">Request limit</a> per one seller account for all methods in the <strong>Content</strong> category:\n\n| Period | Limit | Interval | Burst |\n| --- | --- | --- | --- |\n| 1 min | 10 requests | 6 s | 5 requests |\n\nExceptions are the methods:\n<ul>\n    <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUpload\">creating listings</a></li>\n    <li><a href=\"/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd\">creating listings with merge</a></li>\n    <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsUpdate\">editing listings</a></li>\n    <li><a href=\"/openapi/item-management#tag/listings/operation/postV2CardsRecover\">recovering product card from trash</a></li>\n    <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList\">getting item recommendation list</a></li>\n    <li><a href=\"/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet\">setting item recommendations</a></li>\n</ul>\n\n<hr>\n\nIn <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.\n\n</div>\n"
       requestBody:
         content:
           application/json:
@@ -4434,6 +4460,11 @@ paths:
         | Service | 1 min | 10 requests | 6 s | 5 requests |
         | Base with secret | 1 min | 10 requests | 6 s | 5 requests |
         | Base | 2 h | 1 request | 2 h | 1 request |
+
+        <hr>
+
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all methods in total.
+
         </div>
       requestBody:
         content:
@@ -4746,7 +4777,7 @@ paths:
       security:
         - HeaderApiKey: []
       summary: Upload Media File
-      description: "Uploads and adds one media file for the listing.\n\nRequirements for images:\n\n  * maximum images for\_each listing \_— 30,\n  * minimal resolution – 700\_×\_900 pixels,\n  * maximum size\_— 32\_МB,\n  * minimal quality\_— 65%,\n  * formats\_— JPG, PNG, BMP, GIF (static), WebP.\n\nRequirements for video:\n\n  * maximum one video for\_each listing\n  * maximum size\_— 50\_MB\n  * formats\_— MOV, MP4\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Rate-Limits\">Request limit</a> per one seller account for all <strong>Media Files</strong> methods:\n\n\n| Type | Period | Limit | Interval | Burst |\n| --- | --- | --- | --- | --- |\n| Personal | 1 min | 100 requests | 600 ms | 5 requests |\n| Service | 1 min | 100 requests | 600 ms | 5 requests |\n| Base with secret | 1 min | 100 requests | 600 ms | 5 requests |\n| Base | 1 h | 2 requests | 30 min | 1 request |\n\n<hr>\n\nIn Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.\n\n</div>\n"
+      description: "Uploads and adds one media file for the listing.\n\nRequirements for images:\n\n  * maximum images for\_each listing \_— 30,\n  * minimal resolution – 700\_×\_900 pixels,\n  * maximum size\_— 32\_МB,\n  * minimal quality\_— 65%,\n  * formats\_— JPG, PNG, BMP, GIF (static), WebP.\n\nRequirements for video:\n\n  * maximum one video for\_each listing\n  * maximum size\_— 50\_MB\n  * formats\_— MOV, MP4\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Rate-Limits\">Request limit</a> per one seller account for all <strong>Media Files</strong> methods:\n\n\n| Type | Period | Limit | Interval | Burst |\n| --- | --- | --- | --- | --- |\n| Personal | 1 min | 100 requests | 600 ms | 5 requests |\n| Service | 1 min | 100 requests | 600 ms | 5 requests |\n| Base with secret | 1 min | 100 requests | 600 ms | 5 requests |\n| Base | 1 h | 2 requests | 30 min | 1 request |\n\n<hr>\n\nIn <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.\n\n</div>\n"
       tags:
         - Media Files
       parameters:
@@ -4842,7 +4873,7 @@ paths:
       security:
         - HeaderApiKey: []
       summary: Upload Media Files via Links
-      description: "The method uploads a set of media files to a listing by specifying links in the request.\n\n<div class=\"description_important\">\n  New media files (<code>data</code>) replace old ones (<code>mediaFiles</code>). To add new files, set links both to\_new and old files.\n</div>\n\nRequirements for links:\n  * no authorization is required to access the file via the link\n  * the link must point directly to the file. Ensure the link does not lead to a preview or authentication page. The link must end with the file name including its extension — for example, `/file_name.jpg`. If the link opens a TXT or HTML page, it is considered invalid. <br>\n  Note that some storage services do not generate direct links and therefore are not suitable for use. **Google Drive** is an example of such a service, as it only generates links to a file preview or internal service pages.\n\nRequirements for images:\n  * maximum images for\_each listing\_— 30\n  * minimal resolution – 700\_×\_900 pixels\n  * maximum size\_— 32\_MB\n  * minimal quality\_— 65%\n  * formats\_— JPG, PNG, BMP, GIF (static), WebP\n\n\nRequirements for video:\n  * maximum one video for\_each listing\n  * maximum size\_— 50\_MB\n  * formats\_— MOV, MP4\n\n\nIf one or several images or a video do not meet the requirements, no images and a video will be uploaded even if you have the success response\_(`200`)\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Rate-Limits\">Request limit</a> per one seller account for all <strong>Media Files</strong> methods:\n\n\n| Type | Period | Limit | Interval | Burst |\n| --- | --- | --- | --- | --- |\n| Personal | 1 min | 100 requests | 600 ms | 5 requests |\n| Service | 1 min | 100 requests | 600 ms | 5 requests |\n| Base with secret | 1 min | 100 requests | 600 ms | 5 requests |\n| Base | 1 h | 2 requests | 30 min | 1 request |\n\n<hr>\n\nIn Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.\n\n</div>\n"
+      description: "The method uploads a set of media files to a listing by specifying links in the request.\n\n<div class=\"description_important\">\n  New media files (<code>data</code>) replace old ones (<code>mediaFiles</code>). To add new files, set links both to\_new and old files.\n</div>\n\nRequirements for links:\n  * no authorization is required to access the file via the link\n  * the link must point directly to the file. Ensure the link does not lead to a preview or authentication page. The link must end with the file name including its extension — for example, `/file_name.jpg`. If the link opens a TXT or HTML page, it is considered invalid. <br>\n  Note that some storage services do not generate direct links and therefore are not suitable for use. **Google Drive** is an example of such a service, as it only generates links to a file preview or internal service pages.\n\nRequirements for images:\n  * maximum images for\_each listing\_— 30\n  * minimal resolution – 700\_×\_900 pixels\n  * maximum size\_— 32\_MB\n  * minimal quality\_— 65%\n  * formats\_— JPG, PNG, BMP, GIF (static), WebP\n\n\nRequirements for video:\n  * maximum one video for\_each listing\n  * maximum size\_— 50\_MB\n  * formats\_— MOV, MP4\n\n\nIf one or several images or a video do not meet the requirements, no images and a video will be uploaded even if you have the success response\_(`200`)\n\n<div class=\"description_limit\">\n<a href=\"/openapi/api-information#tag/introduction/Rate-Limits\">Request limit</a> per one seller account for all <strong>Media Files</strong> methods:\n\n\n| Type | Period | Limit | Interval | Burst |\n| --- | --- | --- | --- | --- |\n| Personal | 1 min | 100 requests | 600 ms | 5 requests |\n| Service | 1 min | 100 requests | 600 ms | 5 requests |\n| Base with secret | 1 min | 100 requests | 600 ms | 5 requests |\n| Base | 1 h | 2 requests | 30 min | 1 request |\n\n<hr>\n\nIn <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.\n\n</div>\n"
       tags:
         - Media Files
       requestBody:
@@ -5098,7 +5129,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       requestBody:
@@ -5212,7 +5243,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       requestBody:
@@ -5326,7 +5357,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       requestBody:
@@ -5498,7 +5529,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       parameters:
@@ -5568,7 +5599,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       parameters:
@@ -5640,7 +5671,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       parameters:
@@ -5710,7 +5741,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       parameters:
@@ -5789,7 +5820,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       parameters:
@@ -5863,7 +5894,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       requestBody:
@@ -5935,7 +5966,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       parameters:
@@ -6017,7 +6048,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Content</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Content</strong> methods in total.
 
         </div>
       parameters:

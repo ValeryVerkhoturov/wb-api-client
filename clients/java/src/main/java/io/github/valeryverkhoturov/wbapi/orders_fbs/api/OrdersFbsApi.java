@@ -5343,7 +5343,12 @@ public class OrdersFbsApi {
    * - сборочное задание ранее не переносили из доставки на сборку Чтобы проверить, можно ли
    * перевести сборочное задание из доставки на сборку, используйте [статусы сборочных
    * заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus),
-   * поле &#x60;isTransferable&#x60;. Library doc:
+   * поле &#x60;isTransferable&#x60;. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек
+   * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
+   * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
+   * как 10 запросов Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-supplyid-orders-transfer
    *
    * @param supplyId ID поставки, из которой будут перемещены заказы (required)
@@ -5383,7 +5388,12 @@ public class OrdersFbsApi {
    * - сборочное задание ранее не переносили из доставки на сборку Чтобы проверить, можно ли
    * перевести сборочное задание из доставки на сборку, используйте [статусы сборочных
    * заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus),
-   * поле &#x60;isTransferable&#x60;. Library doc:
+   * поле &#x60;isTransferable&#x60;. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек
+   * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
+   * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
+   * как 10 запросов Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-supplyid-orders-transfer
    *
    * @param supplyId ID поставки, из которой будут перемещены заказы (required)
@@ -5425,7 +5435,12 @@ public class OrdersFbsApi {
    * - сборочное задание ранее не переносили из доставки на сборку Чтобы проверить, можно ли
    * перевести сборочное задание из доставки на сборку, используйте [статусы сборочных
    * заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus),
-   * поле &#x60;isTransferable&#x60;. Library doc:
+   * поле &#x60;isTransferable&#x60;. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек
+   * автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин |
+   * 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается
+   * как 10 запросов Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-supplyid-orders-transfer
    *
    * @param supplyId ID поставки, из которой будут перемещены заказы (required)

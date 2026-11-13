@@ -229,8 +229,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-content-v2-tag-id
    *
    * @param id Числовой ID ярлыка (required)
@@ -263,8 +263,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-content-v2-tag-id
    *
    * @param id Числовой ID ярлыка (required)
@@ -298,8 +298,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/delete-content-v2-tag-id
    *
    * @param id Числовой ID ярлыка (required)
@@ -1065,8 +1065,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-goods-task
    *
    * @param limit Сколько элементов вывести на одной странице (пагинация) (required)
@@ -1104,8 +1104,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-goods-task
    *
    * @param limit Сколько элементов вывести на одной странице (пагинация) (required)
@@ -1144,8 +1144,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-goods-task
    *
    * @param limit Сколько элементов вывести на одной странице (пагинация) (required)
@@ -1282,8 +1282,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-tasks
    *
    * @param uploadID ID загрузки (required)
@@ -1316,8 +1316,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-tasks
    *
    * @param uploadID ID загрузки (required)
@@ -1352,8 +1352,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-buffer-tasks
    *
    * @param uploadID ID загрузки (required)
@@ -1476,8 +1476,8 @@ public class ItemsApi {
    * | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный |
    * 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для
-   * всех методов **Контента**. Library doc:
+   * | 2 запроса | 30 мин | 1 запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) —
+   * максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-cards-limits
    *
    * @return GetV2CardsLimitsResponse200
@@ -1516,8 +1516,8 @@ public class ItemsApi {
    * | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный |
    * 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для
-   * всех методов **Контента**. Library doc:
+   * | 2 запроса | 30 мин | 1 запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) —
+   * максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-cards-limits
    *
    * @return ApiResponse&lt;GetV2CardsLimitsResponse200&gt;
@@ -1559,8 +1559,8 @@ public class ItemsApi {
    * | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный |
    * 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч
-   * | 2 запроса | 30 мин | 1 запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для
-   * всех методов **Контента**. Library doc:
+   * | 2 запроса | 30 мин | 1 запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) —
+   * максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-cards-limits
    *
    * @param _callback The callback to be executed when the API call finishes
@@ -2112,8 +2112,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-kinds
    *
    * @param locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;: - &#x60;ru&#x60; —
@@ -2148,8 +2148,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-kinds
    *
    * @param locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;: - &#x60;ru&#x60; —
@@ -2185,8 +2185,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-kinds
    *
    * @param locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;: - &#x60;ru&#x60; —
@@ -2791,8 +2791,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-seasons
    *
    * @param locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;: - &#x60;ru&#x60; —
@@ -2827,8 +2827,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-seasons
    *
    * @param locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;: - &#x60;ru&#x60; —
@@ -2864,8 +2864,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-seasons
    *
    * @param locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;: - &#x60;ru&#x60; —
@@ -3259,8 +3259,7 @@ public class ItemsApi {
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
    * * [установки рекомендаций для
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
-   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
-   * для всех методов **Контента**. Library doc:
+   * Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-tnved-all
    *
    * @param search Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов (optional)
@@ -3305,8 +3304,7 @@ public class ItemsApi {
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
    * * [установки рекомендаций для
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
-   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
-   * для всех методов **Контента**. Library doc:
+   * Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-tnved-all
    *
    * @param search Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов (optional)
@@ -3352,8 +3350,7 @@ public class ItemsApi {
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
    * * [установки рекомендаций для
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
-   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
-   * для всех методов **Контента**. Library doc:
+   * Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-content-v2-directory-tnved-all
    *
    * @param search Поиск по первым цифрам кода ТН ВЭД. Укажите не более 10 символов (optional)
@@ -3479,8 +3476,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-vat
    *
    * @param locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;: - &#x60;ru&#x60; —
@@ -3514,8 +3511,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-vat
    *
    * @param locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;: - &#x60;ru&#x60; —
@@ -3551,8 +3548,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-directory-vat
    *
    * @param locale Язык полей ответа &#x60;subjectName&#x60; и &#x60;name&#x60;: - &#x60;ru&#x60; —
@@ -3709,8 +3706,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-goods-task
    *
    * @param limit Сколько элементов вывести на одной странице (пагинация) (required)
@@ -3754,8 +3751,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-goods-task
    *
    * @param limit Сколько элементов вывести на одной странице (пагинация) (required)
@@ -3801,8 +3798,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-goods-task
    *
    * @param limit Сколько элементов вывести на одной странице (пагинация) (required)
@@ -3945,8 +3942,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-tasks
    *
    * @param uploadID ID загрузки (required)
@@ -3986,8 +3983,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-tasks
    *
    * @param uploadID ID загрузки (required)
@@ -4028,8 +4025,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-history-tasks
    *
    * @param uploadID ID загрузки (required)
@@ -4184,8 +4181,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-filter
    *
    * @param limit Сколько элементов вывести на одной странице (пагинация) (required)
@@ -4235,8 +4232,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-filter
    *
    * @param limit Сколько элементов вывести на одной странице (пагинация) (required)
@@ -4287,8 +4284,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-filter
    *
    * @param limit Сколько элементов вывести на одной странице (пагинация) (required)
@@ -4448,8 +4445,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-size-nm
    *
    * @param limit Сколько элементов вывести на одной странице (пагинация) (required)
@@ -4492,8 +4489,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-size-nm
    *
    * @param limit Сколько элементов вывести на одной странице (пагинация) (required)
@@ -4536,8 +4533,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-list-goods-size-nm
    *
    * @param limit Сколько элементов вывести на одной странице (пагинация) (required)
@@ -5494,8 +5491,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-quarantine-goods
    *
    * @param limit Сколько элементов вывести на одной странице (пагинация) (required)
@@ -5543,8 +5540,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-quarantine-goods
    *
    * @param limit Сколько элементов вывести на одной странице (пагинация) (required)
@@ -5592,8 +5589,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-api-v2-quarantine-goods
    *
    * @param limit Сколько элементов вывести на одной странице (пагинация) (required)
@@ -5712,8 +5709,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-tags
    *
    * @return GetV2TagsResponse200
@@ -5743,8 +5740,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-tags
    *
    * @return ApiResponse&lt;GetV2TagsResponse200&gt;
@@ -5775,8 +5772,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/get-content-v2-tags
    *
    * @param _callback The callback to be executed when the API call finishes
@@ -6477,8 +6474,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/patch-content-v2-tag-id
    *
    * @param id Числовой ID ярлыка (required)
@@ -6514,8 +6511,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/patch-content-v2-tag-id
    *
    * @param id Числовой ID ярлыка (required)
@@ -6552,8 +6549,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/patch-content-v2-tag-id
    *
    * @param id Числовой ID ярлыка (required)
@@ -7506,7 +7503,9 @@ public class ItemsApi {
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100
    * запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | --- В
+   * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
+   * методов. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-delete-trash
    *
    * @param postV2CardsDeleteTrashRequest (required)
@@ -7549,7 +7548,9 @@ public class ItemsApi {
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100
    * запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | --- В
+   * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
+   * методов. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-delete-trash
    *
    * @param postV2CardsDeleteTrashRequest (required)
@@ -7593,7 +7594,9 @@ public class ItemsApi {
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Сервисный | 1 мин | 100
    * запросов | 600 мс | 5 запросов | | Базовый с секретом | 1 мин | 100 запросов | 600 мс | 5
-   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | --- В
+   * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
+   * методов. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-delete-trash
    *
    * @param postV2CardsDeleteTrashRequest (required)
@@ -7748,9 +7751,9 @@ public class ItemsApi {
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
    * * [получения несозданных карточек товаров с
    * ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
-   * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек
-   * | 5 запросов | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов
-   * **Контента**. Library doc:
+   * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 8 запросов | 7500
+   * мс | 5 запросов | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
+   * секунду суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-error-list
    *
    * @param requestPublicViewerPublicErrorsTableListV2 (required)
@@ -7804,9 +7807,9 @@ public class ItemsApi {
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
    * * [получения несозданных карточек товаров с
    * ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
-   * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек
-   * | 5 запросов | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов
-   * **Контента**. Library doc:
+   * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 8 запросов | 7500
+   * мс | 5 запросов | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
+   * секунду суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-error-list
    *
    * @param requestPublicViewerPublicErrorsTableListV2 (required)
@@ -7863,9 +7866,9 @@ public class ItemsApi {
    * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/getV2CardsLimits)
    * * [получения несозданных карточек товаров с
    * ошибками](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsErrorList)
-   * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек
-   * | 5 запросов | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов
-   * **Контента**. Library doc:
+   * | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 8 запросов | 7500
+   * мс | 5 запросов | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
+   * секунду суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-error-list
    *
    * @param requestPublicViewerPublicErrorsTableListV2 (required)
@@ -8257,7 +8260,9 @@ public class ItemsApi {
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 5 запросов | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов
-   * | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | --- В
+   * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
+   * методов. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-recover
    *
    * @param postV2CardsDeleteTrashRequest (required)
@@ -8295,7 +8300,9 @@ public class ItemsApi {
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 5 запросов | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов
-   * | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | --- В
+   * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
+   * методов. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-recover
    *
    * @param postV2CardsDeleteTrashRequest (required)
@@ -8335,7 +8342,9 @@ public class ItemsApi {
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 5 запросов | | Сервисный | 1 мин | 3
    * запроса | 20 сек | 5 запросов | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 5 запросов
-   * | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
+   * | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | --- В
+   * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
+   * методов. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-recover
    *
    * @param postV2CardsDeleteTrashRequest (required)
@@ -8510,8 +8519,22 @@ public class ItemsApi {
    * самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии
    * с законодательством. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 10 запросов | 6 сек | 5 запросов | Library doc:
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | Исключение —
+   * методы: * [создания карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+   * * [создания карточек товаров с
+   * присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+   * * [редактирования карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+   * * [восстановления карточек товаров из
+   * корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+   * * [получения списка рекомендаций в карточках
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+   * * [установки рекомендаций для
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-update
    *
    * @param postV2CardsUpdateRequestInner (optional)
@@ -8595,8 +8618,22 @@ public class ItemsApi {
    * самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии
    * с законодательством. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 10 запросов | 6 сек | 5 запросов | Library doc:
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | Исключение —
+   * методы: * [создания карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+   * * [создания карточек товаров с
+   * присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+   * * [редактирования карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+   * * [восстановления карточек товаров из
+   * корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+   * * [получения списка рекомендаций в карточках
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+   * * [установки рекомендаций для
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-update
    *
    * @param postV2CardsUpdateRequestInner (optional)
@@ -8681,8 +8718,22 @@ public class ItemsApi {
    * самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии
    * с законодательством. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 10 запросов | 6 сек | 5 запросов | Library doc:
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | Исключение —
+   * методы: * [создания карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+   * * [создания карточек товаров с
+   * присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+   * * [редактирования карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+   * * [восстановления карточек товаров из
+   * корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+   * * [получения списка рекомендаций в карточках
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+   * * [установки рекомендаций для
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-update
    *
    * @param postV2CardsUpdateRequestInner (optional)
@@ -8833,8 +8884,22 @@ public class ItemsApi {
    * самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии
    * с законодательством. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 10 запросов | 6 сек | 5 запросов | Library doc:
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | Исключение —
+   * методы: * [создания карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+   * * [создания карточек товаров с
+   * присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+   * * [редактирования карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+   * * [восстановления карточек товаров из
+   * корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+   * * [получения списка рекомендаций в карточках
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+   * * [установки рекомендаций для
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload
    *
    * @param postV2CardsUploadRequestInner (optional)
@@ -8893,8 +8958,22 @@ public class ItemsApi {
    * самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии
    * с законодательством. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 10 запросов | 6 сек | 5 запросов | Library doc:
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | Исключение —
+   * методы: * [создания карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+   * * [создания карточек товаров с
+   * присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+   * * [редактирования карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+   * * [восстановления карточек товаров из
+   * корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+   * * [получения списка рекомендаций в карточках
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+   * * [установки рекомендаций для
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload
    *
    * @param postV2CardsUploadRequestInner (optional)
@@ -8954,8 +9033,22 @@ public class ItemsApi {
    * самостоятельно определяете, какие разрешительные документы требуются для товара в соответствии
    * с законодательством. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
-   * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 10 запросов | 6 сек | 5 запросов | Library doc:
+   * на один профиль продавца для всех методов категории **Контент**: | Период | Лимит | Интервал |
+   * Всплеск | | --- | --- | --- | --- | | 1 мин | 10 запросов | 6 сек | 5 запросов | Исключение —
+   * методы: * [создания карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUpload)
+   * * [создания карточек товаров с
+   * присоединением](https://dev.wildberries.ru/openapi/item-management#tag/listingItems/operation/postV2CardsUploadAdd)
+   * * [редактирования карточек
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsUpdate)
+   * * [восстановления карточек товаров из
+   * корзины](https://dev.wildberries.ru/openapi/item-management#tag/listings/operation/postV2CardsRecover)
+   * * [получения списка рекомендаций в карточках
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsList)
+   * * [установки рекомендаций для
+   * товаров](https://dev.wildberries.ru/openapi/item-management#tag/recommendations/operation/postV1RecommendationsSet)
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload
    *
    * @param postV2CardsUploadRequestInner (optional)
@@ -9107,7 +9200,9 @@ public class ItemsApi {
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Сервисный | 1 мин | 10
    * запросов | 6 сек | 5 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов
-   * | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | Library doc:
+   * | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | --- В
+   * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
+   * методов. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload-add
    *
    * @param postV2CardsUploadAddRequest (optional)
@@ -9169,7 +9264,9 @@ public class ItemsApi {
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Сервисный | 1 мин | 10
    * запросов | 6 сек | 5 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов
-   * | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | Library doc:
+   * | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | --- В
+   * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
+   * методов. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload-add
    *
    * @param postV2CardsUploadAddRequest (optional)
@@ -9232,7 +9329,9 @@ public class ItemsApi {
    * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
    * | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 5 запросов | | Сервисный | 1 мин | 10
    * запросов | 6 сек | 5 запросов | | Базовый с секретом | 1 мин | 10 запросов | 6 сек | 5 запросов
-   * | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | Library doc:
+   * | | Базовый | 2 ч | 1 запрос | 2 ч | 1 запрос | --- В
+   * [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех
+   * методов. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-cards-upload-add
    *
    * @param postV2CardsUploadAddRequest (optional)
@@ -9401,7 +9500,8 @@ public class ItemsApi {
    * пагинацией с сортировкой по возрастанию. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 100 запросов | 600 мс | 5 запросов | Library doc:
+   * мин | 80 запросов | 750 мс | 5 запросов | --- В [песочнице](https://dev.wildberries.ru/sandbox)
+   * — максимум 1 запрос в секунду суммарно для всех методов. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-list
    *
    * @param postV2GetCardsListRequest (required)
@@ -9466,7 +9566,8 @@ public class ItemsApi {
    * пагинацией с сортировкой по возрастанию. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 100 запросов | 600 мс | 5 запросов | Library doc:
+   * мин | 80 запросов | 750 мс | 5 запросов | --- В [песочнице](https://dev.wildberries.ru/sandbox)
+   * — максимум 1 запрос в секунду суммарно для всех методов. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-list
    *
    * @param postV2GetCardsListRequest (required)
@@ -9533,7 +9634,8 @@ public class ItemsApi {
    * пагинацией с сортировкой по возрастанию. [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
    * на один профиль продавца: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1
-   * мин | 100 запросов | 600 мс | 5 запросов | Library doc:
+   * мин | 80 запросов | 750 мс | 5 запросов | --- В [песочнице](https://dev.wildberries.ru/sandbox)
+   * — максимум 1 запрос в секунду суммарно для всех методов. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-get-cards-list
    *
    * @param postV2GetCardsListRequest (required)
@@ -9985,8 +10087,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-list-goods-filter
    *
    * @param postV2ListGoodsFilterRequest (required)
@@ -10029,8 +10131,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-list-goods-filter
    *
    * @param postV2ListGoodsFilterRequest (required)
@@ -10074,8 +10176,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-list-goods-filter
    *
    * @param postV2ListGoodsFilterRequest (required)
@@ -10205,8 +10307,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag
    *
    * @param postV2TagRequest (required)
@@ -10241,8 +10343,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag
    *
    * @param postV2TagRequest (required)
@@ -10279,8 +10381,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag
    *
    * @param postV2TagRequest (required)
@@ -10412,8 +10514,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag-nomenclature-link
    *
    * @param postV2TagNomenclatureLinkRequest (required)
@@ -10450,8 +10552,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag-nomenclature-link
    *
    * @param postV2TagNomenclatureLinkRequest (required)
@@ -10489,8 +10591,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v2-tag-nomenclature-link
    *
    * @param postV2TagNomenclatureLinkRequest (required)
@@ -10629,8 +10731,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task
    *
    * @param postV2UploadTaskRequest (required)
@@ -10672,8 +10774,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task
    *
    * @param postV2UploadTaskRequest (required)
@@ -10716,8 +10818,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task
    *
    * @param postV2UploadTaskRequest (required)
@@ -10859,8 +10961,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-club-discount
    *
    * @param postV2UploadTaskClubDiscountRequest (required)
@@ -10902,8 +11004,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-club-discount
    *
    * @param postV2UploadTaskClubDiscountRequest (required)
@@ -10946,8 +11048,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-club-discount
    *
    * @param postV2UploadTaskClubDiscountRequest (required)
@@ -11094,8 +11196,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-size
    *
    * @param postV2UploadTaskSizeRequest (required)
@@ -11142,8 +11244,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-size
    *
    * @param postV2UploadTaskSizeRequest (required)
@@ -11191,8 +11293,8 @@ public class ItemsApi {
    * Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600
    * мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с
    * секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 4 запроса | 15 мин | 1
-   * запрос | --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**.
-   * Library doc:
+   * запрос | --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду
+   * суммарно для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-api-v2-upload-task-size
    *
    * @param postV2UploadTaskSizeRequest (required)
@@ -11349,8 +11451,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-file
    *
    * @param xNmId Артикул WB (required)
@@ -11391,8 +11493,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-file
    *
    * @param xNmId Артикул WB (required)
@@ -11435,8 +11537,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-file
    *
    * @param xNmId Артикул WB (required)
@@ -11587,8 +11689,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-save
    *
    * @param postV3MediaSaveRequest (required)
@@ -11638,8 +11740,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-save
    *
    * @param postV3MediaSaveRequest (required)
@@ -11689,8 +11791,8 @@ public class ItemsApi {
    * Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 100 запросов | 600 мс | 5
    * запросов | | Сервисный | 1 мин | 100 запросов | 600 мс | 5 запросов | | Базовый с секретом | 1
    * мин | 100 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |
-   * --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов **Контента**. Library
-   * doc:
+   * --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно
+   * для всех методов **Контента**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/items/post-content-v3-media-save
    *
    * @param postV3MediaSaveRequest (required)

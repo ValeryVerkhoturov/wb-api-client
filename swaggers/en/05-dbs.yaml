@@ -1517,7 +1517,7 @@ paths:
 
         <hr>
 
-        In Sandbox — maximum of 1 request per second for all <strong>Marketplace</strong> methods in total.
+        In <a href='/en/sandbox'>Sandbox</a> — maximum of 1 request per second for all <strong>Marketplace</strong> methods in total.
 
         </div>
       requestBody:

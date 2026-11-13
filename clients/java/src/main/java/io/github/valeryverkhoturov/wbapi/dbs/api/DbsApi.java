@@ -2797,8 +2797,8 @@ public class DbsApi {
    * | 500 запросов | 120 мс | 20 запросов | | Сервисный | 1 мин | 500 запросов | 120 мс | 20
    * запросов | | Базовый с секретом | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый | 1 ч
    * | 10 запросов | 6 мин | 1 запрос | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как
-   * 10 запросов. --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов
-   * **Маркетплейса**. Library doc:
+   * 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-sgtin
    *
    * @param apiOrdersSGTINsSetRequest (required)
@@ -2842,8 +2842,8 @@ public class DbsApi {
    * | 500 запросов | 120 мс | 20 запросов | | Сервисный | 1 мин | 500 запросов | 120 мс | 20
    * запросов | | Базовый с секретом | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый | 1 ч
    * | 10 запросов | 6 мин | 1 запрос | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как
-   * 10 запросов. --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов
-   * **Маркетплейса**. Library doc:
+   * 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-sgtin
    *
    * @param apiOrdersSGTINsSetRequest (required)
@@ -2889,8 +2889,8 @@ public class DbsApi {
    * | 500 запросов | 120 мс | 20 запросов | | Сервисный | 1 мин | 500 запросов | 120 мс | 20
    * запросов | | Базовый с секретом | 1 мин | 500 запросов | 120 мс | 20 запросов | | Базовый | 1 ч
    * | 10 запросов | 6 мин | 1 запрос | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как
-   * 10 запросов. --- В песочнице — максимум 1 запрос в секунду суммарно для всех методов
-   * **Маркетплейса**. Library doc:
+   * 10 запросов. --- В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в
+   * секунду суммарно для всех методов **Маркетплейса**. Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/dbs/post-api-marketplace-v3-dbs-orders-meta-sgtin
    *
    * @param apiOrdersSGTINsSetRequest (required)
