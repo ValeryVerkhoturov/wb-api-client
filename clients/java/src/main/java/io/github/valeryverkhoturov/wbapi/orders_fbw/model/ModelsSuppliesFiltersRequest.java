@@ -1,6 +1,6 @@
 /*
  * Поставки FBW
- * Узнать больше о поставках FBW можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  С помощью методов этого раздела вы можете: - получить [информации для формирования поставок](https://dev.wildberries.ru/openapi/orders-fbw#tag/informationForFormingSupplies) - получить [информации о поставках](https://dev.wildberries.ru/openapi/orders-fbw#tag/suppliesInformation) - управлять [черновиками поставок](https://dev.wildberries.ru/openapi/orders-fbw#tag/supplyDrafts)
+ * Узнать больше о поставках FBW можно в [справочном центре](https://seller.wildberries.ru/instructions/subcategory/5a8e1202-0865-45b7-acae-5d0afc7add56?goBackOption=prevRoute&categoryId=479385c6-de01-4b4d-ad4e-ed941e65582e)  С помощью методов этого раздела вы можете: - получить [информацию для формирования поставок](https://dev.wildberries.ru/openapi/orders-fbw#tag/informationForFormingSupplies) - получить [информацию о поставках](https://dev.wildberries.ru/openapi/orders-fbw#tag/suppliesInformation) - управлять [черновиками поставок](https://dev.wildberries.ru/openapi/orders-fbw#tag/supplyDrafts)
  *
  * The version of the OpenAPI document: ordersfbw
  *

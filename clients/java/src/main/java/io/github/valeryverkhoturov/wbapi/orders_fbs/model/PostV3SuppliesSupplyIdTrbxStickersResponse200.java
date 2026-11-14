@@ -40,7 +40,7 @@ public class PostV3SuppliesSupplyIdTrbxStickersResponse200 {
 
   @SerializedName(SERIALIZED_NAME_STICKERS)
   @jakarta.annotation.Nullable
-  private List<TrbxStickers> stickers = new ArrayList<>();
+  private List<TrbxStickers> stickers;
 
   public PostV3SuppliesSupplyIdTrbxStickersResponse200() {}
 

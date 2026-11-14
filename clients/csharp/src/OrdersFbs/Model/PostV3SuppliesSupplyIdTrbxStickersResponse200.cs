@@ -43,7 +43,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <summary>
         /// Gets or Sets Stickers
         /// </summary>
-        [DataMember(Name = "stickers", EmitDefaultValue = false)]
+        [DataMember(Name = "stickers", EmitDefaultValue = true)]
         public List<TrbxStickers> Stickers { get; set; }
 
         /// <summary>

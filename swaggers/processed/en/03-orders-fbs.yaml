@@ -6703,6 +6703,7 @@ components:
       properties:
         stickers:
           type: array
+          nullable: true
           items:
             $ref: '#/components/schemas/TrbxStickers'
     GetV3FbsSettingsAutoreturnsResponse200:

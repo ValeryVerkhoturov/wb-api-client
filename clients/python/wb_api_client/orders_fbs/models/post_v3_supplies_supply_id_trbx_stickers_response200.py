@@ -76,6 +76,11 @@ class PostV3SuppliesSupplyIdTrbxStickersResponse200(BaseModel):
                 if _item_stickers:
                     _items.append(_item_stickers.to_dict())
             _dict["stickers"] = _items
+        # set to None if stickers (nullable) is None
+        # and model_fields_set contains the field
+        if self.stickers is None and "stickers" in self.model_fields_set:
+            _dict["stickers"] = None
+
         return _dict
 
     @classmethod
