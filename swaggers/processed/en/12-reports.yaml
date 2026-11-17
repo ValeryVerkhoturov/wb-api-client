@@ -1901,6 +1901,7 @@ paths:
         in: query
         schema:
           type: string
+          default: archive
           example: active
           enum:
           - active
@@ -1913,6 +1914,7 @@ paths:
         in: query
         schema:
           type: integer
+          default: 1000
           maximum: 1000
           minimum: 0
           format: date
@@ -1922,6 +1924,7 @@ paths:
         in: query
         schema:
           type: integer
+          default: 0
           format: date
           example: 3
         description: How many results to skip. For example, for the value 10, the response will start with the 11 element

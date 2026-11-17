@@ -291,9 +291,9 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
-        /// <param name="limit">Количество возвратов в ответе (optional)</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional, default to archive)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional, default to 1000)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ItemReturns200Response</returns>
         ItemReturns200Response GetV1ItemReturns(string dateFrom, string dateTo, string? status = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
@@ -307,9 +307,9 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
-        /// <param name="limit">Количество возвратов в ответе (optional)</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional, default to archive)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional, default to 1000)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ItemReturns200Response</returns>
         ApiResponse<ItemReturns200Response> GetV1ItemReturnsWithHttpInfo(string dateFrom, string dateTo, string? status = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
@@ -898,9 +898,9 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
-        /// <param name="limit">Количество возвратов в ответе (optional)</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional, default to archive)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional, default to 1000)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ItemReturns200Response</returns>
@@ -915,9 +915,9 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
-        /// <param name="limit">Количество возвратов в ответе (optional)</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional, default to archive)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional, default to 1000)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ItemReturns200Response)</returns>
@@ -3115,9 +3115,9 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
-        /// <param name="limit">Количество возвратов в ответе (optional)</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional, default to archive)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional, default to 1000)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ItemReturns200Response</returns>
         public ItemReturns200Response GetV1ItemReturns(string dateFrom, string dateTo, string? status = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
@@ -3132,9 +3132,9 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
-        /// <param name="limit">Количество возвратов в ответе (optional)</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional, default to archive)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional, default to 1000)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ItemReturns200Response</returns>
         public ValeryVerkhoturov.WbApiClient.Reports.Client.ApiResponse<ItemReturns200Response> GetV1ItemReturnsWithHttpInfo(string dateFrom, string dateTo, string? status = default(string?), int? limit = default(int?), int? offset = default(int?), int operationIndex = 0)
@@ -3219,9 +3219,9 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
-        /// <param name="limit">Количество возвратов в ответе (optional)</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional, default to archive)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional, default to 1000)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ItemReturns200Response</returns>
@@ -3237,9 +3237,9 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Reports.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dateFrom">Дата начала отчётного периода</param>
         /// <param name="dateTo">Дата окончания отчётного периода</param>
-        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional)</param>
-        /// <param name="limit">Количество возвратов в ответе (optional)</param>
-        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional)</param>
+        /// <param name="status">Статус возврата:   - &#x60;archive&#x60; — архивный   - &#x60;active&#x60; — активный  (optional, default to archive)</param>
+        /// <param name="limit">Количество возвратов в ответе (optional, default to 1000)</param>
+        /// <param name="offset">Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11 элемента (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ItemReturns200Response)</returns>

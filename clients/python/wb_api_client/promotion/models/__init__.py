@@ -376,6 +376,9 @@ from wb_api_client.promotion.models.v0_get_norm_query_stats_request_items_inner 
 from wb_api_client.promotion.models.v0_get_norm_query_stats_response import (
     V0GetNormQueryStatsResponse,
 )
+from wb_api_client.promotion.models.v0_positions_range import V0PositionsRange
+from wb_api_client.promotion.models.v0_positions_response import V0PositionsResponse
+from wb_api_client.promotion.models.v0_positions_row import V0PositionsRow
 from wb_api_client.promotion.models.v0_put_daily_limits_advert_result import (
     V0PutDailyLimitsAdvertResult,
 )
@@ -438,3 +441,9 @@ from wb_api_client.promotion.models.v3_get_adverts_restrictions import (
     V3GetAdvertsRestrictions,
 )
 from wb_api_client.promotion.models.v3_placements import V3Placements
+from wb_api_client.promotion.models.v4_full_stats_conversion_type import (
+    V4FullStatsConversionType,
+)
+from wb_api_client.promotion.models.v4_full_stats_placement import V4FullStatsPlacement
+from wb_api_client.promotion.models.v4_full_stats_response import V4FullStatsResponse
+from wb_api_client.promotion.models.v4_full_stats_row import V4FullStatsRow

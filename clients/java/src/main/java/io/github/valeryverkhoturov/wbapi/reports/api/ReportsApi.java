@@ -2316,10 +2316,10 @@ public class ReportsApi {
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
    * @param status Статус возврата: - &#x60;archive&#x60; — архивный - &#x60;active&#x60; — активный
-   *     (optional)
-   * @param limit Количество возвратов в ответе (optional)
+   *     (optional, default to archive)
+   * @param limit Количество возвратов в ответе (optional, default to 1000)
    * @param offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11
-   *     элемента (optional)
+   *     элемента (optional, default to 0)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -2452,10 +2452,10 @@ public class ReportsApi {
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
    * @param status Статус возврата: - &#x60;archive&#x60; — архивный - &#x60;active&#x60; — активный
-   *     (optional)
-   * @param limit Количество возвратов в ответе (optional)
+   *     (optional, default to archive)
+   * @param limit Количество возвратов в ответе (optional, default to 1000)
    * @param offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11
-   *     элемента (optional)
+   *     элемента (optional, default to 0)
    * @return ItemReturns200Response
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2492,10 +2492,10 @@ public class ReportsApi {
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
    * @param status Статус возврата: - &#x60;archive&#x60; — архивный - &#x60;active&#x60; — активный
-   *     (optional)
-   * @param limit Количество возвратов в ответе (optional)
+   *     (optional, default to archive)
+   * @param limit Количество возвратов в ответе (optional, default to 1000)
    * @param offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11
-   *     элемента (optional)
+   *     элемента (optional, default to 0)
    * @return ApiResponse&lt;ItemReturns200Response&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2533,10 +2533,10 @@ public class ReportsApi {
    * @param dateFrom Дата начала отчётного периода (required)
    * @param dateTo Дата окончания отчётного периода (required)
    * @param status Статус возврата: - &#x60;archive&#x60; — архивный - &#x60;active&#x60; — активный
-   *     (optional)
-   * @param limit Количество возвратов в ответе (optional)
+   *     (optional, default to archive)
+   * @param limit Количество возвратов в ответе (optional, default to 1000)
    * @param offset Сколько элементов пропустить. Например, для значения 10 ответ начнется с 11
-   *     элемента (optional)
+   *     элемента (optional, default to 0)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object

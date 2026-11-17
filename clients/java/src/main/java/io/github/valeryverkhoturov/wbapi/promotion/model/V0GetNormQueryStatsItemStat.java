@@ -171,7 +171,7 @@ public class V0GetNormQueryStatsItemStat {
   }
 
   /**
-   * Количество добавлений товаров в корзину
+   * Сколько раз товар добавили в корзину
    *
    * @return atbs
    */

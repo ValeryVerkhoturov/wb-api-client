@@ -63,7 +63,7 @@ class StatsBlok1(BaseModel):
         default=None, description="Родительская категория предмета"
     )
     atbs: Optional[StrictInt] = Field(
-        default=None, description="Количество добавлений товаров в корзину"
+        default=None, description="Сколько раз товар добавили в корзину"
     )
     orders: Optional[StrictInt] = Field(default=None, description="Количество заказов")
     price: Optional[Union[StrictFloat, StrictInt]] = Field(

@@ -36,7 +36,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// </summary>
         /// <param name="views">Количество просмотров.</param>
         /// <param name="clicks">Количество кликов.</param>
-        /// <param name="atbs">Количество добавлений товаров в корзину.</param>
+        /// <param name="atbs">Сколько раз товар добавили в корзину.</param>
         /// <param name="ctr">CTR (click-through rate) — показатель кликабельности, отношение числа кликов к количеству показов в рамках медиакампании .</param>
         public StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner(long views = default(long), long clicks = default(long), long atbs = default(long), decimal ctr = default(decimal))
         {
@@ -61,9 +61,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public long Clicks { get; set; }
 
         /// <summary>
-        /// Количество добавлений товаров в корзину
+        /// Сколько раз товар добавили в корзину
         /// </summary>
-        /// <value>Количество добавлений товаров в корзину</value>
+        /// <value>Сколько раз товар добавили в корзину</value>
         [DataMember(Name = "atbs", EmitDefaultValue = false)]
         public long Atbs { get; set; }
 

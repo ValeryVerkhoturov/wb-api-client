@@ -113,7 +113,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <param name="address">address.</param>
         /// <param name="ddate">Планируемая дата доставки заказа покупателю. Поле отображается для сборочных заданий со сверхгабаритными товарами &#x60;СГТ&#x60;, &#x60;cargoType: 2&#x60;.</param>
-        /// <param name="sellerDate">Рекомендуемая дата доставки СГТ в сортировочный центр или на склад. Поле отображается для сборочных заданий со сверхгабаритными товарами &#x60;СГТ&#x60;, &#x60;cargoType: 2&#x60;.</param>
+        /// <param name="sellerDate">Дата, когда [нужно отгрузить](https://seller.wildberries.ru/instructions/ru/ru/material/packing-and-delivery-of-oversized-items-in-fbs) сверхгабаритный товар (СГТ) на склад. Часовой пояс — UTC+3. Поле отображается для сборочных заданий со сверхгабаритными товарами &#x60;СГТ&#x60;, &#x60;cargoType: 2&#x60;.</param>
         /// <param name="salePrice">Цена продавца в валюте продажи с учётом скидки продавца, без учёта скидки WB Клуба, умноженная на 100. Предоставляется в информационных целях .</param>
         /// <param name="requiredMeta">Список идентификаторов маркировки, которые [необходимо добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание, чтобы поставку с этим сборочным заданием можно было перевести в доставку .</param>
         /// <param name="optionalMeta">Список идентификаторов маркировки, которые [можно добавить](https://dev.wildberries.ru/knowledge-base/articles/019e9273-118b-7b69-a25a-ea1d756f05d9/rabota-s-markirovkoi-po-modeli-fbs) в сборочное задание. Поставку со сборочным заданием без этих идентификаторов маркировки можно перевести в доставку, но они могут потребоваться, например, при возврате товара покупателем.</param>
@@ -196,9 +196,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         public string Ddate { get; set; }
 
         /// <summary>
-        /// Рекомендуемая дата доставки СГТ в сортировочный центр или на склад. Поле отображается для сборочных заданий со сверхгабаритными товарами &#x60;СГТ&#x60;, &#x60;cargoType: 2&#x60;
+        /// Дата, когда [нужно отгрузить](https://seller.wildberries.ru/instructions/ru/ru/material/packing-and-delivery-of-oversized-items-in-fbs) сверхгабаритный товар (СГТ) на склад. Часовой пояс — UTC+3. Поле отображается для сборочных заданий со сверхгабаритными товарами &#x60;СГТ&#x60;, &#x60;cargoType: 2&#x60;
         /// </summary>
-        /// <value>Рекомендуемая дата доставки СГТ в сортировочный центр или на склад. Поле отображается для сборочных заданий со сверхгабаритными товарами &#x60;СГТ&#x60;, &#x60;cargoType: 2&#x60;</value>
+        /// <value>Дата, когда [нужно отгрузить](https://seller.wildberries.ru/instructions/ru/ru/material/packing-and-delivery-of-oversized-items-in-fbs) сверхгабаритный товар (СГТ) на склад. Часовой пояс — UTC+3. Поле отображается для сборочных заданий со сверхгабаритными товарами &#x60;СГТ&#x60;, &#x60;cargoType: 2&#x60;</value>
         /*
         <example>02.06.2025</example>
         */

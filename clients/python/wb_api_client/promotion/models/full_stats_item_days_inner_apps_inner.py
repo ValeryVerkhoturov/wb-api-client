@@ -44,9 +44,9 @@ class FullStatsItemDaysInnerAppsInner(BaseModel):
         alias="appType",
     )
     atbs: Optional[StrictInt] = Field(
-        default=None, description="Количество добавлений товаров в корзину"
+        default=None, description="Сколько раз товар добавили в корзину"
     )
-    canceled: Optional[StrictInt] = Field(default=None, description="Отмены, шт.")
+    canceled: Optional[StrictInt] = Field(default=None, description="Количество отмен")
     clicks: Optional[StrictInt] = Field(default=None, description="Количество кликов")
     cpc: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None,
@@ -54,11 +54,11 @@ class FullStatsItemDaysInnerAppsInner(BaseModel):
     )
     cr: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None,
-        description="CR (conversion rate) — отношение количества заказов к общему количеству кликов",
+        description="Отношение количества заказов к общему количеству кликов",
     )
     ctr: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None,
-        description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах",
+        description="Кликабельность — отношение числа кликов к количеству показов, %",
     )
     nms: Optional[List[FullStatsItemDaysInnerAppsInnerNmsInner]] = Field(
         default=None, description="Блок статистики по артикулам WB"

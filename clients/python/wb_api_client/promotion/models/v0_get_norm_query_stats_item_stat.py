@@ -37,7 +37,7 @@ class V0GetNormQueryStatsItemStat(BaseModel):
     )
     clicks: Optional[StrictInt] = Field(default=None, description="Количество кликов")
     atbs: Optional[StrictInt] = Field(
-        default=None, description="Количество добавлений товаров в корзину"
+        default=None, description="Сколько раз товар добавили в корзину"
     )
     orders: Optional[StrictInt] = Field(default=None, description="Количество заказов")
     ctr: Optional[Union[StrictFloat, StrictInt]] = Field(

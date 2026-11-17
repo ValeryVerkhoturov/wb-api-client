@@ -37,12 +37,12 @@ class V1GetNormQueryStatsResponseItemStat(BaseModel):
     )
     clicks: Optional[StrictInt] = Field(default=None, description="Количество кликов")
     atbs: Optional[StrictInt] = Field(
-        default=None, description="Количество добавлений товаров в корзину"
+        default=None, description="Сколько раз товар добавили в корзину"
     )
     orders: Optional[StrictInt] = Field(default=None, description="Количество заказов")
     ctr: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None,
-        description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` ",
+        description="Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null` ",
     )
     cpc: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None,

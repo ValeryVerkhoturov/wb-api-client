@@ -107,7 +107,7 @@ public class StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner {
   }
 
   /**
-   * Количество добавлений товаров в корзину
+   * Сколько раз товар добавили в корзину
    *
    * @return atbs
    */

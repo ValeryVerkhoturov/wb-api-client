@@ -53,7 +53,7 @@ tags:
 
     For example, the `men t-shirt` cluster will also include requests like `mren t-shirt`, `men t-shirts with sleeves`, `man t-shirts`, and other similar phrases.<br><br>
 
-    To get clusters that have already had impressions, use the [search clusters statistics](./promotion#tag/statistics/operation/postV0NormqueryStats) method.<br><br>
+    To get clusters that have already had views, use the [search clusters statistics](./promotion#tag/statistics/operation/postV0NormqueryStats) method.<br><br>
 
     You can [set](./promotion#tag/searchClusters/operation/postV0NormqueryBids) or [delete](./promotion#tag/searchClusters/operation/deleteV0NormqueryBids) bids for campaigns with custom bids. You can specify the [seller account currency](https://cmp.wildberries.ru/campaigns/finances) and bid steps in the response of the method for getting [promotion configuration values](./promotion#tag/campaignManagement/operation/getV1Config). Bids are individual for each search cluster.<br><br>
 
@@ -1853,7 +1853,7 @@ paths:
       summary: Recommended bids for items and search clusters
       description: |-
         The method returns recommended bids for items and search clusters of the campaign.
-        You can use this method for campaigns with `cpm` — for impressions, and `cpc` — for clicks payment models.
+        You can use this method for campaigns with `cpm` — for views, and `cpc` — for clicks payment models.
 
         [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
         | Type | Period | Limit | Interval | Burst |
@@ -1929,7 +1929,7 @@ paths:
       summary: Search Clusters Statistics
       description: |-
         The method returns statistics for search clusters over a specified period.
-        You can use this method only for campaigns with a `cpm` payment model — for impressions.
+        You can use this method only for campaigns with a `cpm` payment model — for views.
 
         [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
         | Type | Period | Limit | Interval | Burst |
@@ -2379,7 +2379,7 @@ paths:
         **Service** token
 
         The method sets bids for search clusters in the currency of the seller account.
-        You can use this method only for campaigns with manual bids and `cpm` payment model — per impressions.
+        You can use this method only for campaigns with manual bids and `cpm` payment model — per views.
 
         [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
         | Type | Period | Limit | Interval | Burst |
@@ -2445,7 +2445,7 @@ paths:
         The method sets the bids for search clusters.
         You can use this method only for campaigns with:
         - custom bid
-        - a `cpm` payment model — per impressions
+        - a `cpm` payment model — per views
 
         [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
         | Type | Period | Limit | Interval | Burst |
@@ -2518,7 +2518,7 @@ paths:
         The method deletes the bids from search clusters.
         You can use this method only for campaigns with:
         - custom bid
-        - a `cpm` payment model — per impressions
+        - a `cpm` payment model — per views
 
         [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
         | Type | Period | Limit | Interval | Burst |
@@ -3734,7 +3734,7 @@ paths:
       summary: Daily Search Clusters Statistics
       description: |-
         Returns statistics (views, clicks, add-to-cart, orders, CTR, CPC, CPM, etc.) by search clusters for the specified period detailed by day.
-        You can use this method for campaigns with `cpm` — for impressions, and `cpc` — for clicks payment models.
+        You can use this method for campaigns with `cpm` — for views, and `cpc` — for clicks payment models.
 
         [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
         | Type | Period | Limit | Interval | Burst |
@@ -3980,6 +3980,196 @@ paths:
       x-tagKey: campaignManagement
       x-original-tags:
       - Campaign Management
+  /api/advert/v4/fullstats:
+    servers:
+    - url: https://advert-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: advert
+      security:
+      - BearerAuth: []
+      summary: Flat Campaign Statistics
+      description: |-
+        The method generates campaign statistics in a flat format with detailing by placement zones and conversion types.
+
+        The maximum period in a request is 31 days.
+
+        For campaigns in statuses `7`, `9` and `11`.
+
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        | Type | Period | Limit | Interval | Burst |
+        | --- | --- | --- | --- | --- |
+        | Personal | 1 min | 3 requests | 20 s | 1 request |
+        | Service | 1 min | 3 requests | 20 s | 1 request |
+        | Base with secret | 1 min | 3 requests | 20 s | 1 request |
+        | Base | 1 h | 1 request | 1 h | 1 request |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+      tags:
+      - Promotion
+      operationId: getV4Fullstats
+      parameters:
+      - name: advertIds
+        in: query
+        description: List of advertising campaign IDs
+        required: true
+        style: form
+        explode: false
+        schema:
+          type: array
+          minItems: 1
+          maxItems: 50
+          items:
+            type: integer
+            format: int64
+        example:
+        - 13456789
+        - 987654321
+      - name: beginDate
+        in: query
+        description: Start date for the interval
+        schema:
+          type: string
+        required: true
+        example: '2025-09-07'
+      - name: endDate
+        in: query
+        description: End date for the interval
+        schema:
+          type: string
+        required: true
+        example: '2025-09-08'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V4FullStatsResponse'
+              examples:
+                V4FullStatsSuccesResponse:
+                  $ref: '#/components/examples/V4FullStatsSuccesResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandardizedBatchError'
+              examples:
+                InvalidAdvertIdsFormat:
+                  $ref: '#/components/examples/InvalidAdvertIdsFormat'
+                InvalidBeginDateFormat:
+                  $ref: '#/components/examples/InvalidBeginDateFormat'
+                InvalidEndDateFormat:
+                  $ref: '#/components/examples/InvalidEndDateFormat'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: statistics
+      x-original-tags:
+      - Statistics
+  /api/advert/v0/positions:
+    servers:
+    - url: https://advert-api.wildberries.ru
+    get:
+      x-readonly-method: true
+      x-category: advert
+      x-token-types:
+      - personal
+      - service
+      security:
+      - BearerAuth: []
+      summary: Listing Positions in Search Results
+      description: |-
+        The method returns the median positions of listings in search results and the distribution of views across fixed position ranges.
+
+        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
+        | Type | Period | Limit | Interval | Burst |
+        | --- | --- | --- | --- | --- |
+        | Personal | 1 min | 10 requests | 6 s | 1 request |
+        | Service | 1 min | 10 requests | 6 s | 1 request |
+
+        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+      tags:
+      - Promotion
+      operationId: getV0Positions
+      parameters:
+      - name: advertIds
+        in: query
+        description: Campaign IDs
+        required: true
+        style: form
+        explode: false
+        schema:
+          type: array
+          maxItems: 50
+          items:
+            type: integer
+            format: int64
+        example:
+        - 13456789
+        - 987654321
+      - name: nmIds
+        in: query
+        description: WB item numbers
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+        example:
+        - 1
+        - 2
+        - 3
+      - name: beginDate
+        in: query
+        description: Start date for the interval
+        required: true
+        schema:
+          type: string
+        example: '2026-09-01'
+      - name: endDate
+        in: query
+        description: End date for the interval
+        required: true
+        schema:
+          type: string
+        example: '2026-09-07'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V0PositionsResponse'
+        '400':
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandardizedBatchError'
+              examples:
+                InvalidAdvertIdsFormat:
+                  $ref: '#/components/examples/InvalidAdvertIdsFormat'
+                InvalidBeginDateFormat:
+                  $ref: '#/components/examples/InvalidBeginDateFormat'
+                InvalidEndDateFormat:
+                  $ref: '#/components/examples/InvalidEndDateFormat'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+      x-tagKey: statistics
+      x-original-tags:
+      - Statistics
 components:
   schemas:
     V3GetAdvertsResponse:
@@ -4097,6 +4287,236 @@ components:
           - `search` — search
           - `recommendations` — recommendations
           - `combined` — search and recommendations with a standard bid
+    V4FullStatsResponse:
+      type: object
+      properties:
+        rows:
+          nullable: false
+          type: array
+          items:
+            $ref: '#/components/schemas/V4FullStatsRow'
+    V4FullStatsRow:
+      type: object
+      properties:
+        advertId:
+          nullable: false
+          type: integer
+          format: int64
+          description: Advertising campaign ID
+        nmId:
+          nullable: false
+          type: integer
+          format: int64
+          description: WB item number
+        date:
+          nullable: false
+          type: string
+          description: Date the information is provided for
+        placement:
+          $ref: '#/components/schemas/V4FullStatsPlacement'
+        conversionType:
+          $ref: '#/components/schemas/V4FullStatsConversionType'
+        currency:
+          type: string
+          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances)
+          format: ISO 4217
+        views:
+          nullable: false
+          type: integer
+          format: int64
+          description: |
+            Views.
+
+            For the `"conversionType":"multicard"` and `"conversionType":"associated"`, `0` is returned if the view was on another item
+        clicks:
+          nullable: false
+          type: integer
+          format: int64
+          description: Number of clicks. Only for `"conversionType":"direct"`
+        ctr:
+          nullable: false
+          type: number
+          format: double
+          description: Click-through rate — the ratio of clicks to displays, %
+        cpc:
+          nullable: false
+          type: number
+          format: double
+          description: Cost per click in the base units of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency
+        sum:
+          nullable: false
+          type: number
+          format: double
+          description: Costs in the base units of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency. Only for `"conversionType":"direct"`
+        atbs:
+          nullable: false
+          type: integer
+          description: Number of item added to the cart
+          format: int64
+        orders:
+          nullable: false
+          type: integer
+          description: Number of orders
+          format: int64
+        cr:
+          nullable: false
+          type: number
+          format: double
+          description: The ratio of the number of orders to the total number of clicks
+        shks:
+          nullable: false
+          type: integer
+          description: Number of ordered items, pcs
+          format: int64
+        sumPrice:
+          nullable: false
+          type: number
+          format: double
+          description: Orders amount in the base units of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency
+        canceled:
+          nullable: false
+          type: integer
+          description: Count of cancellations
+          format: int64
+        avgPos:
+          nullable: false
+          type: number
+          format: double
+          description: Average position in search. Returned only for  `"placement":search` and `"conversionType":"direct"` combination
+    V4FullStatsPlacement:
+      type: string
+      nullable: false
+      enum:
+      - search
+      - recommendation
+      description: |
+        Campaign placement:
+          - `search` — search
+          - `recommendations` — recommendations
+    V4FullStatsConversionType:
+      type: string
+      nullable: false
+      enum:
+      - direct
+      - multicard
+      - associated
+      description: |
+        Conversion type:
+        - `direct` — order of the advertised item. Views, clicks and spend relate to this type
+        - `multicard` — order of another item variation from this listing
+        - `associated` — order of another item
+    V0PositionsResponse:
+      type: object
+      properties:
+        rows:
+          items:
+            $ref: '#/components/schemas/V0PositionsRow'
+    V0PositionsRow:
+      type: object
+      properties:
+        advertId:
+          nullable: false
+          type: integer
+          format: int64
+          example: 28449281
+          description: Advertising campaign ID
+        nmId:
+          nullable: false
+          type: integer
+          format: int64
+          example: 398309059
+          description: WB item number
+        date:
+          nullable: false
+          type: string
+          example: '2026-09-05'
+          description: Date the information is provided for
+        posMedian:
+          nullable: false
+          type: integer
+          example: 12
+          description: Median listing position in search with boost
+          format: int64
+        posNoboostMedian:
+          nullable: false
+          type: integer
+          example: 40
+          description: Median listing position in search without boost
+          format: int64
+        posMedianDiff:
+          nullable: false
+          type: integer
+          example: 28
+          description: |
+            How much the boost raised the listing in the results: `posNoboostMedian` - `posMedian`
+          format: int64
+        ranges:
+          nullable: false
+          description: Ranges
+          type: array
+          items:
+            $ref: '#/components/schemas/V0PositionsRange'
+    V0PositionsRange:
+      type: object
+      properties:
+        range:
+          type: string
+          nullable: false
+          enum:
+          - 1-2
+          - 3-10
+          - 11-34
+          - 35-50
+          - 51-100
+          - 101-300
+          - 301+
+          example: 3-10
+          description: Position range in search results
+        views:
+          nullable: false
+          type: integer
+          example: 100
+          description: |-
+            Number of views in the range with boost.
+
+            For CPM campaigns only
+          format: int64
+        viewsShare:
+          nullable: false
+          type: number
+          format: double
+          example: 38.5
+          description: |-
+            Share of range views of all listing views for the day, %.
+
+            For CPM campaigns only
+        viewsNoBoost:
+          nullable: false
+          type: integer
+          example: 15
+          description: |-
+            Number of views in the range without boost.
+
+            For CPM campaigns only
+          format: int64
+        clicks:
+          nullable: false
+          type: integer
+          example: 2
+          description: Number of clicks in the range
+          format: int64
+        clicksShare:
+          nullable: false
+          type: number
+          format: double
+          example: 40
+          description: Share of range clicks of all listing clicks for the day, %
+        ctr:
+          nullable: false
+          type: number
+          format: double
+          example: 2
+          description: Click-through rate — the ratio of clicks to displays, %
     V0GetDailyLimitsResponse:
       type: object
       properties:
@@ -4319,7 +4739,7 @@ components:
           description: Search cluster - a group of similar search queries by which buyers find items
         currency:
           type: string
-          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency
+          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances)
           format: ISO 4217
     NormQueryBidFailResponseItem:
       type: object
@@ -4403,7 +4823,7 @@ components:
           - cpm
           description: |
             Payment type:
-              - `cpm` — for impressions
+              - `cpm` — for views
     V0BidsRecommendationsCpcResponse2:
       type: object
       properties:
@@ -4680,7 +5100,7 @@ components:
           format: int64
         atbs:
           type: integer
-          description: Number of items added to the cart
+          description: Number of times the item was added to the cart
           format: int64
         orders:
           type: integer
@@ -4691,7 +5111,7 @@ components:
           format: float
           nullable: true
           description: |
-            CTR (click-through rate) is the ratio of clicks to impressions, expressed as a percentage.
+            Click-through rate — the ratio of clicks to displays, %.
 
             For `cpc` campaigns (pay-per-click), the value will be `null`
         cpc:
@@ -4806,7 +5226,7 @@ components:
           format: int64
         ctr:
           description: |
-            Click-through rate — the ratio of clicks to impressions, %.
+            Click-through rate — the ratio of clicks to views, %.
 
             For `cpc` campaigns (pay-per-click), the value will be `null`
           type: number
@@ -4839,7 +5259,7 @@ components:
             Item promotion costs in a specific search cluster of the campaign
         currency:
           type: string
-          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency
+          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances)
           format: ISO 4217
     V0GetNormQueryStatsResponse:
       type: object
@@ -4979,7 +5399,7 @@ components:
           format: int64
         currency:
           type: string
-          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency
+          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances)
           format: ISO 4217
     V0GetNormQueryBidsResponse:
       type: object
@@ -5068,7 +5488,7 @@ components:
           format: int64
         currency:
           type: string
-          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency
+          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances)
           format: ISO 4217
     ResponseAdvError1:
       type: object
@@ -5131,7 +5551,7 @@ components:
                     - `manual` — custom bid
               currency:
                 type: string
-                description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency
+                description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances)
                 format: ISO 4217
               id:
                 type: integer
@@ -5386,7 +5806,7 @@ components:
           type: number
         ctr:
           description: |
-            CTR (click-through rate) — clickability metric, the ratio of the number of clicks to the number of impressions within a media campaign
+            CTR (click-through rate) — clickability metric, the ratio of the number of clicks to the number of views within a media campaign
           type: number
         date_from:
           description: The placement start date
@@ -5456,7 +5876,7 @@ components:
                             format: int64
                           ctr:
                             description: |
-                              CTR (click-through rate) — clickability metric, the ratio of the number of clicks to the number of impressions within a media campaign
+                              CTR (click-through rate) — clickability metric, the ratio of the number of clicks to the number of views within a media campaign
                             type: number
         expenses:
           description: Cost of banner placement
@@ -5506,7 +5926,7 @@ components:
           type: number
         ctr:
           description: |
-            CTR (click-through rate) — clickability metric, the ratio of the number of clicks to the number of impressions within a media campaign
+            CTR (click-through rate) — clickability metric, the ratio of the number of clicks to the number of views within a media campaign
           type: number
         date_from:
           description: The placement start date
@@ -5584,7 +6004,7 @@ components:
                             type: number
                           ctr:
                             description: |
-                              CTR (click-through rate) — clickability metric, the ratio of the number of clicks to the number of impressions within a media campaign
+                              CTR (click-through rate) — clickability metric, the ratio of the number of clicks to the number of views within a media campaign
                             type: number
         expenses:
           description: Cost of banner placement
@@ -5651,7 +6071,7 @@ components:
           format: int64
         atbs:
           type: integer
-          description: Number of items added to the cart
+          description: Number of times the item was added to the cart
           format: int64
         boosterStats:
           type: array
@@ -5664,7 +6084,7 @@ components:
                 type: integer
                 format: int64
               date:
-                description: Date for which information is to be provided
+                description: Date the information is provided for
                 type: string
               nm:
                 description: WB item number
@@ -5672,7 +6092,7 @@ components:
                 format: int64
         canceled:
           type: integer
-          description: Cancellations, pcs
+          description: Count of cancellations
           format: int64
         clicks:
           type: integer
@@ -5685,11 +6105,11 @@ components:
         cr:
           type: number
           format: double
-          description: CR (conversion rate) — the ratio of the number of orders to the total number of clicks
+          description: The ratio of the number of orders to the total number of clicks
         ctr:
           type: number
           format: double
-          description: CTR (click-through rate) — the ratio of clicks to impressions, expressed as a percentage
+          description: CTR (click-through rate) — the ratio of clicks to views, expressed as a percentage
         days:
           type: array
           description: Statistics by days
@@ -5716,11 +6136,11 @@ components:
                       format: int64
                     atbs:
                       type: integer
-                      description: Number of items added to the cart
+                      description: Number of times the item was added to the cart
                       format: int64
                     canceled:
                       type: integer
-                      description: Cancellations, pcs
+                      description: Count of cancellations
                       format: int64
                     clicks:
                       type: integer
@@ -5734,7 +6154,7 @@ components:
                       description: CR (conversion rate) is the ratio of the number of orders to the total number of clicks
                     ctr:
                       type: number
-                      description: CTR (click-through rate) is the ratio of clicks to impressions, expressed as a percentage
+                      description: Click-through rate — the ratio of clicks to displays, %
                     nms:
                       description: Statistics block for WB item numbers
                       type: array
@@ -5743,11 +6163,11 @@ components:
                         properties:
                           atbs:
                             type: integer
-                            description: Number of items added to the cart
+                            description: Number of times the item was added to the cart
                             format: int64
                           canceled:
                             type: integer
-                            description: Cancellations, pcs
+                            description: Count of cancellations
                             format: int64
                           clicks:
                             type: integer
@@ -5761,7 +6181,7 @@ components:
                             description: CR (conversion rate) is the ratio of the number of orders to the total number of clicks
                           ctr:
                             type: number
-                            description: CTR (click-through rate) is the ratio of clicks to impressions, expressed as a percentage
+                            description: Click-through rate — the ratio of clicks to displays, %
                           name:
                             description: Item name
                             type: string
@@ -5807,14 +6227,14 @@ components:
                       format: int64
               atbs:
                 type: integer
-                description: Number of items added to the cart
+                description: Number of times the item was added to the cart
                 format: int64
               canceled:
                 type: integer
-                description: Cancellations, pcs
+                description: Count of cancellations
                 format: int64
               date:
-                description: Date for which the data is presented
+                description: Date the information is provided for
                 type: string
               clicks:
                 type: integer
@@ -5828,7 +6248,7 @@ components:
                 description: CR (conversion rate) is the ratio of the number of orders to the total number of visits to the campaign
               ctr:
                 type: number
-                description: CTR (click-through rate) is the ratio of clicks to impressions, expressed as a percentage
+                description: Click-through rate — the ratio of clicks to displays, %
               orders:
                 type: integer
                 description: Number of orders
@@ -5869,7 +6289,7 @@ components:
           format: int64
         currency:
           type: string
-          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency
+          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances)
           format: ISO 4217
     FullStatsError:
       type: object
@@ -5996,7 +6416,7 @@ components:
                   properties:
                     currency:
                       type: string
-                      description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency
+                      description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances)
                       format: ISO 4217
                     type:
                       $ref: '#/components/schemas/PlacementType'
@@ -6083,7 +6503,7 @@ components:
                           - `recommendations`— in recommendations
         currency:
           type: string
-          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency
+          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances)
           format: ISO 4217
     GetV1BalanceResponse200:
       type: object
@@ -6098,7 +6518,7 @@ components:
           format: int64
         currency:
           type: string
-          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency
+          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances)
           format: ISO 4217
         bonus:
           description: Bonuses in the base units of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency
@@ -6139,7 +6559,7 @@ components:
           format: int64
         currency:
           type: string
-          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency
+          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances)
           format: ISO 4217
     PostV1BudgetDepositResponse400:
       type: object
@@ -6236,7 +6656,7 @@ components:
             type: string
           currency:
             type: string
-            description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency
+            description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances)
             format: ISO 4217
     PatchV0AuctionNmsResponse200:
       type: object
@@ -6400,10 +6820,10 @@ components:
               type: integer
               format: int64
             from:
-              description: Media campaign impressions start date and time
+              description: Media campaign views start date and time
               type: string
             to:
-              description: Media campaign impressions end date and time
+              description: Media campaign views end date and time
               type: string
             updated_at:
               description: Campaign update date and time
@@ -6456,7 +6876,7 @@ components:
                 type: integer
                 format: int64
               daily_limit:
-                description: Daily limit (for impression banners)
+                description: Daily limit (for view banners)
                 type: integer
                 format: int64
               category_name:
@@ -7136,6 +7556,82 @@ components:
                 description: Error text
                 example: Failed to parse data
   examples:
+    InvalidAdvertIdsFormat:
+      value:
+        detail: 'code=400, message=Invalid format for parameter advertIds: error setting array element: error binding string parameter: strconv.ParseInt: parsing "": invalid syntax'
+        origin: camp-api-public-cache
+        request_id: 6dca9599bce5dc8b382e89d55a89ad77
+        status: 400
+        title: bad request
+    InvalidBeginDateFormat:
+      value:
+        detail: 'code=400, message=Invalid format for parameter beginDate: parsing time "29030753" as "2006-01-02": cannot parse "0753" as "-"'
+        origin: camp-api-public-cache
+        request_id: f3aca18bbffd05f2aaa82b92e8771076
+        status: 400
+        title: bad request
+    InvalidEndDateFormat:
+      value:
+        detail: 'code=400, message=Invalid format for parameter endDate: parsing time "29030753" as "2006-01-02": cannot parse "0753" as "-"'
+        origin: camp-api-public-cache
+        request_id: f81ba90077bcc8ce26611a0635c5c85e
+        status: 400
+        title: bad request
+    V4FullStatsSuccesResponse:
+      value:
+        rows:
+        - advertId: 28449281
+          nmId: 398309059
+          date: '2026-09-05'
+          placement: search
+          conversionType: direct
+          currency: RUB
+          views: 260
+          clicks: 5
+          ctr: 1.92
+          cpc: 33.02
+          sum: 165.1
+          atbs: 1
+          orders: 1
+          cr: 20
+          shks: 1
+          sumPrice: 500
+          canceled: 0
+          avgPos: 24
+        - advertId: 28449281
+          nmId: 301957154
+          date: '2026-09-05'
+          placement: search
+          conversionType: associated
+          currency: RUB
+          views: 0
+          clicks: 0
+          ctr: 0
+          cpc: 0
+          sum: 0
+          atbs: 0
+          orders: 2
+          cr: 0
+          shks: 2
+          sumPrice: 1400
+          canceled: 0
+        - advertId: 28449281
+          nmId: 398309061
+          date: '2026-09-05'
+          placement: search
+          conversionType: multicard
+          currency: RUB
+          views: 0
+          clicks: 0
+          ctr: 0
+          cpc: 0
+          sum: 0
+          atbs: 1
+          orders: 1
+          cr: 0
+          shks: 1
+          sumPrice: 700
+          canceled: 0
     ConflictingModes:
       summary: Недопустимо одновременное применение параметра `advertIds` с другими параметрами
       value:

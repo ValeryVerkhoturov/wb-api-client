@@ -35,9 +35,9 @@ class FullStatsItemDaysInner(BaseModel):
         default=None, description="Блок информации о платформе"
     )
     atbs: Optional[StrictInt] = Field(
-        default=None, description="Количество добавлений товаров в корзину"
+        default=None, description="Сколько раз товар добавили в корзину"
     )
-    canceled: Optional[StrictInt] = Field(default=None, description="Отмены, шт.")
+    canceled: Optional[StrictInt] = Field(default=None, description="Количество отмен")
     var_date: Optional[StrictStr] = Field(
         default=None, description="Дата, за которую представлены данные", alias="date"
     )
@@ -52,7 +52,7 @@ class FullStatsItemDaysInner(BaseModel):
     )
     ctr: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None,
-        description="CTR (click-through rate) — отношение числа кликов к количеству показов в процентах",
+        description="Кликабельность — отношение числа кликов к количеству показов, %",
     )
     orders: Optional[StrictInt] = Field(default=None, description="Количество заказов")
     shks: Optional[StrictInt] = Field(

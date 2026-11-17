@@ -119,6 +119,12 @@ export const operationServerMap: ServerMap = {
       description: "No description provided",
     },
   ],
+  "PromotionApi.getV0Positions": [
+    {
+      url: "https://advert-api.wildberries.ru",
+      description: "No description provided",
+    },
+  ],
   "PromotionApi.getV0Start": [
     {
       url: "https://advert-api.wildberries.ru",
@@ -222,6 +228,12 @@ export const operationServerMap: ServerMap = {
     },
   ],
   "PromotionApi.getV3Fullstats": [
+    {
+      url: "https://advert-api.wildberries.ru",
+      description: "No description provided",
+    },
+  ],
+  "PromotionApi.getV4Fullstats": [
     {
       url: "https://advert-api.wildberries.ru",
       description: "No description provided",

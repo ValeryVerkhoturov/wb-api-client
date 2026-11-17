@@ -120,7 +120,7 @@ public class FullStatsItemDaysInnerAppsInnerNmsInner {
   }
 
   /**
-   * Количество добавлений товаров в корзину
+   * Сколько раз товар добавили в корзину
    *
    * @return atbs
    */
@@ -140,7 +140,7 @@ public class FullStatsItemDaysInnerAppsInnerNmsInner {
   }
 
   /**
-   * Отмены, шт.
+   * Количество отмен
    *
    * @return canceled
    */
@@ -198,7 +198,7 @@ public class FullStatsItemDaysInnerAppsInnerNmsInner {
   }
 
   /**
-   * CR (conversion rate) — отношение количества заказов к общему количеству кликов
+   * Отношение количества заказов к общему количеству кликов
    *
    * @return cr
    */
@@ -217,7 +217,7 @@ public class FullStatsItemDaysInnerAppsInnerNmsInner {
   }
 
   /**
-   * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+   * Кликабельность — отношение числа кликов к количеству показов, %
    *
    * @return ctr
    */

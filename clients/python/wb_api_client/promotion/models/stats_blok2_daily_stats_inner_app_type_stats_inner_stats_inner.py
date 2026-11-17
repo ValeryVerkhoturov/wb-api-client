@@ -33,7 +33,7 @@ class StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner(BaseModel):
     )
     clicks: Optional[StrictInt] = Field(default=None, description="Количество кликов")
     atbs: Optional[StrictInt] = Field(
-        default=None, description="Количество добавлений товаров в корзину"
+        default=None, description="Сколько раз товар добавили в корзину"
     )
     orders: Optional[StrictInt] = Field(default=None, description="Количество заказов")
     cr: Optional[Union[StrictFloat, StrictInt]] = Field(

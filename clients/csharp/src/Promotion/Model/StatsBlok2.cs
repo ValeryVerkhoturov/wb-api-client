@@ -46,7 +46,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="dateFrom">Время начала размещения.</param>
         /// <param name="dateTo">Время завершения размещения.</param>
         /// <param name="subjectName">Родительская категория предмета.</param>
-        /// <param name="atbs">Количество добавлений товаров в корзину.</param>
+        /// <param name="atbs">Сколько раз товар добавили в корзину.</param>
         /// <param name="orders">Количество заказов.</param>
         /// <param name="price">Стоимость размещения.</param>
         /// <param name="cpc">(cost per click) — цена клика по продвигаемому товару.</param>
@@ -165,9 +165,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public string SubjectName { get; set; }
 
         /// <summary>
-        /// Количество добавлений товаров в корзину
+        /// Сколько раз товар добавили в корзину
         /// </summary>
-        /// <value>Количество добавлений товаров в корзину</value>
+        /// <value>Сколько раз товар добавили в корзину</value>
         [DataMember(Name = "atbs", EmitDefaultValue = false)]
         public long Atbs { get; set; }
 

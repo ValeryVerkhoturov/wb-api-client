@@ -6168,8 +6168,8 @@ components:
           type: string
           nullable: true
           description: |
-            Recommended delivery date for `ODC` items to sorting center or warehouse. <br>
-            The field is displayed for assembly orders with over dimensional items `ODC`, `cargoType: 2`
+            The date when [it is necessary to dispatch](https://seller.wildberries.ru/instructions/ru/ru/material/packing-and-delivery-of-oversized-items-in-fbs) the over dimensional items (ODC) to the warehouse. Time zone — UTC+3.<br>
+            The field is displayed for assembly orders with `ODC` items, `cargoType: 2`
           example: 02.06.2025
         salePrice:
           description: |

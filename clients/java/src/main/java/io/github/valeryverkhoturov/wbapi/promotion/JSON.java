@@ -509,6 +509,15 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.promotion.model.V0GetNormQueryStatsResponse
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.promotion.model.V0PositionsRange
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.promotion.model.V0PositionsResponse
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.promotion.model.V0PositionsRow
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.promotion.model.V0PutDailyLimitsAdvertResult
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
@@ -588,6 +597,12 @@ public class JSON {
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.promotion.model.V3GetAdvertsRestrictions
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.promotion.model.V4FullStatsResponse
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.promotion.model.V4FullStatsRow
             .CustomTypeAdapterFactory());
     gson = gsonBuilder.create();
   }

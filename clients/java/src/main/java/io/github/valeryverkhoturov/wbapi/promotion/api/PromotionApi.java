@@ -60,6 +60,7 @@ import io.github.valeryverkhoturov.wbapi.promotion.model.V0GetNormQueryMinusRequ
 import io.github.valeryverkhoturov.wbapi.promotion.model.V0GetNormQueryMinusResponse;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V0GetNormQueryStatsRequest;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V0GetNormQueryStatsResponse;
+import io.github.valeryverkhoturov.wbapi.promotion.model.V0PositionsResponse;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V0PutDailyLimitsRequest;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V0PutDailyLimitsResponse;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V0SetMinusNormQueryRequest;
@@ -72,6 +73,7 @@ import io.github.valeryverkhoturov.wbapi.promotion.model.V2BudgetRequest;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V2BudgetResponse;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V2GetConfigResponse;
 import io.github.valeryverkhoturov.wbapi.promotion.model.V3GetAdvertsResponse;
+import io.github.valeryverkhoturov.wbapi.promotion.model.V4FullStatsResponse;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1067,6 +1069,247 @@ public class PromotionApi {
 
     okhttp3.Call localVarCall = getV0PauseValidateBeforeCall(id, _callback);
     localVarApiClient.executeAsync(localVarCall, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * Build call for getV0Positions
+   *
+   * @param advertIds Список ID рекламных кампаний (required)
+   * @param beginDate Дата начала интервала (required)
+   * @param endDate Дата окончания интервала (required)
+   * @param nmIds Артикулы WB (optional)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV0PositionsCall(
+      List<Long> advertIds,
+      String beginDate,
+      String endDate,
+      List<Long> nmIds,
+      final ApiCallback _callback)
+      throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = null;
+
+    // create path and map variables
+    String localVarPath = "/api/advert/v0/positions";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    if (advertIds != null) {
+      localVarCollectionQueryParams.addAll(
+          localVarApiClient.parameterToPairs("csv", "advertIds", advertIds));
+    }
+
+    if (nmIds != null) {
+      localVarCollectionQueryParams.addAll(
+          localVarApiClient.parameterToPairs("csv", "nmIds", nmIds));
+    }
+
+    if (beginDate != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("beginDate", beginDate));
+    }
+
+    if (endDate != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("endDate", endDate));
+    }
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call getV0PositionsValidateBeforeCall(
+      List<Long> advertIds,
+      String beginDate,
+      String endDate,
+      List<Long> nmIds,
+      final ApiCallback _callback)
+      throws ApiException {
+    // verify the required parameter 'advertIds' is set
+    if (advertIds == null) {
+      throw new ApiException(
+          "Missing the required parameter 'advertIds' when calling getV0Positions(Async)");
+    }
+
+    // verify the required parameter 'beginDate' is set
+    if (beginDate == null) {
+      throw new ApiException(
+          "Missing the required parameter 'beginDate' when calling getV0Positions(Async)");
+    }
+
+    // verify the required parameter 'endDate' is set
+    if (endDate == null) {
+      throw new ApiException(
+          "Missing the required parameter 'endDate' when calling getV0Positions(Async)");
+    }
+
+    return getV0PositionsCall(advertIds, beginDate, endDate, nmIds, _callback);
+  }
+
+  /**
+   * Позиции карточек товаров в поисковой выдаче Метод возвращает медианные позиции карточек товаров
+   * в поисковой выдаче и распределение показов по фиксированным диапазонам позиций. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10
+   * запросов | 6 сек | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+   *
+   * @param advertIds Список ID рекламных кампаний (required)
+   * @param beginDate Дата начала интервала (required)
+   * @param endDate Дата окончания интервала (required)
+   * @param nmIds Артикулы WB (optional)
+   * @return V0PositionsResponse
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public V0PositionsResponse getV0Positions(
+      List<Long> advertIds, String beginDate, String endDate, List<Long> nmIds)
+      throws ApiException {
+    ApiResponse<V0PositionsResponse> localVarResp =
+        getV0PositionsWithHttpInfo(advertIds, beginDate, endDate, nmIds);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Позиции карточек товаров в поисковой выдаче Метод возвращает медианные позиции карточек товаров
+   * в поисковой выдаче и распределение показов по фиксированным диапазонам позиций. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10
+   * запросов | 6 сек | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+   *
+   * @param advertIds Список ID рекламных кампаний (required)
+   * @param beginDate Дата начала интервала (required)
+   * @param endDate Дата окончания интервала (required)
+   * @param nmIds Артикулы WB (optional)
+   * @return ApiResponse&lt;V0PositionsResponse&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<V0PositionsResponse> getV0PositionsWithHttpInfo(
+      List<Long> advertIds, String beginDate, String endDate, List<Long> nmIds)
+      throws ApiException {
+    okhttp3.Call localVarCall =
+        getV0PositionsValidateBeforeCall(advertIds, beginDate, endDate, nmIds, null);
+    Type localVarReturnType = new TypeToken<V0PositionsResponse>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Позиции карточек товаров в поисковой выдаче (asynchronously) Метод возвращает медианные позиции
+   * карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам
+   * позиций. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10
+   * запросов | 6 сек | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+   *
+   * @param advertIds Список ID рекламных кампаний (required)
+   * @param beginDate Дата начала интервала (required)
+   * @param endDate Дата окончания интервала (required)
+   * @param nmIds Артикулы WB (optional)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV0PositionsAsync(
+      List<Long> advertIds,
+      String beginDate,
+      String endDate,
+      List<Long> nmIds,
+      final ApiCallback<V0PositionsResponse> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        getV0PositionsValidateBeforeCall(advertIds, beginDate, endDate, nmIds, _callback);
+    Type localVarReturnType = new TypeToken<V0PositionsResponse>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
 
@@ -4808,6 +5051,235 @@ public class PromotionApi {
     okhttp3.Call localVarCall =
         getV3FullstatsValidateBeforeCall(ids, beginDate, endDate, _callback);
     Type localVarReturnType = new TypeToken<List<FullStatsItem>>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * Build call for getV4Fullstats
+   *
+   * @param advertIds Список ID рекламных кампаний (required)
+   * @param beginDate Дата начала интервала (required)
+   * @param endDate Дата окончания интервала (required)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV4FullstatsCall(
+      List<Long> advertIds, String beginDate, String endDate, final ApiCallback _callback)
+      throws ApiException {
+    String basePath = null;
+    // Operation Servers
+    String[] localBasePaths = new String[] {"https://advert-api.wildberries.ru"};
+
+    // Determine Base Path to Use
+    if (localCustomBaseUrl != null) {
+      basePath = localCustomBaseUrl;
+    } else if (localBasePaths.length > 0) {
+      basePath = localBasePaths[localHostIndex];
+    } else {
+      basePath = null;
+    }
+
+    Object localVarPostBody = null;
+
+    // create path and map variables
+    String localVarPath = "/api/advert/v4/fullstats";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    if (advertIds != null) {
+      localVarCollectionQueryParams.addAll(
+          localVarApiClient.parameterToPairs("csv", "advertIds", advertIds));
+    }
+
+    if (beginDate != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("beginDate", beginDate));
+    }
+
+    if (endDate != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("endDate", endDate));
+    }
+
+    final String[] localVarAccepts = {"application/json", "application/problem+json"};
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    if (localVarContentType != null) {
+      localVarHeaderParams.put("Content-Type", localVarContentType);
+    }
+
+    String[] localVarAuthNames = new String[] {"BearerAuth"};
+    return localVarApiClient.buildCall(
+        basePath,
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call getV4FullstatsValidateBeforeCall(
+      List<Long> advertIds, String beginDate, String endDate, final ApiCallback _callback)
+      throws ApiException {
+    // verify the required parameter 'advertIds' is set
+    if (advertIds == null) {
+      throw new ApiException(
+          "Missing the required parameter 'advertIds' when calling getV4Fullstats(Async)");
+    }
+
+    // verify the required parameter 'beginDate' is set
+    if (beginDate == null) {
+      throw new ApiException(
+          "Missing the required parameter 'beginDate' when calling getV4Fullstats(Async)");
+    }
+
+    // verify the required parameter 'endDate' is set
+    if (endDate == null) {
+      throw new ApiException(
+          "Missing the required parameter 'endDate' when calling getV4Fullstats(Async)");
+    }
+
+    return getV4FullstatsCall(advertIds, beginDate, endDate, _callback);
+  }
+
+  /**
+   * Плоская статистика кампаний Метод формирует статистику кампаний в плоском формате (без
+   * вложенной иерархии) с разделением по зонам показов и типам конверсии. Максимальный период в
+   * запросе — 31 день. Для кампаний в статусах &#x60;7&#x60;, &#x60;9&#x60; и &#x60;11&#x60;.
+   * [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3
+   * запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | |
+   * Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+   *
+   * @param advertIds Список ID рекламных кампаний (required)
+   * @param beginDate Дата начала интервала (required)
+   * @param endDate Дата окончания интервала (required)
+   * @return V4FullStatsResponse
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public V4FullStatsResponse getV4Fullstats(List<Long> advertIds, String beginDate, String endDate)
+      throws ApiException {
+    ApiResponse<V4FullStatsResponse> localVarResp =
+        getV4FullstatsWithHttpInfo(advertIds, beginDate, endDate);
+    return localVarResp.getData();
+  }
+
+  /**
+   * Плоская статистика кампаний Метод формирует статистику кампаний в плоском формате (без
+   * вложенной иерархии) с разделением по зонам показов и типам конверсии. Максимальный период в
+   * запросе — 31 день. Для кампаний в статусах &#x60;7&#x60;, &#x60;9&#x60; и &#x60;11&#x60;.
+   * [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3
+   * запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | |
+   * Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+   *
+   * @param advertIds Список ID рекламных кампаний (required)
+   * @param beginDate Дата начала интервала (required)
+   * @param endDate Дата окончания интервала (required)
+   * @return ApiResponse&lt;V4FullStatsResponse&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<V4FullStatsResponse> getV4FullstatsWithHttpInfo(
+      List<Long> advertIds, String beginDate, String endDate) throws ApiException {
+    okhttp3.Call localVarCall =
+        getV4FullstatsValidateBeforeCall(advertIds, beginDate, endDate, null);
+    Type localVarReturnType = new TypeToken<V4FullStatsResponse>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * Плоская статистика кампаний (asynchronously) Метод формирует статистику кампаний в плоском
+   * формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии. Максимальный
+   * период в запросе — 31 день. Для кампаний в статусах &#x60;7&#x60;, &#x60;9&#x60; и
+   * &#x60;11&#x60;. [Лимит
+   * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
+   * на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | ---
+   * | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3
+   * запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | |
+   * Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос | Library doc:
+   * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+   *
+   * @param advertIds Список ID рекламных кампаний (required)
+   * @param beginDate Дата начала интервала (required)
+   * @param endDate Дата окончания интервала (required)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table border="1">
+   * <caption>Response Details</caption>
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> Успешно </td><td>  -  </td></tr>
+   * <tr><td> 400 </td><td> Неправильный запрос </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Не авторизован </td><td>  -  </td></tr>
+   * <tr><td> 403 </td><td> Доступ запрещён </td><td>  -  </td></tr>
+   * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call getV4FullstatsAsync(
+      List<Long> advertIds,
+      String beginDate,
+      String endDate,
+      final ApiCallback<V4FullStatsResponse> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        getV4FullstatsValidateBeforeCall(advertIds, beginDate, endDate, _callback);
+    Type localVarReturnType = new TypeToken<V4FullStatsResponse>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }

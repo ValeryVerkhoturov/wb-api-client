@@ -47,7 +47,7 @@ class OrderNew(BaseModel):
     )
     seller_date: Optional[StrictStr] = Field(
         default=None,
-        description="Рекомендуемая дата доставки СГТ в сортировочный центр или на склад. Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2`",
+        description="Дата, когда [нужно отгрузить](https://seller.wildberries.ru/instructions/ru/ru/material/packing-and-delivery-of-oversized-items-in-fbs) сверхгабаритный товар (СГТ) на склад. Часовой пояс — UTC+3. Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2`",
         alias="sellerDate",
     )
     sale_price: Optional[StrictInt] = Field(

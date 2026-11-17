@@ -64,12 +64,12 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// Initializes a new instance of the <see cref="FullStatsItemDaysInnerAppsInner" /> class.
         /// </summary>
         /// <param name="appType">Тип платформы:   - &#x60;1&#x60; — сайт   - &#x60;32&#x60; — Android   - &#x60;64&#x60; — IOS .</param>
-        /// <param name="atbs">Количество добавлений товаров в корзину.</param>
-        /// <param name="canceled">Отмены, шт..</param>
+        /// <param name="atbs">Сколько раз товар добавили в корзину.</param>
+        /// <param name="canceled">Количество отмен.</param>
         /// <param name="clicks">Количество кликов.</param>
         /// <param name="cpc">Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
-        /// <param name="cr">CR (conversion rate) — отношение количества заказов к общему количеству кликов.</param>
-        /// <param name="ctr">CTR (click-through rate) — отношение числа кликов к количеству показов в процентах.</param>
+        /// <param name="cr">Отношение количества заказов к общему количеству кликов.</param>
+        /// <param name="ctr">Кликабельность — отношение числа кликов к количеству показов, %.</param>
         /// <param name="nms">Блок статистики по артикулам WB.</param>
         /// <param name="orders">Количество заказов.</param>
         /// <param name="shks">Количество заказанных товаров, шт..</param>
@@ -94,16 +94,16 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         }
 
         /// <summary>
-        /// Количество добавлений товаров в корзину
+        /// Сколько раз товар добавили в корзину
         /// </summary>
-        /// <value>Количество добавлений товаров в корзину</value>
+        /// <value>Сколько раз товар добавили в корзину</value>
         [DataMember(Name = "atbs", EmitDefaultValue = false)]
         public long Atbs { get; set; }
 
         /// <summary>
-        /// Отмены, шт.
+        /// Количество отмен
         /// </summary>
-        /// <value>Отмены, шт.</value>
+        /// <value>Количество отмен</value>
         [DataMember(Name = "canceled", EmitDefaultValue = false)]
         public long Canceled { get; set; }
 
@@ -122,16 +122,16 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public decimal Cpc { get; set; }
 
         /// <summary>
-        /// CR (conversion rate) — отношение количества заказов к общему количеству кликов
+        /// Отношение количества заказов к общему количеству кликов
         /// </summary>
-        /// <value>CR (conversion rate) — отношение количества заказов к общему количеству кликов</value>
+        /// <value>Отношение количества заказов к общему количеству кликов</value>
         [DataMember(Name = "cr", EmitDefaultValue = false)]
         public decimal Cr { get; set; }
 
         /// <summary>
-        /// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+        /// Кликабельность — отношение числа кликов к количеству показов, %
         /// </summary>
-        /// <value>CTR (click-through rate) — отношение числа кликов к количеству показов в процентах</value>
+        /// <value>Кликабельность — отношение числа кликов к количеству показов, %</value>
         [DataMember(Name = "ctr", EmitDefaultValue = false)]
         public decimal Ctr { get; set; }
 

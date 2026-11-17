@@ -26,9 +26,9 @@ using OpenAPIDateConverter = ValeryVerkhoturov.WbApiClient.Promotion.Client.Open
 namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
 {
     /// <summary>
-    /// Место размещения кампании: - &#x60;search&#x60; - поиск - &#x60;recommendations&#x60; - рекомендации - &#x60;combined&#x60; - поиск и рекомендации с единой ставкой 
+    /// Место размещения кампании: - &#x60;search&#x60; — поиск - &#x60;recommendations&#x60; — рекомендации - &#x60;combined&#x60; — поиск и рекомендации с единой ставкой 
     /// </summary>
-    /// <value>Место размещения кампании: - &#x60;search&#x60; - поиск - &#x60;recommendations&#x60; - рекомендации - &#x60;combined&#x60; - поиск и рекомендации с единой ставкой </value>
+    /// <value>Место размещения кампании: - &#x60;search&#x60; — поиск - &#x60;recommendations&#x60; — рекомендации - &#x60;combined&#x60; — поиск и рекомендации с единой ставкой </value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum V3Placements
     {

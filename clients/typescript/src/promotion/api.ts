@@ -227,7 +227,7 @@ export interface FullStatsItem {
    */
   advertId?: number;
   /**
-   * Количество добавлений товаров в корзину
+   * Сколько раз товар добавили в корзину
    * @type {number}
    * @memberof FullStatsItem
    */
@@ -239,7 +239,7 @@ export interface FullStatsItem {
    */
   boosterStats?: Array<FullStatsItemBoosterStatsInner>;
   /**
-   * Отмены, шт.
+   * Количество отмен
    * @type {number}
    * @memberof FullStatsItem
    */
@@ -257,13 +257,13 @@ export interface FullStatsItem {
    */
   cpc?: number;
   /**
-   * CR (conversion rate) — отношение количества заказов к общему количеству кликов
+   * Отношение количества заказов к общему количеству кликов
    * @type {number}
    * @memberof FullStatsItem
    */
   cr?: number;
   /**
-   * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+   * Кликабельность — отношение числа кликов к количеству показов, %
    * @type {number}
    * @memberof FullStatsItem
    */
@@ -349,13 +349,13 @@ export interface FullStatsItemDaysInner {
    */
   apps?: Array<FullStatsItemDaysInnerAppsInner>;
   /**
-   * Количество добавлений товаров в корзину
+   * Сколько раз товар добавили в корзину
    * @type {number}
    * @memberof FullStatsItemDaysInner
    */
   atbs?: number;
   /**
-   * Отмены, шт.
+   * Количество отмен
    * @type {number}
    * @memberof FullStatsItemDaysInner
    */
@@ -385,7 +385,7 @@ export interface FullStatsItemDaysInner {
    */
   cr?: number;
   /**
-   * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+   * Кликабельность — отношение числа кликов к количеству показов, %
    * @type {number}
    * @memberof FullStatsItemDaysInner
    */
@@ -434,13 +434,13 @@ export interface FullStatsItemDaysInnerAppsInner {
    */
   appType?: FullStatsItemDaysInnerAppsInnerAppTypeEnum;
   /**
-   * Количество добавлений товаров в корзину
+   * Сколько раз товар добавили в корзину
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
   atbs?: number;
   /**
-   * Отмены, шт.
+   * Количество отмен
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
@@ -458,13 +458,13 @@ export interface FullStatsItemDaysInnerAppsInner {
    */
   cpc?: number;
   /**
-   * CR (conversion rate) — отношение количества заказов к общему количеству кликов
+   * Отношение количества заказов к общему количеству кликов
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
   cr?: number;
   /**
-   * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+   * Кликабельность — отношение числа кликов к количеству показов, %
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInner
    */
@@ -523,13 +523,13 @@ export type FullStatsItemDaysInnerAppsInnerAppTypeEnum =
  */
 export interface FullStatsItemDaysInnerAppsInnerNmsInner {
   /**
-   * Количество добавлений товаров в корзину
+   * Сколько раз товар добавили в корзину
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
   atbs?: number;
   /**
-   * Отмены, шт.
+   * Количество отмен
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
@@ -547,13 +547,13 @@ export interface FullStatsItemDaysInnerAppsInnerNmsInner {
    */
   cpc?: number;
   /**
-   * CR (conversion rate) — отношение количества заказов к общему количеству кликов
+   * Отношение количества заказов к общему количеству кликов
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
   cr?: number;
   /**
-   * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+   * Кликабельность — отношение числа кликов к количеству показов, %
    * @type {number}
    * @memberof FullStatsItemDaysInnerAppsInnerNmsInner
    */
@@ -2991,7 +2991,7 @@ export interface StatsBlok1 {
    */
   subject_name?: string;
   /**
-   * Количество добавлений товаров в корзину
+   * Сколько раз товар добавили в корзину
    * @type {number}
    * @memberof StatsBlok1
    */
@@ -3102,7 +3102,7 @@ export interface StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner {
    */
   clicks?: number;
   /**
-   * Количество добавлений товаров в корзину
+   * Сколько раз товар добавили в корзину
    * @type {number}
    * @memberof StatsBlok1DailyStatsInnerAppTypeStatsInnerStatsInner
    */
@@ -3193,7 +3193,7 @@ export interface StatsBlok2 {
    */
   subject_name?: string;
   /**
-   * Количество добавлений товаров в корзину
+   * Сколько раз товар добавили в корзину
    * @type {number}
    * @memberof StatsBlok2
    */
@@ -3304,7 +3304,7 @@ export interface StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner {
    */
   clicks?: number;
   /**
-   * Количество добавлений товаров в корзину
+   * Сколько раз товар добавили в корзину
    * @type {number}
    * @memberof StatsBlok2DailyStatsInnerAppTypeStatsInnerStatsInner
    */
@@ -4067,7 +4067,7 @@ export interface V0GetNormQueryStatsItemStat {
    */
   clicks?: number;
   /**
-   * Количество добавлений товаров в корзину
+   * Сколько раз товар добавили в корзину
    * @type {number}
    * @memberof V0GetNormQueryStatsItemStat
    */
@@ -4177,6 +4177,131 @@ export interface V0GetNormQueryStatsResponse {
    * @memberof V0GetNormQueryStatsResponse
    */
   stats?: Array<V0GetNormQueryStatsItem>;
+}
+/**
+ *
+ * @export
+ * @interface V0PositionsRange
+ */
+export interface V0PositionsRange {
+  /**
+   * Диапазон позиций в поисковой выдаче
+   * @type {string}
+   * @memberof V0PositionsRange
+   */
+  range?: V0PositionsRangeRangeEnum;
+  /**
+   * Количество показов в диапазоне с учётом буста.  Только для CPM-кампаний
+   * @type {number}
+   * @memberof V0PositionsRange
+   */
+  views?: number;
+  /**
+   * Доля показов диапазона от всех показов карточки товара за день, %.  Только для CPM-кампаний
+   * @type {number}
+   * @memberof V0PositionsRange
+   */
+  viewsShare?: number;
+  /**
+   * Количество показов в диапазоне без учёта буста.  Только для CPM-кампаний
+   * @type {number}
+   * @memberof V0PositionsRange
+   */
+  viewsNoBoost?: number;
+  /**
+   * Количество кликов в диапазоне
+   * @type {number}
+   * @memberof V0PositionsRange
+   */
+  clicks?: number;
+  /**
+   * Доля кликов диапазона от всех кликов по карточке товара за день, %
+   * @type {number}
+   * @memberof V0PositionsRange
+   */
+  clicksShare?: number;
+  /**
+   * Кликабельность — отношение числа кликов к количеству показов, %
+   * @type {number}
+   * @memberof V0PositionsRange
+   */
+  ctr?: number;
+}
+
+export const V0PositionsRangeRangeEnum = {
+  _12: "1-2",
+  _310: "3-10",
+  _1134: "11-34",
+  _3550: "35-50",
+  _51100: "51-100",
+  _101300: "101-300",
+  _301: "301+",
+} as const;
+
+export type V0PositionsRangeRangeEnum =
+  (typeof V0PositionsRangeRangeEnum)[keyof typeof V0PositionsRangeRangeEnum];
+
+/**
+ *
+ * @export
+ * @interface V0PositionsResponse
+ */
+export interface V0PositionsResponse {
+  /**
+   *
+   * @type {Array<V0PositionsRow>}
+   * @memberof V0PositionsResponse
+   */
+  rows?: Array<V0PositionsRow>;
+}
+/**
+ *
+ * @export
+ * @interface V0PositionsRow
+ */
+export interface V0PositionsRow {
+  /**
+   * ID рекламной кампании
+   * @type {number}
+   * @memberof V0PositionsRow
+   */
+  advertId?: number;
+  /**
+   * Артикул WB
+   * @type {number}
+   * @memberof V0PositionsRow
+   */
+  nmId?: number;
+  /**
+   * Дата, за которую представлены данные
+   * @type {string}
+   * @memberof V0PositionsRow
+   */
+  date?: string;
+  /**
+   * Медианная позиция карточки товара в поиске с учётом буста
+   * @type {number}
+   * @memberof V0PositionsRow
+   */
+  posMedian?: number;
+  /**
+   * Медианная позиция карточки товара в поиске без учёта буста
+   * @type {number}
+   * @memberof V0PositionsRow
+   */
+  posNoboostMedian?: number;
+  /**
+   * На сколько буст поднял карточку товара в выдаче: `posNoboostMedian` - `posMedian`
+   * @type {number}
+   * @memberof V0PositionsRow
+   */
+  posMedianDiff?: number;
+  /**
+   * Диапазоны
+   * @type {Array<V0PositionsRange>}
+   * @memberof V0PositionsRow
+   */
+  ranges?: Array<V0PositionsRange>;
 }
 /**
  *
@@ -4467,7 +4592,7 @@ export interface V1GetNormQueryStatsResponseItemStat {
    */
   clicks?: number;
   /**
-   * Количество добавлений товаров в корзину
+   * Сколько раз товар добавили в корзину
    * @type {number}
    * @memberof V1GetNormQueryStatsResponseItemStat
    */
@@ -4479,7 +4604,7 @@ export interface V1GetNormQueryStatsResponseItemStat {
    */
   orders?: number;
   /**
-   * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
+   * Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты `cpc` — за клики — значение будет `null`
    * @type {number}
    * @memberof V1GetNormQueryStatsResponseItemStat
    */
@@ -4860,7 +4985,7 @@ export interface V3GetAdvertsRestrictions {
   canChangeNms?: boolean;
 }
 /**
- * Место размещения кампании: - `search` - поиск - `recommendations` - рекомендации - `combined` - поиск и рекомендации с единой ставкой
+ * Место размещения кампании: - `search` — поиск - `recommendations` — рекомендации - `combined` — поиск и рекомендации с единой ставкой
  * @export
  * @enum {string}
  */
@@ -4872,6 +4997,164 @@ export const V3Placements = {
 } as const;
 
 export type V3Placements = (typeof V3Placements)[keyof typeof V3Placements];
+
+/**
+ * Тип конверсии: - `direct` —  заказ рекламируемого товара. Показы, клики и расход относятся к конверсии этого типа - `multicard` — заказ другого варианта товара из этой карточки - `associated` — заказ другого товара
+ * @export
+ * @enum {string}
+ */
+
+export const V4FullStatsConversionType = {
+  Direct: "direct",
+  Multicard: "multicard",
+  Associated: "associated",
+} as const;
+
+export type V4FullStatsConversionType =
+  (typeof V4FullStatsConversionType)[keyof typeof V4FullStatsConversionType];
+
+/**
+ * Место размещения кампании: - `search` — поиск - `recommendations` — рекомендации
+ * @export
+ * @enum {string}
+ */
+
+export const V4FullStatsPlacement = {
+  Search: "search",
+  Recommendation: "recommendation",
+} as const;
+
+export type V4FullStatsPlacement =
+  (typeof V4FullStatsPlacement)[keyof typeof V4FullStatsPlacement];
+
+/**
+ *
+ * @export
+ * @interface V4FullStatsResponse
+ */
+export interface V4FullStatsResponse {
+  /**
+   *
+   * @type {Array<V4FullStatsRow>}
+   * @memberof V4FullStatsResponse
+   */
+  rows?: Array<V4FullStatsRow>;
+}
+/**
+ *
+ * @export
+ * @interface V4FullStatsRow
+ */
+export interface V4FullStatsRow {
+  /**
+   * ID рекламной кампании
+   * @type {number}
+   * @memberof V4FullStatsRow
+   */
+  advertId?: number;
+  /**
+   * Артикул WB
+   * @type {number}
+   * @memberof V4FullStatsRow
+   */
+  nmId?: number;
+  /**
+   * Дата, за которую предоставлены данные
+   * @type {string}
+   * @memberof V4FullStatsRow
+   */
+  date?: string;
+  /**
+   *
+   * @type {V4FullStatsPlacement}
+   * @memberof V4FullStatsRow
+   */
+  placement?: V4FullStatsPlacement;
+  /**
+   *
+   * @type {V4FullStatsConversionType}
+   * @memberof V4FullStatsRow
+   */
+  conversionType?: V4FullStatsConversionType;
+  /**
+   * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
+   * @type {string}
+   * @memberof V4FullStatsRow
+   */
+  currency?: string;
+  /**
+   * Показы.  Для `\"conversionType\":\"multicard\"` и `\"conversionType\":\"associated\"` возвращается `0`, если показ был на другом товаре
+   * @type {number}
+   * @memberof V4FullStatsRow
+   */
+  views?: number;
+  /**
+   * Количество кликов. Только для `\"conversionType\":\"direct\"`
+   * @type {number}
+   * @memberof V4FullStatsRow
+   */
+  clicks?: number;
+  /**
+   * Кликабельность — отношение числа кликов к количеству показов, %
+   * @type {number}
+   * @memberof V4FullStatsRow
+   */
+  ctr?: number;
+  /**
+   * Стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
+   * @type {number}
+   * @memberof V4FullStatsRow
+   */
+  cpc?: number;
+  /**
+   * Затраты в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances). Только для `\"conversionType\":\"direct\"`
+   * @type {number}
+   * @memberof V4FullStatsRow
+   */
+  sum?: number;
+  /**
+   * Сколько раз товар добавили в корзину
+   * @type {number}
+   * @memberof V4FullStatsRow
+   */
+  atbs?: number;
+  /**
+   * Количество заказов
+   * @type {number}
+   * @memberof V4FullStatsRow
+   */
+  orders?: number;
+  /**
+   * Отношение количества заказов к общему количеству кликов
+   * @type {number}
+   * @memberof V4FullStatsRow
+   */
+  cr?: number;
+  /**
+   * Количество заказанных товаров, шт.
+   * @type {number}
+   * @memberof V4FullStatsRow
+   */
+  shks?: number;
+  /**
+   * Сумма заказов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
+   * @type {number}
+   * @memberof V4FullStatsRow
+   */
+  sumPrice?: number;
+  /**
+   * Количество отмен
+   * @type {number}
+   * @memberof V4FullStatsRow
+   */
+  canceled?: number;
+  /**
+   * Средняя позиция товара на страницах поисковой выдачи. Возвращается только при комбинации значений `\"placement\":search` и `\"conversionType\":\"direct\"`
+   * @type {number}
+   * @memberof V4FullStatsRow
+   */
+  avgPos?: number;
+}
 
 /**
  * PromotionApi - axios parameter creator
@@ -5135,6 +5418,81 @@ export const PromotionApiAxiosParamCreator = function (
 
       if (id !== undefined) {
         localVarQueryParameter["id"] = id;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+     * @summary Позиции карточек товаров в поисковой выдаче
+     * @param {Array<number>} advertIds Список ID рекламных кампаний
+     * @param {string} beginDate Дата начала интервала
+     * @param {string} endDate Дата окончания интервала
+     * @param {Array<number>} [nmIds] Артикулы WB
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV0Positions: async (
+      advertIds: Array<number>,
+      beginDate: string,
+      endDate: string,
+      nmIds?: Array<number>,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'advertIds' is not null or undefined
+      assertParamExists("getV0Positions", "advertIds", advertIds);
+      // verify required parameter 'beginDate' is not null or undefined
+      assertParamExists("getV0Positions", "beginDate", beginDate);
+      // verify required parameter 'endDate' is not null or undefined
+      assertParamExists("getV0Positions", "endDate", endDate);
+      const localVarPath = `/api/advert/v0/positions`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "GET",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      if (advertIds) {
+        localVarQueryParameter["advertIds"] = advertIds.join(
+          COLLECTION_FORMATS.csv,
+        );
+      }
+
+      if (nmIds) {
+        localVarQueryParameter["nmIds"] = nmIds.join(COLLECTION_FORMATS.csv);
+      }
+
+      if (beginDate !== undefined) {
+        localVarQueryParameter["beginDate"] = beginDate;
+      }
+
+      if (endDate !== undefined) {
+        localVarQueryParameter["endDate"] = endDate;
       }
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -6165,6 +6523,75 @@ export const PromotionApiAxiosParamCreator = function (
 
       if (ids !== undefined) {
         localVarQueryParameter["ids"] = ids;
+      }
+
+      if (beginDate !== undefined) {
+        localVarQueryParameter["beginDate"] = beginDate;
+      }
+
+      if (endDate !== undefined) {
+        localVarQueryParameter["endDate"] = endDate;
+      }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.  Максимальный период в запросе — 31 день.  Для кампаний в статусах `7`, `9` и `11`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+     * @summary Плоская статистика кампаний
+     * @param {Array<number>} advertIds Список ID рекламных кампаний
+     * @param {string} beginDate Дата начала интервала
+     * @param {string} endDate Дата окончания интервала
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV4Fullstats: async (
+      advertIds: Array<number>,
+      beginDate: string,
+      endDate: string,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'advertIds' is not null or undefined
+      assertParamExists("getV4Fullstats", "advertIds", advertIds);
+      // verify required parameter 'beginDate' is not null or undefined
+      assertParamExists("getV4Fullstats", "beginDate", beginDate);
+      // verify required parameter 'endDate' is not null or undefined
+      assertParamExists("getV4Fullstats", "endDate", endDate);
+      const localVarPath = `/api/advert/v4/fullstats`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "GET",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication BearerAuth required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      if (advertIds) {
+        localVarQueryParameter["advertIds"] = advertIds.join(
+          COLLECTION_FORMATS.csv,
+        );
       }
 
       if (beginDate !== undefined) {
@@ -7506,6 +7933,48 @@ export const PromotionApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
+     * Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+     * @summary Позиции карточек товаров в поисковой выдаче
+     * @param {Array<number>} advertIds Список ID рекламных кампаний
+     * @param {string} beginDate Дата начала интервала
+     * @param {string} endDate Дата окончания интервала
+     * @param {Array<number>} [nmIds] Артикулы WB
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getV0Positions(
+      advertIds: Array<number>,
+      beginDate: string,
+      endDate: string,
+      nmIds?: Array<number>,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<V0PositionsResponse>
+    > {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.getV0Positions(
+        advertIds,
+        beginDate,
+        endDate,
+        nmIds,
+        options,
+      );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["PromotionApi.getV0Positions"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
      * Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах `4` — готово к запуску — или `11` — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
      * @summary Запуск кампании
      * @param {number} id ID кампании
@@ -8136,6 +8605,45 @@ export const PromotionApiFp = function (configuration?: Configuration) {
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap["PromotionApi.getV3Fullstats"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     * Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.  Максимальный период в запросе — 31 день.  Для кампаний в статусах `7`, `9` и `11`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+     * @summary Плоская статистика кампаний
+     * @param {Array<number>} advertIds Список ID рекламных кампаний
+     * @param {string} beginDate Дата начала интервала
+     * @param {string} endDate Дата окончания интервала
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async getV4Fullstats(
+      advertIds: Array<number>,
+      beginDate: string,
+      endDate: string,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<V4FullStatsResponse>
+    > {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.getV4Fullstats(
+        advertIds,
+        beginDate,
+        endDate,
+        options,
+      );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["PromotionApi.getV4Fullstats"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -8898,6 +9406,27 @@ export const PromotionApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
+     * Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+     * @summary Позиции карточек товаров в поисковой выдаче
+     * @param {Array<number>} advertIds Список ID рекламных кампаний
+     * @param {string} beginDate Дата начала интервала
+     * @param {string} endDate Дата окончания интервала
+     * @param {Array<number>} [nmIds] Артикулы WB
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV0Positions(
+      advertIds: Array<number>,
+      beginDate: string,
+      endDate: string,
+      nmIds?: Array<number>,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<V0PositionsResponse> {
+      return localVarFp
+        .getV0Positions(advertIds, beginDate, endDate, nmIds, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
      * Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах `4` — готово к запуску — или `11` — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
      * @summary Запуск кампании
      * @param {number} id ID кампании
@@ -9213,6 +9742,25 @@ export const PromotionApiFactory = function (
     ): AxiosPromise<Array<FullStatsItem>> {
       return localVarFp
         .getV3Fullstats(ids, beginDate, endDate, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     * Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.  Максимальный период в запросе — 31 день.  Для кампаний в статусах `7`, `9` и `11`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+     * @summary Плоская статистика кампаний
+     * @param {Array<number>} advertIds Список ID рекламных кампаний
+     * @param {string} beginDate Дата начала интервала
+     * @param {string} endDate Дата окончания интервала
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getV4Fullstats(
+      advertIds: Array<number>,
+      beginDate: string,
+      endDate: string,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<V4FullStatsResponse> {
+      return localVarFp
+        .getV4Fullstats(advertIds, beginDate, endDate, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -9591,6 +10139,25 @@ export interface PromotionApiInterface {
   getV0Pause(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
   /**
+   * Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+   * @summary Позиции карточек товаров в поисковой выдаче
+   * @param {Array<number>} advertIds Список ID рекламных кампаний
+   * @param {string} beginDate Дата начала интервала
+   * @param {string} endDate Дата окончания интервала
+   * @param {Array<number>} [nmIds] Артикулы WB
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof PromotionApiInterface
+   */
+  getV0Positions(
+    advertIds: Array<number>,
+    beginDate: string,
+    endDate: string,
+    nmIds?: Array<number>,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<V0PositionsResponse>;
+
+  /**
    * Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах `4` — готово к запуску — или `11` — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
    * @summary Запуск кампании
    * @param {number} id ID кампании
@@ -9855,6 +10422,23 @@ export interface PromotionApiInterface {
     endDate: string,
     options?: RawAxiosRequestConfig,
   ): AxiosPromise<Array<FullStatsItem>>;
+
+  /**
+   * Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.  Максимальный период в запросе — 31 день.  Для кампаний в статусах `7`, `9` и `11`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+   * @summary Плоская статистика кампаний
+   * @param {Array<number>} advertIds Список ID рекламных кампаний
+   * @param {string} beginDate Дата начала интервала
+   * @param {string} endDate Дата окончания интервала
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof PromotionApiInterface
+   */
+  getV4Fullstats(
+    advertIds: Array<number>,
+    beginDate: string,
+    endDate: string,
+    options?: RawAxiosRequestConfig,
+  ): AxiosPromise<V4FullStatsResponse>;
 
   /**
    * Метод добавляет и удаляет карточки товаров в кампаниях.  Для кампаний в статусах `4`, `9` и `11`.  Для добавляемых товаров устанавливается текущая минимальная ставка.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Сервисный | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый с секретом | 1 сек | 1 запрос | 1 сек | 1 запрос | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/patch-adv-v0-auction-nms
@@ -10205,6 +10789,29 @@ export class PromotionApi extends BaseAPI implements PromotionApiInterface {
   }
 
   /**
+   * Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+   * @summary Позиции карточек товаров в поисковой выдаче
+   * @param {Array<number>} advertIds Список ID рекламных кампаний
+   * @param {string} beginDate Дата начала интервала
+   * @param {string} endDate Дата окончания интервала
+   * @param {Array<number>} [nmIds] Артикулы WB
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof PromotionApi
+   */
+  public getV0Positions(
+    advertIds: Array<number>,
+    beginDate: string,
+    endDate: string,
+    nmIds?: Array<number>,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return PromotionApiFp(this.configuration)
+      .getV0Positions(advertIds, beginDate, endDate, nmIds, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
    * Метод запускает [кампании](https://dev.wildberries.ru/openapi/promotion#tag/campaigns/operation/getV3Adverts) в статусах `4` — готово к запуску — или `11` — пауза. Чтобы запустить кампанию, проверьте ее бюджет. Если бюджета недостаточно, [пополните его](https://dev.wildberries.ru/openapi/promotion#tag/finances/operation/postV1BudgetDeposit).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Сервисный | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый с секретом | 1 сек | 5 запросов | 200 мс | 5 запросов | | Базовый | 1 ч | 5 запросов | 12 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v0-start
    * @summary Запуск кампании
    * @param {number} id ID кампании
@@ -10534,6 +11141,27 @@ export class PromotionApi extends BaseAPI implements PromotionApiInterface {
   ) {
     return PromotionApiFp(this.configuration)
       .getV3Fullstats(ids, beginDate, endDate, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.  Максимальный период в запросе — 31 день.  Для кампаний в статусах `7`, `9` и `11`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+   * @summary Плоская статистика кампаний
+   * @param {Array<number>} advertIds Список ID рекламных кампаний
+   * @param {string} beginDate Дата начала интервала
+   * @param {string} endDate Дата окончания интервала
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof PromotionApi
+   */
+  public getV4Fullstats(
+    advertIds: Array<number>,
+    beginDate: string,
+    endDate: string,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return PromotionApiFp(this.configuration)
+      .getV4Fullstats(advertIds, beginDate, endDate, options)
       .then((request) => request(this.axios, this.basePath));
   }
 

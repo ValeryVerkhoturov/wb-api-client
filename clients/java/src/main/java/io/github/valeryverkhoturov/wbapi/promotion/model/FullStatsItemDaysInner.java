@@ -151,7 +151,7 @@ public class FullStatsItemDaysInner {
   }
 
   /**
-   * Количество добавлений товаров в корзину
+   * Сколько раз товар добавили в корзину
    *
    * @return atbs
    */
@@ -170,7 +170,7 @@ public class FullStatsItemDaysInner {
   }
 
   /**
-   * Отмены, шт.
+   * Количество отмен
    *
    * @return canceled
    */
@@ -266,7 +266,7 @@ public class FullStatsItemDaysInner {
   }
 
   /**
-   * CTR (click-through rate) — отношение числа кликов к количеству показов в процентах
+   * Кликабельность — отношение числа кликов к количеству показов, %
    *
    * @return ctr
    */

@@ -20,8 +20,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Место размещения кампании: - &#x60;search&#x60; - поиск - &#x60;recommendations&#x60; -
- * рекомендации - &#x60;combined&#x60; - поиск и рекомендации с единой ставкой
+ * Место размещения кампании: - &#x60;search&#x60; — поиск - &#x60;recommendations&#x60; —
+ * рекомендации - &#x60;combined&#x60; — поиск и рекомендации с единой ставкой
  */
 @JsonAdapter(V3Placements.Adapter.class)
 public enum V3Placements {

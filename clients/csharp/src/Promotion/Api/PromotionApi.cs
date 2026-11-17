@@ -144,6 +144,35 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> GetV0PauseWithHttpInfo(long id, int operationIndex = 0);
         /// <summary>
+        /// Позиции карточек товаров в поисковой выдаче
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="nmIds">Артикулы WB (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>V0PositionsResponse</returns>
+        V0PositionsResponse GetV0Positions(List<long> advertIds, string beginDate, string endDate, List<long>? nmIds = default(List<long>?), int operationIndex = 0);
+
+        /// <summary>
+        /// Позиции карточек товаров в поисковой выдаче
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="nmIds">Артикулы WB (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of V0PositionsResponse</returns>
+        ApiResponse<V0PositionsResponse> GetV0PositionsWithHttpInfo(List<long> advertIds, string beginDate, string endDate, List<long>? nmIds = default(List<long>?), int operationIndex = 0);
+        /// <summary>
         /// Запуск кампании
         /// </summary>
         /// <remarks>
@@ -597,6 +626,33 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;FullStatsItem&gt;</returns>
         ApiResponse<List<FullStatsItem>> GetV3FullstatsWithHttpInfo(string ids, string beginDate, string endDate, int operationIndex = 0);
+        /// <summary>
+        /// Плоская статистика кампаний
+        /// </summary>
+        /// <remarks>
+        /// Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.  Максимальный период в запросе — 31 день.  Для кампаний в статусах &#x60;7&#x60;, &#x60;9&#x60; и &#x60;11&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>V4FullStatsResponse</returns>
+        V4FullStatsResponse GetV4Fullstats(List<long> advertIds, string beginDate, string endDate, int operationIndex = 0);
+
+        /// <summary>
+        /// Плоская статистика кампаний
+        /// </summary>
+        /// <remarks>
+        /// Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.  Максимальный период в запросе — 31 день.  Для кампаний в статусах &#x60;7&#x60;, &#x60;9&#x60; и &#x60;11&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of V4FullStatsResponse</returns>
+        ApiResponse<V4FullStatsResponse> GetV4FullstatsWithHttpInfo(List<long> advertIds, string beginDate, string endDate, int operationIndex = 0);
         /// <summary>
         /// Изменение списка карточек товаров в кампаниях
         /// </summary>
@@ -1196,6 +1252,37 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> GetV0PauseWithHttpInfoAsync(long id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Позиции карточек товаров в поисковой выдаче
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="nmIds">Артикулы WB (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of V0PositionsResponse</returns>
+        System.Threading.Tasks.Task<V0PositionsResponse> GetV0PositionsAsync(List<long> advertIds, string beginDate, string endDate, List<long>? nmIds = default(List<long>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Позиции карточек товаров в поисковой выдаче
+        /// </summary>
+        /// <remarks>
+        /// Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="nmIds">Артикулы WB (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (V0PositionsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<V0PositionsResponse>> GetV0PositionsWithHttpInfoAsync(List<long> advertIds, string beginDate, string endDate, List<long>? nmIds = default(List<long>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Запуск кампании
         /// </summary>
         /// <remarks>
@@ -1685,6 +1772,35 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;FullStatsItem&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<FullStatsItem>>> GetV3FullstatsWithHttpInfoAsync(string ids, string beginDate, string endDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Плоская статистика кампаний
+        /// </summary>
+        /// <remarks>
+        /// Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.  Максимальный период в запросе — 31 день.  Для кампаний в статусах &#x60;7&#x60;, &#x60;9&#x60; и &#x60;11&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of V4FullStatsResponse</returns>
+        System.Threading.Tasks.Task<V4FullStatsResponse> GetV4FullstatsAsync(List<long> advertIds, string beginDate, string endDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Плоская статистика кампаний
+        /// </summary>
+        /// <remarks>
+        /// Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.  Максимальный период в запросе — 31 день.  Для кампаний в статусах &#x60;7&#x60;, &#x60;9&#x60; и &#x60;11&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+        /// </remarks>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (V4FullStatsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<V4FullStatsResponse>> GetV4FullstatsWithHttpInfoAsync(List<long> advertIds, string beginDate, string endDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Изменение списка карточек товаров в кампаниях
         /// </summary>
@@ -3058,6 +3174,212 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetV0Pause", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Позиции карточек товаров в поисковой выдаче Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="nmIds">Артикулы WB (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>V0PositionsResponse</returns>
+        public V0PositionsResponse GetV0Positions(List<long> advertIds, string beginDate, string endDate, List<long>? nmIds = default(List<long>?), int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<V0PositionsResponse> localVarResponse = GetV0PositionsWithHttpInfo(advertIds, beginDate, endDate, nmIds);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Позиции карточек товаров в поисковой выдаче Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="nmIds">Артикулы WB (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of V0PositionsResponse</returns>
+        public ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<V0PositionsResponse> GetV0PositionsWithHttpInfo(List<long> advertIds, string beginDate, string endDate, List<long>? nmIds = default(List<long>?), int operationIndex = 0)
+        {
+            // verify the required parameter 'advertIds' is set
+            if (advertIds == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'advertIds' when calling PromotionApi->GetV0Positions");
+            }
+
+            // verify the required parameter 'beginDate' is set
+            if (beginDate == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'beginDate' when calling PromotionApi->GetV0Positions");
+            }
+
+            // verify the required parameter 'endDate' is set
+            if (endDate == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'endDate' when calling PromotionApi->GetV0Positions");
+            }
+
+            ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("csv", "advertIds", advertIds));
+            if (nmIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("csv", "nmIds", nmIds));
+            }
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "beginDate", beginDate));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+
+            localVarRequestOptions.Operation = "PromotionApi.GetV0Positions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<V0PositionsResponse>("/api/advert/v0/positions", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV0Positions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Позиции карточек товаров в поисковой выдаче Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="nmIds">Артикулы WB (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of V0PositionsResponse</returns>
+        public async System.Threading.Tasks.Task<V0PositionsResponse> GetV0PositionsAsync(List<long> advertIds, string beginDate, string endDate, List<long>? nmIds = default(List<long>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<V0PositionsResponse> localVarResponse = await GetV0PositionsWithHttpInfoAsync(advertIds, beginDate, endDate, nmIds, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Позиции карточек товаров в поисковой выдаче Метод возвращает медианные позиции карточек товаров в поисковой выдаче и распределение показов по фиксированным диапазонам позиций.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 10 запросов | 6 сек | 1 запрос | | Сервисный | 1 мин | 10 запросов | 6 сек | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v0-positions
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="nmIds">Артикулы WB (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (V0PositionsResponse)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<V0PositionsResponse>> GetV0PositionsWithHttpInfoAsync(List<long> advertIds, string beginDate, string endDate, List<long>? nmIds = default(List<long>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'advertIds' is set
+            if (advertIds == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'advertIds' when calling PromotionApi->GetV0Positions");
+            }
+
+            // verify the required parameter 'beginDate' is set
+            if (beginDate == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'beginDate' when calling PromotionApi->GetV0Positions");
+            }
+
+            // verify the required parameter 'endDate' is set
+            if (endDate == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'endDate' when calling PromotionApi->GetV0Positions");
+            }
+
+
+            ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("csv", "advertIds", advertIds));
+            if (nmIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("csv", "nmIds", nmIds));
+            }
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "beginDate", beginDate));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+
+            localVarRequestOptions.Operation = "PromotionApi.GetV0Positions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<V0PositionsResponse>("/api/advert/v0/positions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV0Positions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -6030,6 +6352,200 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetV3Fullstats", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Плоская статистика кампаний Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.  Максимальный период в запросе — 31 день.  Для кампаний в статусах &#x60;7&#x60;, &#x60;9&#x60; и &#x60;11&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>V4FullStatsResponse</returns>
+        public V4FullStatsResponse GetV4Fullstats(List<long> advertIds, string beginDate, string endDate, int operationIndex = 0)
+        {
+            ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<V4FullStatsResponse> localVarResponse = GetV4FullstatsWithHttpInfo(advertIds, beginDate, endDate);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Плоская статистика кампаний Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.  Максимальный период в запросе — 31 день.  Для кампаний в статусах &#x60;7&#x60;, &#x60;9&#x60; и &#x60;11&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of V4FullStatsResponse</returns>
+        public ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<V4FullStatsResponse> GetV4FullstatsWithHttpInfo(List<long> advertIds, string beginDate, string endDate, int operationIndex = 0)
+        {
+            // verify the required parameter 'advertIds' is set
+            if (advertIds == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'advertIds' when calling PromotionApi->GetV4Fullstats");
+            }
+
+            // verify the required parameter 'beginDate' is set
+            if (beginDate == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'beginDate' when calling PromotionApi->GetV4Fullstats");
+            }
+
+            // verify the required parameter 'endDate' is set
+            if (endDate == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'endDate' when calling PromotionApi->GetV4Fullstats");
+            }
+
+            ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("csv", "advertIds", advertIds));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "beginDate", beginDate));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+
+            localVarRequestOptions.Operation = "PromotionApi.GetV4Fullstats";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<V4FullStatsResponse>("/api/advert/v4/fullstats", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV4Fullstats", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Плоская статистика кампаний Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.  Максимальный период в запросе — 31 день.  Для кампаний в статусах &#x60;7&#x60;, &#x60;9&#x60; и &#x60;11&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of V4FullStatsResponse</returns>
+        public async System.Threading.Tasks.Task<V4FullStatsResponse> GetV4FullstatsAsync(List<long> advertIds, string beginDate, string endDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<V4FullStatsResponse> localVarResponse = await GetV4FullstatsWithHttpInfoAsync(advertIds, beginDate, endDate, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Плоская статистика кампаний Метод формирует статистику кампаний в плоском формате (без вложенной иерархии) с разделением по зонам показов и типам конверсии.  Максимальный период в запросе — 31 день.  Для кампаний в статусах &#x60;7&#x60;, &#x60;9&#x60; и &#x60;11&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Сервисный | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 1 запрос | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-advert-v4-fullstats
+        /// </summary>
+        /// <exception cref="ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="advertIds">Список ID рекламных кампаний</param>
+        /// <param name="beginDate">Дата начала интервала</param>
+        /// <param name="endDate">Дата окончания интервала</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (V4FullStatsResponse)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiResponse<V4FullStatsResponse>> GetV4FullstatsWithHttpInfoAsync(List<long> advertIds, string beginDate, string endDate, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'advertIds' is set
+            if (advertIds == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'advertIds' when calling PromotionApi->GetV4Fullstats");
+            }
+
+            // verify the required parameter 'beginDate' is set
+            if (beginDate == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'beginDate' when calling PromotionApi->GetV4Fullstats");
+            }
+
+            // verify the required parameter 'endDate' is set
+            if (endDate == null)
+            {
+                throw new ValeryVerkhoturov.WbApiClient.Promotion.Client.ApiException(400, "Missing required parameter 'endDate' when calling PromotionApi->GetV4Fullstats");
+            }
+
+
+            ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Promotion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("csv", "advertIds", advertIds));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "beginDate", beginDate));
+            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.Promotion.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+
+            localVarRequestOptions.Operation = "PromotionApi.GetV4Fullstats";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (BearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<V4FullStatsResponse>("/api/advert/v4/fullstats", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetV4Fullstats", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

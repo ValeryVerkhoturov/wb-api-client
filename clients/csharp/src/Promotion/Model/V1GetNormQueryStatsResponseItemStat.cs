@@ -37,9 +37,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         /// <param name="normQuery">Поисковый кластер.</param>
         /// <param name="views">Количество просмотров.  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; .</param>
         /// <param name="clicks">Количество кликов.</param>
-        /// <param name="atbs">Количество добавлений товаров в корзину.</param>
+        /// <param name="atbs">Сколько раз товар добавили в корзину.</param>
         /// <param name="orders">Количество заказов.</param>
-        /// <param name="ctr">CTR (click-through rate) — отношение числа кликов к количеству показов в процентах.  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; .</param>
+        /// <param name="ctr">Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; .</param>
         /// <param name="cpc">Средняя стоимость клика в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).</param>
         /// <param name="cpm">Средняя стоимость за тысячу показов в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances).  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; .</param>
         /// <param name="avgPos">Средняя позиция товара на страницах поисковой выдачи.</param>
@@ -82,9 +82,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public long Clicks { get; set; }
 
         /// <summary>
-        /// Количество добавлений товаров в корзину
+        /// Сколько раз товар добавили в корзину
         /// </summary>
-        /// <value>Количество добавлений товаров в корзину</value>
+        /// <value>Сколько раз товар добавили в корзину</value>
         [DataMember(Name = "atbs", EmitDefaultValue = false)]
         public long Atbs { get; set; }
 
@@ -96,9 +96,9 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Model
         public long Orders { get; set; }
 
         /// <summary>
-        /// CTR (click-through rate) — отношение числа кликов к количеству показов в процентах.  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; 
+        /// Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; 
         /// </summary>
-        /// <value>CTR (click-through rate) — отношение числа кликов к количеству показов в процентах.  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; </value>
+        /// <value>Кликабельность — отношение числа кликов к количеству показов, %.  Для кампаний с типом оплаты &#x60;cpc&#x60; — за клики — значение будет &#x60;null&#x60; </value>
         [DataMember(Name = "ctr", EmitDefaultValue = true)]
         public float? Ctr { get; set; }
 
