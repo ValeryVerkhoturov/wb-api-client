@@ -792,8 +792,10 @@ paths:
         - `declined_by_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку
         - `defect` — отмена заказа по причине брака
         - `ready_for_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ)
-        - `accepted_by_carrier` — продавец передал заказ в службу доставки в своей стране
-        - `sent_to_carrier` — заказ отправлен на склад службы доставки в стране продавца
+        - `postponed_delivery` — доставка курьером отложена
+        - `accepted_by_carrier` — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id=610) заменён на `delivering_by_carrier`. Только для трансграничных поставок
+        - `sent_to_carrier` — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id=610) заменён на `delivering_by_carrier`. Только для трансграничных поставок
+        - `delivering_by_carrier` — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок
         - `canceled_by_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок
 
         <div class="description_limit">
@@ -894,6 +896,7 @@ paths:
                             - postponed_delivery
                             - accepted_by_carrier
                             - sent_to_carrier
+                            - delivering_by_carrier
         '400':
           description: Неправильный запрос
           content:
@@ -5723,7 +5726,7 @@ components:
               type: string
             wbStatus:
               description: Статус сборочного задания в системе Wildberries
-              example: sent_to_carrier
+              example: sorted
               type: string
           type: object
         stickerId:

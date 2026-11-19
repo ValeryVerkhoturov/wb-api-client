@@ -144,7 +144,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             /// Enum SentToCarrier for value: sent_to_carrier
             /// </summary>
             [EnumMember(Value = "sent_to_carrier")]
-            SentToCarrier = 11
+            SentToCarrier = 11,
+
+            /// <summary>
+            /// Enum DeliveringByCarrier for value: delivering_by_carrier
+            /// </summary>
+            [EnumMember(Value = "delivering_by_carrier")]
+            DeliveringByCarrier = 12
         }
 
 

@@ -738,8 +738,10 @@ paths:
         - `declined\_by\_client` — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку
         - `defect` — отмена заказа по причине брака
         - `ready\_for\_pickup` — заказ прибыл на пункт выдачи заказов (ПВЗ)
-        - `accepted\_by\_carrier` — продавец передал заказ в службу доставки в своей стране
-        - `sent\_to\_carrier` — заказ отправлен на склад службы доставки в стране продавца
+        - `postponed\_delivery` — доставка курьером отложена
+        - `accepted\_by\_carrier` — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id=610) заменён на `delivering\_by\_carrier`. Только для трансграничных поставок
+        - `sent\_to\_carrier` — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id=610) заменён на `delivering\_by\_carrier`. Только для трансграничных поставок
+        - `delivering\_by\_carrier` — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок
         - `canceled\_by\_carrier` — заказ отменён перевозчиком. Только для трансграничных поставок
 
         [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
@@ -5160,7 +5162,7 @@ components:
               type: string
             wbStatus:
               description: Статус сборочного задания в системе Wildberries
-              example: sent_to_carrier
+              example: sorted
               type: string
           type: object
         stickerId:
@@ -6558,6 +6560,7 @@ components:
                 - postponed_delivery
                 - accepted_by_carrier
                 - sent_to_carrier
+                - delivering_by_carrier
     GetV3SuppliesOrdersReshipmentResponse200:
       type: object
       properties:

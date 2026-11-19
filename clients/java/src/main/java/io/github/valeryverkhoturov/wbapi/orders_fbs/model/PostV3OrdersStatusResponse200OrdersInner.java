@@ -136,7 +136,9 @@ public class PostV3OrdersStatusResponse200OrdersInner {
 
     ACCEPTED_BY_CARRIER("accepted_by_carrier"),
 
-    SENT_TO_CARRIER("sent_to_carrier");
+    SENT_TO_CARRIER("sent_to_carrier"),
+
+    DELIVERING_BY_CARRIER("delivering_by_carrier");
 
     private String value;
 

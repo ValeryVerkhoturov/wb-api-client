@@ -57,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <value>Статус сборочного задания в системе Wildberries</value>
         /*
-        <example>sent_to_carrier</example>
+        <example>sorted</example>
         */
         [DataMember(Name = "wbStatus", EmitDefaultValue = false)]
         public string WbStatus { get; set; }

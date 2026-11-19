@@ -746,9 +746,10 @@ paths:
         - `defect` — cancellation of the order due to a defect
         - `ready_for_pickup` — the order came at pickup point and waiting for the client
         - `postponed_delivery` — courier delivery is postponed
-        - `accepted_by_carrier` — accepted by carrier. The order is handed over to delivery service in the seller country
-        - `sent_to_carrier` — dispatched to carrier. The order is on the way to delivery service's warehouse in the seller
-        - `canceled_by_carrier` — the order was cancelled by the carrier. For crossborder only
+        - `accepted_by_carrier` — accepted by carrier. The order is handed over to delivery service in the seller country. Since [November 12](https://dev.wildberries.ru/en/release-notes?id=610), replaced with `delivering_by_carrier`. For Cross-Border only
+        - `sent_to_carrier` — dispatched to carrier. The order is on the way to delivery service's warehouse in the seller. Since [November 12](https://dev.wildberries.ru/en/release-notes?id=610), replaced with `delivering_by_carrier`. For Cross-Border only
+        - `delivering_by_carrier` — the order is handed over to the carrier and is on its way to the WB warehouse. For Cross-Border only
+        - `canceled_by_carrier` — the order was cancelled by the carrier. For Cross-Border only
 
         <div class="description_limit">
         <a href="/openapi/api-information#tag/introduction/Rate-Limits">Request limit</a> per one seller account for <strong>FBS assembly orders, supplies, passes and auto-return settings</strong> methods:
@@ -848,6 +849,7 @@ paths:
                             - postponed_delivery
                             - accepted_by_carrier
                             - sent_to_carrier
+                            - delivering_by_carrier
         '400':
           description: Bad request
           content:
@@ -5605,7 +5607,7 @@ components:
               type: string
             wbStatus:
               description: Assembly order status set by WB system
-              example: sent_to_carrier
+              example: sorted
               type: string
           type: object
         stickerId:

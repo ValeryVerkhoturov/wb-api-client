@@ -703,9 +703,10 @@ paths:
         - `defect` — cancellation of the order due to a defect
         - `ready\_for\_pickup` — the order came at pickup point and waiting for the client
         - `postponed\_delivery` — courier delivery is postponed
-        - `accepted\_by\_carrier` — accepted by carrier. The order is handed over to delivery service in the seller country
-        - `sent\_to\_carrier` — dispatched to carrier. The order is on the way to delivery service's warehouse in the seller
-        - `canceled\_by\_carrier` — the order was cancelled by the carrier. For crossborder only
+        - `accepted\_by\_carrier` — accepted by carrier. The order is handed over to delivery service in the seller country. Since [November 12](https://dev.wildberries.ru/en/release-notes?id=610), replaced with `delivering\_by\_carrier`. For Cross-Border only
+        - `sent\_to\_carrier` — dispatched to carrier. The order is on the way to delivery service's warehouse in the seller. Since [November 12](https://dev.wildberries.ru/en/release-notes?id=610), replaced with `delivering\_by\_carrier`. For Cross-Border only
+        - `delivering\_by\_carrier` — the order is handed over to the carrier and is on its way to the WB warehouse. For Cross-Border only
+        - `canceled\_by\_carrier` — the order was cancelled by the carrier. For Cross-Border only
 
         [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for **FBS assembly orders, supplies, passes and auto-return settings** methods:
         | Period | Limit | Interval | Burst |
@@ -5069,7 +5070,7 @@ components:
               type: string
             wbStatus:
               description: Assembly order status set by WB system
-              example: sent_to_carrier
+              example: sorted
               type: string
           type: object
         stickerId:
@@ -6467,6 +6468,7 @@ components:
                 - postponed_delivery
                 - accepted_by_carrier
                 - sent_to_carrier
+                - delivering_by_carrier
     GetV3SuppliesOrdersReshipmentResponse200:
       type: object
       properties:
