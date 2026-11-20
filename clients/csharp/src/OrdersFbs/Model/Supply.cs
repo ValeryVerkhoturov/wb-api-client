@@ -136,7 +136,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="shippingPointId">ID пункта отгрузки. Можно получить в методе получения [пунктов отгрузки поставок](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints).</param>
         /// <param name="shippingType">Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию .</param>
         /// <param name="waybillUuid">ID ЭТрН — электронной транспортной накладной.</param>
-        /// <param name="spotAvailable">Доступен ли СПОТ для этой поставки:   - &#x60;true&#x60; — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - &#x60;false&#x60; — нет .</param>
+        /// <param name="spotAvailable">Доступен ли СПОТ для этой поставки:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет .</param>
         public Supply(string id = default(string), bool? isB2b = default(bool?), bool isPickupPointShipmentAllowed = default(bool), bool done = default(bool), string createdAt = default(string), string closedAt = default(string), string scanDt = default(string), string name = default(string), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), long? destinationOfficeId = default(long?), long recommendedWhId = default(long), string shippingDt = default(string), long? shippingPointId = default(long?), ShippingTypeEnum? shippingType = default(ShippingTypeEnum?), string waybillUuid = default(string), bool spotAvailable = default(bool))
         {
             this.Id = id;
@@ -283,9 +283,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         public string WaybillUuid { get; set; }
 
         /// <summary>
-        /// Доступен ли СПОТ для этой поставки:   - &#x60;true&#x60; — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - &#x60;false&#x60; — нет 
+        /// Доступен ли СПОТ для этой поставки:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет 
         /// </summary>
-        /// <value>Доступен ли СПОТ для этой поставки:   - &#x60;true&#x60; — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - &#x60;false&#x60; — нет </value>
+        /// <value>Доступен ли СПОТ для этой поставки:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет </value>
         /*
         <example>true</example>
         */

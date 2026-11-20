@@ -33,7 +33,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.20261119.0";
+        public const string Version = "1.20261120.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -255,18 +255,6 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
                 },
                 {
                     "PromotionApi.GetV1Balance", new List<IReadOnlyDictionary<string, object>>
-                    {
-                        {
-                            new Dictionary<string, object>
-                            {
-                                {"url", "https://advert-api.wildberries.ru"},
-                                {"description", "No description provided"}
-                            }
-                        },
-                    }
-                },
-                {
-                    "PromotionApi.GetV1Budget", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -1096,7 +1084,7 @@ namespace ValeryVerkhoturov.WbApiClient.Promotion.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: promotion\n";
-            report += "    SDK Package Version: 1.20261119.0\n";
+            report += "    SDK Package Version: 1.20261120.0\n";
 
             return report;
         }

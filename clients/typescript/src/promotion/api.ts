@@ -1152,37 +1152,6 @@ export interface GetV1BalanceResponse200CashbacksInner {
 /**
  *
  * @export
- * @interface GetV1BudgetResponse200
- */
-export interface GetV1BudgetResponse200 {
-  /**
-   * Поле не используется. Значение всегда 0.
-   * @type {number}
-   * @memberof GetV1BudgetResponse200
-   */
-  cash?: number;
-  /**
-   * Поле не используется. Значение всегда 0.
-   * @type {number}
-   * @memberof GetV1BudgetResponse200
-   */
-  netting?: number;
-  /**
-   * Бюджет кампании в базовых единицах валюты [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-   * @type {number}
-   * @memberof GetV1BudgetResponse200
-   */
-  total?: number;
-  /**
-   * Валюта [профиля продавца](https://cmp.wildberries.ru/campaigns/finances)
-   * @type {string}
-   * @memberof GetV1BudgetResponse200
-   */
-  currency?: string;
-}
-/**
- *
- * @export
  * @interface GetV1CalendarPromotions200Response
  */
 export interface GetV1CalendarPromotions200Response {
@@ -5785,58 +5754,6 @@ export const PromotionApiAxiosParamCreator = function (
       };
     },
     /**
-     * Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-budget
-     * @summary Бюджет кампании
-     * @param {number} id ID кампании
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    getV1Budget: async (
-      id: number,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      // verify required parameter 'id' is not null or undefined
-      assertParamExists("getV1Budget", "id", id);
-      const localVarPath = `/adv/v1/budget`;
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "GET",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication BearerAuth required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      if (id !== undefined) {
-        localVarQueryParameter["id"] = id;
-      }
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
      * Метод возвращает список [акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Календарь акций**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions
      * @summary Список акций
      * @param {string} startDateTime Начало периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60;
@@ -8145,40 +8062,6 @@ export const PromotionApiFp = function (configuration?: Configuration) {
         )(axios, localVarOperationServerBasePath || basePath);
     },
     /**
-     * Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-budget
-     * @summary Бюджет кампании
-     * @param {number} id ID кампании
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    async getV1Budget(
-      id: number,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<GetV1BudgetResponse200>
-    > {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.getV1Budget(
-        id,
-        options,
-      );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["PromotionApi.getV1Budget"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
      * Метод возвращает список [акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Календарь акций**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions
      * @summary Список акций
      * @param {string} startDateTime Начало периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60;
@@ -9507,22 +9390,6 @@ export const PromotionApiFactory = function (
         .then((request) => request(axios, basePath));
     },
     /**
-     * Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-budget
-     * @summary Бюджет кампании
-     * @param {number} id ID кампании
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    getV1Budget(
-      id: number,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<GetV1BudgetResponse200> {
-      return localVarFp
-        .getV1Budget(id, options)
-        .then((request) => request(axios, basePath));
-    },
-    /**
      * Метод возвращает список [акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Календарь акций**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions
      * @summary Список акций
      * @param {string} startDateTime Начало периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60;
@@ -10225,20 +10092,6 @@ export interface PromotionApiInterface {
   ): AxiosPromise<GetV1BalanceResponse200>;
 
   /**
-   * Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-budget
-   * @summary Бюджет кампании
-   * @param {number} id ID кампании
-   * @param {*} [options] Override http request option.
-   * @deprecated
-   * @throws {RequiredError}
-   * @memberof PromotionApiInterface
-   */
-  getV1Budget(
-    id: number,
-    options?: RawAxiosRequestConfig,
-  ): AxiosPromise<GetV1BudgetResponse200>;
-
-  /**
    * Метод возвращает список [акций](https://dev.wildberries.ru/openapi/promotion#tag/promoCalendar/operation/getV1CalendarPromotionsDetails) в WB с датами и временем проведения.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для всех методов категории **Календарь акций**: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Сервисный | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый с секретом | 6 сек | 10 запросов | 600 мс | 5 запросов | | Базовый | 1 ч | 1 запрос | 1 ч | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-api-v1-calendar-promotions
    * @summary Список акций
    * @param {string} startDateTime Начало периода, формат &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60;
@@ -10890,21 +10743,6 @@ export class PromotionApi extends BaseAPI implements PromotionApiInterface {
   public getV1Balance(options?: RawAxiosRequestConfig) {
     return PromotionApiFp(this.configuration)
       .getV1Balance(options)
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   * Метод будет отключен [16 ноября](https://dev.wildberries.ru/release-notes?id=582).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Сервисный | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый с секретом | 1 сек | 4 запроса | 250 мс | 4 запроса | | Базовый | 1 ч | 4 запроса | 15 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-budget
-   * @summary Бюджет кампании
-   * @param {number} id ID кампании
-   * @param {*} [options] Override http request option.
-   * @deprecated
-   * @throws {RequiredError}
-   * @memberof PromotionApi
-   */
-  public getV1Budget(id: number, options?: RawAxiosRequestConfig) {
-    return PromotionApiFp(this.configuration)
-      .getV1Budget(id, options)
       .then((request) => request(this.axios, this.basePath));
   }
 

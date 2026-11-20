@@ -62,7 +62,7 @@ tags:
       1. [Check the list of shipping units](./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdTrbx).
       1. [Get the shipping unit stickers](./orders-fbs#tag/fbsSupplies/operation/postV3SuppliesSupplyIdTrbxStickers), print them out and affix the stickers to the shipping units according to the orders distributed in them.
       1. After the supply has been equipped with the necessary assembly orders, it must [be handed over for delivery](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver). If the supply is not handed over for delivery, accepting the first item at the pickup point will automatically close the supply. When handing over assembly order for delivery, they will automatically be assembled and moved to the `complete` status — in delivery.
-      1. For supplies from EAEU countries, add [SPOT](https://www.nalog.gov.ru/rn77/related_activities/spot) data. Get the [list of OKSM countries](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm) to [add SPOT data to a supply](./orders-fbs#tag/fbsSupplies/operation/putV3FbsSuppliesSupplyIdSpot). You can also [get SPOT data for a list of supplies](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) and [SPOT QR codes](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot). Currently, the methods are available only to sellers from Kyrgyzstan. In the future, the methods will be available to sellers from any EAEU country except the Russian Federation. Stay tuned for updates.
+      
       1. If a supply was scanned at the acceptance point but still has unscanned items, after a certain time, you must deliver them again. Check [all assembly order requiring reshipment at this time](./orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment). [These assembly order can be transferred to another active supply](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders). The assembly order will also be moved to the `confirm` status — in assembly.
 
       You can also:
@@ -677,7 +677,9 @@ paths:
       - OrdersFbs
       summary: Get Assembly Orders Statuses
       description: |-
-        Returns the statuses of assembly orders from the request.
+        The method returns assembly order statuses by their IDs.
+        To get the statuses of assembly orders created more than 3 months ago, use the method for getting [archived assembly orders](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).
+
         `supplierStatus` is a status of an assembly order. Its change is always triggered only by the seller.
         Possible values of `supplierStatus`:
         | Status | Description | How to move the assembly orders to this status |
@@ -2972,80 +2974,6 @@ paths:
       x-tagKey: fbsSupplies
       x-original-tags:
       - FBS Supplies
-  /api/marketplace/v3/fbs/shipping-points:
-    servers:
-    - url: https://marketplace-api.wildberries.ru
-    get:
-      operationId: getV3FbsShippingPoints
-      x-readonly-method: true
-      x-category: marketplace
-      deprecated: true
-      security:
-      - BearerAuth: []
-      tags:
-      - OrdersFbs
-      summary: Get Supply Shipping Points
-      description: |-
-        The deprecated method will be disabled on [November 20](https://dev.wildberries.ru/en/release-notes?id=585).
-
-        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for **FBS assembly orders, supplies, passes and auto-return settings** methods:
-        | Period | Limit | Interval | Burst |
-        | --- | --- | --- | --- |
-        | 1 min | 300 requests | 200 ms | 20 requests |
-        One request with `4XX` response codes is counted as 10 requests
-
-        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
-      parameters:
-      - name: city
-        in: query
-        description: Locality for shipping the supply, Cyrillic
-        required: true
-        example: Москва
-        schema:
-          type: string
-      - name: cargoType
-        in: query
-        description: |
-          The type of items a shipping point can accept:
-            - `1` — small-sized items
-            - `2` — over dimensional cargo (ODC)
-            - `3` — dimensional cargo+ (CD+)
-        required: true
-        example: 1
-        schema:
-          type: integer
-          enum:
-          - 1
-          - 2
-          - 3
-          format: int64
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ShippingPointsResponse'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              examples:
-                IncorrectParameter:
-                  $ref: '#/components/examples/IncorrectParameter'
-        '401':
-          $ref: '#/components/responses/401-2'
-        '402':
-          $ref: '#/components/responses/402'
-        '403':
-          $ref: '#/components/responses/403'
-        '429':
-          $ref: '#/components/responses/429-2'
-      x-tagKey: fbsSupplies
-      x-original-tags:
-      - FBS Supplies
   /api/marketplace/v3/fbs/supplies/shipping-method:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -3668,289 +3596,15 @@ paths:
   /api/marketplace/v3/fbs/dictionaries/countries/oksm:
     servers:
     - url: https://marketplace-api.wildberries.ru
-    get:
-      operationId: getV3FbsDictionariesCountriesOksm
-      x-readonly-method: true
-      x-category: marketplace
-      tags:
-      - OrdersFbs
-      summary: Get the OKSM Country List
-      description: |-
-        The method returns a list of OKSM — All-Russian Classifier of World Countries — countries with their full names and codes.
-
-        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for **FBS assembly orders, supplies, passes and auto-return settings** methods:
-        | Period | Limit | Interval | Burst |
-        | --- | --- | --- | --- |
-        | 1 min | 300 requests | 200 ms | 20 requests |
-        One request with `4XX` response codes is counted as 10 requests
-
-        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-dictionaries-countries-oksm
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CountriesOKSMList'
-        '401':
-          $ref: '#/components/responses/401'
-        '402':
-          $ref: '#/components/responses/402'
-        '403':
-          $ref: '#/components/responses/403'
-        '429':
-          $ref: '#/components/responses/429'
-      x-tagKey: fbsSupplies
-      x-original-tags:
-      - FBS Supplies
   /api/marketplace/v3/fbs/supplies/{supplyId}/spot:
     servers:
     - url: https://marketplace-api.wildberries.ru
-    put:
-      operationId: putV3FbsSuppliesSupplyIdSpot
-      x-readonly-method: false
-      x-category: marketplace
-      tags:
-      - OrdersFbs
-      summary: Add SPOT Data to Supply
-      description: |-
-        The method adds SPOT data to a supply.
-        SPOT can only be added to a [supply](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) with the `"spotAvailable":true` flag.
-
-        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for **FBS assembly orders, supplies, passes and auto-return settings** methods:
-        | Period | Limit | Interval | Burst |
-        | --- | --- | --- | --- |
-        | 1 min | 300 requests | 200 ms | 20 requests |
-        One request with `4XX` response codes is counted as 10 requests
-
-        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-fbs-supplies-supplyid-spot
-      parameters:
-      - description: Supply ID
-        in: path
-        name: supplyId
-        required: true
-        schema:
-          type: string
-        example: WB-GI-123456789
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-              - carrierTaxNumber
-              - carrierName
-              - carrierCountryCode
-              - vehicleRegistrationNumber
-              properties:
-                carrierName:
-                  type: string
-                  minLength: 1
-                  maxLength: 1000
-                  example: ООО СПОТ
-                  description: Carrier name
-                carrierTaxNumber:
-                  type: string
-                  minLength: 1
-                  maxLength: 50
-                  example: '7588179007'
-                  description: Carrier tax number
-                carrierCountryCode:
-                  type: string
-                  minLength: 3
-                  maxLength: 3
-                  example: '112'
-                  description: Carrier [OKSM](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm) country code
-                vehicleRegistrationNumber:
-                  type: string
-                  minLength: 1
-                  maxLength: 30
-                  example: А123АА100
-                  description: Vehicle registration number
-                trailerRegistrationNumber:
-                  type: string
-                  minLength: 1
-                  maxLength: 30
-                  example: АА000100
-                  description: Trailer registration number
-      responses:
-        '204':
-          description: Added
-        '400':
-          description: Bad request
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorV3'
-              examples:
-                BadRequest:
-                  $ref: '#/components/examples/ApiError400V3'
-        '401':
-          $ref: '#/components/responses/401'
-        '402':
-          $ref: '#/components/responses/402'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          description: Not found
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorV3'
-              examples:
-                BadRequest:
-                  $ref: '#/components/examples/ApiError404V3'
-        '409':
-          description: Error while adding SPOT data
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorV3'
-              examples:
-                BadRequest:
-                  $ref: '#/components/examples/SpotApiError409V3'
-        '429':
-          $ref: '#/components/responses/429'
-      x-tagKey: fbsSupplies
-      x-original-tags:
-      - FBS Supplies
   /api/marketplace/v3/fbs/supplies/spot/list:
     servers:
     - url: https://marketplace-api.wildberries.ru
-    post:
-      x-readonly-method: true
-      x-category: marketplace
-      operationId: postV3FbsSuppliesSpotList
-      tags:
-      - OrdersFbs
-      summary: Get SPOT Data for Supply List
-      description: |-
-        The method returns SPOT data for a list of supplies.
-        You can get SPOT data only if all of the following conditions are met:
-        - the supply is in the delivery stage
-        - the seller is registered in any EAEU country other than the Russian Federation
-        - the destination warehouse is located in the Russian Federation
-
-        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for **FBS assembly orders, supplies, passes and auto-return settings** methods:
-        | Period | Limit | Interval | Burst |
-        | --- | --- | --- | --- |
-        | 1 min | 300 requests | 200 ms | 20 requests |
-        One request with `4XX` response codes is counted as 10 requests
-
-        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-supplies-spot-list
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-              - supplyIds
-              properties:
-                supplyIds:
-                  type: array
-                  minLength: 1
-                  maxLength: 100
-                  description: Supply IDs list
-                  items:
-                    type: string
-                    example: WB-GI-123456789
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SupplySpotDataResponse'
-              examples:
-                SupplySpotDataResponse:
-                  $ref: '#/components/examples/SupplySpotDataResponse'
-        '400':
-          description: Bad request
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorV3'
-              examples:
-                BadRequest:
-                  $ref: '#/components/examples/ApiError400V3'
-        '401':
-          $ref: '#/components/responses/401'
-        '402':
-          $ref: '#/components/responses/402'
-        '403':
-          $ref: '#/components/responses/403'
-        '429':
-          $ref: '#/components/responses/429'
-      x-tagKey: fbsSupplies
-      x-original-tags:
-      - FBS Supplies
   /api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot:
     servers:
     - url: https://marketplace-api.wildberries.ru
-    get:
-      operationId: getV3FbsSuppliesSupplyIdStickersSpot
-      x-readonly-method: true
-      x-category: marketplace
-      tags:
-      - OrdersFbs
-      summary: Get the Supply SPOT QR Code
-      description: |-
-        The method returns the generated SPOT QR code for the supply in PNG format, base64 encoded.
-        You can get the QR code when the flag `"status":"completed"` is returned in the method for getting [SPOT data](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList).
-
-        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for **FBS assembly orders, supplies, passes and auto-return settings** methods:
-        | Period | Limit | Interval | Burst |
-        | --- | --- | --- | --- |
-        | 1 min | 300 requests | 200 ms | 20 requests |
-        One request with `4XX` response codes is counted as 10 requests
-
-        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-stickers-spot
-      parameters:
-      - description: Supply ID
-        in: path
-        name: supplyId
-        required: true
-        schema:
-          type: string
-        example: WB-GI-123456789
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SupplySpotQRCode'
-        '400':
-          description: Bad request
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorV3'
-              examples:
-                BadRequest:
-                  $ref: '#/components/examples/ApiError400V3'
-        '401':
-          $ref: '#/components/responses/401'
-        '402':
-          $ref: '#/components/responses/402'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          description: Not found
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorV3'
-              examples:
-                BadRequest:
-                  $ref: '#/components/examples/ApiError404V3'
-        '429':
-          $ref: '#/components/responses/429'
-      x-tagKey: fbsSupplies
-      x-original-tags:
-      - FBS Supplies
   /api/marketplace/v3/fbs/settings/autoreturns:
     servers:
     - url: https://marketplace-api.wildberries.ru
@@ -4502,14 +4156,6 @@ components:
       value:
         detail: Not Found
         title: NotFound
-    ApiError404V3:
-      value:
-        detail: Incorrect required body
-        title: IncorrectRequestBody
-    SpotApiError409V3:
-      value:
-        detail: SPOT actions aren't available for this shipment
-        title: SpotActionNotAllowed
     AutoreturnError400Parameter:
       value:
         detail: Incorrect parameter
@@ -4563,34 +4209,6 @@ components:
       value:
         code: SupplyShippingRequired
         message: Specify shipping point, type and date to close the supply
-    SupplySpotDataResponse:
-      value:
-        supplies:
-        - id: WB-GI-0000001
-          spot:
-            carrierTaxNumber: '7588179007'
-            carrierName: ООО СПОТ
-            carrierCountryCode: '112'
-            vehicleRegistrationNumber: А123АА100
-            trailerRegistrationNumber: АА000100
-            status: completed
-        - id: WB-GI-0000002
-          spot:
-            carrierTaxNumber: '7588179007'
-            carrierName: ООО СПОТ
-            carrierCountryCode: '112'
-            vehicleRegistrationNumber: А123АА100
-            trailerRegistrationNumber: АА000100
-            status: failed
-            errorCode: doppFailed
-        - id: WB-GI-0000003
-          error:
-            title: NotFound
-            detail: Not Found
-        - id: WB-GI-0000004
-          error:
-            title: SpotActionNotAllowed
-            detail: Spot Action Not Allowed
     AccessDenied:
       value:
         code: AccessDenied
@@ -5512,7 +5130,7 @@ components:
           example: true
           description: |
             Whether SPOT is available for this supply:
-              - `true` — yes. Use the method for [getting SPOT data](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)
+              - `true` — yes
               - `false` — no
     OrderNew:
       type: object
@@ -6028,78 +5646,6 @@ components:
         supplyId:
           type: string
           description: Supply ID
-    ShippingPoint:
-      description: Shipping point data
-      type: object
-      properties:
-        id:
-          format: int64
-          type: integer
-          example: 100
-          description: Shipping point ID
-        name:
-          type: string
-          description: Name
-          example: Москва Морской
-        address:
-          type: string
-          description: Address
-          example: г Москва, Морской Проспект 54
-        city:
-          type: string
-          example: Москва
-          description: Locality
-        officeType:
-          description: |
-            Shipping point type:
-              - `sc` — sorting center
-              - `sw` — warehouse
-              - `pp` — pickup point
-          type: string
-          example: pp
-          enum:
-          - sc
-          - sw
-          - pp
-        cargoTypes:
-          description: |
-            Types of items a shipping point can accept:
-              - `1` — small-sized items
-              - `2` — over dimensional cargo (ODC)
-              - `3` — dimensional cargo+ (CD+)
-          type: array
-          items:
-            type: integer
-            enum:
-            - 1
-            - 2
-            - 3
-            format: int64
-          example:
-          - 1
-          - 3
-        latitude:
-          type: number
-          description: Latitude
-          example: 37.588898
-        longitude:
-          type: number
-          description: Longitude
-          example: 55.386871
-        fulfillment:
-          type: boolean
-          description: |
-            Service **Fulfillment in SC** for FBS supplies:
-              - `true` — available
-              - `false` — unavailable
-          example: false
-        available:
-          type: boolean
-          description: |
-            Whether the shipping point is available for the supply:
-              - `true` — available
-              - `false` — unavailable. Returns for the pickup point if it is overloaded on the planned supply shipping date
-          example: true
     SupplyShippingPoint:
       description: Shipping point data
       type: object
@@ -6153,14 +5699,6 @@ components:
               - `true` — available
               - `false` — unavailable. Returns for the pickup point if it is overloaded on the planned supply shipping date
           example: true
-    ShippingPointsResponse:
-      type: object
-      properties:
-        shippingPoints:
-          description: Shipping points list
-          type: array
-          items:
-            $ref: '#/components/schemas/ShippingPoint'
     SupplyShippingPointsResponse:
       type: object
       properties:
@@ -6169,90 +5707,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SupplyShippingPoint'
-    SupplySpotQRCode:
-      type: object
-      properties:
-        qrCode:
-          description: Supply QR code in base64 encoding
-          example: U3dhZ2dlciByb2Nrcw==
-          format: base64
-          type: string
-    CountriesOKSMList:
-      type: object
-      properties:
-        countries:
-          description: OKSM countries list
-          type: array
-          items:
-            type: object
-            properties:
-              code:
-                description: Country code
-                type: string
-                example: '036'
-              name:
-                description: Country name
-                type: string
-                example: Австралия
-    SupplySpotDataResponse:
-      type: object
-      properties:
-        supplies:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                description: Supply ID
-                type: string
-              spot:
-                allOf:
-                - description: SPOT data
-                - $ref: '#/components/schemas/SupplySpotData'
-              error:
-                allOf:
-                - $ref: '#/components/schemas/ApiErrorV3'
-                - example:
-                    value:
-                      detail: Incorrect required body
-                      title: IncorrectRequestBody
-    SupplySpotData:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - pending
-          - completed
-          - failed
-          description: |
-            SPOT status:
-              - `pending` — waiting for the result of DOPP — Declaration of Upcoming Supply — formation
-              - `completed` — DOPP successfully formed. You can [get the QR code](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdStickersSpot)
-              - `failed` — DOPP formation error. See the `errorCode` field for details
-        carrierName:
-          type: string
-          minLength: 1
-          maxLength: 1000
-          description: Carrier name
-        carrierTaxNumber:
-          type: string
-          description: Carrier tax number
-        carrierCountryCode:
-          type: string
-          description: Carrier [OKSM](./orders-fbs#tag/fbsSupplies/operation/getV3FbsDictionariesCountriesOksm) country code
-        vehicleRegistrationNumber:
-          type: string
-          description: Vehicle registration number
-        trailerRegistrationNumber:
-          type: string
-          description: Trailer registration number
-        errorCode:
-          type: string
-          enum:
-          - doppFailed
-          description: |
-            Error code from the DOPP — Declaration of Upcoming Supply — formation service. Returned when `"status": "failed"`. To fix the error, check the SPOT data and [add it to the supply](./orders-fbs#tag/fbsSupplies/operation/getV3FbsSuppliesSupplyIdSpot) again.
     Response4XX:
       type: object
       properties:

@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.20261119.0"
+__version__ = "1.20261120.0"
 
 # import apis into sdk package
 from wb_api_client.orders_fbs.api.orders_fbs_api import OrdersFbsApi
@@ -35,10 +35,6 @@ from wb_api_client.orders_fbs.models.api_error_v3 import ApiErrorV3
 from wb_api_client.orders_fbs.models.arhive_order_error400 import ArhiveOrderError400
 from wb_api_client.orders_fbs.models.arhive_order_error400_errors_inner import (
     ArhiveOrderError400ErrorsInner,
-)
-from wb_api_client.orders_fbs.models.countries_oksm_list import CountriesOKSMList
-from wb_api_client.orders_fbs.models.countries_oksm_list_countries_inner import (
-    CountriesOKSMListCountriesInner,
 )
 from wb_api_client.orders_fbs.models.crossborder_turkey_client_info import (
     CrossborderTurkeyClientInfo,
@@ -147,9 +143,6 @@ from wb_api_client.orders_fbs.models.post_v3_fbs_settings_autoreturns_items_resp
 from wb_api_client.orders_fbs.models.post_v3_fbs_settings_autoreturns_items_response200_results_inner_error_inner import (
     PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner,
 )
-from wb_api_client.orders_fbs.models.post_v3_fbs_supplies_spot_list_request import (
-    PostV3FbsSuppliesSpotListRequest,
-)
 from wb_api_client.orders_fbs.models.post_v3_orders_status_history_request import (
     PostV3OrdersStatusHistoryRequest,
 )
@@ -211,9 +204,6 @@ from wb_api_client.orders_fbs.models.post_v3_supplies_supply_id_trbx_stickers_re
 from wb_api_client.orders_fbs.models.post_v3_supplies_supply_id_trbx_stickers_response200 import (
     PostV3SuppliesSupplyIdTrbxStickersResponse200,
 )
-from wb_api_client.orders_fbs.models.put_v3_fbs_supplies_supply_id_spot_request import (
-    PutV3FbsSuppliesSupplyIdSpotRequest,
-)
 from wb_api_client.orders_fbs.models.put_v3_orders_order_id_meta_customs_declaration_request import (
     PutV3OrdersOrderIdMetaCustomsDeclarationRequest,
 )
@@ -236,29 +226,11 @@ from wb_api_client.orders_fbs.models.put_v3_passes_pass_id_request import (
     PutV3PassesPassIdRequest,
 )
 from wb_api_client.orders_fbs.models.response4_xx import Response4XX
-from wb_api_client.orders_fbs.models.shipping_point import ShippingPoint
-from wb_api_client.orders_fbs.models.shipping_points_response import (
-    ShippingPointsResponse,
-)
 from wb_api_client.orders_fbs.models.supply import Supply
 from wb_api_client.orders_fbs.models.supply_shipping_point import SupplyShippingPoint
 from wb_api_client.orders_fbs.models.supply_shipping_points_response import (
     SupplyShippingPointsResponse,
 )
-from wb_api_client.orders_fbs.models.supply_spot_data import SupplySpotData
-from wb_api_client.orders_fbs.models.supply_spot_data_response import (
-    SupplySpotDataResponse,
-)
-from wb_api_client.orders_fbs.models.supply_spot_data_response_supplies_inner import (
-    SupplySpotDataResponseSuppliesInner,
-)
-from wb_api_client.orders_fbs.models.supply_spot_data_response_supplies_inner_error import (
-    SupplySpotDataResponseSuppliesInnerError,
-)
-from wb_api_client.orders_fbs.models.supply_spot_data_response_supplies_inner_spot import (
-    SupplySpotDataResponseSuppliesInnerSpot,
-)
-from wb_api_client.orders_fbs.models.supply_spot_qr_code import SupplySpotQRCode
 from wb_api_client.orders_fbs.models.supply_trbx import SupplyTrbx
 from wb_api_client.orders_fbs.models.trbx_stickers import TrbxStickers
 from wb_api_client.orders_fbs.models.update_supplies_shipping_method_request import (

@@ -105,7 +105,7 @@ class Supply(BaseModel):
     )
     spot_available: Optional[StrictBool] = Field(
         default=None,
-        description="Доступен ли СПОТ для этой поставки:   - `true` — да. Используйте метод [получения данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList)   - `false` — нет ",
+        description="Доступен ли СПОТ для этой поставки:   - `true` — да   - `false` — нет ",
         alias="spotAvailable",
     )
     __properties: ClassVar[List[str]] = [

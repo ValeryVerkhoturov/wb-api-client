@@ -123,27 +123,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteV3SuppliesSupplyIdTrbxWithHttpInfo(string supplyId, DeleteV3SuppliesSupplyIdTrbxRequest? deleteV3SuppliesSupplyIdTrbxRequest = default(DeleteV3SuppliesSupplyIdTrbxRequest?), int operationIndex = 0);
         /// <summary>
-        /// Получить список стран ОКСМ
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-dictionaries-countries-oksm
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>CountriesOKSMList</returns>
-        CountriesOKSMList GetV3FbsDictionariesCountriesOksm(int operationIndex = 0);
-
-        /// <summary>
-        /// Получить список стран ОКСМ
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-dictionaries-countries-oksm
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of CountriesOKSMList</returns>
-        ApiResponse<CountriesOKSMList> GetV3FbsDictionariesCountriesOksmWithHttpInfo(int operationIndex = 0);
-        /// <summary>
         /// Получить список архивных сборочных заданий
         /// </summary>
         /// <remarks>
@@ -219,33 +198,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <returns>ApiResponse of GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200</returns>
         ApiResponse<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200> GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfo(long next, int limit, int operationIndex = 0);
         /// <summary>
-        /// Получить список пунктов отгрузки поставок
-        /// </summary>
-        /// <remarks>
-        /// Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
-        /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ShippingPointsResponse</returns>
-        [Obsolete]
-        ShippingPointsResponse GetV3FbsShippingPoints(string city, long cargoType, int operationIndex = 0);
-
-        /// <summary>
-        /// Получить список пунктов отгрузки поставок
-        /// </summary>
-        /// <remarks>
-        /// Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
-        /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ShippingPointsResponse</returns>
-        [Obsolete]
-        ApiResponse<ShippingPointsResponse> GetV3FbsShippingPointsWithHttpInfo(string city, long cargoType, int operationIndex = 0);
-        /// <summary>
         /// Получить список пунктов отгрузки поставки
         /// </summary>
         /// <remarks>
@@ -274,29 +226,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SupplyShippingPointsResponse</returns>
         ApiResponse<SupplyShippingPointsResponse> GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfo(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0);
-        /// <summary>
-        /// Получить QR-код СПОТ
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64. Вы можете получить QR-код, когда в методе [получения данных СПОТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак &#x60;\&quot;status\&quot;:\&quot;completed\&quot;&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-stickers-spot
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SupplySpotQRCode</returns>
-        SupplySpotQRCode GetV3FbsSuppliesSupplyIdStickersSpot(string supplyId, int operationIndex = 0);
-
-        /// <summary>
-        /// Получить QR-код СПОТ
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64. Вы можете получить QR-код, когда в методе [получения данных СПОТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак &#x60;\&quot;status\&quot;:\&quot;completed\&quot;&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-stickers-spot
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SupplySpotQRCode</returns>
-        ApiResponse<SupplySpotQRCode> GetV3FbsSuppliesSupplyIdStickersSpotWithHttpInfo(string supplyId, int operationIndex = 0);
         /// <summary>
         /// Получить информацию о сборочных заданиях
         /// </summary>
@@ -718,29 +647,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <returns>ApiResponse of PostV3FbsSettingsAutoreturnsItemsResponse200</returns>
         ApiResponse<PostV3FbsSettingsAutoreturnsItemsResponse200> PostV3FbsSettingsAutoreturnsItemsWithHttpInfo(PostV3FbsSettingsAutoreturnsItemsRequest? postV3FbsSettingsAutoreturnsItemsRequest = default(PostV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0);
         /// <summary>
-        /// Получить данные СПОТ для списка поставок
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает данные СПОТ для списка поставок.  Вы можете получить данные СПОТ, только если выполняются все условия: - поставка находится на этапе доставки - продавец зарегистрирован в любой стране ЕАЭС кроме РФ - склад назначения находится в РФ  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-supplies-spot-list
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postV3FbsSuppliesSpotListRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SupplySpotDataResponse</returns>
-        SupplySpotDataResponse PostV3FbsSuppliesSpotList(PostV3FbsSuppliesSpotListRequest postV3FbsSuppliesSpotListRequest, int operationIndex = 0);
-
-        /// <summary>
-        /// Получить данные СПОТ для списка поставок
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает данные СПОТ для списка поставок.  Вы можете получить данные СПОТ, только если выполняются все условия: - поставка находится на этапе доставки - продавец зарегистрирован в любой стране ЕАЭС кроме РФ - склад назначения находится в РФ  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-supplies-spot-list
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postV3FbsSuppliesSpotListRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SupplySpotDataResponse</returns>
-        ApiResponse<SupplySpotDataResponse> PostV3FbsSuppliesSpotListWithHttpInfo(PostV3FbsSuppliesSpotListRequest postV3FbsSuppliesSpotListRequest, int operationIndex = 0);
-        /// <summary>
         /// Заказы с информацией по клиенту
         /// </summary>
         /// <remarks>
@@ -790,7 +696,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// Получить статусы сборочных заданий
         /// </summary>
         /// <remarks>
-        /// Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
+        /// Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID. Чтобы получить статусы сборочных заданий, созданных более 3 месяцев назад, используйте метод получения [архивных сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV3OrdersStatusRequest"> (optional)</param>
@@ -802,7 +708,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// Получить статусы сборочных заданий
         /// </summary>
         /// <remarks>
-        /// Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
+        /// Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID. Чтобы получить статусы сборочных заданий, созданных более 3 месяцев назад, используйте метод получения [архивных сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV3OrdersStatusRequest"> (optional)</param>
@@ -982,31 +888,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostV3SuppliesSupplyIdTrbxStickersResponse200</returns>
         ApiResponse<PostV3SuppliesSupplyIdTrbxStickersResponse200> PostV3SuppliesSupplyIdTrbxStickersWithHttpInfo(string supplyId, string type, PostV3SuppliesSupplyIdTrbxStickersRequest? postV3SuppliesSupplyIdTrbxStickersRequest = default(PostV3SuppliesSupplyIdTrbxStickersRequest?), int operationIndex = 0);
-        /// <summary>
-        /// Добавить данные СПОТ в поставку
-        /// </summary>
-        /// <remarks>
-        /// Метод добавляет данные СПОТ в поставку.  СПОТ можно добавить только в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком &#x60;\&quot;spotAvailable\&quot;:true&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-fbs-supplies-supplyid-spot
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="putV3FbsSuppliesSupplyIdSpotRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        void PutV3FbsSuppliesSupplyIdSpot(string supplyId, PutV3FbsSuppliesSupplyIdSpotRequest putV3FbsSuppliesSupplyIdSpotRequest, int operationIndex = 0);
-
-        /// <summary>
-        /// Добавить данные СПОТ в поставку
-        /// </summary>
-        /// <remarks>
-        /// Метод добавляет данные СПОТ в поставку.  СПОТ можно добавить только в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком &#x60;\&quot;spotAvailable\&quot;:true&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-fbs-supplies-supplyid-spot
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="putV3FbsSuppliesSupplyIdSpotRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> PutV3FbsSuppliesSupplyIdSpotWithHttpInfo(string supplyId, PutV3FbsSuppliesSupplyIdSpotRequest putV3FbsSuppliesSupplyIdSpotRequest, int operationIndex = 0);
         /// <summary>
         /// Закрепить номер ДТ за сборочным заданием
         /// </summary>
@@ -1296,29 +1177,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteV3SuppliesSupplyIdTrbxWithHttpInfoAsync(string supplyId, DeleteV3SuppliesSupplyIdTrbxRequest? deleteV3SuppliesSupplyIdTrbxRequest = default(DeleteV3SuppliesSupplyIdTrbxRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Получить список стран ОКСМ
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-dictionaries-countries-oksm
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CountriesOKSMList</returns>
-        System.Threading.Tasks.Task<CountriesOKSMList> GetV3FbsDictionariesCountriesOksmAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Получить список стран ОКСМ
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-dictionaries-countries-oksm
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CountriesOKSMList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CountriesOKSMList>> GetV3FbsDictionariesCountriesOksmWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
         /// Получить список архивных сборочных заданий
         /// </summary>
         /// <remarks>
@@ -1400,35 +1258,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <returns>Task of ApiResponse (GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedResponse200>> GetV3FbsSettingsAutoreturnsSubcategoriesRestrictedWithHttpInfoAsync(long next, int limit, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Получить список пунктов отгрузки поставок
-        /// </summary>
-        /// <remarks>
-        /// Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
-        /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ShippingPointsResponse</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ShippingPointsResponse> GetV3FbsShippingPointsAsync(string city, long cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Получить список пунктов отгрузки поставок
-        /// </summary>
-        /// <remarks>
-        /// Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
-        /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ShippingPointsResponse)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<ShippingPointsResponse>> GetV3FbsShippingPointsWithHttpInfoAsync(string city, long cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
         /// Получить список пунктов отгрузки поставки
         /// </summary>
         /// <remarks>
@@ -1459,31 +1288,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SupplyShippingPointsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SupplyShippingPointsResponse>> GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfoAsync(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Получить QR-код СПОТ
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64. Вы можете получить QR-код, когда в методе [получения данных СПОТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак &#x60;\&quot;status\&quot;:\&quot;completed\&quot;&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-stickers-spot
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SupplySpotQRCode</returns>
-        System.Threading.Tasks.Task<SupplySpotQRCode> GetV3FbsSuppliesSupplyIdStickersSpotAsync(string supplyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Получить QR-код СПОТ
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64. Вы можете получить QR-код, когда в методе [получения данных СПОТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак &#x60;\&quot;status\&quot;:\&quot;completed\&quot;&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-stickers-spot
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SupplySpotQRCode)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SupplySpotQRCode>> GetV3FbsSuppliesSupplyIdStickersSpotWithHttpInfoAsync(string supplyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить информацию о сборочных заданиях
         /// </summary>
@@ -1941,31 +1745,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <returns>Task of ApiResponse (PostV3FbsSettingsAutoreturnsItemsResponse200)</returns>
         System.Threading.Tasks.Task<ApiResponse<PostV3FbsSettingsAutoreturnsItemsResponse200>> PostV3FbsSettingsAutoreturnsItemsWithHttpInfoAsync(PostV3FbsSettingsAutoreturnsItemsRequest? postV3FbsSettingsAutoreturnsItemsRequest = default(PostV3FbsSettingsAutoreturnsItemsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Получить данные СПОТ для списка поставок
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает данные СПОТ для списка поставок.  Вы можете получить данные СПОТ, только если выполняются все условия: - поставка находится на этапе доставки - продавец зарегистрирован в любой стране ЕАЭС кроме РФ - склад назначения находится в РФ  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-supplies-spot-list
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postV3FbsSuppliesSpotListRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SupplySpotDataResponse</returns>
-        System.Threading.Tasks.Task<SupplySpotDataResponse> PostV3FbsSuppliesSpotListAsync(PostV3FbsSuppliesSpotListRequest postV3FbsSuppliesSpotListRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Получить данные СПОТ для списка поставок
-        /// </summary>
-        /// <remarks>
-        /// Метод возвращает данные СПОТ для списка поставок.  Вы можете получить данные СПОТ, только если выполняются все условия: - поставка находится на этапе доставки - продавец зарегистрирован в любой стране ЕАЭС кроме РФ - склад назначения находится в РФ  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-supplies-spot-list
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postV3FbsSuppliesSpotListRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SupplySpotDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SupplySpotDataResponse>> PostV3FbsSuppliesSpotListWithHttpInfoAsync(PostV3FbsSuppliesSpotListRequest postV3FbsSuppliesSpotListRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
         /// Заказы с информацией по клиенту
         /// </summary>
         /// <remarks>
@@ -2019,7 +1798,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// Получить статусы сборочных заданий
         /// </summary>
         /// <remarks>
-        /// Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
+        /// Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID. Чтобы получить статусы сборочных заданий, созданных более 3 месяцев назад, используйте метод получения [архивных сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV3OrdersStatusRequest"> (optional)</param>
@@ -2032,7 +1811,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// Получить статусы сборочных заданий
         /// </summary>
         /// <remarks>
-        /// Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
+        /// Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID. Чтобы получить статусы сборочных заданий, созданных более 3 месяцев назад, используйте метод получения [архивных сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV3OrdersStatusRequest"> (optional)</param>
@@ -2227,33 +2006,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostV3SuppliesSupplyIdTrbxStickersResponse200)</returns>
         System.Threading.Tasks.Task<ApiResponse<PostV3SuppliesSupplyIdTrbxStickersResponse200>> PostV3SuppliesSupplyIdTrbxStickersWithHttpInfoAsync(string supplyId, string type, PostV3SuppliesSupplyIdTrbxStickersRequest? postV3SuppliesSupplyIdTrbxStickersRequest = default(PostV3SuppliesSupplyIdTrbxStickersRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Добавить данные СПОТ в поставку
-        /// </summary>
-        /// <remarks>
-        /// Метод добавляет данные СПОТ в поставку.  СПОТ можно добавить только в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком &#x60;\&quot;spotAvailable\&quot;:true&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-fbs-supplies-supplyid-spot
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="putV3FbsSuppliesSupplyIdSpotRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task PutV3FbsSuppliesSupplyIdSpotAsync(string supplyId, PutV3FbsSuppliesSupplyIdSpotRequest putV3FbsSuppliesSupplyIdSpotRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Добавить данные СПОТ в поставку
-        /// </summary>
-        /// <remarks>
-        /// Метод добавляет данные СПОТ в поставку.  СПОТ можно добавить только в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком &#x60;\&quot;spotAvailable\&quot;:true&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-fbs-supplies-supplyid-spot
-        /// </remarks>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="putV3FbsSuppliesSupplyIdSpotRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> PutV3FbsSuppliesSupplyIdSpotWithHttpInfoAsync(string supplyId, PutV3FbsSuppliesSupplyIdSpotRequest putV3FbsSuppliesSupplyIdSpotRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Закрепить номер ДТ за сборочным заданием
         /// </summary>
@@ -3190,146 +2942,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Получить список стран ОКСМ Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-dictionaries-countries-oksm
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>CountriesOKSMList</returns>
-        public CountriesOKSMList GetV3FbsDictionariesCountriesOksm(int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<CountriesOKSMList> localVarResponse = GetV3FbsDictionariesCountriesOksmWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Получить список стран ОКСМ Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-dictionaries-countries-oksm
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of CountriesOKSMList</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<CountriesOKSMList> GetV3FbsDictionariesCountriesOksmWithHttpInfo(int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            localVarRequestOptions.Operation = "OrdersFbsApi.GetV3FbsDictionariesCountriesOksm";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<CountriesOKSMList>("/api/marketplace/v3/fbs/dictionaries/countries/oksm", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetV3FbsDictionariesCountriesOksm", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Получить список стран ОКСМ Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-dictionaries-countries-oksm
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CountriesOKSMList</returns>
-        public async System.Threading.Tasks.Task<CountriesOKSMList> GetV3FbsDictionariesCountriesOksmAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<CountriesOKSMList> localVarResponse = await GetV3FbsDictionariesCountriesOksmWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Получить список стран ОКСМ Метод возвращает список стран ОКСМ — Общероссийского классификатора стран мира — с полными названиями и кодами.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-dictionaries-countries-oksm
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CountriesOKSMList)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<CountriesOKSMList>> GetV3FbsDictionariesCountriesOksmWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            localVarRequestOptions.Operation = "OrdersFbsApi.GetV3FbsDictionariesCountriesOksm";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CountriesOKSMList>("/api/marketplace/v3/fbs/dictionaries/countries/oksm", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetV3FbsDictionariesCountriesOksm", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Получить список архивных сборочных заданий Метод возвращает сборочные задания, созданные более 3 месяцев назад. Часть сборочных заданий попадает в архив позже, чем через 3 месяца после создания, так как поставка переходит в архив только после того, как все заказы в ней будут завершены. Например, так происходит, если продавец не доставил один из заказов в поставке и заказ был отменён автоматически через несколько дней.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-orders-archive
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3786,174 +3398,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Получить список пунктов отгрузки поставок Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
-        /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ShippingPointsResponse</returns>
-        [Obsolete]
-        public ShippingPointsResponse GetV3FbsShippingPoints(string city, long cargoType, int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<ShippingPointsResponse> localVarResponse = GetV3FbsShippingPointsWithHttpInfo(city, cargoType);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Получить список пунктов отгрузки поставок Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
-        /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ShippingPointsResponse</returns>
-        [Obsolete]
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<ShippingPointsResponse> GetV3FbsShippingPointsWithHttpInfo(string city, long cargoType, int operationIndex = 0)
-        {
-            // verify the required parameter 'city' is set
-            if (city == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'city' when calling OrdersFbsApi->GetV3FbsShippingPoints");
-            }
-
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "city", city));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "cargoType", cargoType));
-
-            localVarRequestOptions.Operation = "OrdersFbsApi.GetV3FbsShippingPoints";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ShippingPointsResponse>("/api/marketplace/v3/fbs/shipping-points", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetV3FbsShippingPoints", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Получить список пунктов отгрузки поставок Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
-        /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ShippingPointsResponse</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<ShippingPointsResponse> GetV3FbsShippingPointsAsync(string city, long cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<ShippingPointsResponse> localVarResponse = await GetV3FbsShippingPointsWithHttpInfoAsync(city, cargoType, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Получить список пунктов отгрузки поставок Метод будет отключен [20 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;585).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-shipping-points
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="city">Населённый пункт отгрузки поставки, кириллица</param>
-        /// <param name="cargoType">Тип товара, который принимает пункт отгрузки:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) </param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ShippingPointsResponse)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<ShippingPointsResponse>> GetV3FbsShippingPointsWithHttpInfoAsync(string city, long cargoType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'city' is set
-            if (city == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'city' when calling OrdersFbsApi->GetV3FbsShippingPoints");
-            }
-
-
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "city", city));
-            localVarRequestOptions.QueryParameters.Add(ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToMultiMap("", "cargoType", cargoType));
-
-            localVarRequestOptions.Operation = "OrdersFbsApi.GetV3FbsShippingPoints";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ShippingPointsResponse>("/api/marketplace/v3/fbs/shipping-points", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetV3FbsShippingPoints", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Получить список пунктов отгрузки поставки Метод возвращает доступные пункты отгрузки для указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4150,164 +3594,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetV3FbsSuppliesSupplyIdShippingPoints", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Получить QR-код СПОТ Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64. Вы можете получить QR-код, когда в методе [получения данных СПОТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак &#x60;\&quot;status\&quot;:\&quot;completed\&quot;&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-stickers-spot
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SupplySpotQRCode</returns>
-        public SupplySpotQRCode GetV3FbsSuppliesSupplyIdStickersSpot(string supplyId, int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplySpotQRCode> localVarResponse = GetV3FbsSuppliesSupplyIdStickersSpotWithHttpInfo(supplyId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Получить QR-код СПОТ Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64. Вы можете получить QR-код, когда в методе [получения данных СПОТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак &#x60;\&quot;status\&quot;:\&quot;completed\&quot;&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-stickers-spot
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SupplySpotQRCode</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplySpotQRCode> GetV3FbsSuppliesSupplyIdStickersSpotWithHttpInfo(string supplyId, int operationIndex = 0)
-        {
-            // verify the required parameter 'supplyId' is set
-            if (supplyId == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'supplyId' when calling OrdersFbsApi->GetV3FbsSuppliesSupplyIdStickersSpot");
-            }
-
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("supplyId", ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToString(supplyId)); // path parameter
-
-            localVarRequestOptions.Operation = "OrdersFbsApi.GetV3FbsSuppliesSupplyIdStickersSpot";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<SupplySpotQRCode>("/api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetV3FbsSuppliesSupplyIdStickersSpot", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Получить QR-код СПОТ Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64. Вы можете получить QR-код, когда в методе [получения данных СПОТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак &#x60;\&quot;status\&quot;:\&quot;completed\&quot;&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-stickers-spot
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SupplySpotQRCode</returns>
-        public async System.Threading.Tasks.Task<SupplySpotQRCode> GetV3FbsSuppliesSupplyIdStickersSpotAsync(string supplyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplySpotQRCode> localVarResponse = await GetV3FbsSuppliesSupplyIdStickersSpotWithHttpInfoAsync(supplyId, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Получить QR-код СПОТ Метод возвращает сформированный QR-код СПОТ для поставки в формате PNG, кодировка base64. Вы можете получить QR-код, когда в методе [получения данных СПОТ](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) будет признак &#x60;\&quot;status\&quot;:\&quot;completed\&quot;&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-stickers-spot
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SupplySpotQRCode)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplySpotQRCode>> GetV3FbsSuppliesSupplyIdStickersSpotWithHttpInfoAsync(string supplyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'supplyId' is set
-            if (supplyId == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'supplyId' when calling OrdersFbsApi->GetV3FbsSuppliesSupplyIdStickersSpot");
-            }
-
-
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("supplyId", ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToString(supplyId)); // path parameter
-
-            localVarRequestOptions.Operation = "OrdersFbsApi.GetV3FbsSuppliesSupplyIdStickersSpot";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SupplySpotQRCode>("/api/marketplace/v3/fbs/supplies/{supplyId}/stickers/spot", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetV3FbsSuppliesSupplyIdStickersSpot", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -7112,166 +6398,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Получить данные СПОТ для списка поставок Метод возвращает данные СПОТ для списка поставок.  Вы можете получить данные СПОТ, только если выполняются все условия: - поставка находится на этапе доставки - продавец зарегистрирован в любой стране ЕАЭС кроме РФ - склад назначения находится в РФ  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-supplies-spot-list
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postV3FbsSuppliesSpotListRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SupplySpotDataResponse</returns>
-        public SupplySpotDataResponse PostV3FbsSuppliesSpotList(PostV3FbsSuppliesSpotListRequest postV3FbsSuppliesSpotListRequest, int operationIndex = 0)
-        {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplySpotDataResponse> localVarResponse = PostV3FbsSuppliesSpotListWithHttpInfo(postV3FbsSuppliesSpotListRequest);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Получить данные СПОТ для списка поставок Метод возвращает данные СПОТ для списка поставок.  Вы можете получить данные СПОТ, только если выполняются все условия: - поставка находится на этапе доставки - продавец зарегистрирован в любой стране ЕАЭС кроме РФ - склад назначения находится в РФ  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-supplies-spot-list
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postV3FbsSuppliesSpotListRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SupplySpotDataResponse</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplySpotDataResponse> PostV3FbsSuppliesSpotListWithHttpInfo(PostV3FbsSuppliesSpotListRequest postV3FbsSuppliesSpotListRequest, int operationIndex = 0)
-        {
-            // verify the required parameter 'postV3FbsSuppliesSpotListRequest' is set
-            if (postV3FbsSuppliesSpotListRequest == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'postV3FbsSuppliesSpotListRequest' when calling OrdersFbsApi->PostV3FbsSuppliesSpotList");
-            }
-
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = postV3FbsSuppliesSpotListRequest;
-
-            localVarRequestOptions.Operation = "OrdersFbsApi.PostV3FbsSuppliesSpotList";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<SupplySpotDataResponse>("/api/marketplace/v3/fbs/supplies/spot/list", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PostV3FbsSuppliesSpotList", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Получить данные СПОТ для списка поставок Метод возвращает данные СПОТ для списка поставок.  Вы можете получить данные СПОТ, только если выполняются все условия: - поставка находится на этапе доставки - продавец зарегистрирован в любой стране ЕАЭС кроме РФ - склад назначения находится в РФ  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-supplies-spot-list
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postV3FbsSuppliesSpotListRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SupplySpotDataResponse</returns>
-        public async System.Threading.Tasks.Task<SupplySpotDataResponse> PostV3FbsSuppliesSpotListAsync(PostV3FbsSuppliesSpotListRequest postV3FbsSuppliesSpotListRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplySpotDataResponse> localVarResponse = await PostV3FbsSuppliesSpotListWithHttpInfoAsync(postV3FbsSuppliesSpotListRequest, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Получить данные СПОТ для списка поставок Метод возвращает данные СПОТ для списка поставок.  Вы можете получить данные СПОТ, только если выполняются все условия: - поставка находится на этапе доставки - продавец зарегистрирован в любой стране ЕАЭС кроме РФ - склад назначения находится в РФ  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-marketplace-v3-fbs-supplies-spot-list
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postV3FbsSuppliesSpotListRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SupplySpotDataResponse)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplySpotDataResponse>> PostV3FbsSuppliesSpotListWithHttpInfoAsync(PostV3FbsSuppliesSpotListRequest postV3FbsSuppliesSpotListRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'postV3FbsSuppliesSpotListRequest' is set
-            if (postV3FbsSuppliesSpotListRequest == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'postV3FbsSuppliesSpotListRequest' when calling OrdersFbsApi->PostV3FbsSuppliesSpotList");
-            }
-
-
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = postV3FbsSuppliesSpotListRequest;
-
-            localVarRequestOptions.Operation = "OrdersFbsApi.PostV3FbsSuppliesSpotList";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<SupplySpotDataResponse>("/api/marketplace/v3/fbs/supplies/spot/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PostV3FbsSuppliesSpotList", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Заказы с информацией по клиенту Метод позволяет получать информацию о покупателе по ID сборочного задания. Только для трансграничных поставок из \\*\\*Турции\\*\\*.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-client
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
@@ -7592,7 +6718,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Получить статусы сборочных заданий Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
+        /// Получить статусы сборочных заданий Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID. Чтобы получить статусы сборочных заданий, созданных более 3 месяцев назад, используйте метод получения [архивных сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV3OrdersStatusRequest"> (optional)</param>
@@ -7605,7 +6731,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Получить статусы сборочных заданий Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
+        /// Получить статусы сборочных заданий Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID. Чтобы получить статусы сборочных заданий, созданных более 3 месяцев назад, используйте метод получения [архивных сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV3OrdersStatusRequest"> (optional)</param>
@@ -7664,7 +6790,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Получить статусы сборочных заданий Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
+        /// Получить статусы сборочных заданий Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID. Чтобы получить статусы сборочных заданий, созданных более 3 месяцев назад, используйте метод получения [архивных сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV3OrdersStatusRequest"> (optional)</param>
@@ -7678,7 +6804,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         }
 
         /// <summary>
-        /// Получить статусы сборочных заданий Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID.  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
+        /// Получить статусы сборочных заданий Метод возвращает статусы [сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) по их ID. Чтобы получить статусы сборочных заданий, созданных более 3 месяцев назад, используйте метод получения [архивных сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).  &#x60;supplierStatus&#x60; — статус сборочного задания. Триггер его изменения — действие самого продавца. Возможные значения &#x60;supplierStatus&#x60;: | Статус | Описание | Как перевести сборочное задание в данный статус | |- -- -- --|- -- -- -- -- -- -- -- -- -- -- -|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | &#x60;new&#x60; | \\*\\*Новое сборочное задание\\*\\* | | | &#x60;confirm&#x60; | \\*\\*На сборке\\*\\* |[Добавить сборочное задание к поставке](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders)  [Перевести сборочные задания из доставки на сборку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesSupplyIdOrdersTransfer)| | &#x60;complete&#x60; | \\*\\*В доставке\\*\\* | [Передать поставку в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) | | &#x60;cancel&#x60; | \\*\\*Отменено продавцом\\*\\* | [Отменить сборочное задание](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/patchV3OrdersOrderIdCancel)| | &#x60;cancel\\_carrier&#x60; | \\*\\*Отменено перевозчиком\\*\\* Только для трансграничных поставок | Переводится перевозчиком |  &#x60;wbStatus&#x60; — статус системы Wildberries. Возможные значения &#x60;wbStatus&#x60;: - &#x60;waiting&#x60; — сборочное задание в работе - &#x60;sorted&#x60; — сборочное задание отсортировано - &#x60;sold&#x60; — заказ получен покупателем - &#x60;canceled&#x60; — отмена сборочного задания - &#x60;canceled\\_by\\_client&#x60; — покупатель отменил заказ при получении - &#x60;declined\\_by\\_client&#x60; — покупатель отменил заказ. Отмена доступна покупателю в первый час с момента заказа, если заказ не переведён на сборку - &#x60;defect&#x60; — отмена заказа по причине брака - &#x60;ready\\_for\\_pickup&#x60; — заказ прибыл на пункт выдачи заказов (ПВЗ) - &#x60;postponed\\_delivery&#x60; — доставка курьером отложена - &#x60;accepted\\_by\\_carrier&#x60; — продавец передал заказ в службу доставки в своей стране. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;sent\\_to\\_carrier&#x60; — заказ отправлен на склад службы доставки в стране продавца. C [12 ноября](https://dev.wildberries.ru/release-notes?id&#x3D;610) заменён на &#x60;delivering\\_by\\_carrier&#x60;. Только для трансграничных поставок - &#x60;delivering\\_by\\_carrier&#x60; — заказ передан перевозчику и находится в пути на склад WB. Только для трансграничных поставок - &#x60;canceled\\_by\\_carrier&#x60; — заказ отменён перевозчиком. Только для трансграничных поставок  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов.  - --  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/post-api-v3-orders-status
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postV3OrdersStatusRequest"> (optional)</param>
@@ -8874,182 +8000,6 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostV3SuppliesSupplyIdTrbxStickers", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Добавить данные СПОТ в поставку Метод добавляет данные СПОТ в поставку.  СПОТ можно добавить только в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком &#x60;\&quot;spotAvailable\&quot;:true&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-fbs-supplies-supplyid-spot
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="putV3FbsSuppliesSupplyIdSpotRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        public void PutV3FbsSuppliesSupplyIdSpot(string supplyId, PutV3FbsSuppliesSupplyIdSpotRequest putV3FbsSuppliesSupplyIdSpotRequest, int operationIndex = 0)
-        {
-            PutV3FbsSuppliesSupplyIdSpotWithHttpInfo(supplyId, putV3FbsSuppliesSupplyIdSpotRequest);
-        }
-
-        /// <summary>
-        /// Добавить данные СПОТ в поставку Метод добавляет данные СПОТ в поставку.  СПОТ можно добавить только в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком &#x60;\&quot;spotAvailable\&quot;:true&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-fbs-supplies-supplyid-spot
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="putV3FbsSuppliesSupplyIdSpotRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<Object> PutV3FbsSuppliesSupplyIdSpotWithHttpInfo(string supplyId, PutV3FbsSuppliesSupplyIdSpotRequest putV3FbsSuppliesSupplyIdSpotRequest, int operationIndex = 0)
-        {
-            // verify the required parameter 'supplyId' is set
-            if (supplyId == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'supplyId' when calling OrdersFbsApi->PutV3FbsSuppliesSupplyIdSpot");
-            }
-
-            // verify the required parameter 'putV3FbsSuppliesSupplyIdSpotRequest' is set
-            if (putV3FbsSuppliesSupplyIdSpotRequest == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'putV3FbsSuppliesSupplyIdSpotRequest' when calling OrdersFbsApi->PutV3FbsSuppliesSupplyIdSpot");
-            }
-
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/problem+json",
-                "application/json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("supplyId", ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToString(supplyId)); // path parameter
-            localVarRequestOptions.Data = putV3FbsSuppliesSupplyIdSpotRequest;
-
-            localVarRequestOptions.Operation = "OrdersFbsApi.PutV3FbsSuppliesSupplyIdSpot";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/api/marketplace/v3/fbs/supplies/{supplyId}/spot", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PutV3FbsSuppliesSupplyIdSpot", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Добавить данные СПОТ в поставку Метод добавляет данные СПОТ в поставку.  СПОТ можно добавить только в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком &#x60;\&quot;spotAvailable\&quot;:true&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-fbs-supplies-supplyid-spot
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="putV3FbsSuppliesSupplyIdSpotRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task PutV3FbsSuppliesSupplyIdSpotAsync(string supplyId, PutV3FbsSuppliesSupplyIdSpotRequest putV3FbsSuppliesSupplyIdSpotRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            await PutV3FbsSuppliesSupplyIdSpotWithHttpInfoAsync(supplyId, putV3FbsSuppliesSupplyIdSpotRequest, operationIndex, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Добавить данные СПОТ в поставку Метод добавляет данные СПОТ в поставку.  СПОТ можно добавить только в [поставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId) с признаком &#x60;\&quot;spotAvailable\&quot;:true&#x60;.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов &#x60;4XX&#x60; учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/put-api-marketplace-v3-fbs-supplies-supplyid-spot
-        /// </summary>
-        /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="supplyId">ID поставки</param>
-        /// <param name="putV3FbsSuppliesSupplyIdSpotRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<Object>> PutV3FbsSuppliesSupplyIdSpotWithHttpInfoAsync(string supplyId, PutV3FbsSuppliesSupplyIdSpotRequest putV3FbsSuppliesSupplyIdSpotRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'supplyId' is set
-            if (supplyId == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'supplyId' when calling OrdersFbsApi->PutV3FbsSuppliesSupplyIdSpot");
-            }
-
-            // verify the required parameter 'putV3FbsSuppliesSupplyIdSpotRequest' is set
-            if (putV3FbsSuppliesSupplyIdSpotRequest == null)
-            {
-                throw new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException(400, "Missing required parameter 'putV3FbsSuppliesSupplyIdSpotRequest' when calling OrdersFbsApi->PutV3FbsSuppliesSupplyIdSpot");
-            }
-
-
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/problem+json",
-                "application/json"
-            };
-
-            var localVarContentType = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("supplyId", ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ClientUtils.ParameterToString(supplyId)); // path parameter
-            localVarRequestOptions.Data = putV3FbsSuppliesSupplyIdSpotRequest;
-
-            localVarRequestOptions.Operation = "OrdersFbsApi.PutV3FbsSuppliesSupplyIdSpot";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (BearerAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/marketplace/v3/fbs/supplies/{supplyId}/spot", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PutV3FbsSuppliesSupplyIdSpot", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

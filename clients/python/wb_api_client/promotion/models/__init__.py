@@ -69,9 +69,6 @@ from wb_api_client.promotion.models.get_v1_balance_response200 import (
 from wb_api_client.promotion.models.get_v1_balance_response200_cashbacks_inner import (
     GetV1BalanceResponse200CashbacksInner,
 )
-from wb_api_client.promotion.models.get_v1_budget_response200 import (
-    GetV1BudgetResponse200,
-)
 from wb_api_client.promotion.models.get_v1_calendar_promotions200_response import (
     GetV1CalendarPromotions200Response,
 )

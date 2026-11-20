@@ -155,12 +155,6 @@ export const operationServerMap: ServerMap = {
       description: "No description provided",
     },
   ],
-  "PromotionApi.getV1Budget": [
-    {
-      url: "https://advert-api.wildberries.ru",
-      description: "No description provided",
-    },
-  ],
   "PromotionApi.getV1CalendarPromotions": [
     {
       url: "https://dp-calendar-api.wildberries.ru",

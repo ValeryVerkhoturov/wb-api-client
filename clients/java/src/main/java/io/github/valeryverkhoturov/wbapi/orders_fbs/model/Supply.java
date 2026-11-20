@@ -624,9 +624,7 @@ public class Supply {
   }
 
   /**
-   * Доступен ли СПОТ для этой поставки: - &#x60;true&#x60; — да. Используйте метод [получения
-   * данных СПОТ](./orders-fbs#tag/fbsSupplies/operation/postV3FbsSuppliesSpotList) -
-   * &#x60;false&#x60; — нет
+   * Доступен ли СПОТ для этой поставки: - &#x60;true&#x60; — да - &#x60;false&#x60; — нет
    *
    * @return spotAvailable
    */

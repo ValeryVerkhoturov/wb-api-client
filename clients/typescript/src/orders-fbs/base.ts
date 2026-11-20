@@ -129,12 +129,6 @@ export const operationServerMap: ServerMap = {
       description: "**Sandbox** ",
     },
   ],
-  "OrdersFbsApi.getV3FbsDictionariesCountriesOksm": [
-    {
-      url: "https://marketplace-api.wildberries.ru",
-      description: "No description provided",
-    },
-  ],
   "OrdersFbsApi.getV3FbsOrdersArchive": [
     {
       url: "https://marketplace-api.wildberries.ru",
@@ -153,19 +147,7 @@ export const operationServerMap: ServerMap = {
       description: "**Prod** ",
     },
   ],
-  "OrdersFbsApi.getV3FbsShippingPoints": [
-    {
-      url: "https://marketplace-api.wildberries.ru",
-      description: "No description provided",
-    },
-  ],
   "OrdersFbsApi.getV3FbsSuppliesSupplyIdShippingPoints": [
-    {
-      url: "https://marketplace-api.wildberries.ru",
-      description: "No description provided",
-    },
-  ],
-  "OrdersFbsApi.getV3FbsSuppliesSupplyIdStickersSpot": [
     {
       url: "https://marketplace-api.wildberries.ru",
       description: "No description provided",
@@ -331,12 +313,6 @@ export const operationServerMap: ServerMap = {
       description: "**Prod** ",
     },
   ],
-  "OrdersFbsApi.postV3FbsSuppliesSpotList": [
-    {
-      url: "https://marketplace-api.wildberries.ru",
-      description: "No description provided",
-    },
-  ],
   "OrdersFbsApi.postV3OrdersClient": [
     {
       url: "https://marketplace-api.wildberries.ru",
@@ -431,12 +407,6 @@ export const operationServerMap: ServerMap = {
     {
       url: "https://marketplace-api-sandbox.wildberries.ru",
       description: "**Sandbox** ",
-    },
-  ],
-  "OrdersFbsApi.putV3FbsSuppliesSupplyIdSpot": [
-    {
-      url: "https://marketplace-api.wildberries.ru",
-      description: "No description provided",
     },
   ],
   "OrdersFbsApi.putV3OrdersOrderIdMetaCustomsDeclaration": [

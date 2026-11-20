@@ -1393,70 +1393,6 @@ paths:
       x-tagKey: finances
       x-original-tags:
       - Finances
-  /adv/v1/budget:
-    servers:
-    - url: https://advert-api.wildberries.ru
-    get:
-      operationId: getV1Budget
-      x-readonly-method: true
-      deprecated: true
-      x-category: advert
-      security:
-      - BearerAuth: []
-      summary: Campaign Budget
-      description: |-
-        The deprecated method will be disabled on [16 November](https://dev.wildberries.ru/en/release-notes?id=582).
-
-        [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
-        | Type | Period | Limit | Interval | Burst |
-        | --- | --- | --- | --- | --- |
-        | Personal | 1 s | 4 requests | 250 ms | 4 requests |
-        | Service | 1 s | 4 requests | 250 ms | 4 requests |
-        | Base with secret | 1 s | 4 requests | 250 ms | 4 requests |
-        | Base | 1 h | 4 requests | 15 min | 1 request |
-
-        Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/promotion/get-adv-v1-budget
-      tags:
-      - Promotion
-      parameters:
-      - name: id
-        in: query
-        description: Campaign ID
-        schema:
-          type: integer
-          example: 1
-          format: int64
-        required: true
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetV1BudgetResponse200'
-              example:
-                cash: 0
-                netting: 0
-                total: 500
-                currency: RUB
-        '400':
-          description: Bad request
-          content:
-            text/plain:
-              schema:
-                type: string
-              examples:
-                CampaignNotBelongSeller:
-                  $ref: '#/components/examples/CampaignNotBelongSeller'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '429':
-          $ref: '#/components/responses/429'
-      x-tagKey: finances
-      x-original-tags:
-      - Finances
   /adv/v1/budget/deposit:
     servers:
     - url: https://advert-api.wildberries.ru
@@ -6542,25 +6478,6 @@ components:
                 type: string
                 format: ISO 8601
                 description: Promo bonuses expiration date
-    GetV1BudgetResponse200:
-      type: object
-      properties:
-        cash:
-          description: The field is not used. The value is always equal to 0.
-          type: integer
-          format: int64
-        netting:
-          description: The field is not used. The value is always equal to 0.
-          type: integer
-          format: int64
-        total:
-          description: Campaign budget in the base units of the [seller account](https://cmp.wildberries.ru/campaigns/finances) currency
-          type: integer
-          format: int64
-        currency:
-          type: string
-          description: Currency of the [seller account](https://cmp.wildberries.ru/campaigns/finances)
-          format: ISO 4217
     PostV1BudgetDepositResponse400:
       type: object
       properties:

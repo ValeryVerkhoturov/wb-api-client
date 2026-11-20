@@ -161,9 +161,6 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.promotion.model.GetV1BalanceResponse200CashbacksInner
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.promotion.model.GetV1BudgetResponse200
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.promotion.model.GetV1CalendarPromotions200Response
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(

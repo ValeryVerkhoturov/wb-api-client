@@ -101,12 +101,6 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.ArhiveOrderError400ErrorsInner
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.CountriesOKSMList
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.CountriesOKSMListCountriesInner
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.CrossborderTurkeyClientInfo
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
@@ -230,9 +224,6 @@ public class JSON {
             .PostV3FbsSettingsAutoreturnsItemsResponse200ResultsInnerErrorInner
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.PostV3FbsSuppliesSpotListRequest
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.PostV3OrdersStatusHistoryRequest
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
@@ -297,9 +288,6 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model
             .PostV3SuppliesSupplyIdTrbxStickersResponse200.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.PutV3FbsSuppliesSupplyIdSpotRequest
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model
             .PutV3OrdersOrderIdMetaCustomsDeclarationRequest.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
@@ -324,36 +312,12 @@ public class JSON {
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.Response4XX
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.ShippingPoint
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.ShippingPointsResponse
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.Supply.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplyShippingPoint
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplyShippingPointsResponse
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplySpotData
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplySpotDataResponse
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplySpotDataResponseSuppliesInner
-            .CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model
-            .SupplySpotDataResponseSuppliesInnerError.CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model
-            .SupplySpotDataResponseSuppliesInnerSpot.CustomTypeAdapterFactory());
-    gsonBuilder.registerTypeAdapterFactory(
-        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplySpotQRCode
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplyTrbx
