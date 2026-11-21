@@ -20,7 +20,7 @@
     <Description>Auto-generated Wildberries Seller API client. All 13 API categories as isolated namespaces.</Description>
     <PackageTags>wildberries;wb;api;client;openapi;sdk</PackageTags>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/ValeryVerkhoturov/wb-api-client</PackageProjectUrl>
+    <PackageProjectUrl>https://valeryverkhoturov.github.io/wb-api-client-docs/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ValeryVerkhoturov/wb-api-client.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
