@@ -143,9 +143,6 @@ jobs:
         run: |
           curl -fsSL -o /tmp/onescript.zip \
             "https://github.com/EvilBeaver/OneScript/releases/download/v${ONESCRIPT_VERSION}/OneScript-${ONESCRIPT_VERSION}-linux-x64.zip"
-          # Not `unzip`: the archive stores its (Cyrillic) entry names in UTF-8
-          # and Info-ZIP rewrites them as #Uxxxx escapes, which leaves every
-          # path in lib.config dangling — opm then fails to load its own core.
           python3 -m zipfile -e /tmp/onescript.zip "${HOME}/onescript"
           chmod +x "${HOME}/onescript/bin/oscript"
           echo "OSCRIPT=${HOME}/onescript/bin/oscript" >> "${GITHUB_ENV}"
@@ -171,6 +168,9 @@ jobs:
     if: inputs.lang == 'csharp'
     runs-on: ubuntu-latest
     environment: nuget
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
         with:
@@ -180,19 +180,20 @@ jobs:
         with:
           dotnet-version: "8.0.x"
 
+      - id: login
+        uses: NuGet/login@v1
+        with:
+          user: ValeryVerkhoturov
+
       - name: Pack
         working-directory: clients/csharp
         run: dotnet pack -c Release -o ./artifacts
 
       - name: Push to NuGet
         working-directory: clients/csharp
-        env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          # --skip-duplicate keeps a re-run from failing when the version is
-          # already live, matching the idempotence of the other publish jobs.
           dotnet nuget push "./artifacts/*.nupkg" \
-            --api-key "${NUGET_API_KEY}" \
+            --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate
           echo "  ✓ published — https://www.nuget.org/packages/ValeryVerkhoturov.WbApiClient"

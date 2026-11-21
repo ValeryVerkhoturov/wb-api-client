@@ -207,12 +207,12 @@ Configured in GitHub Environments referenced by `publish.yml`:
 | `maven-central` | GPG-signed deploy | `MAVEN_USERNAME`, `MAVEN_PASSWORD`, `MAVEN_GPG_PRIVATE_KEY`, `MAVEN_GPG_PASSPHRASE` |
 | `packagist` | API token + separate GitHub repo | `PACKAGIST_USERNAME`, `PACKAGIST_API_TOKEN` — package pre-registered at packagist.org pointing at `wb-api-client-php` sibling repo |
 | `onescript` | `opm push` to hub.oscript.io | `OSCRIPT_HUB_TOKEN` — a GitHub token used only to verify the pusher's identity; package pre-registered on the hub |
-| `nuget` | API key | `NUGET_API_KEY` — from nuget.org, scoped to `ValeryVerkhoturov.WbApiClient` |
+| `nuget` | OIDC trusted publishing (`NuGet/login`) | none — configure a trusted publishing policy on nuget.org for repo `ValeryVerkhoturov/wb-api-client`, workflow `publish.yml`, env `nuget` |
 | Go (no env) | git tags only | none — `proxy.golang.org` fetches from the pushed tag |
 | `crates-io` | API token | `CARGO_REGISTRY_TOKEN` — from crates.io, scoped to `wb-api-client` (or unscoped for the first publish, which claims the name) |
 | — (repo-level) | `SIBLING_REPO_TOKEN` PAT (repo scope) covering BOTH `wb-api-client-php` and `wb-api-client-1c`, for pushing their commits/tags/releases in daily-check. Falls back to the older `PHP_REPO_TOKEN`, then to `GITHUB_TOKEN` (fine for read-only PR checks, but cross-repo pushes will fail) |
 
-PyPI + npm trusted publishing: **the "Workflow filename" on pypi.org and npmjs.com must be `publish.yml`**, and daily-check must dispatch it via `gh workflow run publish.yml` (workflow_dispatch), NOT `uses: ./.github/workflows/publish.yml` (workflow_call). Reason: trusted publishing verifies both the OIDC `job_workflow_ref` claim and the Sigstore attestation cert's `workflow_ref` extension. With workflow_call those two claims point at *different* files (callee vs caller) and no TP config can satisfy both — PyPI explicitly does not support reusable workflows. Dispatching makes publish.yml a top-level workflow so both claims resolve to it. Environment names on the TP page must match the `environment:` value on the publish job (`pypi` / `npm`).
+PyPI + npm + NuGet trusted publishing: **the "Workflow filename" on pypi.org, npmjs.com and nuget.org must be `publish.yml`**, and daily-check must dispatch it via `gh workflow run publish.yml` (workflow_dispatch), NOT `uses: ./.github/workflows/publish.yml` (workflow_call). Reason: trusted publishing verifies both the OIDC `job_workflow_ref` claim and the Sigstore attestation cert's `workflow_ref` extension. With workflow_call those two claims point at *different* files (callee vs caller) and no TP config can satisfy both — PyPI explicitly does not support reusable workflows. Dispatching makes publish.yml a top-level workflow so both claims resolve to it. Environment names on the TP page must match the `environment:` value on the publish job (`pypi` / `npm` / `nuget`).
 
 ## OneScript-specific quirks
 
