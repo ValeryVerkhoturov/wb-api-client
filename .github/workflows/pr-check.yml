@@ -3,7 +3,7 @@ name: PR — generated code in sync
 on:
   pull_request:
     paths:
-      - "swaggers/**"
+      - "specs/**"
       - "scripts/**"
       - "tests/**"
       - "generator-configs/**"
@@ -114,8 +114,8 @@ jobs:
         id: diff
         run: |
           set +e
-          git diff --stat -- swaggers/ clients/ > /tmp/diff.stat
-          git diff -- swaggers/ clients/ > /tmp/diff.full
+          git diff --stat -- specs/ clients/ > /tmp/diff.stat
+          git diff -- specs/ clients/ > /tmp/diff.full
           # Also capture drift inside each submodule. `git add -AN` records
           # intent-to-add so brand-new files (e.g. a new API category) show up
           # in `git diff`, which otherwise only reports tracked files.
@@ -132,7 +132,7 @@ jobs:
             {
               echo "## ❌ Generated code is stale"
               echo ""
-              echo "Regenerating from \`swaggers/\`, \`scripts/\`, \`generator-configs/\` and \`templates/\` at version \`${{ steps.ver.outputs.version }}\` produced a different tree than what's committed."
+              echo "Regenerating from \`specs/\`, \`scripts/\`, \`generator-configs/\` and \`templates/\` at version \`${{ steps.ver.outputs.version }}\` produced a different tree than what's committed."
               echo ""
               echo "### Files affected"
               echo '```'
@@ -143,7 +143,7 @@ jobs:
               echo '```bash'
               echo "python scripts/process-specs.py"
               echo "./scripts/generate-clients.py ${{ steps.ver.outputs.version }}"
-              echo "git add swaggers/ clients/ && git commit"
+              echo "git add specs/ clients/ && git commit"
               echo '```'
             } >> "$GITHUB_STEP_SUMMARY"
             exit 1

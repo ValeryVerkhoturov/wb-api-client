@@ -5,7 +5,7 @@ from pathlib import Path
 
 import requests
 
-from ..core.paths import SWAGGER_DIR
+from ..core.paths import UNPROCESSED_DIR
 
 BASE_URL = "https://gitlab.com/ValeryVerkhoturov/wb-api-client-specs/-/raw/main/specs"
 SPECS = (
@@ -24,7 +24,7 @@ SPECS = (
     "13-finances.yaml",
 )
 
-LOCALES = {"ru": SWAGGER_DIR / "ru", "en": SWAGGER_DIR / "en"}
+LOCALES = {"ru": UNPROCESSED_DIR / "ru", "en": UNPROCESSED_DIR / "en"}
 
 
 def fetch(url: str, target: Path) -> None:

@@ -2,7 +2,7 @@ import io
 
 from ..specs.postprocess import add_docs_links
 from . import naming
-from .paths import REPO_ROOT, SWAGGER_DIR
+from .paths import REPO_ROOT, SPEC_DIR
 from .proc import run
 from .yamlio import round_trip_yaml, safe_yaml
 
@@ -60,7 +60,7 @@ def check_yamlio() -> None:
 
 
 def check_paths_and_proc() -> None:
-    assert REPO_ROOT.is_dir() and SWAGGER_DIR.is_dir()
+    assert REPO_ROOT.is_dir() and SPEC_DIR.is_dir()
     result = run(["echo", "ok"], capture_output=True, text=True)
     assert result.stdout.strip() == "ok"
 

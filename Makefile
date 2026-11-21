@@ -56,10 +56,10 @@ venv: ## Create .venv and install post-processor deps
 
 # ── pipeline ──────────────────────────────────────────────────────────────
 
-download: ## Pull swagger YAMLs (ru + en) from the specs mirror
+download: ## Pull spec YAMLs (ru + en) from the specs mirror
 	$(PY) scripts/download-specs.py
 
-post-process: ## Run all post-processing passes on swaggers/{ru,en}/
+post-process: ## Run all post-processing passes on specs/unprocessed/{ru,en}/
 	$(PY) scripts/process-specs.py
 
 generate: post-process ## Regenerate all six language clients
@@ -108,13 +108,7 @@ verify-java: ## Compile the Java module (mvn clean compile)
 
 verify-php: ## composer validate + PHP lint every generated file
 	@echo "── PHP ────────────────────────────────────────"
-	@# Not --strict: composer warns about `version` in composer.json
-	@# ("recommended to leave it out for Packagist"), which we accept
-	@# because the version field is how the generation pipeline stamps
-	@# a uniform version across every language manifest.
 	$(PHP_DOCKER) composer validate --no-check-publish
-	@# php -l lints every .php file; loop through them via find so a
-	@# syntax error in one surfaces its filename clearly.
 	@docker run --rm -u $$(id -u):$$(id -g) -v $(CURDIR)/clients/php:/app -w /app \
 	  -e HOME=/tmp php:8.3-cli-alpine sh -c \
 	  "find src -name '*.php' -print0 | xargs -0 -n1 php -l >/dev/null && echo '  ✓ php -l passes on every file'"
@@ -126,8 +120,6 @@ verify-csharp: ## Build the C# package
 
 verify-onescript: ## Compile-check every OneScript module + load the package
 	@echo "── OneScript ──────────────────────────────────"
-	@# No formatter step: the generator emits its own canonical layout and
-	@# OneScript has no community formatter to canonicalize against.
 	$(PY) scripts/verify-onescript.py
 
 verify-rust: ## cargo build the whole crate
@@ -136,16 +128,10 @@ verify-rust: ## cargo build the whole crate
 	@echo "  ✓ cargo build OK"
 
 rustfmt: ## Fail if any Rust file needs `cargo fmt`
-	@# Runs as root inside the container: rustup component add needs write
-	@# access to /usr/local/rustup, which the -u flag would deny. The slim
-	@# image ships no rustfmt, so it is installed on each run.
 	@$(RUSTFMT_DOCKER) "rustup component add rustfmt >/dev/null 2>&1 && cargo fmt -- --check" \
 	  && echo "  ✓ rustfmt clean"
 
 dotnet-format: ## Fail if any C# file needs `dotnet format`
-	@# Whitespace only: the generator's own output does not follow every
-	@# analyzer convention, and style/analyzer passes would fail on code we
-	@# do not control.
 	@$(DOTNET_DOCKER) dotnet format whitespace --verify-no-changes --no-restore -v q \
 	  && echo "  ✓ dotnet format clean"
 
@@ -171,11 +157,6 @@ php-cs-fixer: ## Fail if any PHP file needs `php-cs-fixer` (PSR-12)
 	  >/dev/null 2>&1 && echo "  ✓ php-cs-fixer clean"
 
 # ── main + submodule git ops ──────────────────────────────────────────────
-# `clients/php`, `clients/onescript` and `clients/go` are submodules pointing
-# at ValeryVerkhoturov/wb-api-client-php, .../wb-api-client-1c and
-# .../wb-api-client-go. These targets act on the main repo AND all
-# submodules so you don't have to remember to `cd clients/<sub> && git …`
-# after every regen.
 
 git-status: ## Show `git status` in main repo AND all submodules
 	@echo "── main repo ──"
@@ -189,7 +170,6 @@ git-commit: ## Commit main + all submodules with the same message (MSG=…)
 	@if [ -z "$(MSG)" ]; then \
 	  echo "usage: make git-commit MSG=\"your message\""; exit 2; \
 	fi
-	@# Submodules first so the pointers we record in main are the new SHAs.
 	@for sub in $(SUBMODULES); do \
 	  echo "── clients/$$sub ──"; \
 	  (cd clients/$$sub && \
@@ -204,12 +184,6 @@ git-commit: ## Commit main + all submodules with the same message (MSG=…)
 	  else echo "  (no main-repo changes)"; fi
 
 git-push: ## Push main AND all submodules (needs push rights on all four)
-	@# Push to the URL recorded in .gitmodules, NOT to `origin`. Local iteration
-	@# overrides origin to a file:// path (see CLAUDE.md), so `git push origin`
-	@# targets that local clone: it either reports "Everything up-to-date" while
-	@# GitHub never moves, or is rejected outright for pushing to a checked-out
-	@# branch. Either way the sibling repo stays behind, the main repo's pointer
-	@# references a commit the remote has never seen, and CI fails cloning it.
 	@for sub in $(SUBMODULES); do \
 	  url=$$(git config -f .gitmodules --get submodule.clients/$$sub.url); \
 	  echo "── clients/$$sub → $$url ──"; \
@@ -220,8 +194,6 @@ git-push: ## Push main AND all submodules (needs push rights on all four)
 	@$(MAKE) --no-print-directory check-submodules
 
 check-submodules: ## Fail if a recorded submodule pointer is missing from its remote
-	@# The failure this catches is otherwise silent until CI: `git clone
-	@# --recurse-submodules` is the first thing that actually resolves the pointer.
 	@rc=0; \
 	 for sub in $(SUBMODULES); do \
 	   url=$$(git config -f .gitmodules --get submodule.clients/$$sub.url); \
@@ -249,17 +221,9 @@ git-pull: ## Pull main AND fast-forward all submodules
 
 # ── housekeeping ──────────────────────────────────────────────────────────
 
-clean: ## Remove generated clients/, processed swaggers, local scratch
-	@# Never `rm -rf clients/`: that deletes the .git gitfile inside each
-	@# submodule mount, silently turning it into a plain directory — after
-	@# which regeneration writes into the main repo instead of the sibling
-	@# repo. Same invariant generate-clients.py protects.
+clean: ## Remove generated clients/, processed specs, local scratch
 	rm -rf clients/python clients/typescript clients/java clients/csharp clients/.tmp
 	@for sub in $(SUBMODULES); do rm -rf clients/$$sub/src; done
-	@# Go has no src/: its generated content is the slug package dirs and
-	@# go.sum (go.mod is overwritten from templates/, README.md by
-	@# generate-readmes.py). The mount's .git gitfile and LICENSE survive.
 	rm -rf clients/go/*/ clients/go/go.sum
-	@# Rust: single crate — src/ (covered by the loop above) + manifests.
 	rm -f clients/rust/Cargo.toml clients/rust/Cargo.lock
-	rm -rf swaggers/processed/ .venv/ .cache/
+	rm -rf specs/processed/ .venv/ .cache/

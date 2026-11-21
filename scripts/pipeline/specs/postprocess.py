@@ -14,7 +14,7 @@ from ..core.naming import (
     page_slug,
     snake_case,
 )
-from ..core.paths import PROCESSED_DIR, SWAGGER_DIR
+from ..core.paths import PROCESSED_DIR, UNPROCESSED_DIR
 from ..core.yamlio import round_trip_yaml
 from .download import LOCALES
 
@@ -513,9 +513,9 @@ def process_file(src: Path, dst: Path) -> dict:
 
 
 def main() -> int:
-    if not (SWAGGER_DIR / "ru").is_dir():
+    if not (UNPROCESSED_DIR / "ru").is_dir():
         sys.stderr.write(
-            f"No specs found in {SWAGGER_DIR / 'ru'}. Run download-specs.py first.\n"
+            f"No specs found in {UNPROCESSED_DIR / 'ru'}. Run download-specs.py first.\n"
         )
         return 1
     jobs = [

@@ -6,4 +6,4 @@
 # drifts from what's committed, so the diff being hidden is safe.
 
 clients/**            linguist-generated=true
-swaggers/processed/** linguist-generated=true
+specs/processed/** linguist-generated=true

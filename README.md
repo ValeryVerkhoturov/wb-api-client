@@ -203,7 +203,7 @@ once, submodules first so the recorded pointers are the new commits.
 `.github/workflows/daily-check.yml` runs on cron:
 
 1. Re-downloads all 13 specs.
-2. Diffs `swaggers/checksums.txt` against the freshly generated one.
+2. Diffs `specs/checksums.txt` against the freshly generated one.
 3. If any file changed (or `workflow_dispatch` was called with `force: true`), it commits the new specs, computes a CalVer version, tags the repo, and dispatches `publish.yml` once per language.
 
 All four sibling repos are committed, tagged and pushed **before** this one, so the

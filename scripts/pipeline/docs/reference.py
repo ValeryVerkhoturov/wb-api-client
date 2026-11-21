@@ -1196,8 +1196,8 @@ def main() -> int:
         return 1
 
     modules = {
-        "ru": load_modules(root / "swaggers" / "processed" / "ru"),
-        "en": load_modules(root / "swaggers" / "processed" / "en"),
+        "ru": load_modules(root / "specs" / "processed" / "ru"),
+        "en": load_modules(root / "specs" / "processed" / "en"),
     }
     if not modules["ru"]:
         sys.stderr.write("no processed specs — run process-specs.py first\n")

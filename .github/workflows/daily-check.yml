@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: write      # commit swaggers + generated clients, push tag
+  contents: write      # commit specs + generated clients, push tag
   actions: write       # dispatch language publish workflows
 
 jobs:
@@ -34,8 +34,8 @@ jobs:
 
       - name: Snapshot previous checksums
         run: |
-          if [[ -f swaggers/ru/checksums.txt ]]; then
-            cp swaggers/ru/checksums.txt /tmp/checksums.prev.txt
+          if [[ -f specs/unprocessed/ru/checksums.txt ]]; then
+            cp specs/unprocessed/ru/checksums.txt /tmp/checksums.prev.txt
           else
             : > /tmp/checksums.prev.txt
           fi
@@ -53,13 +53,13 @@ jobs:
       - name: Detect changes
         id: diff
         run: |
-          if diff -q /tmp/checksums.prev.txt swaggers/ru/checksums.txt >/dev/null; then
+          if diff -q /tmp/checksums.prev.txt specs/unprocessed/ru/checksums.txt >/dev/null; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
             echo "Upstream diff:"
             # tee the diff to a file so the release-notes step can include it
-            diff /tmp/checksums.prev.txt swaggers/ru/checksums.txt \
+            diff /tmp/checksums.prev.txt specs/unprocessed/ru/checksums.txt \
               | tee /tmp/upstream-diff.txt || true
           fi
 
@@ -274,7 +274,7 @@ jobs:
           # workflow scratch (dist/, node_modules/, target/ …). Also
           # include clients/php, clients/onescript and clients/go to record
           # the submodule pointer bumps from the sibling-repo commits above.
-          git add swaggers/ clients/
+          git add specs/ clients/
           if git diff --cached --quiet; then
             echo "No file changes to commit despite checksum diff — nothing to do"
             exit 0

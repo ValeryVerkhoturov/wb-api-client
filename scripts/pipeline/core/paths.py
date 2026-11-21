@@ -1,8 +1,9 @@
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
-SWAGGER_DIR = REPO_ROOT / "swaggers"
-PROCESSED_DIR = SWAGGER_DIR / "processed"
+SPEC_DIR = REPO_ROOT / "specs"
+UNPROCESSED_DIR = SPEC_DIR / "unprocessed"
+PROCESSED_DIR = SPEC_DIR / "processed"
 CLIENTS_DIR = REPO_ROOT / "clients"
 CONFIG_DIR = REPO_ROOT / "generator-configs"
 TEMPLATE_DIR = REPO_ROOT / "templates"
