@@ -339,7 +339,7 @@ def main() -> int:
         header_ctx={
             "lang_display": "Go",
             "install": "go get github.com/ValeryVerkhoturov/wb-api-client-go@latest",
-            "wrapper_note": "[`secrecy.SecretString`](https://github.com/negrel/secrecy)",
+            "wrapper_note": "an internal `SecretString` type",
             "log_call": "fmt.Printf",
             "expose_call": ".ExposeSecret()",
             "lang_code": "go",

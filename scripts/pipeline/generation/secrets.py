@@ -149,11 +149,11 @@ def patch_typescript(root: Path) -> int:
     return n
 
 
-SECRECY_IMPORT = '\t"github.com/negrel/secrecy"'
+SECRECY_IMPORT = '\t"github.com/ValeryVerkhoturov/wb-api-client-go/internal/secrecy"'
 
 
 def patch_go_configuration(text: str) -> str:
-    if "github.com/negrel/secrecy" not in text:
+    if "wb-api-client-go/internal/secrecy" not in text:
         text = re.sub(
             r'(import \((?:\n\t"[^"]+")+)\n\)',
             lambda m: m.group(1) + "\n\n" + SECRECY_IMPORT + "\n)",

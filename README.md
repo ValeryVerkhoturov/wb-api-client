@@ -174,7 +174,7 @@ In every language the bearer JWT is stored inside a "secret-string" wrapper so i
 |---|---|---|---|
 | Python | [`pydantic.SecretStr`](https://docs.pydantic.dev/latest/api/types/#pydantic.types.SecretStr) | `print(cfg.access_token)` → `**********` | `.get_secret_value()` |
 | TypeScript | `SecretString` class (internal, exposed) | `console.log(new SecretString("…"))` → `<REDACTED>` | `.exposeSecret()` |
-| Go | [`secrecy.SecretString`](https://github.com/negrel/secrecy) | `fmt.Printf("%v", cfg.AccessToken)` → `<!SECRET_LEAKED!>` | `.ExposeSecret()` |
+| Go | `SecretString` type (internal, `internal/secrecy`) | `fmt.Printf("%v", cfg.AccessToken)` → `<REDACTED>` | `.ExposeSecret()` |
 | Java | `SecretString` class (internal, per sub-module) | the token never prints with the client | not exposed |
 | PHP | `SecretString` class (internal, per sub-module) | `var_dump($config)` → `'<REDACTED>'` | `->getAccessToken()` |
 | C# | `SecretString` class (per namespace, private field) | no getter on `Configuration` — set via `SetAccessToken()` only | not exposed |
