@@ -208,7 +208,7 @@ Configured in GitHub Environments referenced by `publish.yml`:
 | `npm` | OIDC trusted publishing (npm ≥ 11.5.1) | none — configure trusted publisher on npmjs.com for `@valeryverkhoturov/wb-api-client`, workflow `publish.yml`, env `npm`, allow publish directly |
 | `maven-central` | GPG-signed deploy | `MAVEN_USERNAME`, `MAVEN_PASSWORD`, `MAVEN_GPG_PRIVATE_KEY`, `MAVEN_GPG_PASSPHRASE` |
 | `packagist` | API token + separate GitHub repo | `PACKAGIST_USERNAME`, `PACKAGIST_API_TOKEN` — package pre-registered at packagist.org pointing at `wb-api-client-php` sibling repo |
-| `onescript` | OIDC trusted publishing to hub.oscript.io | none — the job exchanges its GitHub OIDC token (audience `https://hub.oscript.io`) via `POST /api/v1/pools/default/push`; package pre-registered on the hub |
+| `onescript` | `opm push` to hub.oscript.io | `OSCRIPT_HUB_TOKEN` — a GitHub token used only to verify the pusher's identity; package pre-registered on the hub |
 | `nuget` | OIDC trusted publishing (`NuGet/login`) | none — configure a trusted publishing policy on nuget.org for repo `ValeryVerkhoturov/wb-api-client`, workflow `publish.yml`, env `nuget` |
 | Go (no env) | git tags only | none — `proxy.golang.org` fetches from the pushed tag |
 | `crates-io` | API token | `CARGO_REGISTRY_TOKEN` — from crates.io, scoped to `wb-api-client` (or unscoped for the first publish, which claims the name) |

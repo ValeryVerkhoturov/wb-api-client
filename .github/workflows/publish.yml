@@ -132,13 +132,6 @@ jobs:
     if: inputs.lang == 'onescript'
     runs-on: ubuntu-latest
     environment: onescript
-    permissions:
-      id-token: write
-      contents: read
-    env:
-      hub: https://hub.oscript.io
-      pool: default
-      package: wb-api-client
     steps:
       - uses: actions/checkout@v4
         with:
@@ -166,16 +159,10 @@ jobs:
       - name: Push to hub.oscript.io
         working-directory: clients/onescript
         env:
+          GITHUB_OAUTH_TOKEN: ${{ secrets.OSCRIPT_HUB_TOKEN }}
           VERSION: ${{ inputs.version }}
         run: |
-          id_token=$(curl -sSf -H "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" \
-            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${hub}" | jq -r .value)
-          file="${package}-${VERSION}.ospx"
-          test -f "${file}" || { echo "version ${VERSION} does not match the package version in packagedef"; exit 1; }
-          curl -sSf -X POST "${hub}/api/v1/pools/${pool}/push" \
-            -H "OAUTH-TOKEN: ${id_token}" \
-            -H "FILE-NAME: ${file}" \
-            --data-binary "@${file}"
+          "${OSCRIPT}" "${OPM}" push --channel stable "wb-api-client-${VERSION}.ospx"
           echo "  ✓ published — https://hub.oscript.io/pools/default/packages/wb-api-client"
 
   publish-csharp:
