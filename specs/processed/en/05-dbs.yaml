@@ -3,8 +3,9 @@ info:
   title: DBS
   version: dbs
   description: |-
-    DBS orders and label identifiers management.
-
+    Use DBS (Delivery by Seller) methods to:
+    - manage [assembly orders](https://dev.wildberries.ru/openapi/dbs#tag/dbsAssemblyOrders)
+    - add, update and delete [label identifiers](https://dev.wildberries.ru/openapi/dbs#tag/dbsLabelIdentifiers)
     You can test the DBS methods in the [sandbox](https://dev.wildberries.ru/en/sandbox). Also you can use [special methods](https://dev.wildberries.ru/en/docs/openapi-other/sandbox-environment#tag/marketplaceDbs) in the sandbox for emulating user actions
   x-file-name: dbs
 security:
@@ -26,11 +27,11 @@ tags:
 
 
     **How to work:**
-    1. [Get the new order](./dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew) and save it until it is ready for assembly. If you do not save the order information in advance, you will only be able to access it after the order is completed (either canceled or sold). Check the [delivery date and time](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersDeliveryDate).
-    2. [Transfer it for assembly](./orders-dbs?locale=ru#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusConfirm).
-    3. [Transfer to delivery](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusDeliver).
-    4. After the order is transferred to assembly, [buyer information](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersClient) (name, phone) becomes available.
-    5. After delivering the task to the buyer, you need to notify our server that the [order was accepted](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReceive) by the buyer or that the [buyer declined the order](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReject).
+    1. [Get the new order](./dbs#tag/dbsAssemblyOrders/operation/getV3DbsOrdersNew) and save information about it until it is tranferred to assembly. If you do not save the data in advance, you will only be able to access it after the order is canceled or sold. Check the [delivery date and time](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersDeliveryDate).
+    2. [Transfer it to assembly](./orders-dbs?locale=ru#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusConfirm).
+    3. Get the [buyer information](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersClient).
+    4. [Transfer to delivery](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusDeliver).
+    5. Notify, that the buyer [accepted](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReceive) or [declined](./dbs#tag/dbsAssemblyOrders/operation/postV3DbsOrdersStatusReject) the order.
 - name: DBS Label Identifiers
   x-displayName: DBS Label Identifiers
   description: ''
@@ -45,8 +46,14 @@ tags:
       You can learn how to use methods in business cases in the <a href="/en/knowledge-base/articles/019d49a3-ff7d-70ba-a872-828430b24ea1/dbs-orders">instructions</a> on working with <strong>DBS orders</strong>
     </div>
 
+    Use DBS Label Identifiers methods to [get](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDetails), [delete](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaDelete) and update label identifiers of [assembly orders](./dbs#tag/dbsAssemblyOrders):
+      - [labeling code Chestny ZNAK](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaSgtin)
+      - [UIN](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaUin)
+      - [IMEI](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaImei)
+      - [GTIN](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaGtin)
+      - [customs declaration numbers and numeric codes of the countries of origin](./dbs#tag/dbsLabelIdentifiers/operation/postV3DbsOrdersMetaCustomsDeclaration)
 
-    Specifying label identifiers for the assembly order in the sandbox is optional
+    Specifying label identifiers for the assembly orders in the sandbox is optional.
 paths:
   /api/v3/dbs/orders/new:
     servers:

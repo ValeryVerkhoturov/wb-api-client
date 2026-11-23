@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "2.0.0"
+__version__ = "2.0.1"
 
 # import apis into sdk package
 from wb_api_client.analytics.api.analytics_api import AnalyticsApi
