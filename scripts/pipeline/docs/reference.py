@@ -21,7 +21,7 @@ from ..core.naming import (
     snake_case,
     snake_slug,
 )
-from ..core.paths import REPO_ROOT
+from ..core.paths import REPO_ROOT, go_module_path
 from ..core.proc import run
 from ..core.yamlio import safe_yaml
 
@@ -634,7 +634,7 @@ def snippet_go(op: Operation, b: Binding, locale: str, setters: list[str]) -> st
         f"import (\n"
         f'\t"context"\n'
         f'\t"fmt"\n\n'
-        f'\t{alias} "github.com/ValeryVerkhoturov/wb-api-client-go/{snake_slug(op.module)}"\n'
+        f'\t{alias} "{go_module_path()}/{snake_slug(op.module)}"\n'
         f")\n\n"
         f"cfg := {alias}.NewConfiguration()\n"
         f'cfg.SetAccessToken("{TOKEN[locale]}")\n'

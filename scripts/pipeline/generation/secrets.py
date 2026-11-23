@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 
 from ..core.naming import JAVA_ROOT_PKG, JAVA_ROOT_PATH
+from ..core.paths import go_module_path
 
 
 def patch_python_configuration(text: str) -> str:
@@ -149,14 +150,15 @@ def patch_typescript(root: Path) -> int:
     return n
 
 
-SECRECY_IMPORT = '\t"github.com/ValeryVerkhoturov/wb-api-client-go/internal/secrecy"'
+def secrecy_import() -> str:
+    return f'\t"{go_module_path()}/internal/secrecy"'
 
 
 def patch_go_configuration(text: str) -> str:
-    if "wb-api-client-go/internal/secrecy" not in text:
+    if "/internal/secrecy" not in text:
         text = re.sub(
             r'(import \((?:\n\t"[^"]+")+)\n\)',
-            lambda m: m.group(1) + "\n\n" + SECRECY_IMPORT + "\n)",
+            lambda m: m.group(1) + "\n\n" + secrecy_import() + "\n)",
             text,
             count=1,
         )

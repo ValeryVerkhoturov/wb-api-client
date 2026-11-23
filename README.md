@@ -10,7 +10,7 @@ Auto-generated client libraries for the [Wildberries Seller API](https://dev.wil
 
 - **One package per language**, with all 13 WB API categories as sub-modules: `general`, `items`, `orders_fbs`, `orders_dbw`, `dbs`, `in_store_pickup`, `orders_fbw`, `promotion`, `communications`, `rates`, `analytics`, `reports`, `finances`.
 - **Bearer JWT authorization** is injected into every spec before generation, even though upstream YAMLs omit a security scheme. All generated clients expose an `Authorization` parameter.
-- Stable-semver releases (`1.YYYYMMDD.N` — MAJOR fixed at 1, MINOR is the release date as an int, PATCH is a same-day counter) — one string covers all 8 languages so versions line up across ecosystems, and `npm/pip/mvn/composer/go get/cargo add @latest` all auto-pick the highest.
+- Semver releases (since `2.0.0`; earlier releases used `1.YYYYMMDD.N`). The bump — MAJOR for breaking, MINOR for backward-compatible features, PATCH for fixes — is classified from the upstream spec diff by the DeepSeek API (`scripts/compute-version.py`, falls back to MINOR). One string covers all 8 languages so versions line up across ecosystems, and `npm/pip/mvn/composer/go get/cargo add @latest` all auto-pick the highest.
 
 ## Repositories
 

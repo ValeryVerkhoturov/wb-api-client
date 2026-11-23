@@ -107,13 +107,15 @@ For Go we additionally strip the openapi-generator-default `ContextAccessToken` 
 
 ## Versioning
 
-Format: `1.YYYYMMDD.N` (stable semver + PEP 440 in one string, used verbatim by every language).
+Format: semver `MAJOR.MINOR.PATCH` since `2.0.0` (earlier releases used `1.YYYYMMDD.N` — MAJOR fixed at 1, MINOR = UTC date, PATCH = same-day counter; those tags are ignored by the new logic).
 
-- **MAJOR = 1** — fixed. Keeps Go's module path free of the `/vN` suffix that MAJOR ≥ 2 would require.
-- **MINOR = YYYYMMDD** — UTC release date as int. Monotonic across days (`20260919 < 20260920`).
-- **PATCH = N** — same-day counter (0 for the first release of the day, 1, 2, … for repeats).
+- **MAJOR** — backward-incompatible spec changes (removed/renamed operations or fields, narrowed types, new required fields).
+- **MINOR** — backward-compatible additions (new operations, optional fields, enum values).
+- **PATCH** — non-functional spec edits (descriptions, examples).
 
-Computed in `daily-check.yml`: `n=$(git tag --list "v1.$(date -u +%Y%m%d).*" | wc -l); version="1.$(date -u +%Y%m%d).${n}"`. `npm install pkg` / `pip install pkg` / `mvn dep` / `composer require` / `go get pkg@latest` all auto-pick the highest because these are true stable releases, not prereleases.
+The bump is decided in `daily-check.yml` by `scripts/compute-version.py` (`pipeline/release/versioning.py`): it takes the upstream diff `git diff HEAD -- specs/unprocessed/ru` and asks the **DeepSeek API** (`deepseek-chat`, JSON mode) to classify it as major/minor/patch, then increments the highest `v2+` git tag accordingly. No `v2+` tag yet → emits `2.0.0`. `DEEPSEEK_API_KEY` unset or API failure → defaults to **minor** (WB upstream changes are overwhelmingly additive); an empty diff (forced re-run) → **patch**.
+
+MAJOR ≥ 2 is why the Go module path carries the `/v2` suffix: `github.com/ValeryVerkhoturov/wb-api-client-go/v2` (Go modules require it). `npm install pkg` / `pip install pkg` / `mvn dep` / `composer require` / `go get pkg/v2@latest` all auto-pick the highest because these are true stable releases, not prereleases.
 
 ## Package layout — one library per language, 13 sub-modules inside
 
@@ -211,6 +213,7 @@ Configured in GitHub Environments referenced by `publish.yml`:
 | Go (no env) | git tags only | none — `proxy.golang.org` fetches from the pushed tag |
 | `crates-io` | API token | `CARGO_REGISTRY_TOKEN` — from crates.io, scoped to `wb-api-client` (or unscoped for the first publish, which claims the name) |
 | — (repo-level) | `SIBLING_REPO_TOKEN` PAT (repo scope) covering BOTH `wb-api-client-php` and `wb-api-client-1c`, for pushing their commits/tags/releases in daily-check. Falls back to the older `PHP_REPO_TOKEN`, then to `GITHUB_TOKEN` (fine for read-only PR checks, but cross-repo pushes will fail) |
+| — (repo-level) | `DEEPSEEK_API_KEY` — used by daily-check to classify the upstream spec diff into a semver bump; without it the workflow falls back to a MINOR bump |
 
 PyPI + npm + NuGet trusted publishing: **the "Workflow filename" on pypi.org, npmjs.com and nuget.org must be `publish.yml`**, and daily-check must dispatch it via `gh workflow run publish.yml` (workflow_dispatch), NOT `uses: ./.github/workflows/publish.yml` (workflow_call). Reason: trusted publishing verifies both the OIDC `job_workflow_ref` claim and the Sigstore attestation cert's `workflow_ref` extension. With workflow_call those two claims point at *different* files (callee vs caller) and no TP config can satisfy both — PyPI explicitly does not support reusable workflows. Dispatching makes publish.yml a top-level workflow so both claims resolve to it. Environment names on the TP page must match the `environment:` value on the publish job (`pypi` / `npm` / `nuget`).
 

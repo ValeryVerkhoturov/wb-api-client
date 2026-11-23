@@ -398,10 +398,14 @@ def finish_packages(slugs: list[str], version: str) -> None:
             index, encoding="utf-8"
         )
 
+    write_template(
+        TEMPLATE_DIR / "go/go.mod",
+        CLIENTS_DIR / "go/go.mod",
+        ("__GO_MAJOR__", version.split(".")[0]),
+    )
     run_script(
         SYSTEM_PYTHON, REPO_ROOT / "scripts/inject-secrets.py", CLIENTS_DIR, check=True
     )
-    shutil.copy(TEMPLATE_DIR / "go/go.mod", CLIENTS_DIR / "go/go.mod")
     shutil.copytree(
         TEMPLATE_DIR / "go/internal",
         CLIENTS_DIR / "go/internal",

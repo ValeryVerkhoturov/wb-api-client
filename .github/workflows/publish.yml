@@ -79,7 +79,8 @@ jobs:
     steps:
       - name: Confirm tag reachable
         run: |
-          echo "Go module release: github.com/ValeryVerkhoturov/wb-api-client-go@${{ inputs.ref }}"
+          major="${{ inputs.version }}"
+          echo "Go module release: github.com/ValeryVerkhoturov/wb-api-client-go/v${major%%.*}@${{ inputs.ref }}"
           echo "No registry publish needed — proxy.golang.org fetches from the tag."
 
   publish-php:

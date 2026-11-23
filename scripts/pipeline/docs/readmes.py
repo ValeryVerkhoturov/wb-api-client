@@ -6,12 +6,14 @@ import sys
 from pathlib import Path
 
 from ..core.naming import (
+
     JAVA_ROOT_PKG,
     JAVA_ROOT_PATH,
     module_slug,
     pascal_from_snake,
     snake_slug,
 )
+from ..core.paths import go_module_path
 from ..core.yamlio import round_trip_yaml
 
 yaml = round_trip_yaml()
@@ -168,7 +170,7 @@ def _tssnippet(slug: str, apis: list[str]) -> str:
 
 def _gosnippet(snake: str, apis: list[str]) -> str:
     return (
-        f'import wb{snake} "github.com/ValeryVerkhoturov/wb-api-client-go/{snake}"\n\n'
+        f'import wb{snake} "{go_module_path()}/{snake}"\n\n'
         f"cfg := wb{snake}.NewConfiguration()\n"
         f'cfg.SetAccessToken("<your WB JWT>")\n'
         f"client := wb{snake}.NewAPIClient(cfg)"
@@ -338,18 +340,18 @@ def main() -> int:
         go_root / "README.md",
         header_ctx={
             "lang_display": "Go",
-            "install": "go get github.com/ValeryVerkhoturov/wb-api-client-go@latest",
+            "install": f"go get {go_module_path()}@latest",
             "wrapper_note": "an internal `SecretString` type",
             "log_call": "fmt.Printf",
             "expose_call": ".ExposeSecret()",
             "lang_code": "go",
             "auth_snippet": (
-                'import wbitems "github.com/ValeryVerkhoturov/wb-api-client-go/items"\n\n'
+                f'import wbitems "{go_module_path()}/items"\n\n'
                 "cfg := wbitems.NewConfiguration()\n"
                 'cfg.SetAccessToken("<your WB JWT>")\n'
                 "client := wbitems.NewAPIClient(cfg)"
             ),
-            "import_prefix": "github.com/ValeryVerkhoturov/wb-api-client-go/",
+            "import_prefix": f"{go_module_path()}/",
         },
         specs=specs,
         apis_fn=lambda s: go_apis(go_root, s["snake"]),
