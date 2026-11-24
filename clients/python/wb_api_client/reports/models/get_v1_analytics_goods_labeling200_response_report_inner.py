@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,27 +28,15 @@ class GetV1AnalyticsGoodsLabeling200ResponseReportInner(BaseModel):
     GetV1AnalyticsGoodsLabeling200ResponseReportInner
     """  # noqa: E501
 
-    amount: Optional[Union[StrictFloat, StrictInt]] = Field(
-        default=None, description="Сумма штрафа, руб"
+    amount: Union[StrictFloat, StrictInt] = Field(description="Сумма штрафа, руб")
+    var_date: StrictStr = Field(description="Дата", alias="date")
+    income_id: StrictInt = Field(description="Номер поставки", alias="incomeId")
+    nm_id: StrictInt = Field(description="Артикул WB", alias="nmID")
+    photo_urls: List[StrictStr] = Field(
+        description="URL фото товара", alias="photoUrls"
     )
-    var_date: Optional[StrictStr] = Field(
-        default=None, description="Дата", alias="date"
-    )
-    income_id: Optional[StrictInt] = Field(
-        default=None, description="Номер поставки", alias="incomeId"
-    )
-    nm_id: Optional[StrictInt] = Field(
-        default=None, description="Артикул WB", alias="nmID"
-    )
-    photo_urls: Optional[List[StrictStr]] = Field(
-        default=None, description="URL фото товара", alias="photoUrls"
-    )
-    shk_id: Optional[StrictInt] = Field(
-        default=None, description="Штрихкод", alias="shkID"
-    )
-    sku: Optional[StrictStr] = Field(
-        default=None, description="Баркод из карточки товара"
-    )
+    shk_id: StrictInt = Field(description="Штрихкод", alias="shkID")
+    sku: StrictStr = Field(description="Баркод из карточки товара")
     __properties: ClassVar[List[str]] = [
         "amount",
         "date",

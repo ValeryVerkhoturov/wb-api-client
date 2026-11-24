@@ -181,7 +181,7 @@ public class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
   }
 
   /**
-   * Дата, за которую был расчёт или перерасчёт
+   * Дата расчёта или перерасчёта
    *
    * @return date
    */

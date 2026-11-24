@@ -38,13 +38,13 @@ public class GetV1AnalyticsBrandShareBrands200Response {
   public static final String SERIALIZED_NAME_DATA = "data";
 
   @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private List<String> data = new ArrayList<>();
 
   public GetV1AnalyticsBrandShareBrands200Response() {}
 
   public GetV1AnalyticsBrandShareBrands200Response data(
-      @jakarta.annotation.Nullable List<String> data) {
+      @jakarta.annotation.Nonnull List<String> data) {
     this.data = data;
     return this;
   }
@@ -62,12 +62,12 @@ public class GetV1AnalyticsBrandShareBrands200Response {
    *
    * @return data
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public List<String> getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nullable List<String> data) {
+  public void setData(@jakarta.annotation.Nonnull List<String> data) {
     this.data = data;
   }
 
@@ -118,6 +118,7 @@ public class GetV1AnalyticsBrandShareBrands200Response {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("data");
   }
 
   /**
@@ -148,11 +149,22 @@ public class GetV1AnalyticsBrandShareBrands200Response {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+
+    // check to make sure all required properties/fields are present in the JSON string
+    for (String requiredField : GetV1AnalyticsBrandShareBrands200Response.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(
+            String.format(
+                "The required field `%s` is not found in the JSON string: %s",
+                requiredField, jsonElement.toString()));
+      }
+    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    // ensure the optional json data is an array if present
-    if (jsonObj.get("data") != null
-        && !jsonObj.get("data").isJsonNull()
-        && !jsonObj.get("data").isJsonArray()) {
+    // ensure the required json array is present
+    if (jsonObj.get("data") == null) {
+      throw new IllegalArgumentException(
+          "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+    } else if (!jsonObj.get("data").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `data` to be an array in the JSON string but got `%s`",

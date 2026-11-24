@@ -147,9 +147,6 @@ paths:
 
         You can get a report for a maximum of the last 365 days.
 
-        In the previous period's data:
-        \* The data in `pastPeriod` covers the same duration as in `selectedPeriod`
-        \* If the `pastPeriod` start date is more than a year before the current date, it will be adjusted to: `pastPeriod.start = current date - 365 days`
         Pagination can be used.
 
         [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account:
@@ -1900,8 +1897,7 @@ components:
         visibilityInfo:
           $ref: '#/components/schemas/VisibilityInfo'
         groups:
-          description: |
-            Table elements list
+          description: Table elements list
           type: array
           items:
             $ref: '#/components/schemas/TableGroupItem'
@@ -2310,9 +2306,7 @@ components:
           isSubstitutedSKU:
             type: boolean
             example: true
-            description: |-
-              If the item was searched by the promo item.
-              The field will be in the response if the request contains `includeSubstitutedSKUs` and/or `includeSearchTexts`
+            description: If the item was searched by the promo item
           isCardRated:
             example: true
             description: If the listing has a rating
@@ -3660,6 +3654,8 @@ components:
           - stockType
           - skipDeletedNm
     NmReportRetryReportRequest:
+      required:
+      - downloadId
       properties:
         downloadId:
           type: string
@@ -6047,7 +6043,7 @@ components:
         status:
           type: string
           description: |
-            [Order status](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):
+            [Order status](https://seller.wildberries.ru/instructions/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):
               - `created` — placed
               - `buyout` — purchased
               - `cancel` — canceled
@@ -6063,7 +6059,7 @@ components:
         cancelType:
           type: string
           description: |
-            [Cancellation type](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c) (when `"status":"cancel"`):
+            [Cancellation type](https://seller.wildberries.ru/instructions/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c) (when `"status":"cancel"`):
               - `app` — refuse prior to receipt
               - `receipt` — refuse at pickup
               - `expire` — pickup period ended
@@ -6076,19 +6072,19 @@ components:
           example: app
         warehouseName:
           type: string
-          description: Warehouse name. [At the moment](https://dev.wildberries.ru/en/release-notes?id=570), there can only be `Склад WB`, for WB warehouses
-          example: Склад WB
+          description: Warehouse name. There can only be `Склад WB РФ` or `Склад WB СГТ РФ` for WB warehouses in Russia
+          example: Склад WB РФ
         warehouseRegion:
           type: string
-          description: The federal district where the warehouse is located. If the warehouse is not in Russia, the country is returned. [At the moment](https://dev.wildberries.ru/en/release-notes?id=570), there can only be `""`, for WB warehouses
-          example: ''
+          description: Shipping region. If the warehouse belongs to WB or the seller is located outside Russia, the country is returned
+          example: Россия
         isMp:
           type: boolean
           description: |
             Warehouse type:
               - `true` — seller warehouse
               - `false` — WB warehouse
-          example: true
+          example: false
         destinationCity:
           type: string
           description: Delivery location

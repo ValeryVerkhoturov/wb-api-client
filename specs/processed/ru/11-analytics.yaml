@@ -190,9 +190,6 @@ paths:
 
         Можно получить отчёт максимум за последние 365 дней.
 
-        В данных предыдущего периода:
-        \* Данные в `pastPeriod` указаны за такой же период, что и в `selectedPeriod`
-        \* Если дата начала `pastPeriod` раньше, чем год назад от текущей даты, она будет приведена к виду: `pastPeriod.start = текущая дата — 365 дней`
         Можно использовать пагинацию.
 
         [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца:
@@ -1944,8 +1941,7 @@ components:
         visibilityInfo:
           $ref: '#/components/schemas/VisibilityInfo'
         groups:
-          description: |
-            Список элементов таблицы
+          description: Список элементов таблицы
           type: array
           items:
             $ref: '#/components/schemas/TableGroupItem'
@@ -2354,9 +2350,7 @@ components:
           isSubstitutedSKU:
             type: boolean
             example: true
-            description: |-
-              Искали ли товар по подменному артикулу.
-              Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts`
+            description: Искали ли товар по подменному артикулу
           isCardRated:
             example: true
             description: Есть ли рейтинг у карточки товара
@@ -3702,6 +3696,8 @@ components:
           - stockType
           - skipDeletedNm
     NmReportRetryReportRequest:
+      required:
+      - downloadId
       properties:
         downloadId:
           type: string
@@ -6089,7 +6085,7 @@ components:
         status:
           type: string
           description: |
-            [Статус заказа](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):
+            [Статус заказа](https://seller.wildberries.ru/instructions/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):
               - `created` — оформлен
               - `buyout` — продан
               - `cancel` — отменён
@@ -6105,7 +6101,7 @@ components:
         cancelType:
           type: string
           description: |
-            [Тип отмены](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c) (при `"status":"cancel"`):
+            [Тип отмены](https://seller.wildberries.ru/instructions/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c) (при `"status":"cancel"`):
               - `app` — отказ до получения
               - `receipt` — отказ при получении
               - `expire` — истёк срок получения
@@ -6118,19 +6114,19 @@ components:
           example: app
         warehouseName:
           type: string
-          description: Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `Склад WB`
-          example: Склад WB
+          description: Название склада. Для складов WB в России может быть только `Склад WB РФ` или `Склад WB СГТ РФ`
+          example: Склад WB РФ
         warehouseRegion:
           type: string
-          description: Федеральный округ склада. Если склад не в России, возвращается страна. [На данный момент](https://dev.wildberries.ru/release-notes?id=570) для складов WB может быть только `""`
-          example: ''
+          description: Регион отгрузки. Если склад принадлежит WB или продавцу не в России, возвращается страна
+          example: Россия
         isMp:
           type: boolean
           description: |
             Тип склада:
               - `true` — склад продавца
               - `false` — склад WB
-          example: true
+          example: false
         destinationCity:
           type: string
           description: Населённый пункт доставки

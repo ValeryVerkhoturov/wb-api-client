@@ -2838,7 +2838,7 @@ components:
           type: integer
           description: |
             Extension phone code. <br>
-            An empty value `""` means that the code is not assigned yet
+            The `0` value means that the code is not assigned yet
           example: 1234567
           nullable: false
         additionalPhoneCodes:

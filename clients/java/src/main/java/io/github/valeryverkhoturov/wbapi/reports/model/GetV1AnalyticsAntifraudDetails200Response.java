@@ -39,13 +39,13 @@ public class GetV1AnalyticsAntifraudDetails200Response {
   public static final String SERIALIZED_NAME_DETAILS = "details";
 
   @SerializedName(SERIALIZED_NAME_DETAILS)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private List<GetV1AnalyticsAntifraudDetails200ResponseDetailsInner> details = new ArrayList<>();
 
   public GetV1AnalyticsAntifraudDetails200Response() {}
 
   public GetV1AnalyticsAntifraudDetails200Response details(
-      @jakarta.annotation.Nullable
+      @jakarta.annotation.Nonnull
           List<GetV1AnalyticsAntifraudDetails200ResponseDetailsInner> details) {
     this.details = details;
     return this;
@@ -65,13 +65,13 @@ public class GetV1AnalyticsAntifraudDetails200Response {
    *
    * @return details
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public List<GetV1AnalyticsAntifraudDetails200ResponseDetailsInner> getDetails() {
     return details;
   }
 
   public void setDetails(
-      @jakarta.annotation.Nullable
+      @jakarta.annotation.Nonnull
           List<GetV1AnalyticsAntifraudDetails200ResponseDetailsInner> details) {
     this.details = details;
   }
@@ -123,6 +123,7 @@ public class GetV1AnalyticsAntifraudDetails200Response {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("details");
   }
 
   /**
@@ -153,26 +154,32 @@ public class GetV1AnalyticsAntifraudDetails200Response {
                 entry.getKey(), jsonElement.toString()));
       }
     }
-    JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if (jsonObj.get("details") != null && !jsonObj.get("details").isJsonNull()) {
-      JsonArray jsonArraydetails = jsonObj.getAsJsonArray("details");
-      if (jsonArraydetails != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("details").isJsonArray()) {
-          throw new IllegalArgumentException(
-              String.format(
-                  "Expected the field `details` to be an array in the JSON string but got `%s`",
-                  jsonObj.get("details").toString()));
-        }
 
-        // validate the optional field `details` (array)
-        for (int i = 0; i < jsonArraydetails.size(); i++) {
-          GetV1AnalyticsAntifraudDetails200ResponseDetailsInner.validateJsonElement(
-              jsonArraydetails.get(i));
-        }
-        ;
+    // check to make sure all required properties/fields are present in the JSON string
+    for (String requiredField : GetV1AnalyticsAntifraudDetails200Response.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(
+            String.format(
+                "The required field `%s` is not found in the JSON string: %s",
+                requiredField, jsonElement.toString()));
       }
     }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    // ensure the json data is an array
+    if (!jsonObj.get("details").isJsonArray()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `details` to be an array in the JSON string but got `%s`",
+              jsonObj.get("details").toString()));
+    }
+
+    JsonArray jsonArraydetails = jsonObj.getAsJsonArray("details");
+    // validate the required field `details` (array)
+    for (int i = 0; i < jsonArraydetails.size(); i++) {
+      GetV1AnalyticsAntifraudDetails200ResponseDetailsInner.validateJsonElement(
+          jsonArraydetails.get(i));
+    }
+    ;
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

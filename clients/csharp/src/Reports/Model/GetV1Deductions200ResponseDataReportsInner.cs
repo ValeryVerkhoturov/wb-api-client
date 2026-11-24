@@ -34,37 +34,97 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1Deductions200ResponseDataReportsInner" /> class.
         /// </summary>
-        /// <param name="dtBonus">Дата и время удержания.</param>
-        /// <param name="nmId">Артикул WB.</param>
-        /// <param name="oldShkId">Старый штрихкод.</param>
-        /// <param name="oldColor">Старый цвет.</param>
-        /// <param name="oldSize">Старый размер.</param>
-        /// <param name="oldSku">Старый баркод.</param>
-        /// <param name="oldVendorCode">Старый артикул продавца.</param>
-        /// <param name="newShkId">Новый штрихкод.</param>
-        /// <param name="newColor">Новый цвет.</param>
-        /// <param name="newSize">Новый размер.</param>
-        /// <param name="newSku">Новый баркод.</param>
-        /// <param name="newVendorCode">Новый артикул продавца.</param>
-        /// <param name="bonusSumm">Сумма удержания.</param>
-        /// <param name="bonusType">Причина удержания.</param>
-        /// <param name="photoUrls">Фото замеров.</param>
+        [JsonConstructorAttribute]
+        protected GetV1Deductions200ResponseDataReportsInner() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GetV1Deductions200ResponseDataReportsInner" /> class.
+        /// </summary>
+        /// <param name="dtBonus">Дата и время удержания (required).</param>
+        /// <param name="nmId">Артикул WB (required).</param>
+        /// <param name="oldShkId">Старый штрихкод (required).</param>
+        /// <param name="oldColor">Старый цвет (required).</param>
+        /// <param name="oldSize">Старый размер (required).</param>
+        /// <param name="oldSku">Старый баркод (required).</param>
+        /// <param name="oldVendorCode">Старый артикул продавца (required).</param>
+        /// <param name="newShkId">Новый штрихкод (required).</param>
+        /// <param name="newColor">Новый цвет (required).</param>
+        /// <param name="newSize">Новый размер (required).</param>
+        /// <param name="newSku">Новый баркод (required).</param>
+        /// <param name="newVendorCode">Новый артикул продавца (required).</param>
+        /// <param name="bonusSumm">Сумма удержания (required).</param>
+        /// <param name="bonusType">Причина удержания (required).</param>
+        /// <param name="photoUrls">Фото замеров (required).</param>
         public GetV1Deductions200ResponseDataReportsInner(string dtBonus = default(string), long nmId = default(long), long oldShkId = default(long), string oldColor = default(string), string oldSize = default(string), string oldSku = default(string), string oldVendorCode = default(string), long newShkId = default(long), string newColor = default(string), string newSize = default(string), string newSku = default(string), string newVendorCode = default(string), decimal bonusSumm = default(decimal), string bonusType = default(string), List<string> photoUrls = default(List<string>))
         {
+            // to ensure "dtBonus" is required (not null)
+            if (dtBonus == null)
+            {
+                throw new ArgumentNullException("dtBonus is a required property for GetV1Deductions200ResponseDataReportsInner and cannot be null");
+            }
             this.DtBonus = dtBonus;
             this.NmId = nmId;
             this.OldShkId = oldShkId;
+            // to ensure "oldColor" is required (not null)
+            if (oldColor == null)
+            {
+                throw new ArgumentNullException("oldColor is a required property for GetV1Deductions200ResponseDataReportsInner and cannot be null");
+            }
             this.OldColor = oldColor;
+            // to ensure "oldSize" is required (not null)
+            if (oldSize == null)
+            {
+                throw new ArgumentNullException("oldSize is a required property for GetV1Deductions200ResponseDataReportsInner and cannot be null");
+            }
             this.OldSize = oldSize;
+            // to ensure "oldSku" is required (not null)
+            if (oldSku == null)
+            {
+                throw new ArgumentNullException("oldSku is a required property for GetV1Deductions200ResponseDataReportsInner and cannot be null");
+            }
             this.OldSku = oldSku;
+            // to ensure "oldVendorCode" is required (not null)
+            if (oldVendorCode == null)
+            {
+                throw new ArgumentNullException("oldVendorCode is a required property for GetV1Deductions200ResponseDataReportsInner and cannot be null");
+            }
             this.OldVendorCode = oldVendorCode;
             this.NewShkId = newShkId;
+            // to ensure "newColor" is required (not null)
+            if (newColor == null)
+            {
+                throw new ArgumentNullException("newColor is a required property for GetV1Deductions200ResponseDataReportsInner and cannot be null");
+            }
             this.NewColor = newColor;
+            // to ensure "newSize" is required (not null)
+            if (newSize == null)
+            {
+                throw new ArgumentNullException("newSize is a required property for GetV1Deductions200ResponseDataReportsInner and cannot be null");
+            }
             this.NewSize = newSize;
+            // to ensure "newSku" is required (not null)
+            if (newSku == null)
+            {
+                throw new ArgumentNullException("newSku is a required property for GetV1Deductions200ResponseDataReportsInner and cannot be null");
+            }
             this.NewSku = newSku;
+            // to ensure "newVendorCode" is required (not null)
+            if (newVendorCode == null)
+            {
+                throw new ArgumentNullException("newVendorCode is a required property for GetV1Deductions200ResponseDataReportsInner and cannot be null");
+            }
             this.NewVendorCode = newVendorCode;
             this.BonusSumm = bonusSumm;
+            // to ensure "bonusType" is required (not null)
+            if (bonusType == null)
+            {
+                throw new ArgumentNullException("bonusType is a required property for GetV1Deductions200ResponseDataReportsInner and cannot be null");
+            }
             this.BonusType = bonusType;
+            // to ensure "photoUrls" is required (not null)
+            if (photoUrls == null)
+            {
+                throw new ArgumentNullException("photoUrls is a required property for GetV1Deductions200ResponseDataReportsInner and cannot be null");
+            }
             this.PhotoUrls = photoUrls;
         }
 
@@ -75,7 +135,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>2025-06-02T00:00:00Z</example>
         */
-        [DataMember(Name = "dtBonus", EmitDefaultValue = false)]
+        [DataMember(Name = "dtBonus", IsRequired = true, EmitDefaultValue = true)]
         public string DtBonus { get; set; }
 
         /// <summary>
@@ -85,7 +145,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>544454</example>
         */
-        [DataMember(Name = "nmId", EmitDefaultValue = false)]
+        [DataMember(Name = "nmId", IsRequired = true, EmitDefaultValue = true)]
         public long NmId { get; set; }
 
         /// <summary>
@@ -95,7 +155,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>26624352356</example>
         */
-        [DataMember(Name = "oldShkId", EmitDefaultValue = false)]
+        [DataMember(Name = "oldShkId", IsRequired = true, EmitDefaultValue = true)]
         public long OldShkId { get; set; }
 
         /// <summary>
@@ -105,7 +165,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>темно-синий,голубой</example>
         */
-        [DataMember(Name = "oldColor", EmitDefaultValue = false)]
+        [DataMember(Name = "oldColor", IsRequired = true, EmitDefaultValue = true)]
         public string OldColor { get; set; }
 
         /// <summary>
@@ -115,7 +175,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>A</example>
         */
-        [DataMember(Name = "oldSize", EmitDefaultValue = false)]
+        [DataMember(Name = "oldSize", IsRequired = true, EmitDefaultValue = true)]
         public string OldSize { get; set; }
 
         /// <summary>
@@ -125,7 +185,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>54532562</example>
         */
-        [DataMember(Name = "oldSku", EmitDefaultValue = false)]
+        [DataMember(Name = "oldSku", IsRequired = true, EmitDefaultValue = true)]
         public string OldSku { get; set; }
 
         /// <summary>
@@ -135,7 +195,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>23535 Стемпинг 500</example>
         */
-        [DataMember(Name = "oldVendorCode", EmitDefaultValue = false)]
+        [DataMember(Name = "oldVendorCode", IsRequired = true, EmitDefaultValue = true)]
         public string OldVendorCode { get; set; }
 
         /// <summary>
@@ -145,7 +205,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>123333223</example>
         */
-        [DataMember(Name = "newShkId", EmitDefaultValue = false)]
+        [DataMember(Name = "newShkId", IsRequired = true, EmitDefaultValue = true)]
         public long NewShkId { get; set; }
 
         /// <summary>
@@ -155,7 +215,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>темно-синий,голубой</example>
         */
-        [DataMember(Name = "newColor", EmitDefaultValue = false)]
+        [DataMember(Name = "newColor", IsRequired = true, EmitDefaultValue = true)]
         public string NewColor { get; set; }
 
         /// <summary>
@@ -165,7 +225,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>A</example>
         */
-        [DataMember(Name = "newSize", EmitDefaultValue = false)]
+        [DataMember(Name = "newSize", IsRequired = true, EmitDefaultValue = true)]
         public string NewSize { get; set; }
 
         /// <summary>
@@ -175,7 +235,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>12323332223</example>
         */
-        [DataMember(Name = "newSku", EmitDefaultValue = false)]
+        [DataMember(Name = "newSku", IsRequired = true, EmitDefaultValue = true)]
         public string NewSku { get; set; }
 
         /// <summary>
@@ -185,7 +245,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>wh-service-podmena</example>
         */
-        [DataMember(Name = "newVendorCode", EmitDefaultValue = false)]
+        [DataMember(Name = "newVendorCode", IsRequired = true, EmitDefaultValue = true)]
         public string NewVendorCode { get; set; }
 
         /// <summary>
@@ -195,7 +255,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>247.5</example>
         */
-        [DataMember(Name = "bonusSumm", EmitDefaultValue = false)]
+        [DataMember(Name = "bonusSumm", IsRequired = true, EmitDefaultValue = true)]
         public decimal BonusSumm { get; set; }
 
         /// <summary>
@@ -205,7 +265,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>Подмена FBW</example>
         */
-        [DataMember(Name = "bonusType", EmitDefaultValue = false)]
+        [DataMember(Name = "bonusType", IsRequired = true, EmitDefaultValue = true)]
         public string BonusType { get; set; }
 
         /// <summary>
@@ -215,7 +275,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>[&quot;https://static-basket-03.wb.ru/vol49/change_characteristics/19189882946-2023-12-15T10:18:21.125Z-1.webp&quot;,&quot;https://static-basket-03.wb.ru/vol49/change_characteristics/19189052946-2023-12-15T10:18:35.249Z-2.webp&quot;]</example>
         */
-        [DataMember(Name = "photoUrls", EmitDefaultValue = false)]
+        [DataMember(Name = "photoUrls", IsRequired = true, EmitDefaultValue = true)]
         public List<string> PhotoUrls { get; set; }
 
         /// <summary>

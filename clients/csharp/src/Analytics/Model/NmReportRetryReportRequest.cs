@@ -34,7 +34,12 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NmReportRetryReportRequest" /> class.
         /// </summary>
-        /// <param name="downloadId">ID отчёта.</param>
+        [JsonConstructorAttribute]
+        protected NmReportRetryReportRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NmReportRetryReportRequest" /> class.
+        /// </summary>
+        /// <param name="downloadId">ID отчёта (required).</param>
         public NmReportRetryReportRequest(Guid downloadId = default(Guid))
         {
             this.DownloadId = downloadId;
@@ -47,7 +52,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /*
         <example>06eea887-9d9f-491f-b16a-bb1766fcb8d2</example>
         */
-        [DataMember(Name = "downloadId", EmitDefaultValue = false)]
+        [DataMember(Name = "downloadId", IsRequired = true, EmitDefaultValue = true)]
         public Guid DownloadId { get; set; }
 
         /// <summary>

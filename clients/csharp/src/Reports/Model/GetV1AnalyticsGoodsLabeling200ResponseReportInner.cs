@@ -34,21 +34,41 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1AnalyticsGoodsLabeling200ResponseReportInner" /> class.
         /// </summary>
-        /// <param name="amount">Сумма штрафа, руб.</param>
-        /// <param name="date">Дата.</param>
-        /// <param name="incomeId">Номер поставки.</param>
-        /// <param name="nmID">Артикул WB.</param>
-        /// <param name="photoUrls">URL фото товара.</param>
-        /// <param name="shkID">Штрихкод.</param>
-        /// <param name="sku">Баркод из карточки товара.</param>
+        [JsonConstructorAttribute]
+        protected GetV1AnalyticsGoodsLabeling200ResponseReportInner() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GetV1AnalyticsGoodsLabeling200ResponseReportInner" /> class.
+        /// </summary>
+        /// <param name="amount">Сумма штрафа, руб (required).</param>
+        /// <param name="date">Дата (required).</param>
+        /// <param name="incomeId">Номер поставки (required).</param>
+        /// <param name="nmID">Артикул WB (required).</param>
+        /// <param name="photoUrls">URL фото товара (required).</param>
+        /// <param name="shkID">Штрихкод (required).</param>
+        /// <param name="sku">Баркод из карточки товара (required).</param>
         public GetV1AnalyticsGoodsLabeling200ResponseReportInner(decimal amount = default(decimal), string date = default(string), long incomeId = default(long), long nmID = default(long), List<string> photoUrls = default(List<string>), long shkID = default(long), string sku = default(string))
         {
             this.Amount = amount;
+            // to ensure "date" is required (not null)
+            if (date == null)
+            {
+                throw new ArgumentNullException("date is a required property for GetV1AnalyticsGoodsLabeling200ResponseReportInner and cannot be null");
+            }
             this.Date = date;
             this.IncomeId = incomeId;
             this.NmID = nmID;
+            // to ensure "photoUrls" is required (not null)
+            if (photoUrls == null)
+            {
+                throw new ArgumentNullException("photoUrls is a required property for GetV1AnalyticsGoodsLabeling200ResponseReportInner and cannot be null");
+            }
             this.PhotoUrls = photoUrls;
             this.ShkID = shkID;
+            // to ensure "sku" is required (not null)
+            if (sku == null)
+            {
+                throw new ArgumentNullException("sku is a required property for GetV1AnalyticsGoodsLabeling200ResponseReportInner and cannot be null");
+            }
             this.Sku = sku;
         }
 
@@ -56,49 +76,49 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// Сумма штрафа, руб
         /// </summary>
         /// <value>Сумма штрафа, руб</value>
-        [DataMember(Name = "amount", EmitDefaultValue = false)]
+        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public decimal Amount { get; set; }
 
         /// <summary>
         /// Дата
         /// </summary>
         /// <value>Дата</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
         public string Date { get; set; }
 
         /// <summary>
         /// Номер поставки
         /// </summary>
         /// <value>Номер поставки</value>
-        [DataMember(Name = "incomeId", EmitDefaultValue = false)]
+        [DataMember(Name = "incomeId", IsRequired = true, EmitDefaultValue = true)]
         public long IncomeId { get; set; }
 
         /// <summary>
         /// Артикул WB
         /// </summary>
         /// <value>Артикул WB</value>
-        [DataMember(Name = "nmID", EmitDefaultValue = false)]
+        [DataMember(Name = "nmID", IsRequired = true, EmitDefaultValue = true)]
         public long NmID { get; set; }
 
         /// <summary>
         /// URL фото товара
         /// </summary>
         /// <value>URL фото товара</value>
-        [DataMember(Name = "photoUrls", EmitDefaultValue = false)]
+        [DataMember(Name = "photoUrls", IsRequired = true, EmitDefaultValue = true)]
         public List<string> PhotoUrls { get; set; }
 
         /// <summary>
         /// Штрихкод
         /// </summary>
         /// <value>Штрихкод</value>
-        [DataMember(Name = "shkID", EmitDefaultValue = false)]
+        [DataMember(Name = "shkID", IsRequired = true, EmitDefaultValue = true)]
         public long ShkID { get; set; }
 
         /// <summary>
         /// Баркод из карточки товара
         /// </summary>
         /// <value>Баркод из карточки товара</value>
-        [DataMember(Name = "sku", EmitDefaultValue = false)]
+        [DataMember(Name = "sku", IsRequired = true, EmitDefaultValue = true)]
         public string Sku { get; set; }
 
         /// <summary>

@@ -34,17 +34,11 @@ import java.util.Set;
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
 public class ModelsExciseReportResponseDataInner {
-  public static final String SERIALIZED_NAME_NAME = "name";
+  public static final String SERIALIZED_NAME_BARCODE = "barcode";
 
-  @SerializedName(SERIALIZED_NAME_NAME)
+  @SerializedName(SERIALIZED_NAME_BARCODE)
   @jakarta.annotation.Nullable
-  private String name;
-
-  public static final String SERIALIZED_NAME_PRICE = "price";
-
-  @SerializedName(SERIALIZED_NAME_PRICE)
-  @jakarta.annotation.Nullable
-  private BigDecimal price;
+  private String barcode;
 
   public static final String SERIALIZED_NAME_CURRENCY_NAME_SHORT = "currency_name_short";
 
@@ -58,11 +52,29 @@ public class ModelsExciseReportResponseDataInner {
   @jakarta.annotation.Nullable
   private String exciseShort;
 
-  public static final String SERIALIZED_NAME_BARCODE = "barcode";
+  public static final String SERIALIZED_NAME_FISCAL_DOC_NUMBER = "fiscal_doc_number";
 
-  @SerializedName(SERIALIZED_NAME_BARCODE)
+  @SerializedName(SERIALIZED_NAME_FISCAL_DOC_NUMBER)
   @jakarta.annotation.Nullable
-  private String barcode;
+  private Long fiscalDocNumber;
+
+  public static final String SERIALIZED_NAME_FISCAL_DRIVE_NUMBER = "fiscal_drive_number";
+
+  @SerializedName(SERIALIZED_NAME_FISCAL_DRIVE_NUMBER)
+  @jakarta.annotation.Nullable
+  private String fiscalDriveNumber;
+
+  public static final String SERIALIZED_NAME_FISCAL_DT = "fiscal_dt";
+
+  @SerializedName(SERIALIZED_NAME_FISCAL_DT)
+  @jakarta.annotation.Nullable
+  private String fiscalDt;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+
+  @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nullable
+  private String name;
 
   public static final String SERIALIZED_NAME_NM_ID = "nm_id";
 
@@ -76,23 +88,11 @@ public class ModelsExciseReportResponseDataInner {
   @jakarta.annotation.Nullable
   private Long operationTypeId;
 
-  public static final String SERIALIZED_NAME_FISCAL_DOC_NUMBER = "fiscal_doc_number";
+  public static final String SERIALIZED_NAME_PRICE = "price";
 
-  @SerializedName(SERIALIZED_NAME_FISCAL_DOC_NUMBER)
+  @SerializedName(SERIALIZED_NAME_PRICE)
   @jakarta.annotation.Nullable
-  private Long fiscalDocNumber;
-
-  public static final String SERIALIZED_NAME_FISCAL_DT = "fiscal_dt";
-
-  @SerializedName(SERIALIZED_NAME_FISCAL_DT)
-  @jakarta.annotation.Nullable
-  private String fiscalDt;
-
-  public static final String SERIALIZED_NAME_FISCAL_DRIVE_NUMBER = "fiscal_drive_number";
-
-  @SerializedName(SERIALIZED_NAME_FISCAL_DRIVE_NUMBER)
-  @jakarta.annotation.Nullable
-  private String fiscalDriveNumber;
+  private BigDecimal price;
 
   public static final String SERIALIZED_NAME_RID = "rid";
 
@@ -108,42 +108,23 @@ public class ModelsExciseReportResponseDataInner {
 
   public ModelsExciseReportResponseDataInner() {}
 
-  public ModelsExciseReportResponseDataInner name(@jakarta.annotation.Nullable String name) {
-    this.name = name;
+  public ModelsExciseReportResponseDataInner barcode(@jakarta.annotation.Nullable String barcode) {
+    this.barcode = barcode;
     return this;
   }
 
   /**
-   * Страна покупателя
+   * Баркод
    *
-   * @return name
+   * @return barcode
    */
   @jakarta.annotation.Nullable
-  public String getName() {
-    return name;
+  public String getBarcode() {
+    return barcode;
   }
 
-  public void setName(@jakarta.annotation.Nullable String name) {
-    this.name = name;
-  }
-
-  public ModelsExciseReportResponseDataInner price(@jakarta.annotation.Nullable BigDecimal price) {
-    this.price = price;
-    return this;
-  }
-
-  /**
-   * Цена товара, с НДС
-   *
-   * @return price
-   */
-  @jakarta.annotation.Nullable
-  public BigDecimal getPrice() {
-    return price;
-  }
-
-  public void setPrice(@jakarta.annotation.Nullable BigDecimal price) {
-    this.price = price;
+  public void setBarcode(@jakarta.annotation.Nullable String barcode) {
+    this.barcode = barcode;
   }
 
   public ModelsExciseReportResponseDataInner currencyNameShort(
@@ -186,23 +167,83 @@ public class ModelsExciseReportResponseDataInner {
     this.exciseShort = exciseShort;
   }
 
-  public ModelsExciseReportResponseDataInner barcode(@jakarta.annotation.Nullable String barcode) {
-    this.barcode = barcode;
+  public ModelsExciseReportResponseDataInner fiscalDocNumber(
+      @jakarta.annotation.Nullable Long fiscalDocNumber) {
+    this.fiscalDocNumber = fiscalDocNumber;
     return this;
   }
 
   /**
-   * Баркод
+   * Номер фискального документа (чека полного расчёта), если есть
    *
-   * @return barcode
+   * @return fiscalDocNumber
    */
   @jakarta.annotation.Nullable
-  public String getBarcode() {
-    return barcode;
+  public Long getFiscalDocNumber() {
+    return fiscalDocNumber;
   }
 
-  public void setBarcode(@jakarta.annotation.Nullable String barcode) {
-    this.barcode = barcode;
+  public void setFiscalDocNumber(@jakarta.annotation.Nullable Long fiscalDocNumber) {
+    this.fiscalDocNumber = fiscalDocNumber;
+  }
+
+  public ModelsExciseReportResponseDataInner fiscalDriveNumber(
+      @jakarta.annotation.Nullable String fiscalDriveNumber) {
+    this.fiscalDriveNumber = fiscalDriveNumber;
+    return this;
+  }
+
+  /**
+   * Номер фискального накопителя, если есть
+   *
+   * @return fiscalDriveNumber
+   */
+  @jakarta.annotation.Nullable
+  public String getFiscalDriveNumber() {
+    return fiscalDriveNumber;
+  }
+
+  public void setFiscalDriveNumber(@jakarta.annotation.Nullable String fiscalDriveNumber) {
+    this.fiscalDriveNumber = fiscalDriveNumber;
+  }
+
+  public ModelsExciseReportResponseDataInner fiscalDt(
+      @jakarta.annotation.Nullable String fiscalDt) {
+    this.fiscalDt = fiscalDt;
+    return this;
+  }
+
+  /**
+   * Дата фискализации (дата в чеке), если есть, &#x60;ГГГГ-ММ-ДД&#x60;
+   *
+   * @return fiscalDt
+   */
+  @jakarta.annotation.Nullable
+  public String getFiscalDt() {
+    return fiscalDt;
+  }
+
+  public void setFiscalDt(@jakarta.annotation.Nullable String fiscalDt) {
+    this.fiscalDt = fiscalDt;
+  }
+
+  public ModelsExciseReportResponseDataInner name(@jakarta.annotation.Nullable String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Страна покупателя
+   *
+   * @return name
+   */
+  @jakarta.annotation.Nullable
+  public String getName() {
+    return name;
+  }
+
+  public void setName(@jakarta.annotation.Nullable String name) {
+    this.name = name;
   }
 
   public ModelsExciseReportResponseDataInner nmId(@jakarta.annotation.Nullable Long nmId) {
@@ -244,64 +285,23 @@ public class ModelsExciseReportResponseDataInner {
     this.operationTypeId = operationTypeId;
   }
 
-  public ModelsExciseReportResponseDataInner fiscalDocNumber(
-      @jakarta.annotation.Nullable Long fiscalDocNumber) {
-    this.fiscalDocNumber = fiscalDocNumber;
+  public ModelsExciseReportResponseDataInner price(@jakarta.annotation.Nullable BigDecimal price) {
+    this.price = price;
     return this;
   }
 
   /**
-   * Номер фискального документа (чека полного расчёта), если есть
+   * Цена товара, с НДС
    *
-   * @return fiscalDocNumber
+   * @return price
    */
   @jakarta.annotation.Nullable
-  public Long getFiscalDocNumber() {
-    return fiscalDocNumber;
+  public BigDecimal getPrice() {
+    return price;
   }
 
-  public void setFiscalDocNumber(@jakarta.annotation.Nullable Long fiscalDocNumber) {
-    this.fiscalDocNumber = fiscalDocNumber;
-  }
-
-  public ModelsExciseReportResponseDataInner fiscalDt(
-      @jakarta.annotation.Nullable String fiscalDt) {
-    this.fiscalDt = fiscalDt;
-    return this;
-  }
-
-  /**
-   * Дата фискализации (дата в чеке), если есть, &#x60;ГГГГ-ММ-ДД&#x60;
-   *
-   * @return fiscalDt
-   */
-  @jakarta.annotation.Nullable
-  public String getFiscalDt() {
-    return fiscalDt;
-  }
-
-  public void setFiscalDt(@jakarta.annotation.Nullable String fiscalDt) {
-    this.fiscalDt = fiscalDt;
-  }
-
-  public ModelsExciseReportResponseDataInner fiscalDriveNumber(
-      @jakarta.annotation.Nullable String fiscalDriveNumber) {
-    this.fiscalDriveNumber = fiscalDriveNumber;
-    return this;
-  }
-
-  /**
-   * Номер фискального накопителя, если есть
-   *
-   * @return fiscalDriveNumber
-   */
-  @jakarta.annotation.Nullable
-  public String getFiscalDriveNumber() {
-    return fiscalDriveNumber;
-  }
-
-  public void setFiscalDriveNumber(@jakarta.annotation.Nullable String fiscalDriveNumber) {
-    this.fiscalDriveNumber = fiscalDriveNumber;
+  public void setPrice(@jakarta.annotation.Nullable BigDecimal price) {
+    this.price = price;
   }
 
   public ModelsExciseReportResponseDataInner rid(@jakarta.annotation.Nullable Long rid) {
@@ -352,18 +352,18 @@ public class ModelsExciseReportResponseDataInner {
     }
     ModelsExciseReportResponseDataInner modelsExciseReportResponseDataInner =
         (ModelsExciseReportResponseDataInner) o;
-    return Objects.equals(this.name, modelsExciseReportResponseDataInner.name)
-        && Objects.equals(this.price, modelsExciseReportResponseDataInner.price)
+    return Objects.equals(this.barcode, modelsExciseReportResponseDataInner.barcode)
         && Objects.equals(
             this.currencyNameShort, modelsExciseReportResponseDataInner.currencyNameShort)
         && Objects.equals(this.exciseShort, modelsExciseReportResponseDataInner.exciseShort)
-        && Objects.equals(this.barcode, modelsExciseReportResponseDataInner.barcode)
-        && Objects.equals(this.nmId, modelsExciseReportResponseDataInner.nmId)
-        && Objects.equals(this.operationTypeId, modelsExciseReportResponseDataInner.operationTypeId)
         && Objects.equals(this.fiscalDocNumber, modelsExciseReportResponseDataInner.fiscalDocNumber)
-        && Objects.equals(this.fiscalDt, modelsExciseReportResponseDataInner.fiscalDt)
         && Objects.equals(
             this.fiscalDriveNumber, modelsExciseReportResponseDataInner.fiscalDriveNumber)
+        && Objects.equals(this.fiscalDt, modelsExciseReportResponseDataInner.fiscalDt)
+        && Objects.equals(this.name, modelsExciseReportResponseDataInner.name)
+        && Objects.equals(this.nmId, modelsExciseReportResponseDataInner.nmId)
+        && Objects.equals(this.operationTypeId, modelsExciseReportResponseDataInner.operationTypeId)
+        && Objects.equals(this.price, modelsExciseReportResponseDataInner.price)
         && Objects.equals(this.rid, modelsExciseReportResponseDataInner.rid)
         && Objects.equals(this.srid, modelsExciseReportResponseDataInner.srid);
   }
@@ -371,16 +371,16 @@ public class ModelsExciseReportResponseDataInner {
   @Override
   public int hashCode() {
     return Objects.hash(
-        name,
-        price,
+        barcode,
         currencyNameShort,
         exciseShort,
-        barcode,
+        fiscalDocNumber,
+        fiscalDriveNumber,
+        fiscalDt,
+        name,
         nmId,
         operationTypeId,
-        fiscalDocNumber,
-        fiscalDt,
-        fiscalDriveNumber,
+        price,
         rid,
         srid);
   }
@@ -389,16 +389,16 @@ public class ModelsExciseReportResponseDataInner {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModelsExciseReportResponseDataInner {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    price: ").append(toIndentedString(price)).append("\n");
+    sb.append("    barcode: ").append(toIndentedString(barcode)).append("\n");
     sb.append("    currencyNameShort: ").append(toIndentedString(currencyNameShort)).append("\n");
     sb.append("    exciseShort: ").append(toIndentedString(exciseShort)).append("\n");
-    sb.append("    barcode: ").append(toIndentedString(barcode)).append("\n");
+    sb.append("    fiscalDocNumber: ").append(toIndentedString(fiscalDocNumber)).append("\n");
+    sb.append("    fiscalDriveNumber: ").append(toIndentedString(fiscalDriveNumber)).append("\n");
+    sb.append("    fiscalDt: ").append(toIndentedString(fiscalDt)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nmId: ").append(toIndentedString(nmId)).append("\n");
     sb.append("    operationTypeId: ").append(toIndentedString(operationTypeId)).append("\n");
-    sb.append("    fiscalDocNumber: ").append(toIndentedString(fiscalDocNumber)).append("\n");
-    sb.append("    fiscalDt: ").append(toIndentedString(fiscalDt)).append("\n");
-    sb.append("    fiscalDriveNumber: ").append(toIndentedString(fiscalDriveNumber)).append("\n");
+    sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    rid: ").append(toIndentedString(rid)).append("\n");
     sb.append("    srid: ").append(toIndentedString(srid)).append("\n");
     sb.append("}");
@@ -421,16 +421,16 @@ public class ModelsExciseReportResponseDataInner {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("price");
+    openapiFields.add("barcode");
     openapiFields.add("currency_name_short");
     openapiFields.add("excise_short");
-    openapiFields.add("barcode");
+    openapiFields.add("fiscal_doc_number");
+    openapiFields.add("fiscal_drive_number");
+    openapiFields.add("fiscal_dt");
+    openapiFields.add("name");
     openapiFields.add("nm_id");
     openapiFields.add("operation_type_id");
-    openapiFields.add("fiscal_doc_number");
-    openapiFields.add("fiscal_dt");
-    openapiFields.add("fiscal_drive_number");
+    openapiFields.add("price");
     openapiFields.add("rid");
     openapiFields.add("srid");
 
@@ -467,12 +467,12 @@ public class ModelsExciseReportResponseDataInner {
       }
     }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
-        && !jsonObj.get("name").isJsonPrimitive()) {
+    if ((jsonObj.get("barcode") != null && !jsonObj.get("barcode").isJsonNull())
+        && !jsonObj.get("barcode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
-              jsonObj.get("name").toString()));
+              "Expected the field `barcode` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("barcode").toString()));
     }
     if ((jsonObj.get("currency_name_short") != null
             && !jsonObj.get("currency_name_short").isJsonNull())
@@ -489,12 +489,13 @@ public class ModelsExciseReportResponseDataInner {
               "Expected the field `excise_short` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("excise_short").toString()));
     }
-    if ((jsonObj.get("barcode") != null && !jsonObj.get("barcode").isJsonNull())
-        && !jsonObj.get("barcode").isJsonPrimitive()) {
+    if ((jsonObj.get("fiscal_drive_number") != null
+            && !jsonObj.get("fiscal_drive_number").isJsonNull())
+        && !jsonObj.get("fiscal_drive_number").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `barcode` to be a primitive type in the JSON string but got `%s`",
-              jsonObj.get("barcode").toString()));
+              "Expected the field `fiscal_drive_number` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("fiscal_drive_number").toString()));
     }
     if ((jsonObj.get("fiscal_dt") != null && !jsonObj.get("fiscal_dt").isJsonNull())
         && !jsonObj.get("fiscal_dt").isJsonPrimitive()) {
@@ -503,13 +504,12 @@ public class ModelsExciseReportResponseDataInner {
               "Expected the field `fiscal_dt` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("fiscal_dt").toString()));
     }
-    if ((jsonObj.get("fiscal_drive_number") != null
-            && !jsonObj.get("fiscal_drive_number").isJsonNull())
-        && !jsonObj.get("fiscal_drive_number").isJsonPrimitive()) {
+    if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
+        && !jsonObj.get("name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `fiscal_drive_number` to be a primitive type in the JSON string but got `%s`",
-              jsonObj.get("fiscal_drive_number").toString()));
+              "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("name").toString()));
     }
     if ((jsonObj.get("srid") != null && !jsonObj.get("srid").isJsonNull())
         && !jsonObj.get("srid").isJsonPrimitive()) {

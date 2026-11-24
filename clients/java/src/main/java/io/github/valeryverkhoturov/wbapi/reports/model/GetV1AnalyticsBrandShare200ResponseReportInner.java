@@ -36,31 +36,31 @@ public class GetV1AnalyticsBrandShare200ResponseReportInner {
   public static final String SERIALIZED_NAME_APPLY_DATE = "applyDate";
 
   @SerializedName(SERIALIZED_NAME_APPLY_DATE)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String applyDate;
 
   public static final String SERIALIZED_NAME_BRAND_RATING = "brandRating";
 
   @SerializedName(SERIALIZED_NAME_BRAND_RATING)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private Long brandRating;
 
   public static final String SERIALIZED_NAME_PRICE_PERCENT = "pricePercent";
 
   @SerializedName(SERIALIZED_NAME_PRICE_PERCENT)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private Float pricePercent;
 
   public static final String SERIALIZED_NAME_QTY_PERCENT = "qtyPercent";
 
   @SerializedName(SERIALIZED_NAME_QTY_PERCENT)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private Float qtyPercent;
 
   public GetV1AnalyticsBrandShare200ResponseReportInner() {}
 
   public GetV1AnalyticsBrandShare200ResponseReportInner applyDate(
-      @jakarta.annotation.Nullable String applyDate) {
+      @jakarta.annotation.Nonnull String applyDate) {
     this.applyDate = applyDate;
     return this;
   }
@@ -70,17 +70,17 @@ public class GetV1AnalyticsBrandShare200ResponseReportInner {
    *
    * @return applyDate
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getApplyDate() {
     return applyDate;
   }
 
-  public void setApplyDate(@jakarta.annotation.Nullable String applyDate) {
+  public void setApplyDate(@jakarta.annotation.Nonnull String applyDate) {
     this.applyDate = applyDate;
   }
 
   public GetV1AnalyticsBrandShare200ResponseReportInner brandRating(
-      @jakarta.annotation.Nullable Long brandRating) {
+      @jakarta.annotation.Nonnull Long brandRating) {
     this.brandRating = brandRating;
     return this;
   }
@@ -90,17 +90,17 @@ public class GetV1AnalyticsBrandShare200ResponseReportInner {
    *
    * @return brandRating
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public Long getBrandRating() {
     return brandRating;
   }
 
-  public void setBrandRating(@jakarta.annotation.Nullable Long brandRating) {
+  public void setBrandRating(@jakarta.annotation.Nonnull Long brandRating) {
     this.brandRating = brandRating;
   }
 
   public GetV1AnalyticsBrandShare200ResponseReportInner pricePercent(
-      @jakarta.annotation.Nullable Float pricePercent) {
+      @jakarta.annotation.Nonnull Float pricePercent) {
     this.pricePercent = pricePercent;
     return this;
   }
@@ -110,17 +110,17 @@ public class GetV1AnalyticsBrandShare200ResponseReportInner {
    *
    * @return pricePercent
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public Float getPricePercent() {
     return pricePercent;
   }
 
-  public void setPricePercent(@jakarta.annotation.Nullable Float pricePercent) {
+  public void setPricePercent(@jakarta.annotation.Nonnull Float pricePercent) {
     this.pricePercent = pricePercent;
   }
 
   public GetV1AnalyticsBrandShare200ResponseReportInner qtyPercent(
-      @jakarta.annotation.Nullable Float qtyPercent) {
+      @jakarta.annotation.Nonnull Float qtyPercent) {
     this.qtyPercent = qtyPercent;
     return this;
   }
@@ -130,12 +130,12 @@ public class GetV1AnalyticsBrandShare200ResponseReportInner {
    *
    * @return qtyPercent
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public Float getQtyPercent() {
     return qtyPercent;
   }
 
-  public void setQtyPercent(@jakarta.annotation.Nullable Float qtyPercent) {
+  public void setQtyPercent(@jakarta.annotation.Nonnull Float qtyPercent) {
     this.qtyPercent = qtyPercent;
   }
 
@@ -198,6 +198,10 @@ public class GetV1AnalyticsBrandShare200ResponseReportInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("applyDate");
+    openapiRequiredFields.add("brandRating");
+    openapiRequiredFields.add("pricePercent");
+    openapiRequiredFields.add("qtyPercent");
   }
 
   /**
@@ -228,9 +232,19 @@ public class GetV1AnalyticsBrandShare200ResponseReportInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+
+    // check to make sure all required properties/fields are present in the JSON string
+    for (String requiredField :
+        GetV1AnalyticsBrandShare200ResponseReportInner.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(
+            String.format(
+                "The required field `%s` is not found in the JSON string: %s",
+                requiredField, jsonElement.toString()));
+      }
+    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if ((jsonObj.get("applyDate") != null && !jsonObj.get("applyDate").isJsonNull())
-        && !jsonObj.get("applyDate").isJsonPrimitive()) {
+    if (!jsonObj.get("applyDate").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `applyDate` to be a primitive type in the JSON string but got `%s`",

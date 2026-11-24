@@ -34,9 +34,19 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1AnalyticsBrandShare200Response" /> class.
         /// </summary>
-        /// <param name="report">Отчёт.</param>
+        [JsonConstructorAttribute]
+        protected GetV1AnalyticsBrandShare200Response() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GetV1AnalyticsBrandShare200Response" /> class.
+        /// </summary>
+        /// <param name="report">Отчёт (required).</param>
         public GetV1AnalyticsBrandShare200Response(List<GetV1AnalyticsBrandShare200ResponseReportInner> report = default(List<GetV1AnalyticsBrandShare200ResponseReportInner>))
         {
+            // to ensure "report" is required (not null)
+            if (report == null)
+            {
+                throw new ArgumentNullException("report is a required property for GetV1AnalyticsBrandShare200Response and cannot be null");
+            }
             this.Report = report;
         }
 
@@ -44,7 +54,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// Отчёт
         /// </summary>
         /// <value>Отчёт</value>
-        [DataMember(Name = "report", EmitDefaultValue = false)]
+        [DataMember(Name = "report", IsRequired = true, EmitDefaultValue = true)]
         public List<GetV1AnalyticsBrandShare200ResponseReportInner> Report { get; set; }
 
         /// <summary>

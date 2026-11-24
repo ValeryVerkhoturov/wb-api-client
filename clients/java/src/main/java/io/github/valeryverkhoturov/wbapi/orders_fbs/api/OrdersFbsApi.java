@@ -1777,7 +1777,8 @@ public class OrdersFbsApi {
 
   /**
    * Получить список пунктов отгрузки поставки Метод возвращает доступные пункты отгрузки для
-   * указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки
+   * указанной поставки. Предназначен для продавцов из РФ. Используйте данные этого метода, чтобы
+   * устанавливать [параметры отгрузки
    * поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
@@ -1822,7 +1823,8 @@ public class OrdersFbsApi {
 
   /**
    * Получить список пунктов отгрузки поставки Метод возвращает доступные пункты отгрузки для
-   * указанной поставки. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки
+   * указанной поставки. Предназначен для продавцов из РФ. Используйте данные этого метода, чтобы
+   * устанавливать [параметры отгрузки
    * поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)
@@ -1870,8 +1872,8 @@ public class OrdersFbsApi {
 
   /**
    * Получить список пунктов отгрузки поставки (asynchronously) Метод возвращает доступные пункты
-   * отгрузки для указанной поставки. Используйте данные этого метода, чтобы устанавливать
-   * [параметры отгрузки
+   * отгрузки для указанной поставки. Предназначен для продавцов из РФ. Используйте данные этого
+   * метода, чтобы устанавливать [параметры отгрузки
    * поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
    * [Лимит
    * запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov)

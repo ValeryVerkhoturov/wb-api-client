@@ -8590,7 +8590,7 @@ components:
             properties:
               data:
                 type: array
-                description: "Items, prices and discounts. Maximum 1,000 items. Both price and discount can not be empty\n\nIf the new item price with discount is lower than the [threshold value](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), the item will go into [price quarantine](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) and the price will not change. You will get the error in the [upload details](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).\n\nYou can edit price or discount using API or remove the price out of quarantine in [your account](https://seller.wildberries.ru/discount-and-prices/quarantine)"
+                description: "Items, prices and discounts. Maximum 1,000 items. Both price and discount can not be missing in the request.\n\nIf the new item price with discount is lower than the [threshold value](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine#2ef3641a-5165-41db-9ac7-e4374c9fc3f1), the item will go into [price quarantine](https://seller.wildberries.ru/instructions/ru/ru/material/price-quarantine) and the price will not change. You will get the error in the [upload details](./item-management#tag/pricesAndDiscounts/operation/getV2HistoryGoodsTask).\n\nYou can edit price or discount using API or remove the price out of quarantine in [your account](https://seller.wildberries.ru/discount-and-prices/quarantine)"
                 items:
                   $ref: '#/components/schemas/Item'
     SellerTaskRequestSize:

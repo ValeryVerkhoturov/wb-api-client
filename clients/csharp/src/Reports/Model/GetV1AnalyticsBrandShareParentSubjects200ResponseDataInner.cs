@@ -34,11 +34,21 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner" /> class.
         /// </summary>
-        /// <param name="parentId">ID родительской категории.</param>
-        /// <param name="parentName">Название родительской категории.</param>
+        [JsonConstructorAttribute]
+        protected GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner" /> class.
+        /// </summary>
+        /// <param name="parentId">ID родительской категории (required).</param>
+        /// <param name="parentName">Название родительской категории (required).</param>
         public GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner(long parentId = default(long), string parentName = default(string))
         {
             this.ParentId = parentId;
+            // to ensure "parentName" is required (not null)
+            if (parentName == null)
+            {
+                throw new ArgumentNullException("parentName is a required property for GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner and cannot be null");
+            }
             this.ParentName = parentName;
         }
 
@@ -46,14 +56,14 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// ID родительской категории
         /// </summary>
         /// <value>ID родительской категории</value>
-        [DataMember(Name = "parentId", EmitDefaultValue = false)]
+        [DataMember(Name = "parentId", IsRequired = true, EmitDefaultValue = true)]
         public long ParentId { get; set; }
 
         /// <summary>
         /// Название родительской категории
         /// </summary>
         /// <value>Название родительской категории</value>
-        [DataMember(Name = "parentName", EmitDefaultValue = false)]
+        [DataMember(Name = "parentName", IsRequired = true, EmitDefaultValue = true)]
         public string ParentName { get; set; }
 
         /// <summary>

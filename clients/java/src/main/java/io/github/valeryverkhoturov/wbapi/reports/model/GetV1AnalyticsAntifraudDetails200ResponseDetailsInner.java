@@ -33,80 +33,40 @@ import java.util.Set;
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     comments = "Generator version: 7.10.0")
 public class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
-  public static final String SERIALIZED_NAME_NM_I_D = "nmID";
-
-  @SerializedName(SERIALIZED_NAME_NM_I_D)
-  @jakarta.annotation.Nullable
-  private Long nmID;
-
-  public static final String SERIALIZED_NAME_SUM = "sum";
-
-  @SerializedName(SERIALIZED_NAME_SUM)
-  @jakarta.annotation.Nullable
-  private Long sum;
-
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
 
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String currency;
 
   public static final String SERIALIZED_NAME_DATE_FROM = "dateFrom";
 
   @SerializedName(SERIALIZED_NAME_DATE_FROM)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String dateFrom;
 
   public static final String SERIALIZED_NAME_DATE_TO = "dateTo";
 
   @SerializedName(SERIALIZED_NAME_DATE_TO)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String dateTo;
+
+  public static final String SERIALIZED_NAME_NM_I_D = "nmID";
+
+  @SerializedName(SERIALIZED_NAME_NM_I_D)
+  @jakarta.annotation.Nonnull
+  private Long nmID;
+
+  public static final String SERIALIZED_NAME_SUM = "sum";
+
+  @SerializedName(SERIALIZED_NAME_SUM)
+  @jakarta.annotation.Nonnull
+  private Long sum;
 
   public GetV1AnalyticsAntifraudDetails200ResponseDetailsInner() {}
 
-  public GetV1AnalyticsAntifraudDetails200ResponseDetailsInner nmID(
-      @jakarta.annotation.Nullable Long nmID) {
-    this.nmID = nmID;
-    return this;
-  }
-
-  /**
-   * Артикул WB
-   *
-   * @return nmID
-   */
-  @jakarta.annotation.Nullable
-  public Long getNmID() {
-    return nmID;
-  }
-
-  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
-    this.nmID = nmID;
-  }
-
-  public GetV1AnalyticsAntifraudDetails200ResponseDetailsInner sum(
-      @jakarta.annotation.Nullable Long sum) {
-    this.sum = sum;
-    return this;
-  }
-
-  /**
-   * Сумма заказа
-   *
-   * @return sum
-   */
-  @jakarta.annotation.Nullable
-  public Long getSum() {
-    return sum;
-  }
-
-  public void setSum(@jakarta.annotation.Nullable Long sum) {
-    this.sum = sum;
-  }
-
   public GetV1AnalyticsAntifraudDetails200ResponseDetailsInner currency(
-      @jakarta.annotation.Nullable String currency) {
+      @jakarta.annotation.Nonnull String currency) {
     this.currency = currency;
     return this;
   }
@@ -116,17 +76,17 @@ public class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
    *
    * @return currency
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@jakarta.annotation.Nullable String currency) {
+  public void setCurrency(@jakarta.annotation.Nonnull String currency) {
     this.currency = currency;
   }
 
   public GetV1AnalyticsAntifraudDetails200ResponseDetailsInner dateFrom(
-      @jakarta.annotation.Nullable String dateFrom) {
+      @jakarta.annotation.Nonnull String dateFrom) {
     this.dateFrom = dateFrom;
     return this;
   }
@@ -136,17 +96,17 @@ public class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
    *
    * @return dateFrom
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getDateFrom() {
     return dateFrom;
   }
 
-  public void setDateFrom(@jakarta.annotation.Nullable String dateFrom) {
+  public void setDateFrom(@jakarta.annotation.Nonnull String dateFrom) {
     this.dateFrom = dateFrom;
   }
 
   public GetV1AnalyticsAntifraudDetails200ResponseDetailsInner dateTo(
-      @jakarta.annotation.Nullable String dateTo) {
+      @jakarta.annotation.Nonnull String dateTo) {
     this.dateTo = dateTo;
     return this;
   }
@@ -156,13 +116,53 @@ public class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
    *
    * @return dateTo
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getDateTo() {
     return dateTo;
   }
 
-  public void setDateTo(@jakarta.annotation.Nullable String dateTo) {
+  public void setDateTo(@jakarta.annotation.Nonnull String dateTo) {
     this.dateTo = dateTo;
+  }
+
+  public GetV1AnalyticsAntifraudDetails200ResponseDetailsInner nmID(
+      @jakarta.annotation.Nonnull Long nmID) {
+    this.nmID = nmID;
+    return this;
+  }
+
+  /**
+   * Артикул WB
+   *
+   * @return nmID
+   */
+  @jakarta.annotation.Nonnull
+  public Long getNmID() {
+    return nmID;
+  }
+
+  public void setNmID(@jakarta.annotation.Nonnull Long nmID) {
+    this.nmID = nmID;
+  }
+
+  public GetV1AnalyticsAntifraudDetails200ResponseDetailsInner sum(
+      @jakarta.annotation.Nonnull Long sum) {
+    this.sum = sum;
+    return this;
+  }
+
+  /**
+   * Сумма заказа
+   *
+   * @return sum
+   */
+  @jakarta.annotation.Nonnull
+  public Long getSum() {
+    return sum;
+  }
+
+  public void setSum(@jakarta.annotation.Nonnull Long sum) {
+    this.sum = sum;
   }
 
   @Override
@@ -176,30 +176,29 @@ public class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
     GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
         getV1AnalyticsAntifraudDetails200ResponseDetailsInner =
             (GetV1AnalyticsAntifraudDetails200ResponseDetailsInner) o;
-    return Objects.equals(this.nmID, getV1AnalyticsAntifraudDetails200ResponseDetailsInner.nmID)
-        && Objects.equals(this.sum, getV1AnalyticsAntifraudDetails200ResponseDetailsInner.sum)
-        && Objects.equals(
+    return Objects.equals(
             this.currency, getV1AnalyticsAntifraudDetails200ResponseDetailsInner.currency)
         && Objects.equals(
             this.dateFrom, getV1AnalyticsAntifraudDetails200ResponseDetailsInner.dateFrom)
-        && Objects.equals(
-            this.dateTo, getV1AnalyticsAntifraudDetails200ResponseDetailsInner.dateTo);
+        && Objects.equals(this.dateTo, getV1AnalyticsAntifraudDetails200ResponseDetailsInner.dateTo)
+        && Objects.equals(this.nmID, getV1AnalyticsAntifraudDetails200ResponseDetailsInner.nmID)
+        && Objects.equals(this.sum, getV1AnalyticsAntifraudDetails200ResponseDetailsInner.sum);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nmID, sum, currency, dateFrom, dateTo);
+    return Objects.hash(currency, dateFrom, dateTo, nmID, sum);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {\n");
-    sb.append("    nmID: ").append(toIndentedString(nmID)).append("\n");
-    sb.append("    sum: ").append(toIndentedString(sum)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    dateFrom: ").append(toIndentedString(dateFrom)).append("\n");
     sb.append("    dateTo: ").append(toIndentedString(dateTo)).append("\n");
+    sb.append("    nmID: ").append(toIndentedString(nmID)).append("\n");
+    sb.append("    sum: ").append(toIndentedString(sum)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -220,14 +219,19 @@ public class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("nmID");
-    openapiFields.add("sum");
     openapiFields.add("currency");
     openapiFields.add("dateFrom");
     openapiFields.add("dateTo");
+    openapiFields.add("nmID");
+    openapiFields.add("sum");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("currency");
+    openapiRequiredFields.add("dateFrom");
+    openapiRequiredFields.add("dateTo");
+    openapiRequiredFields.add("nmID");
+    openapiRequiredFields.add("sum");
   }
 
   /**
@@ -260,23 +264,31 @@ public class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+
+    // check to make sure all required properties/fields are present in the JSON string
+    for (String requiredField :
+        GetV1AnalyticsAntifraudDetails200ResponseDetailsInner.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(
+            String.format(
+                "The required field `%s` is not found in the JSON string: %s",
+                requiredField, jsonElement.toString()));
+      }
+    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull())
-        && !jsonObj.get("currency").isJsonPrimitive()) {
+    if (!jsonObj.get("currency").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `currency` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("currency").toString()));
     }
-    if ((jsonObj.get("dateFrom") != null && !jsonObj.get("dateFrom").isJsonNull())
-        && !jsonObj.get("dateFrom").isJsonPrimitive()) {
+    if (!jsonObj.get("dateFrom").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `dateFrom` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("dateFrom").toString()));
     }
-    if ((jsonObj.get("dateTo") != null && !jsonObj.get("dateTo").isJsonNull())
-        && !jsonObj.get("dateTo").isJsonPrimitive()) {
+    if (!jsonObj.get("dateTo").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `dateTo` to be a primitive type in the JSON string but got `%s`",

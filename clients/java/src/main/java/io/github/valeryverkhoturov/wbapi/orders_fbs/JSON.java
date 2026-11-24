@@ -175,6 +175,9 @@ public class JSON {
     gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.OrderNew.CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(
+        new io.github.valeryverkhoturov.wbapi.orders_fbs.model.OrderNewAddress
+            .CustomTypeAdapterFactory());
+    gsonBuilder.registerTypeAdapterFactory(
         new io.github.valeryverkhoturov.wbapi.orders_fbs.model.OrderOptions
             .CustomTypeAdapterFactory());
     gsonBuilder.registerTypeAdapterFactory(

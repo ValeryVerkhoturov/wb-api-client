@@ -29,9 +29,7 @@ class GetV1PaidStorageTasksTaskIdDownloadResponse200Inner(BaseModel):
     """  # noqa: E501
 
     var_date: Optional[StrictStr] = Field(
-        default=None,
-        description="Дата, за которую был расчёт или перерасчёт",
-        alias="date",
+        default=None, description="Дата расчёта или перерасчёта", alias="date"
     )
     log_warehouse_coef: Optional[Union[StrictFloat, StrictInt]] = Field(
         default=None,

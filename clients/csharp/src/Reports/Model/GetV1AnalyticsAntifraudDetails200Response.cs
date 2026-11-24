@@ -34,16 +34,26 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1AnalyticsAntifraudDetails200Response" /> class.
         /// </summary>
-        /// <param name="details">details.</param>
+        [JsonConstructorAttribute]
+        protected GetV1AnalyticsAntifraudDetails200Response() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GetV1AnalyticsAntifraudDetails200Response" /> class.
+        /// </summary>
+        /// <param name="details">details (required).</param>
         public GetV1AnalyticsAntifraudDetails200Response(List<GetV1AnalyticsAntifraudDetails200ResponseDetailsInner> details = default(List<GetV1AnalyticsAntifraudDetails200ResponseDetailsInner>))
         {
+            // to ensure "details" is required (not null)
+            if (details == null)
+            {
+                throw new ArgumentNullException("details is a required property for GetV1AnalyticsAntifraudDetails200Response and cannot be null");
+            }
             this.Details = details;
         }
 
         /// <summary>
         /// Gets or Sets Details
         /// </summary>
-        [DataMember(Name = "details", EmitDefaultValue = false)]
+        [DataMember(Name = "details", IsRequired = true, EmitDefaultValue = true)]
         public List<GetV1AnalyticsAntifraudDetails200ResponseDetailsInner> Details { get; set; }
 
         /// <summary>

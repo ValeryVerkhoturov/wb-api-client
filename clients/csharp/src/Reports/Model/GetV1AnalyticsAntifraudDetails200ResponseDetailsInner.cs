@@ -34,39 +34,39 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1AnalyticsAntifraudDetails200ResponseDetailsInner" /> class.
         /// </summary>
-        /// <param name="nmID">Артикул WB.</param>
-        /// <param name="sum">Сумма заказа.</param>
-        /// <param name="currency">Валюта заказа.</param>
-        /// <param name="dateFrom">Начало отчётного периода.</param>
-        /// <param name="dateTo">Конец отчётного периода.</param>
-        public GetV1AnalyticsAntifraudDetails200ResponseDetailsInner(long nmID = default(long), long sum = default(long), string currency = default(string), string dateFrom = default(string), string dateTo = default(string))
+        [JsonConstructorAttribute]
+        protected GetV1AnalyticsAntifraudDetails200ResponseDetailsInner() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GetV1AnalyticsAntifraudDetails200ResponseDetailsInner" /> class.
+        /// </summary>
+        /// <param name="currency">Валюта заказа (required).</param>
+        /// <param name="dateFrom">Начало отчётного периода (required).</param>
+        /// <param name="dateTo">Конец отчётного периода (required).</param>
+        /// <param name="nmID">Артикул WB (required).</param>
+        /// <param name="sum">Сумма заказа (required).</param>
+        public GetV1AnalyticsAntifraudDetails200ResponseDetailsInner(string currency = default(string), string dateFrom = default(string), string dateTo = default(string), long nmID = default(long), long sum = default(long))
         {
+            // to ensure "currency" is required (not null)
+            if (currency == null)
+            {
+                throw new ArgumentNullException("currency is a required property for GetV1AnalyticsAntifraudDetails200ResponseDetailsInner and cannot be null");
+            }
+            this.Currency = currency;
+            // to ensure "dateFrom" is required (not null)
+            if (dateFrom == null)
+            {
+                throw new ArgumentNullException("dateFrom is a required property for GetV1AnalyticsAntifraudDetails200ResponseDetailsInner and cannot be null");
+            }
+            this.DateFrom = dateFrom;
+            // to ensure "dateTo" is required (not null)
+            if (dateTo == null)
+            {
+                throw new ArgumentNullException("dateTo is a required property for GetV1AnalyticsAntifraudDetails200ResponseDetailsInner and cannot be null");
+            }
+            this.DateTo = dateTo;
             this.NmID = nmID;
             this.Sum = sum;
-            this.Currency = currency;
-            this.DateFrom = dateFrom;
-            this.DateTo = dateTo;
         }
-
-        /// <summary>
-        /// Артикул WB
-        /// </summary>
-        /// <value>Артикул WB</value>
-        /*
-        <example>123456789</example>
-        */
-        [DataMember(Name = "nmID", EmitDefaultValue = false)]
-        public long NmID { get; set; }
-
-        /// <summary>
-        /// Сумма заказа
-        /// </summary>
-        /// <value>Сумма заказа</value>
-        /*
-        <example>3540</example>
-        */
-        [DataMember(Name = "sum", EmitDefaultValue = false)]
-        public long Sum { get; set; }
 
         /// <summary>
         /// Валюта заказа
@@ -75,7 +75,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>RUB</example>
         */
-        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>2023-08-23</example>
         */
-        [DataMember(Name = "dateFrom", EmitDefaultValue = false)]
+        [DataMember(Name = "dateFrom", IsRequired = true, EmitDefaultValue = true)]
         public string DateFrom { get; set; }
 
         /// <summary>
@@ -95,8 +95,28 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>2023-08-29</example>
         */
-        [DataMember(Name = "dateTo", EmitDefaultValue = false)]
+        [DataMember(Name = "dateTo", IsRequired = true, EmitDefaultValue = true)]
         public string DateTo { get; set; }
+
+        /// <summary>
+        /// Артикул WB
+        /// </summary>
+        /// <value>Артикул WB</value>
+        /*
+        <example>123456789</example>
+        */
+        [DataMember(Name = "nmID", IsRequired = true, EmitDefaultValue = true)]
+        public long NmID { get; set; }
+
+        /// <summary>
+        /// Сумма заказа
+        /// </summary>
+        /// <value>Сумма заказа</value>
+        /*
+        <example>3540</example>
+        */
+        [DataMember(Name = "sum", IsRequired = true, EmitDefaultValue = true)]
+        public long Sum { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -106,11 +126,11 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {\n");
-            sb.Append("  NmID: ").Append(NmID).Append("\n");
-            sb.Append("  Sum: ").Append(Sum).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  DateFrom: ").Append(DateFrom).Append("\n");
             sb.Append("  DateTo: ").Append(DateTo).Append("\n");
+            sb.Append("  NmID: ").Append(NmID).Append("\n");
+            sb.Append("  Sum: ").Append(Sum).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

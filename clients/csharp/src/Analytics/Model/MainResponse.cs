@@ -37,7 +37,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="commonInfo">commonInfo.</param>
         /// <param name="positionInfo">positionInfo.</param>
         /// <param name="visibilityInfo">visibilityInfo.</param>
-        /// <param name="groups">Список элементов таблицы .</param>
+        /// <param name="groups">Список элементов таблицы.</param>
         /// <param name="currency">Валюта отчёта.</param>
         public MainResponse(CommonInfo commonInfo = default(CommonInfo), PositionInfo positionInfo = default(PositionInfo), VisibilityInfo visibilityInfo = default(VisibilityInfo), List<TableGroupItem> groups = default(List<TableGroupItem>), string currency = default(string))
         {
@@ -67,9 +67,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public VisibilityInfo VisibilityInfo { get; set; }
 
         /// <summary>
-        /// Список элементов таблицы 
+        /// Список элементов таблицы
         /// </summary>
-        /// <value>Список элементов таблицы </value>
+        /// <value>Список элементов таблицы</value>
         [DataMember(Name = "groups", EmitDefaultValue = false)]
         public List<TableGroupItem> Groups { get; set; }
 

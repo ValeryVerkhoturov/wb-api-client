@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// <param name="brandName">Бренд.</param>
         /// <param name="mainPhoto">URL главного фото карточки товара.</param>
         /// <param name="isAdvertised">Находится ли товар в продвижении в Поисковой выдаче.</param>
-        /// <param name="isSubstitutedSKU">Искали ли товар по подменному артикулу. Поле будет в ответе при наличии в запросе &#x60;includeSubstitutedSKUs&#x60; и/или &#x60;includeSearchTexts&#x60;.</param>
+        /// <param name="isSubstitutedSKU">Искали ли товар по подменному артикулу.</param>
         /// <param name="isCardRated">Есть ли рейтинг у карточки товара.</param>
         /// <param name="rating">Рейтинг карточки товара.</param>
         /// <param name="feedbackRating">Рейтинг по отзывам.</param>
@@ -147,9 +147,9 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         public bool IsAdvertised { get; set; }
 
         /// <summary>
-        /// Искали ли товар по подменному артикулу. Поле будет в ответе при наличии в запросе &#x60;includeSubstitutedSKUs&#x60; и/или &#x60;includeSearchTexts&#x60;
+        /// Искали ли товар по подменному артикулу
         /// </summary>
-        /// <value>Искали ли товар по подменному артикулу. Поле будет в ответе при наличии в запросе &#x60;includeSubstitutedSKUs&#x60; и/или &#x60;includeSearchTexts&#x60;</value>
+        /// <value>Искали ли товар по подменному артикулу</value>
         /*
         <example>true</example>
         */

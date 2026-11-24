@@ -39,49 +39,49 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
 
   @SerializedName(SERIALIZED_NAME_AMOUNT)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private BigDecimal amount;
 
   public static final String SERIALIZED_NAME_DATE = "date";
 
   @SerializedName(SERIALIZED_NAME_DATE)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String date;
 
   public static final String SERIALIZED_NAME_INCOME_ID = "incomeId";
 
   @SerializedName(SERIALIZED_NAME_INCOME_ID)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private Long incomeId;
 
   public static final String SERIALIZED_NAME_NM_I_D = "nmID";
 
   @SerializedName(SERIALIZED_NAME_NM_I_D)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private Long nmID;
 
   public static final String SERIALIZED_NAME_PHOTO_URLS = "photoUrls";
 
   @SerializedName(SERIALIZED_NAME_PHOTO_URLS)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private List<String> photoUrls = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SHK_I_D = "shkID";
 
   @SerializedName(SERIALIZED_NAME_SHK_I_D)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private Long shkID;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
 
   @SerializedName(SERIALIZED_NAME_SKU)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String sku;
 
   public GetV1AnalyticsGoodsLabeling200ResponseReportInner() {}
 
   public GetV1AnalyticsGoodsLabeling200ResponseReportInner amount(
-      @jakarta.annotation.Nullable BigDecimal amount) {
+      @jakarta.annotation.Nonnull BigDecimal amount) {
     this.amount = amount;
     return this;
   }
@@ -91,17 +91,17 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
    *
    * @return amount
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public BigDecimal getAmount() {
     return amount;
   }
 
-  public void setAmount(@jakarta.annotation.Nullable BigDecimal amount) {
+  public void setAmount(@jakarta.annotation.Nonnull BigDecimal amount) {
     this.amount = amount;
   }
 
   public GetV1AnalyticsGoodsLabeling200ResponseReportInner date(
-      @jakarta.annotation.Nullable String date) {
+      @jakarta.annotation.Nonnull String date) {
     this.date = date;
     return this;
   }
@@ -111,17 +111,17 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
    *
    * @return date
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getDate() {
     return date;
   }
 
-  public void setDate(@jakarta.annotation.Nullable String date) {
+  public void setDate(@jakarta.annotation.Nonnull String date) {
     this.date = date;
   }
 
   public GetV1AnalyticsGoodsLabeling200ResponseReportInner incomeId(
-      @jakarta.annotation.Nullable Long incomeId) {
+      @jakarta.annotation.Nonnull Long incomeId) {
     this.incomeId = incomeId;
     return this;
   }
@@ -131,17 +131,17 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
    *
    * @return incomeId
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public Long getIncomeId() {
     return incomeId;
   }
 
-  public void setIncomeId(@jakarta.annotation.Nullable Long incomeId) {
+  public void setIncomeId(@jakarta.annotation.Nonnull Long incomeId) {
     this.incomeId = incomeId;
   }
 
   public GetV1AnalyticsGoodsLabeling200ResponseReportInner nmID(
-      @jakarta.annotation.Nullable Long nmID) {
+      @jakarta.annotation.Nonnull Long nmID) {
     this.nmID = nmID;
     return this;
   }
@@ -151,17 +151,17 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
    *
    * @return nmID
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public Long getNmID() {
     return nmID;
   }
 
-  public void setNmID(@jakarta.annotation.Nullable Long nmID) {
+  public void setNmID(@jakarta.annotation.Nonnull Long nmID) {
     this.nmID = nmID;
   }
 
   public GetV1AnalyticsGoodsLabeling200ResponseReportInner photoUrls(
-      @jakarta.annotation.Nullable List<String> photoUrls) {
+      @jakarta.annotation.Nonnull List<String> photoUrls) {
     this.photoUrls = photoUrls;
     return this;
   }
@@ -179,17 +179,17 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
    *
    * @return photoUrls
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public List<String> getPhotoUrls() {
     return photoUrls;
   }
 
-  public void setPhotoUrls(@jakarta.annotation.Nullable List<String> photoUrls) {
+  public void setPhotoUrls(@jakarta.annotation.Nonnull List<String> photoUrls) {
     this.photoUrls = photoUrls;
   }
 
   public GetV1AnalyticsGoodsLabeling200ResponseReportInner shkID(
-      @jakarta.annotation.Nullable Long shkID) {
+      @jakarta.annotation.Nonnull Long shkID) {
     this.shkID = shkID;
     return this;
   }
@@ -199,17 +199,17 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
    *
    * @return shkID
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public Long getShkID() {
     return shkID;
   }
 
-  public void setShkID(@jakarta.annotation.Nullable Long shkID) {
+  public void setShkID(@jakarta.annotation.Nonnull Long shkID) {
     this.shkID = shkID;
   }
 
   public GetV1AnalyticsGoodsLabeling200ResponseReportInner sku(
-      @jakarta.annotation.Nullable String sku) {
+      @jakarta.annotation.Nonnull String sku) {
     this.sku = sku;
     return this;
   }
@@ -219,12 +219,12 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
    *
    * @return sku
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getSku() {
     return sku;
   }
 
-  public void setSku(@jakarta.annotation.Nullable String sku) {
+  public void setSku(@jakarta.annotation.Nonnull String sku) {
     this.sku = sku;
   }
 
@@ -295,6 +295,13 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("amount");
+    openapiRequiredFields.add("date");
+    openapiRequiredFields.add("incomeId");
+    openapiRequiredFields.add("nmID");
+    openapiRequiredFields.add("photoUrls");
+    openapiRequiredFields.add("shkID");
+    openapiRequiredFields.add("sku");
   }
 
   /**
@@ -327,25 +334,35 @@ public class GetV1AnalyticsGoodsLabeling200ResponseReportInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+
+    // check to make sure all required properties/fields are present in the JSON string
+    for (String requiredField :
+        GetV1AnalyticsGoodsLabeling200ResponseReportInner.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(
+            String.format(
+                "The required field `%s` is not found in the JSON string: %s",
+                requiredField, jsonElement.toString()));
+      }
+    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if ((jsonObj.get("date") != null && !jsonObj.get("date").isJsonNull())
-        && !jsonObj.get("date").isJsonPrimitive()) {
+    if (!jsonObj.get("date").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `date` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("date").toString()));
     }
-    // ensure the optional json data is an array if present
-    if (jsonObj.get("photoUrls") != null
-        && !jsonObj.get("photoUrls").isJsonNull()
-        && !jsonObj.get("photoUrls").isJsonArray()) {
+    // ensure the required json array is present
+    if (jsonObj.get("photoUrls") == null) {
+      throw new IllegalArgumentException(
+          "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+    } else if (!jsonObj.get("photoUrls").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `photoUrls` to be an array in the JSON string but got `%s`",
               jsonObj.get("photoUrls").toString()));
     }
-    if ((jsonObj.get("sku") != null && !jsonObj.get("sku").isJsonNull())
-        && !jsonObj.get("sku").isJsonPrimitive()) {
+    if (!jsonObj.get("sku").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `sku` to be a primitive type in the JSON string but got `%s`",

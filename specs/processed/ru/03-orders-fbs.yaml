@@ -2918,7 +2918,7 @@ paths:
       summary: Получить список пунктов отгрузки поставки
       description: |-
         Метод возвращает доступные пункты отгрузки для указанной поставки.
-        Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
+        Предназначен для продавцов из РФ. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
 
         [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**:
         | Период | Лимит | Интервал | Всплеск |
@@ -5227,24 +5227,24 @@ components:
         address:
           type: object
           nullable: true
-          description: Точный адрес покупателя для доставки, если применимо. Из-за особенностей адреса некоторые поля могут быть пустыми
+          example:
+          description: |-
+            Точный адрес покупателя для доставки.
+            Указывается только для продавцов из Турции, в остальных случаях возвращается `null`
           properties:
             fullAddress:
               description: Адрес доставки
               type: string
-              example: Челябинская область, г. Челябинск, 51-я улица Арабкира, д. 10А, кв. 42
             longitude:
               type: number
               format: float64
               nullable: false
               description: Долгота
-              example: 44.519068
             latitude:
               type: number
               format: float64
               nullable: false
               description: Широта
-              example: 40.20192
         ddate:
           type: string
           description: |-

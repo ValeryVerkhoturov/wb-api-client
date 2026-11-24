@@ -37,12 +37,12 @@ public class NmReportRetryReportRequest {
   public static final String SERIALIZED_NAME_DOWNLOAD_ID = "downloadId";
 
   @SerializedName(SERIALIZED_NAME_DOWNLOAD_ID)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private UUID downloadId;
 
   public NmReportRetryReportRequest() {}
 
-  public NmReportRetryReportRequest downloadId(@jakarta.annotation.Nullable UUID downloadId) {
+  public NmReportRetryReportRequest downloadId(@jakarta.annotation.Nonnull UUID downloadId) {
     this.downloadId = downloadId;
     return this;
   }
@@ -52,12 +52,12 @@ public class NmReportRetryReportRequest {
    *
    * @return downloadId
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public UUID getDownloadId() {
     return downloadId;
   }
 
-  public void setDownloadId(@jakarta.annotation.Nullable UUID downloadId) {
+  public void setDownloadId(@jakarta.annotation.Nonnull UUID downloadId) {
     this.downloadId = downloadId;
   }
 
@@ -107,6 +107,7 @@ public class NmReportRetryReportRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("downloadId");
   }
 
   /**
@@ -136,9 +137,18 @@ public class NmReportRetryReportRequest {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+
+    // check to make sure all required properties/fields are present in the JSON string
+    for (String requiredField : NmReportRetryReportRequest.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(
+            String.format(
+                "The required field `%s` is not found in the JSON string: %s",
+                requiredField, jsonElement.toString()));
+      }
+    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if ((jsonObj.get("downloadId") != null && !jsonObj.get("downloadId").isJsonNull())
-        && !jsonObj.get("downloadId").isJsonPrimitive()) {
+    if (!jsonObj.get("downloadId").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `downloadId` to be a primitive type in the JSON string but got `%s`",

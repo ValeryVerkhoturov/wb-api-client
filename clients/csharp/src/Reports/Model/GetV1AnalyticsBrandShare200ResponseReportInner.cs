@@ -34,12 +34,22 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1AnalyticsBrandShare200ResponseReportInner" /> class.
         /// </summary>
-        /// <param name="applyDate">Дата.</param>
-        /// <param name="brandRating">Рейтинг бренда в родительской категории.</param>
-        /// <param name="pricePercent">Доля от продаж в родительской категории — цена, %.</param>
-        /// <param name="qtyPercent">Доля от продаж в родительской категории — количество, %.</param>
+        [JsonConstructorAttribute]
+        protected GetV1AnalyticsBrandShare200ResponseReportInner() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GetV1AnalyticsBrandShare200ResponseReportInner" /> class.
+        /// </summary>
+        /// <param name="applyDate">Дата (required).</param>
+        /// <param name="brandRating">Рейтинг бренда в родительской категории (required).</param>
+        /// <param name="pricePercent">Доля от продаж в родительской категории — цена, % (required).</param>
+        /// <param name="qtyPercent">Доля от продаж в родительской категории — количество, % (required).</param>
         public GetV1AnalyticsBrandShare200ResponseReportInner(string applyDate = default(string), long brandRating = default(long), float pricePercent = default(float), float qtyPercent = default(float))
         {
+            // to ensure "applyDate" is required (not null)
+            if (applyDate == null)
+            {
+                throw new ArgumentNullException("applyDate is a required property for GetV1AnalyticsBrandShare200ResponseReportInner and cannot be null");
+            }
             this.ApplyDate = applyDate;
             this.BrandRating = brandRating;
             this.PricePercent = pricePercent;
@@ -50,28 +60,28 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// Дата
         /// </summary>
         /// <value>Дата</value>
-        [DataMember(Name = "applyDate", EmitDefaultValue = false)]
+        [DataMember(Name = "applyDate", IsRequired = true, EmitDefaultValue = true)]
         public string ApplyDate { get; set; }
 
         /// <summary>
         /// Рейтинг бренда в родительской категории
         /// </summary>
         /// <value>Рейтинг бренда в родительской категории</value>
-        [DataMember(Name = "brandRating", EmitDefaultValue = false)]
+        [DataMember(Name = "brandRating", IsRequired = true, EmitDefaultValue = true)]
         public long BrandRating { get; set; }
 
         /// <summary>
         /// Доля от продаж в родительской категории — цена, %
         /// </summary>
         /// <value>Доля от продаж в родительской категории — цена, %</value>
-        [DataMember(Name = "pricePercent", EmitDefaultValue = false)]
+        [DataMember(Name = "pricePercent", IsRequired = true, EmitDefaultValue = true)]
         public float PricePercent { get; set; }
 
         /// <summary>
         /// Доля от продаж в родительской категории — количество, %
         /// </summary>
         /// <value>Доля от продаж в родительской категории — количество, %</value>
-        [DataMember(Name = "qtyPercent", EmitDefaultValue = false)]
+        [DataMember(Name = "qtyPercent", IsRequired = true, EmitDefaultValue = true)]
         public float QtyPercent { get; set; }
 
         /// <summary>

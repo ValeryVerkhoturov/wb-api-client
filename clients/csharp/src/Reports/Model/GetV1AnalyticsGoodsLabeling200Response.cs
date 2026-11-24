@@ -34,16 +34,26 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1AnalyticsGoodsLabeling200Response" /> class.
         /// </summary>
-        /// <param name="report">report.</param>
+        [JsonConstructorAttribute]
+        protected GetV1AnalyticsGoodsLabeling200Response() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GetV1AnalyticsGoodsLabeling200Response" /> class.
+        /// </summary>
+        /// <param name="report">report (required).</param>
         public GetV1AnalyticsGoodsLabeling200Response(List<GetV1AnalyticsGoodsLabeling200ResponseReportInner> report = default(List<GetV1AnalyticsGoodsLabeling200ResponseReportInner>))
         {
+            // to ensure "report" is required (not null)
+            if (report == null)
+            {
+                throw new ArgumentNullException("report is a required property for GetV1AnalyticsGoodsLabeling200Response and cannot be null");
+            }
             this.Report = report;
         }
 
         /// <summary>
         /// Gets or Sets Report
         /// </summary>
-        [DataMember(Name = "report", EmitDefaultValue = false)]
+        [DataMember(Name = "report", IsRequired = true, EmitDefaultValue = true)]
         public List<GetV1AnalyticsGoodsLabeling200ResponseReportInner> Report { get; set; }
 
         /// <summary>

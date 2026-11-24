@@ -34,9 +34,19 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1AnalyticsBrandShareParentSubjects200Response" /> class.
         /// </summary>
-        /// <param name="data">Категории бренда.</param>
+        [JsonConstructorAttribute]
+        protected GetV1AnalyticsBrandShareParentSubjects200Response() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GetV1AnalyticsBrandShareParentSubjects200Response" /> class.
+        /// </summary>
+        /// <param name="data">Категории бренда (required).</param>
         public GetV1AnalyticsBrandShareParentSubjects200Response(List<GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner> data = default(List<GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner>))
         {
+            // to ensure "data" is required (not null)
+            if (data == null)
+            {
+                throw new ArgumentNullException("data is a required property for GetV1AnalyticsBrandShareParentSubjects200Response and cannot be null");
+            }
             this.Data = data;
         }
 
@@ -44,7 +54,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// Категории бренда
         /// </summary>
         /// <value>Категории бренда</value>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
         public List<GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner> Data { get; set; }
 
         /// <summary>

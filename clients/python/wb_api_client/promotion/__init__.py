@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "2.0.1"
+__version__ = "3.0.0"
 
 # import apis into sdk package
 from wb_api_client.promotion.api.promotion_api import PromotionApi

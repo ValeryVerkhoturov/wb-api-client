@@ -67,7 +67,7 @@ public class Order {
 
   /**
    * [Статус
-   * заказа](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):
+   * заказа](https://seller.wildberries.ru/instructions/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):
    * - &#x60;created&#x60; — оформлен - &#x60;buyout&#x60; — продан - &#x60;cancel&#x60; — отменён -
    * &#x60;return&#x60; — возвращён - &#x60;returnDefective&#x60; — возвращён по причине брака
    */
@@ -135,7 +135,7 @@ public class Order {
 
   /**
    * [Тип
-   * отмены](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c)
+   * отмены](https://seller.wildberries.ru/instructions/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c)
    * (при &#x60;\&quot;status\&quot;:\&quot;cancel\&quot;&#x60;): - &#x60;app&#x60; — отказ до
    * получения - &#x60;receipt&#x60; — отказ при получении - &#x60;expire&#x60; — истёк срок
    * получения - &#x60;other&#x60; — иное
@@ -347,7 +347,7 @@ public class Order {
 
   /**
    * [Статус
-   * заказа](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):
+   * заказа](https://seller.wildberries.ru/instructions/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):
    * - &#x60;created&#x60; — оформлен - &#x60;buyout&#x60; — продан - &#x60;cancel&#x60; — отменён -
    * &#x60;return&#x60; — возвращён - &#x60;returnDefective&#x60; — возвращён по причине брака
    *
@@ -369,7 +369,7 @@ public class Order {
 
   /**
    * [Тип
-   * отмены](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c)
+   * отмены](https://seller.wildberries.ru/instructions/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c)
    * (при &#x60;\&quot;status\&quot;:\&quot;cancel\&quot;&#x60;): - &#x60;app&#x60; — отказ до
    * получения - &#x60;receipt&#x60; — отказ при получении - &#x60;expire&#x60; — истёк срок
    * получения - &#x60;other&#x60; — иное
@@ -391,8 +391,8 @@ public class Order {
   }
 
   /**
-   * Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для
-   * складов WB может быть только &#x60;Склад WB&#x60;
+   * Название склада. Для складов WB в России может быть только &#x60;Склад WB РФ&#x60; или
+   * &#x60;Склад WB СГТ РФ&#x60;
    *
    * @return warehouseName
    */
@@ -411,9 +411,7 @@ public class Order {
   }
 
   /**
-   * Федеральный округ склада. Если склад не в России, возвращается страна. [На данный
-   * момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) для складов WB может быть только
-   * &#x60;\&quot;\&quot;&#x60;
+   * Регион отгрузки. Если склад принадлежит WB или продавцу не в России, возвращается страна
    *
    * @return warehouseRegion
    */

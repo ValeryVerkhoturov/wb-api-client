@@ -39,97 +39,97 @@ public class GetV1Deductions200ResponseDataReportsInner {
   public static final String SERIALIZED_NAME_DT_BONUS = "dtBonus";
 
   @SerializedName(SERIALIZED_NAME_DT_BONUS)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String dtBonus;
 
   public static final String SERIALIZED_NAME_NM_ID = "nmId";
 
   @SerializedName(SERIALIZED_NAME_NM_ID)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private Long nmId;
 
   public static final String SERIALIZED_NAME_OLD_SHK_ID = "oldShkId";
 
   @SerializedName(SERIALIZED_NAME_OLD_SHK_ID)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private Long oldShkId;
 
   public static final String SERIALIZED_NAME_OLD_COLOR = "oldColor";
 
   @SerializedName(SERIALIZED_NAME_OLD_COLOR)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String oldColor;
 
   public static final String SERIALIZED_NAME_OLD_SIZE = "oldSize";
 
   @SerializedName(SERIALIZED_NAME_OLD_SIZE)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String oldSize;
 
   public static final String SERIALIZED_NAME_OLD_SKU = "oldSku";
 
   @SerializedName(SERIALIZED_NAME_OLD_SKU)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String oldSku;
 
   public static final String SERIALIZED_NAME_OLD_VENDOR_CODE = "oldVendorCode";
 
   @SerializedName(SERIALIZED_NAME_OLD_VENDOR_CODE)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String oldVendorCode;
 
   public static final String SERIALIZED_NAME_NEW_SHK_ID = "newShkId";
 
   @SerializedName(SERIALIZED_NAME_NEW_SHK_ID)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private Long newShkId;
 
   public static final String SERIALIZED_NAME_NEW_COLOR = "newColor";
 
   @SerializedName(SERIALIZED_NAME_NEW_COLOR)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String newColor;
 
   public static final String SERIALIZED_NAME_NEW_SIZE = "newSize";
 
   @SerializedName(SERIALIZED_NAME_NEW_SIZE)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String newSize;
 
   public static final String SERIALIZED_NAME_NEW_SKU = "newSku";
 
   @SerializedName(SERIALIZED_NAME_NEW_SKU)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String newSku;
 
   public static final String SERIALIZED_NAME_NEW_VENDOR_CODE = "newVendorCode";
 
   @SerializedName(SERIALIZED_NAME_NEW_VENDOR_CODE)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String newVendorCode;
 
   public static final String SERIALIZED_NAME_BONUS_SUMM = "bonusSumm";
 
   @SerializedName(SERIALIZED_NAME_BONUS_SUMM)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private BigDecimal bonusSumm;
 
   public static final String SERIALIZED_NAME_BONUS_TYPE = "bonusType";
 
   @SerializedName(SERIALIZED_NAME_BONUS_TYPE)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String bonusType;
 
   public static final String SERIALIZED_NAME_PHOTO_URLS = "photoUrls";
 
   @SerializedName(SERIALIZED_NAME_PHOTO_URLS)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private List<String> photoUrls = new ArrayList<>();
 
   public GetV1Deductions200ResponseDataReportsInner() {}
 
   public GetV1Deductions200ResponseDataReportsInner dtBonus(
-      @jakarta.annotation.Nullable String dtBonus) {
+      @jakarta.annotation.Nonnull String dtBonus) {
     this.dtBonus = dtBonus;
     return this;
   }
@@ -139,16 +139,16 @@ public class GetV1Deductions200ResponseDataReportsInner {
    *
    * @return dtBonus
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getDtBonus() {
     return dtBonus;
   }
 
-  public void setDtBonus(@jakarta.annotation.Nullable String dtBonus) {
+  public void setDtBonus(@jakarta.annotation.Nonnull String dtBonus) {
     this.dtBonus = dtBonus;
   }
 
-  public GetV1Deductions200ResponseDataReportsInner nmId(@jakarta.annotation.Nullable Long nmId) {
+  public GetV1Deductions200ResponseDataReportsInner nmId(@jakarta.annotation.Nonnull Long nmId) {
     this.nmId = nmId;
     return this;
   }
@@ -158,17 +158,17 @@ public class GetV1Deductions200ResponseDataReportsInner {
    *
    * @return nmId
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public Long getNmId() {
     return nmId;
   }
 
-  public void setNmId(@jakarta.annotation.Nullable Long nmId) {
+  public void setNmId(@jakarta.annotation.Nonnull Long nmId) {
     this.nmId = nmId;
   }
 
   public GetV1Deductions200ResponseDataReportsInner oldShkId(
-      @jakarta.annotation.Nullable Long oldShkId) {
+      @jakarta.annotation.Nonnull Long oldShkId) {
     this.oldShkId = oldShkId;
     return this;
   }
@@ -178,17 +178,17 @@ public class GetV1Deductions200ResponseDataReportsInner {
    *
    * @return oldShkId
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public Long getOldShkId() {
     return oldShkId;
   }
 
-  public void setOldShkId(@jakarta.annotation.Nullable Long oldShkId) {
+  public void setOldShkId(@jakarta.annotation.Nonnull Long oldShkId) {
     this.oldShkId = oldShkId;
   }
 
   public GetV1Deductions200ResponseDataReportsInner oldColor(
-      @jakarta.annotation.Nullable String oldColor) {
+      @jakarta.annotation.Nonnull String oldColor) {
     this.oldColor = oldColor;
     return this;
   }
@@ -198,17 +198,17 @@ public class GetV1Deductions200ResponseDataReportsInner {
    *
    * @return oldColor
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getOldColor() {
     return oldColor;
   }
 
-  public void setOldColor(@jakarta.annotation.Nullable String oldColor) {
+  public void setOldColor(@jakarta.annotation.Nonnull String oldColor) {
     this.oldColor = oldColor;
   }
 
   public GetV1Deductions200ResponseDataReportsInner oldSize(
-      @jakarta.annotation.Nullable String oldSize) {
+      @jakarta.annotation.Nonnull String oldSize) {
     this.oldSize = oldSize;
     return this;
   }
@@ -218,17 +218,17 @@ public class GetV1Deductions200ResponseDataReportsInner {
    *
    * @return oldSize
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getOldSize() {
     return oldSize;
   }
 
-  public void setOldSize(@jakarta.annotation.Nullable String oldSize) {
+  public void setOldSize(@jakarta.annotation.Nonnull String oldSize) {
     this.oldSize = oldSize;
   }
 
   public GetV1Deductions200ResponseDataReportsInner oldSku(
-      @jakarta.annotation.Nullable String oldSku) {
+      @jakarta.annotation.Nonnull String oldSku) {
     this.oldSku = oldSku;
     return this;
   }
@@ -238,17 +238,17 @@ public class GetV1Deductions200ResponseDataReportsInner {
    *
    * @return oldSku
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getOldSku() {
     return oldSku;
   }
 
-  public void setOldSku(@jakarta.annotation.Nullable String oldSku) {
+  public void setOldSku(@jakarta.annotation.Nonnull String oldSku) {
     this.oldSku = oldSku;
   }
 
   public GetV1Deductions200ResponseDataReportsInner oldVendorCode(
-      @jakarta.annotation.Nullable String oldVendorCode) {
+      @jakarta.annotation.Nonnull String oldVendorCode) {
     this.oldVendorCode = oldVendorCode;
     return this;
   }
@@ -258,17 +258,17 @@ public class GetV1Deductions200ResponseDataReportsInner {
    *
    * @return oldVendorCode
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getOldVendorCode() {
     return oldVendorCode;
   }
 
-  public void setOldVendorCode(@jakarta.annotation.Nullable String oldVendorCode) {
+  public void setOldVendorCode(@jakarta.annotation.Nonnull String oldVendorCode) {
     this.oldVendorCode = oldVendorCode;
   }
 
   public GetV1Deductions200ResponseDataReportsInner newShkId(
-      @jakarta.annotation.Nullable Long newShkId) {
+      @jakarta.annotation.Nonnull Long newShkId) {
     this.newShkId = newShkId;
     return this;
   }
@@ -278,17 +278,17 @@ public class GetV1Deductions200ResponseDataReportsInner {
    *
    * @return newShkId
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public Long getNewShkId() {
     return newShkId;
   }
 
-  public void setNewShkId(@jakarta.annotation.Nullable Long newShkId) {
+  public void setNewShkId(@jakarta.annotation.Nonnull Long newShkId) {
     this.newShkId = newShkId;
   }
 
   public GetV1Deductions200ResponseDataReportsInner newColor(
-      @jakarta.annotation.Nullable String newColor) {
+      @jakarta.annotation.Nonnull String newColor) {
     this.newColor = newColor;
     return this;
   }
@@ -298,17 +298,17 @@ public class GetV1Deductions200ResponseDataReportsInner {
    *
    * @return newColor
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getNewColor() {
     return newColor;
   }
 
-  public void setNewColor(@jakarta.annotation.Nullable String newColor) {
+  public void setNewColor(@jakarta.annotation.Nonnull String newColor) {
     this.newColor = newColor;
   }
 
   public GetV1Deductions200ResponseDataReportsInner newSize(
-      @jakarta.annotation.Nullable String newSize) {
+      @jakarta.annotation.Nonnull String newSize) {
     this.newSize = newSize;
     return this;
   }
@@ -318,17 +318,17 @@ public class GetV1Deductions200ResponseDataReportsInner {
    *
    * @return newSize
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getNewSize() {
     return newSize;
   }
 
-  public void setNewSize(@jakarta.annotation.Nullable String newSize) {
+  public void setNewSize(@jakarta.annotation.Nonnull String newSize) {
     this.newSize = newSize;
   }
 
   public GetV1Deductions200ResponseDataReportsInner newSku(
-      @jakarta.annotation.Nullable String newSku) {
+      @jakarta.annotation.Nonnull String newSku) {
     this.newSku = newSku;
     return this;
   }
@@ -338,17 +338,17 @@ public class GetV1Deductions200ResponseDataReportsInner {
    *
    * @return newSku
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getNewSku() {
     return newSku;
   }
 
-  public void setNewSku(@jakarta.annotation.Nullable String newSku) {
+  public void setNewSku(@jakarta.annotation.Nonnull String newSku) {
     this.newSku = newSku;
   }
 
   public GetV1Deductions200ResponseDataReportsInner newVendorCode(
-      @jakarta.annotation.Nullable String newVendorCode) {
+      @jakarta.annotation.Nonnull String newVendorCode) {
     this.newVendorCode = newVendorCode;
     return this;
   }
@@ -358,17 +358,17 @@ public class GetV1Deductions200ResponseDataReportsInner {
    *
    * @return newVendorCode
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getNewVendorCode() {
     return newVendorCode;
   }
 
-  public void setNewVendorCode(@jakarta.annotation.Nullable String newVendorCode) {
+  public void setNewVendorCode(@jakarta.annotation.Nonnull String newVendorCode) {
     this.newVendorCode = newVendorCode;
   }
 
   public GetV1Deductions200ResponseDataReportsInner bonusSumm(
-      @jakarta.annotation.Nullable BigDecimal bonusSumm) {
+      @jakarta.annotation.Nonnull BigDecimal bonusSumm) {
     this.bonusSumm = bonusSumm;
     return this;
   }
@@ -378,17 +378,17 @@ public class GetV1Deductions200ResponseDataReportsInner {
    *
    * @return bonusSumm
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public BigDecimal getBonusSumm() {
     return bonusSumm;
   }
 
-  public void setBonusSumm(@jakarta.annotation.Nullable BigDecimal bonusSumm) {
+  public void setBonusSumm(@jakarta.annotation.Nonnull BigDecimal bonusSumm) {
     this.bonusSumm = bonusSumm;
   }
 
   public GetV1Deductions200ResponseDataReportsInner bonusType(
-      @jakarta.annotation.Nullable String bonusType) {
+      @jakarta.annotation.Nonnull String bonusType) {
     this.bonusType = bonusType;
     return this;
   }
@@ -398,17 +398,17 @@ public class GetV1Deductions200ResponseDataReportsInner {
    *
    * @return bonusType
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getBonusType() {
     return bonusType;
   }
 
-  public void setBonusType(@jakarta.annotation.Nullable String bonusType) {
+  public void setBonusType(@jakarta.annotation.Nonnull String bonusType) {
     this.bonusType = bonusType;
   }
 
   public GetV1Deductions200ResponseDataReportsInner photoUrls(
-      @jakarta.annotation.Nullable List<String> photoUrls) {
+      @jakarta.annotation.Nonnull List<String> photoUrls) {
     this.photoUrls = photoUrls;
     return this;
   }
@@ -426,12 +426,12 @@ public class GetV1Deductions200ResponseDataReportsInner {
    *
    * @return photoUrls
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public List<String> getPhotoUrls() {
     return photoUrls;
   }
 
-  public void setPhotoUrls(@jakarta.annotation.Nullable List<String> photoUrls) {
+  public void setPhotoUrls(@jakarta.annotation.Nonnull List<String> photoUrls) {
     this.photoUrls = photoUrls;
   }
 
@@ -541,6 +541,21 @@ public class GetV1Deductions200ResponseDataReportsInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("dtBonus");
+    openapiRequiredFields.add("nmId");
+    openapiRequiredFields.add("oldShkId");
+    openapiRequiredFields.add("oldColor");
+    openapiRequiredFields.add("oldSize");
+    openapiRequiredFields.add("oldSku");
+    openapiRequiredFields.add("oldVendorCode");
+    openapiRequiredFields.add("newShkId");
+    openapiRequiredFields.add("newColor");
+    openapiRequiredFields.add("newSize");
+    openapiRequiredFields.add("newSku");
+    openapiRequiredFields.add("newVendorCode");
+    openapiRequiredFields.add("bonusSumm");
+    openapiRequiredFields.add("bonusType");
+    openapiRequiredFields.add("photoUrls");
   }
 
   /**
@@ -571,81 +586,82 @@ public class GetV1Deductions200ResponseDataReportsInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+
+    // check to make sure all required properties/fields are present in the JSON string
+    for (String requiredField : GetV1Deductions200ResponseDataReportsInner.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(
+            String.format(
+                "The required field `%s` is not found in the JSON string: %s",
+                requiredField, jsonElement.toString()));
+      }
+    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if ((jsonObj.get("dtBonus") != null && !jsonObj.get("dtBonus").isJsonNull())
-        && !jsonObj.get("dtBonus").isJsonPrimitive()) {
+    if (!jsonObj.get("dtBonus").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `dtBonus` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("dtBonus").toString()));
     }
-    if ((jsonObj.get("oldColor") != null && !jsonObj.get("oldColor").isJsonNull())
-        && !jsonObj.get("oldColor").isJsonPrimitive()) {
+    if (!jsonObj.get("oldColor").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `oldColor` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("oldColor").toString()));
     }
-    if ((jsonObj.get("oldSize") != null && !jsonObj.get("oldSize").isJsonNull())
-        && !jsonObj.get("oldSize").isJsonPrimitive()) {
+    if (!jsonObj.get("oldSize").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `oldSize` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("oldSize").toString()));
     }
-    if ((jsonObj.get("oldSku") != null && !jsonObj.get("oldSku").isJsonNull())
-        && !jsonObj.get("oldSku").isJsonPrimitive()) {
+    if (!jsonObj.get("oldSku").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `oldSku` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("oldSku").toString()));
     }
-    if ((jsonObj.get("oldVendorCode") != null && !jsonObj.get("oldVendorCode").isJsonNull())
-        && !jsonObj.get("oldVendorCode").isJsonPrimitive()) {
+    if (!jsonObj.get("oldVendorCode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `oldVendorCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("oldVendorCode").toString()));
     }
-    if ((jsonObj.get("newColor") != null && !jsonObj.get("newColor").isJsonNull())
-        && !jsonObj.get("newColor").isJsonPrimitive()) {
+    if (!jsonObj.get("newColor").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `newColor` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("newColor").toString()));
     }
-    if ((jsonObj.get("newSize") != null && !jsonObj.get("newSize").isJsonNull())
-        && !jsonObj.get("newSize").isJsonPrimitive()) {
+    if (!jsonObj.get("newSize").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `newSize` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("newSize").toString()));
     }
-    if ((jsonObj.get("newSku") != null && !jsonObj.get("newSku").isJsonNull())
-        && !jsonObj.get("newSku").isJsonPrimitive()) {
+    if (!jsonObj.get("newSku").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `newSku` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("newSku").toString()));
     }
-    if ((jsonObj.get("newVendorCode") != null && !jsonObj.get("newVendorCode").isJsonNull())
-        && !jsonObj.get("newVendorCode").isJsonPrimitive()) {
+    if (!jsonObj.get("newVendorCode").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `newVendorCode` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("newVendorCode").toString()));
     }
-    if ((jsonObj.get("bonusType") != null && !jsonObj.get("bonusType").isJsonNull())
-        && !jsonObj.get("bonusType").isJsonPrimitive()) {
+    if (!jsonObj.get("bonusType").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `bonusType` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("bonusType").toString()));
     }
-    // ensure the optional json data is an array if present
-    if (jsonObj.get("photoUrls") != null
-        && !jsonObj.get("photoUrls").isJsonNull()
-        && !jsonObj.get("photoUrls").isJsonArray()) {
+    // ensure the required json array is present
+    if (jsonObj.get("photoUrls") == null) {
+      throw new IllegalArgumentException(
+          "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+    } else if (!jsonObj.get("photoUrls").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `photoUrls` to be an array in the JSON string but got `%s`",

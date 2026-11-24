@@ -289,8 +289,7 @@ public class TableItem {
   }
 
   /**
-   * Искали ли товар по подменному артикулу. Поле будет в ответе при наличии в запросе
-   * &#x60;includeSubstitutedSKUs&#x60; и/или &#x60;includeSearchTexts&#x60;
+   * Искали ли товар по подменному артикулу
    *
    * @return isSubstitutedSKU
    */

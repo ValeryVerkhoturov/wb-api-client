@@ -38,7 +38,7 @@ class MainResponse(BaseModel):
         default=None, alias="visibilityInfo"
     )
     groups: Optional[List[TableGroupItem]] = Field(
-        default=None, description="Список элементов таблицы "
+        default=None, description="Список элементов таблицы"
     )
     currency: Optional[StrictStr] = Field(default=None, description="Валюта отчёта")
     __properties: ClassVar[List[str]] = [

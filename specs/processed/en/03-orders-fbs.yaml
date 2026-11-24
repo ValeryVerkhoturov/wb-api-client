@@ -2881,7 +2881,7 @@ paths:
       summary: Get Supply Shipping Points
       description: |-
         The method returns shipping points available for the supply.
-        Use this method data to set [supply shipping methods](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
+        Intended for sellers from Russia. Use this method data to set [supply shipping methods](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
 
         [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for **FBS assembly orders, supplies, passes and auto-return settings** methods:
         | Period | Limit | Interval | Burst |
@@ -5138,24 +5138,24 @@ components:
         address:
           type: object
           nullable: true
-          description: Exact buyer's address for delivery, if applicable. Some of the fields may be empty due to the specifics of the address
+          example:
+          description: |-
+            Exact buyer address for delivery.
+            Specified only for sellers from Turkey, in other cases `null` is returned
           properties:
             fullAddress:
               description: Delivery address
               type: string
-              example: Chelyabinsk Region, Chelyabinsk, 51st Arabkir Street, Building 10A, Apartment 42
             longitude:
               type: number
               format: float64
               nullable: false
               description: Longitude
-              example: 44.519068
             latitude:
               type: number
               format: float64
               nullable: false
               description: Latitude
-              example: 40.20192
         ddate:
           type: string
           description: |-

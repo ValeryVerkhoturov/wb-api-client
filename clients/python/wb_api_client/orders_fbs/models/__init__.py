@@ -87,6 +87,7 @@ from wb_api_client.orders_fbs.models.model_pass import ModelPass
 from wb_api_client.orders_fbs.models.order import Order
 from wb_api_client.orders_fbs.models.order_address import OrderAddress
 from wb_api_client.orders_fbs.models.order_new import OrderNew
+from wb_api_client.orders_fbs.models.order_new_address import OrderNewAddress
 from wb_api_client.orders_fbs.models.order_options import OrderOptions
 from wb_api_client.orders_fbs.models.orders_request_api import OrdersRequestAPI
 from wb_api_client.orders_fbs.models.pass_office import PassOffice

@@ -196,7 +196,7 @@ export interface GetV1AnalyticsAntifraudDetails200Response {
    * @type {Array<GetV1AnalyticsAntifraudDetails200ResponseDetailsInner>}
    * @memberof GetV1AnalyticsAntifraudDetails200Response
    */
-  details?: Array<GetV1AnalyticsAntifraudDetails200ResponseDetailsInner>;
+  details: Array<GetV1AnalyticsAntifraudDetails200ResponseDetailsInner>;
 }
 /**
  *
@@ -205,35 +205,35 @@ export interface GetV1AnalyticsAntifraudDetails200Response {
  */
 export interface GetV1AnalyticsAntifraudDetails200ResponseDetailsInner {
   /**
-   * Артикул WB
-   * @type {number}
-   * @memberof GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
-   */
-  nmID?: number;
-  /**
-   * Сумма заказа
-   * @type {number}
-   * @memberof GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
-   */
-  sum?: number;
-  /**
    * Валюта заказа
    * @type {string}
    * @memberof GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
    */
-  currency?: string;
+  currency: string;
   /**
    * Начало отчётного периода
    * @type {string}
    * @memberof GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
    */
-  dateFrom?: string;
+  dateFrom: string;
   /**
    * Конец отчётного периода
    * @type {string}
    * @memberof GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
    */
-  dateTo?: string;
+  dateTo: string;
+  /**
+   * Артикул WB
+   * @type {number}
+   * @memberof GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
+   */
+  nmID: number;
+  /**
+   * Сумма заказа
+   * @type {number}
+   * @memberof GetV1AnalyticsAntifraudDetails200ResponseDetailsInner
+   */
+  sum: number;
 }
 /**
  *
@@ -333,7 +333,7 @@ export interface GetV1AnalyticsBrandShare200Response {
    * @type {Array<GetV1AnalyticsBrandShare200ResponseReportInner>}
    * @memberof GetV1AnalyticsBrandShare200Response
    */
-  report?: Array<GetV1AnalyticsBrandShare200ResponseReportInner>;
+  report: Array<GetV1AnalyticsBrandShare200ResponseReportInner>;
 }
 /**
  *
@@ -346,25 +346,25 @@ export interface GetV1AnalyticsBrandShare200ResponseReportInner {
    * @type {string}
    * @memberof GetV1AnalyticsBrandShare200ResponseReportInner
    */
-  applyDate?: string;
+  applyDate: string;
   /**
    * Рейтинг бренда в родительской категории
    * @type {number}
    * @memberof GetV1AnalyticsBrandShare200ResponseReportInner
    */
-  brandRating?: number;
+  brandRating: number;
   /**
    * Доля от продаж в родительской категории — цена, %
    * @type {number}
    * @memberof GetV1AnalyticsBrandShare200ResponseReportInner
    */
-  pricePercent?: number;
+  pricePercent: number;
   /**
    * Доля от продаж в родительской категории — количество, %
    * @type {number}
    * @memberof GetV1AnalyticsBrandShare200ResponseReportInner
    */
-  qtyPercent?: number;
+  qtyPercent: number;
 }
 /**
  *
@@ -377,7 +377,7 @@ export interface GetV1AnalyticsBrandShareBrands200Response {
    * @type {Array<string>}
    * @memberof GetV1AnalyticsBrandShareBrands200Response
    */
-  data?: Array<string>;
+  data: Array<string>;
 }
 /**
  *
@@ -390,7 +390,7 @@ export interface GetV1AnalyticsBrandShareParentSubjects200Response {
    * @type {Array<GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner>}
    * @memberof GetV1AnalyticsBrandShareParentSubjects200Response
    */
-  data?: Array<GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner>;
+  data: Array<GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner>;
 }
 /**
  *
@@ -403,13 +403,13 @@ export interface GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
    * @type {number}
    * @memberof GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner
    */
-  parentId?: number;
+  parentId: number;
   /**
    * Название родительской категории
    * @type {string}
    * @memberof GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner
    */
-  parentName?: string;
+  parentName: string;
 }
 /**
  *
@@ -422,7 +422,7 @@ export interface GetV1AnalyticsGoodsLabeling200Response {
    * @type {Array<GetV1AnalyticsGoodsLabeling200ResponseReportInner>}
    * @memberof GetV1AnalyticsGoodsLabeling200Response
    */
-  report?: Array<GetV1AnalyticsGoodsLabeling200ResponseReportInner>;
+  report: Array<GetV1AnalyticsGoodsLabeling200ResponseReportInner>;
 }
 /**
  *
@@ -435,43 +435,43 @@ export interface GetV1AnalyticsGoodsLabeling200ResponseReportInner {
    * @type {number}
    * @memberof GetV1AnalyticsGoodsLabeling200ResponseReportInner
    */
-  amount?: number;
+  amount: number;
   /**
    * Дата
    * @type {string}
    * @memberof GetV1AnalyticsGoodsLabeling200ResponseReportInner
    */
-  date?: string;
+  date: string;
   /**
    * Номер поставки
    * @type {number}
    * @memberof GetV1AnalyticsGoodsLabeling200ResponseReportInner
    */
-  incomeId?: number;
+  incomeId: number;
   /**
    * Артикул WB
    * @type {number}
    * @memberof GetV1AnalyticsGoodsLabeling200ResponseReportInner
    */
-  nmID?: number;
+  nmID: number;
   /**
    * URL фото товара
    * @type {Array<string>}
    * @memberof GetV1AnalyticsGoodsLabeling200ResponseReportInner
    */
-  photoUrls?: Array<string>;
+  photoUrls: Array<string>;
   /**
    * Штрихкод
    * @type {number}
    * @memberof GetV1AnalyticsGoodsLabeling200ResponseReportInner
    */
-  shkID?: number;
+  shkID: number;
   /**
    * Баркод из карточки товара
    * @type {string}
    * @memberof GetV1AnalyticsGoodsLabeling200ResponseReportInner
    */
-  sku?: string;
+  sku: string;
 }
 /**
  *
@@ -516,91 +516,91 @@ export interface GetV1Deductions200ResponseDataReportsInner {
    * @type {string}
    * @memberof GetV1Deductions200ResponseDataReportsInner
    */
-  dtBonus?: string;
+  dtBonus: string;
   /**
    * Артикул WB
    * @type {number}
    * @memberof GetV1Deductions200ResponseDataReportsInner
    */
-  nmId?: number;
+  nmId: number;
   /**
    * Старый штрихкод
    * @type {number}
    * @memberof GetV1Deductions200ResponseDataReportsInner
    */
-  oldShkId?: number;
+  oldShkId: number;
   /**
    * Старый цвет
    * @type {string}
    * @memberof GetV1Deductions200ResponseDataReportsInner
    */
-  oldColor?: string;
+  oldColor: string;
   /**
    * Старый размер
    * @type {string}
    * @memberof GetV1Deductions200ResponseDataReportsInner
    */
-  oldSize?: string;
+  oldSize: string;
   /**
    * Старый баркод
    * @type {string}
    * @memberof GetV1Deductions200ResponseDataReportsInner
    */
-  oldSku?: string;
+  oldSku: string;
   /**
    * Старый артикул продавца
    * @type {string}
    * @memberof GetV1Deductions200ResponseDataReportsInner
    */
-  oldVendorCode?: string;
+  oldVendorCode: string;
   /**
    * Новый штрихкод
    * @type {number}
    * @memberof GetV1Deductions200ResponseDataReportsInner
    */
-  newShkId?: number;
+  newShkId: number;
   /**
    * Новый цвет
    * @type {string}
    * @memberof GetV1Deductions200ResponseDataReportsInner
    */
-  newColor?: string;
+  newColor: string;
   /**
    * Новый размер
    * @type {string}
    * @memberof GetV1Deductions200ResponseDataReportsInner
    */
-  newSize?: string;
+  newSize: string;
   /**
    * Новый баркод
    * @type {string}
    * @memberof GetV1Deductions200ResponseDataReportsInner
    */
-  newSku?: string;
+  newSku: string;
   /**
    * Новый артикул продавца
    * @type {string}
    * @memberof GetV1Deductions200ResponseDataReportsInner
    */
-  newVendorCode?: string;
+  newVendorCode: string;
   /**
    * Сумма удержания
    * @type {number}
    * @memberof GetV1Deductions200ResponseDataReportsInner
    */
-  bonusSumm?: number;
+  bonusSumm: number;
   /**
    * Причина удержания
    * @type {string}
    * @memberof GetV1Deductions200ResponseDataReportsInner
    */
-  bonusType?: string;
+  bonusType: string;
   /**
    * Фото замеров
    * @type {Array<string>}
    * @memberof GetV1Deductions200ResponseDataReportsInner
    */
-  photoUrls?: Array<string>;
+  photoUrls: Array<string>;
 }
 /**
  *
@@ -609,7 +609,7 @@ export interface GetV1Deductions200ResponseDataReportsInner {
  */
 export interface GetV1PaidStorageTasksTaskIdDownloadResponse200Inner {
   /**
-   * Дата, за которую был расчёт или перерасчёт
+   * Дата расчёта или перерасчёта
    * @type {string}
    * @memberof GetV1PaidStorageTasksTaskIdDownloadResponse200Inner
    */
@@ -1308,17 +1308,11 @@ export interface ModelsExciseReportResponse {
  */
 export interface ModelsExciseReportResponseDataInner {
   /**
-   * Страна покупателя
+   * Баркод
    * @type {string}
    * @memberof ModelsExciseReportResponseDataInner
    */
-  name?: string;
-  /**
-   * Цена товара, с НДС
-   * @type {number}
-   * @memberof ModelsExciseReportResponseDataInner
-   */
-  price?: number;
+  barcode?: string;
   /**
    * Валюта
    * @type {string}
@@ -1332,11 +1326,29 @@ export interface ModelsExciseReportResponseDataInner {
    */
   excise_short?: string;
   /**
-   * Баркод
+   * Номер фискального документа (чека полного расчёта), если есть
+   * @type {number}
+   * @memberof ModelsExciseReportResponseDataInner
+   */
+  fiscal_doc_number?: number;
+  /**
+   * Номер фискального накопителя, если есть
    * @type {string}
    * @memberof ModelsExciseReportResponseDataInner
    */
-  barcode?: string;
+  fiscal_drive_number?: string;
+  /**
+   * Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`
+   * @type {string}
+   * @memberof ModelsExciseReportResponseDataInner
+   */
+  fiscal_dt?: string;
+  /**
+   * Страна покупателя
+   * @type {string}
+   * @memberof ModelsExciseReportResponseDataInner
+   */
+  name?: string;
   /**
    * Артикул WB
    * @type {number}
@@ -1350,23 +1362,11 @@ export interface ModelsExciseReportResponseDataInner {
    */
   operation_type_id?: number;
   /**
-   * Номер фискального документа (чека полного расчёта), если есть
+   * Цена товара, с НДС
    * @type {number}
    * @memberof ModelsExciseReportResponseDataInner
    */
-  fiscal_doc_number?: number;
-  /**
-   * Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`
-   * @type {string}
-   * @memberof ModelsExciseReportResponseDataInner
-   */
-  fiscal_dt?: string;
-  /**
-   * Номер фискального накопителя, если есть
-   * @type {string}
-   * @memberof ModelsExciseReportResponseDataInner
-   */
-  fiscal_drive_number?: string;
+  price?: number;
   /**
    * `Rid`
    * @type {number}

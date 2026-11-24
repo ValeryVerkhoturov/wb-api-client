@@ -34,9 +34,19 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1AnalyticsBrandShareBrands200Response" /> class.
         /// </summary>
-        /// <param name="data">Список брендов.</param>
+        [JsonConstructorAttribute]
+        protected GetV1AnalyticsBrandShareBrands200Response() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GetV1AnalyticsBrandShareBrands200Response" /> class.
+        /// </summary>
+        /// <param name="data">Список брендов (required).</param>
         public GetV1AnalyticsBrandShareBrands200Response(List<string> data = default(List<string>))
         {
+            // to ensure "data" is required (not null)
+            if (data == null)
+            {
+                throw new ArgumentNullException("data is a required property for GetV1AnalyticsBrandShareBrands200Response and cannot be null");
+            }
             this.Data = data;
         }
 
@@ -47,7 +57,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /*
         <example>[&quot;1000 | Каталог&quot;,&quot;1000 Каталог&quot;,&quot;AndBerries&quot;,&quot;H&amp;M&quot;,&quot;Mirtex&quot;,&quot;PlayToday&quot;,&quot;Test1&quot;,&quot;WOW&quot;,&quot;[\&quot;Colambetta\&quot;]&quot;,&quot;dubs&quot;,&quot;test&quot;,&quot;Бест Трикотаж&quot;,&quot;Тест&quot;]</example>
         */
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Data { get; set; }
 
         /// <summary>

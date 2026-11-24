@@ -152,10 +152,6 @@ paths:
 
         You can get a report for a maximum of the last 365 days.<br><br>
 
-        In the previous period's data:
-        * The data in `pastPeriod` covers the same duration as in `selectedPeriod`
-        * If the `pastPeriod` start date is more than a year before the current date, it will be adjusted to: `pastPeriod.start = current date - 365 days`
-
         Pagination can be used.
 
         <div class="description_limit">
@@ -2089,6 +2085,12 @@ components:
         - limit
         - offset
     MainResponse:
+      required:
+        - commonInfo
+        - positionInfo
+        - visibilityInfo
+        - groups
+        - currency
       type: object
       properties:
         commonInfo:
@@ -2098,18 +2100,12 @@ components:
         visibilityInfo:
           $ref: '#/components/schemas/VisibilityInfo'
         groups:
-          description: |
-            Table elements list
+          description: Table elements list
           type: array
           items:
             $ref: '#/components/schemas/TableGroupItem'
         currency:
           $ref: '#/components/schemas/Currency'
-      required:
-        - commonInfo
-        - positionInfo
-        - visibilityInfo
-        - currency
     CommonInfo:
       type: object
       description: Common information
@@ -2273,6 +2269,12 @@ components:
         - secondHundred
         - below
     VisibilityInfo:
+      required:
+        - visibility
+        - openCard
+        - byDay
+        - byWeek
+        - byMonth
       type: object
       description: Visibility of listings and transitions to listings. By days, weeks, months
       properties:
@@ -2370,9 +2372,6 @@ components:
               - dt
               - visibility
               - open
-      required:
-        - visibility
-        - openCard
     TableGroupItem:
       type: object
       description: |
@@ -2522,6 +2521,23 @@ components:
         - metrics
         - items
     TableItem:
+      required:
+        - nmId
+        - vendorCode
+        - subjectName
+        - isAdvertised
+        - isSubstitutedSKU
+        - isCardRated
+        - rating
+        - feedbackRating
+        - price
+        - avgPosition
+        - openCard
+        - addToCart
+        - openToCart
+        - orders
+        - cartToOrder
+        - visibility
       type: object
       allOf:
         - type: object
@@ -2558,9 +2574,7 @@ components:
             isSubstitutedSKU:
               type: boolean
               example: true
-              description: |
-                If the item was searched by the promo item.<br>
-                The field will be in the response if the request contains `includeSubstitutedSKUs` and/or `includeSearchTexts`
+              description: If the item was searched by the promo item
             isCardRated:
               example: true
               description: If the listing has a rating
@@ -2690,21 +2704,6 @@ components:
                   type: integer
               required:
                 - current
-      required:
-        - nmId
-        - vendorCode
-        - isAdvertised
-        - isCardRated
-        - rating
-        - feedbackRating
-        - price
-        - avgPosition
-        - openCard
-        - addToCart
-        - openToCart
-        - orders
-        - cartToOrder
-        - visibility
     TableGroupRequest:
       type: object
       description: |
@@ -2960,7 +2959,28 @@ components:
     TableSearchTextItem:
       type: object
       allOf:
-        - type: object
+        - required:
+            - text
+            - nmId
+            - subjectName
+            - brandName
+            - vendorCode
+            - name
+            - isCardRated
+            - rating
+            - feedbackRating
+            - price
+            - frequency
+            - weekFrequency
+            - medianPosition
+            - avgPosition
+            - openCard
+            - addToCart
+            - openToCart
+            - orders
+            - cartToOrder
+            - visibility
+          type: object
           properties:
             text:
               description: Search text
@@ -3179,27 +3199,6 @@ components:
                   type: integer
               required:
                 - current
-          required:
-            - text
-            - nmId
-            - subjectName
-            - brandName
-            - vendorCode
-            - name
-            - isCardRated
-            - rating
-            - feedbackRating
-            - price
-            - frequency
-            - weekFrequency
-            - medianPosition
-            - avgPosition
-            - openCard
-            - addToCart
-            - openToCart
-            - orders
-            - cartToOrder
-            - visibility
     ItemOrdersRequest:
       type: object
       properties:
@@ -3995,6 +3994,8 @@ components:
             - stockType
             - skipDeletedNm
     NmReportRetryReportRequest:
+      required:
+        - downloadId
       properties:
         downloadId:
           type: string
@@ -6370,13 +6371,9 @@ components:
       type: object
       required:
         - nmId
-        - title
         - vendorCode
         - subjectId
         - subjectName
-        - brandName
-        - tagName
-        - tagId
         - pinnedFeedback
         - rating
         - feedbackRating
@@ -6727,7 +6724,7 @@ components:
         status:
           type: string
           description: |
-            [Order status](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):
+            [Order status](https://seller.wildberries.ru/instructions/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c):
               - `created` — placed
               - `buyout` — purchased
               - `cancel` — canceled
@@ -6743,7 +6740,7 @@ components:
         cancelType:
           type: string
           description: |
-            [Cancellation type](https://seller.wildberries.ru/instructions/ru/ru/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c) (when `"status":"cancel"`):
+            [Cancellation type](https://seller.wildberries.ru/instructions/material/order-feed-report#a92fa9b0-86ab-4990-b905-33f6c38b385c) (when `"status":"cancel"`):
               - `app` — refuse prior to receipt
               - `receipt` — refuse at pickup
               - `expire` — pickup period ended
@@ -6756,19 +6753,19 @@ components:
           example: app
         warehouseName:
           type: string
-          description: Warehouse name. [At the moment](/en/release-notes?id=570), there can only be `Склад WB`, for WB warehouses
-          example: Склад WB
+          description: Warehouse name. There can only be `Склад WB РФ` or `Склад WB СГТ РФ` for WB warehouses in Russia
+          example: Склад WB РФ
         warehouseRegion:
           type: string
-          description: The federal district where the warehouse is located. If the warehouse is not in Russia, the country is returned. [At the moment](/en/release-notes?id=570), there can only be `""`, for WB warehouses
-          example: ''
+          description: Shipping region. If the warehouse belongs to WB or the seller is located outside Russia, the country is returned
+          example: Россия
         isMp:
           type: boolean
           description: |
             Warehouse type:
               - `true` — seller warehouse
               - `false` — WB warehouse
-          example: true
+          example: false
         destinationCity:
           type: string
           description: Delivery location

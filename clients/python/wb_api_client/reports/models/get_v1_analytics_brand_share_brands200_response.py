@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetV1AnalyticsBrandShareBrands200Response(BaseModel):
     GetV1AnalyticsBrandShareBrands200Response
     """  # noqa: E501
 
-    data: Optional[List[StrictStr]] = Field(default=None, description="Список брендов")
+    data: List[StrictStr] = Field(description="Список брендов")
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(

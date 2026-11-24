@@ -35,7 +35,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// Initializes a new instance of the <see cref="GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner" /> class.
         /// </summary>
         /// <param name="warehouseName">Название склада.</param>
-        /// <param name="quantity">Количество, шт. .</param>
+        /// <param name="quantity">Количество, шт..</param>
         public GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner(string warehouseName = default(string), long quantity = default(long))
         {
             this.WarehouseName = warehouseName;
@@ -53,9 +53,9 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         public string WarehouseName { get; set; }
 
         /// <summary>
-        /// Количество, шт. 
+        /// Количество, шт.
         /// </summary>
-        /// <value>Количество, шт. </value>
+        /// <value>Количество, шт.</value>
         /*
         <example>134</example>
         */

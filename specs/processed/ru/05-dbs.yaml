@@ -2637,7 +2637,7 @@ components:
           type: integer
           description: |-
             Добавочный код.
-            Пустое значение `""` указывает, что код ещё не назначен
+            Значение `0` указывает, что код ещё не назначен
           example: 1234567
           nullable: false
           format: int64

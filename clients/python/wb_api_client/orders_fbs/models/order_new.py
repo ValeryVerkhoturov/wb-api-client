@@ -29,7 +29,7 @@ from pydantic import (
 )
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
-from wb_api_client.orders_fbs.models.order_address import OrderAddress
+from wb_api_client.orders_fbs.models.order_new_address import OrderNewAddress
 from wb_api_client.orders_fbs.models.order_options import OrderOptions
 from typing import Optional, Set
 from typing_extensions import Self
@@ -40,7 +40,7 @@ class OrderNew(BaseModel):
     OrderNew
     """  # noqa: E501
 
-    address: Optional[OrderAddress] = None
+    address: Optional[OrderNewAddress] = None
     ddate: Optional[StrictStr] = Field(
         default=None,
         description="Планируемая дата доставки заказа покупателю. Поле отображается для сборочных заданий со сверхгабаритными товарами `СГТ`, `cargoType: 2`",
@@ -324,7 +324,7 @@ class OrderNew(BaseModel):
         _obj = cls.model_validate(
             {
                 "address": (
-                    OrderAddress.from_dict(obj["address"])
+                    OrderNewAddress.from_dict(obj["address"])
                     if obj.get("address") is not None
                     else None
                 ),

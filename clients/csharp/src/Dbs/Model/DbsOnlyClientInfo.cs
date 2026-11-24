@@ -41,7 +41,7 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         /// <param name="additionalPhones">Дополнительные номера телефонов для связи с покупателем. Используйте, чтобы позвонить покупателю, если недоступен основной номер из &#x60;phone&#x60;. Пустое значение означает, что номер не указан.</param>
         /// <param name="replacementAdditionalPhones">Дополнительные подменные номера телефонов для связи с покупателем. Пустое значение означает, что номер не указан.</param>
         /// <param name="orderID">ID сборочного задания.</param>
-        /// <param name="phoneCode">Добавочный код. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что код ещё не назначен.</param>
+        /// <param name="phoneCode">Добавочный код. Значение &#x60;0&#x60; указывает, что код ещё не назначен.</param>
         /// <param name="additionalPhoneCodes">Дополнительные добавочные коды. Используйте, если не получилось дозвониться по добавочному коду из &#x60;phoneCode&#x60;. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что код ещё не назначен.</param>
         public DbsOnlyClientInfo(string replacementPhone = default(string), string phone = default(string), string firstName = default(string), string fullName = default(string), List<string> additionalPhones = default(List<string>), List<string> replacementAdditionalPhones = default(List<string>), long orderID = default(long), long phoneCode = default(long), List<string> additionalPhoneCodes = default(List<string>))
         {
@@ -118,9 +118,9 @@ namespace ValeryVerkhoturov.WbApiClient.Dbs.Model
         public long OrderID { get; set; }
 
         /// <summary>
-        /// Добавочный код. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что код ещё не назначен
+        /// Добавочный код. Значение &#x60;0&#x60; указывает, что код ещё не назначен
         /// </summary>
-        /// <value>Добавочный код. Пустое значение &#x60;\&quot;\&quot;&#x60; указывает, что код ещё не назначен</value>
+        /// <value>Добавочный код. Значение &#x60;0&#x60; указывает, что код ещё не назначен</value>
         /*
         <example>1234567</example>
         */

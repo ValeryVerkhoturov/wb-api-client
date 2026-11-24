@@ -36,19 +36,19 @@ public class GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
 
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private Long parentId;
 
   public static final String SERIALIZED_NAME_PARENT_NAME = "parentName";
 
   @SerializedName(SERIALIZED_NAME_PARENT_NAME)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String parentName;
 
   public GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner() {}
 
   public GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner parentId(
-      @jakarta.annotation.Nullable Long parentId) {
+      @jakarta.annotation.Nonnull Long parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -58,17 +58,17 @@ public class GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
    *
    * @return parentId
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public Long getParentId() {
     return parentId;
   }
 
-  public void setParentId(@jakarta.annotation.Nullable Long parentId) {
+  public void setParentId(@jakarta.annotation.Nonnull Long parentId) {
     this.parentId = parentId;
   }
 
   public GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner parentName(
-      @jakarta.annotation.Nullable String parentName) {
+      @jakarta.annotation.Nonnull String parentName) {
     this.parentName = parentName;
     return this;
   }
@@ -78,12 +78,12 @@ public class GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
    *
    * @return parentName
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getParentName() {
     return parentName;
   }
 
-  public void setParentName(@jakarta.annotation.Nullable String parentName) {
+  public void setParentName(@jakarta.annotation.Nonnull String parentName) {
     this.parentName = parentName;
   }
 
@@ -140,6 +140,8 @@ public class GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("parentId");
+    openapiRequiredFields.add("parentName");
   }
 
   /**
@@ -172,9 +174,19 @@ public class GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner {
                 entry.getKey(), jsonElement.toString()));
       }
     }
+
+    // check to make sure all required properties/fields are present in the JSON string
+    for (String requiredField :
+        GetV1AnalyticsBrandShareParentSubjects200ResponseDataInner.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(
+            String.format(
+                "The required field `%s` is not found in the JSON string: %s",
+                requiredField, jsonElement.toString()));
+      }
+    }
     JsonObject jsonObj = jsonElement.getAsJsonObject();
-    if ((jsonObj.get("parentName") != null && !jsonObj.get("parentName").isJsonNull())
-        && !jsonObj.get("parentName").isJsonPrimitive()) {
+    if (!jsonObj.get("parentName").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
               "Expected the field `parentName` to be a primitive type in the JSON string but got `%s`",

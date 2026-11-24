@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,21 +28,15 @@ class GetV1AnalyticsBrandShare200ResponseReportInner(BaseModel):
     GetV1AnalyticsBrandShare200ResponseReportInner
     """  # noqa: E501
 
-    apply_date: Optional[StrictStr] = Field(
-        default=None, description="Дата", alias="applyDate"
+    apply_date: StrictStr = Field(description="Дата", alias="applyDate")
+    brand_rating: StrictInt = Field(
+        description="Рейтинг бренда в родительской категории", alias="brandRating"
     )
-    brand_rating: Optional[StrictInt] = Field(
-        default=None,
-        description="Рейтинг бренда в родительской категории",
-        alias="brandRating",
-    )
-    price_percent: Optional[Union[StrictFloat, StrictInt]] = Field(
-        default=None,
+    price_percent: Union[StrictFloat, StrictInt] = Field(
         description="Доля от продаж в родительской категории — цена, %",
         alias="pricePercent",
     )
-    qty_percent: Optional[Union[StrictFloat, StrictInt]] = Field(
-        default=None,
+    qty_percent: Union[StrictFloat, StrictInt] = Field(
         description="Доля от продаж в родительской категории — количество, %",
         alias="qtyPercent",
     )

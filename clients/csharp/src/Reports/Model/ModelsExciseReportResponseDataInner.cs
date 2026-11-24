@@ -34,53 +34,43 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelsExciseReportResponseDataInner" /> class.
         /// </summary>
-        /// <param name="name">Страна покупателя.</param>
-        /// <param name="price">Цена товара, с НДС.</param>
+        /// <param name="barcode">Баркод.</param>
         /// <param name="currencyNameShort">Валюта.</param>
         /// <param name="exciseShort">Код маркировки.</param>
-        /// <param name="barcode">Баркод.</param>
+        /// <param name="fiscalDocNumber">Номер фискального документа (чека полного расчёта), если есть.</param>
+        /// <param name="fiscalDriveNumber">Номер фискального накопителя, если есть.</param>
+        /// <param name="fiscalDt">Дата фискализации (дата в чеке), если есть, &#x60;ГГГГ-ММ-ДД&#x60;.</param>
+        /// <param name="name">Страна покупателя.</param>
         /// <param name="nmId">Артикул WB.</param>
         /// <param name="operationTypeId">Тип операции, если есть:    * &#x60;1&#x60; — вывод из оборота   * &#x60;2&#x60; — возврат в оборот .</param>
-        /// <param name="fiscalDocNumber">Номер фискального документа (чека полного расчёта), если есть.</param>
-        /// <param name="fiscalDt">Дата фискализации (дата в чеке), если есть, &#x60;ГГГГ-ММ-ДД&#x60;.</param>
-        /// <param name="fiscalDriveNumber">Номер фискального накопителя, если есть.</param>
+        /// <param name="price">Цена товара, с НДС.</param>
         /// <param name="rid">&#x60;Rid&#x60; .</param>
         /// <param name="srid">&#x60;Srid&#x60; .</param>
-        public ModelsExciseReportResponseDataInner(string name = default(string), decimal price = default(decimal), string currencyNameShort = default(string), string exciseShort = default(string), string barcode = default(string), long nmId = default(long), long operationTypeId = default(long), long fiscalDocNumber = default(long), string fiscalDt = default(string), string fiscalDriveNumber = default(string), long rid = default(long), string srid = default(string))
+        public ModelsExciseReportResponseDataInner(string barcode = default(string), string currencyNameShort = default(string), string exciseShort = default(string), long fiscalDocNumber = default(long), string fiscalDriveNumber = default(string), string fiscalDt = default(string), string name = default(string), long nmId = default(long), long operationTypeId = default(long), decimal price = default(decimal), long rid = default(long), string srid = default(string))
         {
-            this.Name = name;
-            this.Price = price;
+            this.Barcode = barcode;
             this.CurrencyNameShort = currencyNameShort;
             this.ExciseShort = exciseShort;
-            this.Barcode = barcode;
+            this.FiscalDocNumber = fiscalDocNumber;
+            this.FiscalDriveNumber = fiscalDriveNumber;
+            this.FiscalDt = fiscalDt;
+            this.Name = name;
             this.NmId = nmId;
             this.OperationTypeId = operationTypeId;
-            this.FiscalDocNumber = fiscalDocNumber;
-            this.FiscalDt = fiscalDt;
-            this.FiscalDriveNumber = fiscalDriveNumber;
+            this.Price = price;
             this.Rid = rid;
             this.Srid = srid;
         }
 
         /// <summary>
-        /// Страна покупателя
+        /// Баркод
         /// </summary>
-        /// <value>Страна покупателя</value>
+        /// <value>Баркод</value>
         /*
-        <example>Россия</example>
+        <example>2038893425820</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Цена товара, с НДС
-        /// </summary>
-        /// <value>Цена товара, с НДС</value>
-        /*
-        <example>100</example>
-        */
-        [DataMember(Name = "price", EmitDefaultValue = false)]
-        public decimal Price { get; set; }
+        [DataMember(Name = "barcode", EmitDefaultValue = false)]
+        public string Barcode { get; set; }
 
         /// <summary>
         /// Валюта
@@ -103,14 +93,41 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         public string ExciseShort { get; set; }
 
         /// <summary>
-        /// Баркод
+        /// Номер фискального документа (чека полного расчёта), если есть
         /// </summary>
-        /// <value>Баркод</value>
+        /// <value>Номер фискального документа (чека полного расчёта), если есть</value>
         /*
-        <example>2038893425820</example>
+        <example>12345678</example>
         */
-        [DataMember(Name = "barcode", EmitDefaultValue = false)]
-        public string Barcode { get; set; }
+        [DataMember(Name = "fiscal_doc_number", EmitDefaultValue = false)]
+        public long FiscalDocNumber { get; set; }
+
+        /// <summary>
+        /// Номер фискального накопителя, если есть
+        /// </summary>
+        /// <value>Номер фискального накопителя, если есть</value>
+        [DataMember(Name = "fiscal_drive_number", EmitDefaultValue = false)]
+        public string FiscalDriveNumber { get; set; }
+
+        /// <summary>
+        /// Дата фискализации (дата в чеке), если есть, &#x60;ГГГГ-ММ-ДД&#x60;
+        /// </summary>
+        /// <value>Дата фискализации (дата в чеке), если есть, &#x60;ГГГГ-ММ-ДД&#x60;</value>
+        /*
+        <example>2024-01-01</example>
+        */
+        [DataMember(Name = "fiscal_dt", EmitDefaultValue = false)]
+        public string FiscalDt { get; set; }
+
+        /// <summary>
+        /// Страна покупателя
+        /// </summary>
+        /// <value>Страна покупателя</value>
+        /*
+        <example>Россия</example>
+        */
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Артикул WB
@@ -133,31 +150,14 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         public long OperationTypeId { get; set; }
 
         /// <summary>
-        /// Номер фискального документа (чека полного расчёта), если есть
+        /// Цена товара, с НДС
         /// </summary>
-        /// <value>Номер фискального документа (чека полного расчёта), если есть</value>
+        /// <value>Цена товара, с НДС</value>
         /*
-        <example>12345678</example>
+        <example>100</example>
         */
-        [DataMember(Name = "fiscal_doc_number", EmitDefaultValue = false)]
-        public long FiscalDocNumber { get; set; }
-
-        /// <summary>
-        /// Дата фискализации (дата в чеке), если есть, &#x60;ГГГГ-ММ-ДД&#x60;
-        /// </summary>
-        /// <value>Дата фискализации (дата в чеке), если есть, &#x60;ГГГГ-ММ-ДД&#x60;</value>
-        /*
-        <example>2024-01-01</example>
-        */
-        [DataMember(Name = "fiscal_dt", EmitDefaultValue = false)]
-        public string FiscalDt { get; set; }
-
-        /// <summary>
-        /// Номер фискального накопителя, если есть
-        /// </summary>
-        /// <value>Номер фискального накопителя, если есть</value>
-        [DataMember(Name = "fiscal_drive_number", EmitDefaultValue = false)]
-        public string FiscalDriveNumber { get; set; }
+        [DataMember(Name = "price", EmitDefaultValue = false)]
+        public decimal Price { get; set; }
 
         /// <summary>
         /// &#x60;Rid&#x60; 
@@ -187,16 +187,16 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ModelsExciseReportResponseDataInner {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Price: ").Append(Price).Append("\n");
+            sb.Append("  Barcode: ").Append(Barcode).Append("\n");
             sb.Append("  CurrencyNameShort: ").Append(CurrencyNameShort).Append("\n");
             sb.Append("  ExciseShort: ").Append(ExciseShort).Append("\n");
-            sb.Append("  Barcode: ").Append(Barcode).Append("\n");
+            sb.Append("  FiscalDocNumber: ").Append(FiscalDocNumber).Append("\n");
+            sb.Append("  FiscalDriveNumber: ").Append(FiscalDriveNumber).Append("\n");
+            sb.Append("  FiscalDt: ").Append(FiscalDt).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  NmId: ").Append(NmId).Append("\n");
             sb.Append("  OperationTypeId: ").Append(OperationTypeId).Append("\n");
-            sb.Append("  FiscalDocNumber: ").Append(FiscalDocNumber).Append("\n");
-            sb.Append("  FiscalDt: ").Append(FiscalDt).Append("\n");
-            sb.Append("  FiscalDriveNumber: ").Append(FiscalDriveNumber).Append("\n");
+            sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  Rid: ").Append(Rid).Append("\n");
             sb.Append("  Srid: ").Append(Srid).Append("\n");
             sb.Append("}\n");

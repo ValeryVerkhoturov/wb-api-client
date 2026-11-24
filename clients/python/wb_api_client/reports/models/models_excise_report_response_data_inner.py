@@ -28,44 +28,44 @@ class ModelsExciseReportResponseDataInner(BaseModel):
     ModelsExciseReportResponseDataInner
     """  # noqa: E501
 
-    name: Optional[StrictStr] = Field(default=None, description="Страна покупателя")
-    price: Optional[Union[StrictFloat, StrictInt]] = Field(
-        default=None, description="Цена товара, с НДС"
-    )
+    barcode: Optional[StrictStr] = Field(default=None, description="Баркод")
     currency_name_short: Optional[StrictStr] = Field(default=None, description="Валюта")
     excise_short: Optional[StrictStr] = Field(
         default=None, description="Код маркировки"
-    )
-    barcode: Optional[StrictStr] = Field(default=None, description="Баркод")
-    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB")
-    operation_type_id: Optional[StrictInt] = Field(
-        default=None,
-        description="Тип операции, если есть:    * `1` — вывод из оборота   * `2` — возврат в оборот ",
     )
     fiscal_doc_number: Optional[StrictInt] = Field(
         default=None,
         description="Номер фискального документа (чека полного расчёта), если есть",
     )
+    fiscal_drive_number: Optional[StrictStr] = Field(
+        default=None, description="Номер фискального накопителя, если есть"
+    )
     fiscal_dt: Optional[StrictStr] = Field(
         default=None,
         description="Дата фискализации (дата в чеке), если есть, `ГГГГ-ММ-ДД`",
     )
-    fiscal_drive_number: Optional[StrictStr] = Field(
-        default=None, description="Номер фискального накопителя, если есть"
+    name: Optional[StrictStr] = Field(default=None, description="Страна покупателя")
+    nm_id: Optional[StrictInt] = Field(default=None, description="Артикул WB")
+    operation_type_id: Optional[StrictInt] = Field(
+        default=None,
+        description="Тип операции, если есть:    * `1` — вывод из оборота   * `2` — возврат в оборот ",
+    )
+    price: Optional[Union[StrictFloat, StrictInt]] = Field(
+        default=None, description="Цена товара, с НДС"
     )
     rid: Optional[StrictInt] = Field(default=None, description="`Rid` ")
     srid: Optional[StrictStr] = Field(default=None, description="`Srid` ")
     __properties: ClassVar[List[str]] = [
-        "name",
-        "price",
+        "barcode",
         "currency_name_short",
         "excise_short",
-        "barcode",
+        "fiscal_doc_number",
+        "fiscal_drive_number",
+        "fiscal_dt",
+        "name",
         "nm_id",
         "operation_type_id",
-        "fiscal_doc_number",
-        "fiscal_dt",
-        "fiscal_drive_number",
+        "price",
         "rid",
         "srid",
     ]
@@ -120,16 +120,16 @@ class ModelsExciseReportResponseDataInner(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "name": obj.get("name"),
-                "price": obj.get("price"),
+                "barcode": obj.get("barcode"),
                 "currency_name_short": obj.get("currency_name_short"),
                 "excise_short": obj.get("excise_short"),
-                "barcode": obj.get("barcode"),
+                "fiscal_doc_number": obj.get("fiscal_doc_number"),
+                "fiscal_drive_number": obj.get("fiscal_drive_number"),
+                "fiscal_dt": obj.get("fiscal_dt"),
+                "name": obj.get("name"),
                 "nm_id": obj.get("nm_id"),
                 "operation_type_id": obj.get("operation_type_id"),
-                "fiscal_doc_number": obj.get("fiscal_doc_number"),
-                "fiscal_dt": obj.get("fiscal_dt"),
-                "fiscal_drive_number": obj.get("fiscal_drive_number"),
+                "price": obj.get("price"),
                 "rid": obj.get("rid"),
                 "srid": obj.get("srid"),
             }

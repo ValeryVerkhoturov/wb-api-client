@@ -81,7 +81,7 @@ class TableItem(BaseModel):
     )
     is_substituted_sku: Optional[StrictBool] = Field(
         default=None,
-        description="Искали ли товар по подменному артикулу. Поле будет в ответе при наличии в запросе `includeSubstitutedSKUs` и/или `includeSearchTexts`",
+        description="Искали ли товар по подменному артикулу",
         alias="isSubstitutedSKU",
     )
     is_card_rated: Optional[StrictBool] = Field(

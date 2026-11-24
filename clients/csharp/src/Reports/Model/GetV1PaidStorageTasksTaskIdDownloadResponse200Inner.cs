@@ -34,7 +34,7 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetV1PaidStorageTasksTaskIdDownloadResponse200Inner" /> class.
         /// </summary>
-        /// <param name="date">Дата, за которую был расчёт или перерасчёт.</param>
+        /// <param name="date">Дата расчёта или перерасчёта.</param>
         /// <param name="logWarehouseCoef">Коэффициент логистики и хранения. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;.</param>
         /// <param name="officeId">ID склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;0&#x60;.</param>
         /// <param name="warehouse">Название склада. [На данный момент](https://dev.wildberries.ru/release-notes?id&#x3D;570) может быть только &#x60;Склад WB РФ&#x60;.</param>
@@ -85,9 +85,9 @@ namespace ValeryVerkhoturov.WbApiClient.Reports.Model
         }
 
         /// <summary>
-        /// Дата, за которую был расчёт или перерасчёт
+        /// Дата расчёта или перерасчёта
         /// </summary>
-        /// <value>Дата, за которую был расчёт или перерасчёт</value>
+        /// <value>Дата расчёта или перерасчёта</value>
         [DataMember(Name = "date", EmitDefaultValue = false)]
         public string Date { get; set; }
 

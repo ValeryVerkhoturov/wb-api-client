@@ -33,7 +33,7 @@ class GetV1WarehouseRemainsTasksTaskIdDownloadResponse200InnerWarehousesInner(
     warehouse_name: Optional[StrictStr] = Field(
         default=None, description="Название склада", alias="warehouseName"
     )
-    quantity: Optional[StrictInt] = Field(default=None, description="Количество, шт. ")
+    quantity: Optional[StrictInt] = Field(default=None, description="Количество, шт.")
     __properties: ClassVar[List[str]] = ["warehouseName", "quantity"]
 
     model_config = ConfigDict(

@@ -60,7 +60,7 @@ class DbsOnlyClientInfo(BaseModel):
     )
     phone_code: Optional[StrictInt] = Field(
         default=None,
-        description='Добавочный код. Пустое значение `""` указывает, что код ещё не назначен',
+        description="Добавочный код. Значение `0` указывает, что код ещё не назначен",
         alias="phoneCode",
     )
     additional_phone_codes: Optional[List[StrictStr]] = Field(

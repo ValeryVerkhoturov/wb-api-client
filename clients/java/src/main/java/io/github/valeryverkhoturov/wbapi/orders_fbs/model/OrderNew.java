@@ -41,7 +41,7 @@ public class OrderNew {
 
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   @jakarta.annotation.Nullable
-  private OrderAddress address;
+  private OrderNewAddress address;
 
   public static final String SERIALIZED_NAME_DDATE = "ddate";
 
@@ -391,7 +391,7 @@ public class OrderNew {
 
   public OrderNew() {}
 
-  public OrderNew address(@jakarta.annotation.Nullable OrderAddress address) {
+  public OrderNew address(@jakarta.annotation.Nullable OrderNewAddress address) {
     this.address = address;
     return this;
   }
@@ -402,11 +402,11 @@ public class OrderNew {
    * @return address
    */
   @jakarta.annotation.Nullable
-  public OrderAddress getAddress() {
+  public OrderNewAddress getAddress() {
     return address;
   }
 
-  public void setAddress(@jakarta.annotation.Nullable OrderAddress address) {
+  public void setAddress(@jakarta.annotation.Nullable OrderNewAddress address) {
     this.address = address;
   }
 
@@ -1278,7 +1278,7 @@ public class OrderNew {
     JsonObject jsonObj = jsonElement.getAsJsonObject();
     // validate the optional field `address`
     if (jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) {
-      OrderAddress.validateJsonElement(jsonObj.get("address"));
+      OrderNewAddress.validateJsonElement(jsonObj.get("address"));
     }
     if ((jsonObj.get("ddate") != null && !jsonObj.get("ddate").isJsonNull())
         && !jsonObj.get("ddate").isJsonPrimitive()) {

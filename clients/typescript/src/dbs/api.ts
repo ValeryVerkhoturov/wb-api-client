@@ -868,7 +868,7 @@ export interface DbsOnlyClientInfo {
    */
   orderID?: number;
   /**
-   * Добавочный код. Пустое значение `\"\"` указывает, что код ещё не назначен
+   * Добавочный код. Значение `0` указывает, что код ещё не назначен
    * @type {number}
    * @memberof DbsOnlyClientInfo
    */
