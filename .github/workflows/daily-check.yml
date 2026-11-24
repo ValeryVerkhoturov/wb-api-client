@@ -91,11 +91,22 @@ jobs:
         run: |
           git config user.name "wb-api-client-bot"
           git config user.email "bot@users.noreply.github.com"
+          push() {
+            for attempt in 1 2 3; do
+              git push "$@" && return 0
+              sleep 10
+            done
+            return 1
+          }
           git fetch origin main
           if ! git diff --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
             git stash push -u -m "regen"
             git checkout -B main origin/main
-            git stash pop
+            if ! git stash pop; then
+              git reset --hard
+              git clean -fd
+              git stash drop
+            fi
           else
             git checkout -B main origin/main
           fi
@@ -104,12 +115,14 @@ jobs:
             echo "No PHP changes to commit"
           else
             git commit -m "chore(release): regenerate at ${{ steps.version.outputs.version }}"
-            git push origin main
+            push origin main
           fi
-          # Idempotent tag: skip if identical tag already exists.
-          if ! git rev-parse "${{ steps.version.outputs.tag }}" >/dev/null 2>&1; then
-            git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.tag }}"
-            git push origin "${{ steps.version.outputs.tag }}"
+          TAG="${{ steps.version.outputs.tag }}"
+          if git ls-remote --exit-code --tags origin "refs/tags/${TAG}" >/dev/null 2>&1; then
+            echo "Tag ${TAG} already exists on origin, skipping"
+          else
+            git rev-parse "${TAG}" >/dev/null 2>&1 || git tag -a "${TAG}" -m "Release ${TAG}"
+            push origin "${TAG}"
           fi
 
       - name: Create GitHub Release on sibling PHP repo
@@ -150,11 +163,22 @@ jobs:
         run: |
           git config user.name "wb-api-client-bot"
           git config user.email "bot@users.noreply.github.com"
+          push() {
+            for attempt in 1 2 3; do
+              git push "$@" && return 0
+              sleep 10
+            done
+            return 1
+          }
           git fetch origin main
           if ! git diff --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
             git stash push -u -m "regen"
             git checkout -B main origin/main
-            git stash pop
+            if ! git stash pop; then
+              git reset --hard
+              git clean -fd
+              git stash drop
+            fi
           else
             git checkout -B main origin/main
           fi
@@ -163,12 +187,14 @@ jobs:
             echo "No OneScript changes to commit"
           else
             git commit -m "chore(release): regenerate at ${{ steps.version.outputs.version }}"
-            git push origin main
+            push origin main
           fi
-          # Idempotent tag: skip if identical tag already exists.
-          if ! git rev-parse "${{ steps.version.outputs.tag }}" >/dev/null 2>&1; then
-            git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.tag }}"
-            git push origin "${{ steps.version.outputs.tag }}"
+          TAG="${{ steps.version.outputs.tag }}"
+          if git ls-remote --exit-code --tags origin "refs/tags/${TAG}" >/dev/null 2>&1; then
+            echo "Tag ${TAG} already exists on origin, skipping"
+          else
+            git rev-parse "${TAG}" >/dev/null 2>&1 || git tag -a "${TAG}" -m "Release ${TAG}"
+            push origin "${TAG}"
           fi
 
       - name: Create GitHub Release on sibling 1c repo
@@ -213,11 +239,22 @@ jobs:
         run: |
           git config user.name "wb-api-client-bot"
           git config user.email "bot@users.noreply.github.com"
+          push() {
+            for attempt in 1 2 3; do
+              git push "$@" && return 0
+              sleep 10
+            done
+            return 1
+          }
           git fetch origin main
           if ! git diff --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
             git stash push -u -m "regen"
             git checkout -B main origin/main
-            git stash pop
+            if ! git stash pop; then
+              git reset --hard
+              git clean -fd
+              git stash drop
+            fi
           else
             git checkout -B main origin/main
           fi
@@ -226,12 +263,14 @@ jobs:
             echo "No Go changes to commit"
           else
             git commit -m "chore(release): regenerate at ${{ steps.version.outputs.version }}"
-            git push origin main
+            push origin main
           fi
-          # Idempotent tag: skip if identical tag already exists.
-          if ! git rev-parse "${{ steps.version.outputs.tag }}" >/dev/null 2>&1; then
-            git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.tag }}"
-            git push origin "${{ steps.version.outputs.tag }}"
+          TAG="${{ steps.version.outputs.tag }}"
+          if git ls-remote --exit-code --tags origin "refs/tags/${TAG}" >/dev/null 2>&1; then
+            echo "Tag ${TAG} already exists on origin, skipping"
+          else
+            git rev-parse "${TAG}" >/dev/null 2>&1 || git tag -a "${TAG}" -m "Release ${TAG}"
+            push origin "${TAG}"
           fi
 
       - name: Commit Rust submodule (separate repo)
@@ -240,11 +279,22 @@ jobs:
         run: |
           git config user.name "wb-api-client-bot"
           git config user.email "bot@users.noreply.github.com"
+          push() {
+            for attempt in 1 2 3; do
+              git push "$@" && return 0
+              sleep 10
+            done
+            return 1
+          }
           git fetch origin main
           if ! git diff --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
             git stash push -u -m "regen"
             git checkout -B main origin/main
-            git stash pop
+            if ! git stash pop; then
+              git reset --hard
+              git clean -fd
+              git stash drop
+            fi
           else
             git checkout -B main origin/main
           fi
@@ -253,12 +303,14 @@ jobs:
             echo "No Rust changes to commit"
           else
             git commit -m "chore(release): regenerate at ${{ steps.version.outputs.version }}"
-            git push origin main
+            push origin main
           fi
-          # Idempotent tag: skip if identical tag already exists.
-          if ! git rev-parse "${{ steps.version.outputs.tag }}" >/dev/null 2>&1; then
-            git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.tag }}"
-            git push origin "${{ steps.version.outputs.tag }}"
+          TAG="${{ steps.version.outputs.tag }}"
+          if git ls-remote --exit-code --tags origin "refs/tags/${TAG}" >/dev/null 2>&1; then
+            echo "Tag ${TAG} already exists on origin, skipping"
+          else
+            git rev-parse "${TAG}" >/dev/null 2>&1 || git tag -a "${TAG}" -m "Release ${TAG}"
+            push origin "${TAG}"
           fi
 
       - name: Commit specs + generated clients + submodule pointer, push tag
@@ -266,6 +318,13 @@ jobs:
         run: |
           git config user.name "wb-api-client-bot"
           git config user.email "bot@users.noreply.github.com"
+          push() {
+            for attempt in 1 2 3; do
+              git push "$@" && return 0
+              sleep 10
+            done
+            return 1
+          }
           # Stage explicitly rather than `git add -A` to avoid picking up
           # workflow scratch (dist/, node_modules/, target/ …). Also
           # include clients/php, clients/onescript and clients/go to record
@@ -276,9 +335,9 @@ jobs:
             exit 0
           fi
           git commit -m "chore(release): sync upstream + regenerate at ${{ steps.version.outputs.version }}"
-          git push
+          push
           git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.tag }}"
-          git push origin "${{ steps.version.outputs.tag }}"
+          push origin "${{ steps.version.outputs.tag }}"
 
       - name: Regenerate the docs site's API reference
         if: steps.diff.outputs.changed == 'true' || inputs.force
@@ -308,7 +367,10 @@ jobs:
             exit 0
           fi
           git commit -m "docs: regenerate API reference at ${VERSION}"
-          git push
+          for attempt in 1 2 3; do
+            git push && break
+            sleep 10
+          done
 
       - name: Create GitHub Release on main repo
         if: steps.diff.outputs.changed == 'true' || inputs.force
