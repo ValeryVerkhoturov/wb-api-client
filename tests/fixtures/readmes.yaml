@@ -30,7 +30,7 @@ cases:
     function: _gosnippet
     args: ["orders_fbs", ["OrdersFbsApi"]]
     expected: |-
-      import wborders_fbs "github.com/ValeryVerkhoturov/wb-api-client-go/v2/orders_fbs"
+      import wborders_fbs "{{GO_MODULE}}/orders_fbs"
 
       cfg := wborders_fbs.NewConfiguration()
       cfg.SetAccessToken("<your WB JWT>")

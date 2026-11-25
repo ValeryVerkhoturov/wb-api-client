@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/ValeryVerkhoturov/wb-api-client.git"
   },
-  "homepage": "https://github.com/ValeryVerkhoturov/wb-api-client",
+  "homepage": "https://valeryverkhoturov.github.io/wb-api-client-docs/",
   "keywords": ["wildberries", "wb", "api", "client", "sdk"],
   "type": "commonjs",
   "sideEffects": false,

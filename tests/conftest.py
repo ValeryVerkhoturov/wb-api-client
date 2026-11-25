@@ -4,6 +4,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
+from pipeline.core.paths import go_module_path
 from pipeline.core.yamlio import safe_yaml
 
 FIXTURES = Path(__file__).resolve().parent / "fixtures"
@@ -11,7 +12,8 @@ FIXTURES = Path(__file__).resolve().parent / "fixtures"
 
 def load_cases(fixture_name: str) -> list[dict]:
     path = FIXTURES / fixture_name
-    return safe_yaml().load(path.read_text(encoding="utf-8"))["cases"]
+    text = path.read_text(encoding="utf-8").replace("{{GO_MODULE}}", go_module_path())
+    return safe_yaml().load(text)["cases"]
 
 
 def case_ids(cases: list[dict]) -> list[str]:
