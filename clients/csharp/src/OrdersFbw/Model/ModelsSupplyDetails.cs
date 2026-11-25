@@ -105,7 +105,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="depersonalizedQuantity">Количество обезличенного товара, шт.</param>
         /// <param name="discrepancies">Расхождения между заявленным и фактическим количеством товара в поставке.  Только при &#x60;\&quot;statusID\&quot;:5&#x60;.</param>
         /// <param name="isBoxOnPallet">Тип поставки — **Поштучная палета**:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет    Поле возвращается только при &#x60;\&quot;boxTypeID\&quot;: 2&#x60; .</param>
-        public ModelsSupplyDetails(string phone = default(string), StatusIDEnum? statusID = default(StatusIDEnum?), long virtualTypeID = default(long), long boxTypeID = default(long), string createDate = default(string), string supplyDate = default(string), string factDate = default(string), string updatedDate = default(string), long warehouseID = default(long), string warehouseName = default(string), long? actualWarehouseID = default(long?), string actualWarehouseName = default(string), long? transitWarehouseID = default(long?), string transitWarehouseName = default(string), decimal? acceptanceCost = default(decimal?), decimal? paidAcceptanceCoefficient = default(decimal?), string rejectReason = default(string), string supplierAssignName = default(string), string storageCoef = default(string), string deliveryCoef = default(string), long quantity = default(long), long readyForSaleQuantity = default(long), long acceptedQuantity = default(long), long unloadingQuantity = default(long), long? depersonalizedQuantity = default(long?), long discrepancies = default(long), bool isBoxOnPallet = default(bool))
+        /// <param name="correctedQuantity">Количество товаров по Акту корректировки, которое не входит в &#x60;acceptedQuantity&#x60;. Возвращается, если есть расхождения, зафиксированные при приёмке поставки.</param>
+        public ModelsSupplyDetails(string phone = default(string), StatusIDEnum? statusID = default(StatusIDEnum?), long virtualTypeID = default(long), long boxTypeID = default(long), string createDate = default(string), string supplyDate = default(string), string factDate = default(string), string updatedDate = default(string), long warehouseID = default(long), string warehouseName = default(string), long? actualWarehouseID = default(long?), string actualWarehouseName = default(string), long? transitWarehouseID = default(long?), string transitWarehouseName = default(string), decimal? acceptanceCost = default(decimal?), decimal? paidAcceptanceCoefficient = default(decimal?), string rejectReason = default(string), string supplierAssignName = default(string), string storageCoef = default(string), string deliveryCoef = default(string), long quantity = default(long), long readyForSaleQuantity = default(long), long acceptedQuantity = default(long), long unloadingQuantity = default(long), long? depersonalizedQuantity = default(long?), long discrepancies = default(long), bool isBoxOnPallet = default(bool), long correctedQuantity = default(long))
         {
             this.Phone = phone;
             this.StatusID = statusID;
@@ -134,6 +135,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
             this.DepersonalizedQuantity = depersonalizedQuantity;
             this.Discrepancies = discrepancies;
             this.IsBoxOnPallet = isBoxOnPallet;
+            this.CorrectedQuantity = correctedQuantity;
         }
 
         /// <summary>
@@ -319,6 +321,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         public bool IsBoxOnPallet { get; set; }
 
         /// <summary>
+        /// Количество товаров по Акту корректировки, которое не входит в &#x60;acceptedQuantity&#x60;. Возвращается, если есть расхождения, зафиксированные при приёмке поставки
+        /// </summary>
+        /// <value>Количество товаров по Акту корректировки, которое не входит в &#x60;acceptedQuantity&#x60;. Возвращается, если есть расхождения, зафиксированные при приёмке поставки</value>
+        [DataMember(Name = "correctedQuantity", EmitDefaultValue = false)]
+        public long CorrectedQuantity { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -353,6 +362,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
             sb.Append("  DepersonalizedQuantity: ").Append(DepersonalizedQuantity).Append("\n");
             sb.Append("  Discrepancies: ").Append(Discrepancies).Append("\n");
             sb.Append("  IsBoxOnPallet: ").Append(IsBoxOnPallet).Append("\n");
+            sb.Append("  CorrectedQuantity: ").Append(CorrectedQuantity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -151,6 +151,11 @@ class ModelsSupplyDetails(BaseModel):
         description='Тип поставки — **Поштучная палета**:   - `true` — да   - `false` — нет    Поле возвращается только при `"boxTypeID": 2` ',
         alias="isBoxOnPallet",
     )
+    corrected_quantity: Optional[StrictInt] = Field(
+        default=None,
+        description="Количество товаров по Акту корректировки, которое не входит в `acceptedQuantity`. Возвращается, если есть расхождения, зафиксированные при приёмке поставки",
+        alias="correctedQuantity",
+    )
     __properties: ClassVar[List[str]] = [
         "phone",
         "statusID",
@@ -179,6 +184,7 @@ class ModelsSupplyDetails(BaseModel):
         "depersonalizedQuantity",
         "discrepancies",
         "isBoxOnPallet",
+        "correctedQuantity",
     ]
 
     @field_validator("status_id")
@@ -343,6 +349,7 @@ class ModelsSupplyDetails(BaseModel):
                 "depersonalizedQuantity": obj.get("depersonalizedQuantity"),
                 "discrepancies": obj.get("discrepancies"),
                 "isBoxOnPallet": obj.get("isBoxOnPallet"),
+                "correctedQuantity": obj.get("correctedQuantity"),
             }
         )
         return _obj

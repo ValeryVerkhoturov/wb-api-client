@@ -46,7 +46,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         /// <param name="readyForSaleQuantity">Поступило в продажу, шт.</param>
         /// <param name="acceptedQuantity">Принято, шт.</param>
         /// <param name="unloadingQuantity">Количество товара на раскладке, шт.</param>
-        public ModelsGoodInSupply(string barcode = default(string), string vendorCode = default(string), long nmID = default(long), bool needKiz = default(bool), string tnved = default(string), string techSize = default(string), string color = default(string), long? supplierBoxAmount = default(long?), long quantity = default(long), long? readyForSaleQuantity = default(long?), long? acceptedQuantity = default(long?), long? unloadingQuantity = default(long?))
+        /// <param name="correctedQuantity">Количество товара по Акту корректировки, которое не входит в &#x60;acceptedQuantity&#x60;. Возвращается, если по товару есть расхождения, зафиксированные при приёмке.</param>
+        public ModelsGoodInSupply(string barcode = default(string), string vendorCode = default(string), long nmID = default(long), bool needKiz = default(bool), string tnved = default(string), string techSize = default(string), string color = default(string), long? supplierBoxAmount = default(long?), long quantity = default(long), long? readyForSaleQuantity = default(long?), long? acceptedQuantity = default(long?), long? unloadingQuantity = default(long?), long correctedQuantity = default(long))
         {
             this.Barcode = barcode;
             this.VendorCode = vendorCode;
@@ -60,6 +61,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
             this.ReadyForSaleQuantity = readyForSaleQuantity;
             this.AcceptedQuantity = acceptedQuantity;
             this.UnloadingQuantity = unloadingQuantity;
+            this.CorrectedQuantity = correctedQuantity;
         }
 
         /// <summary>
@@ -147,6 +149,13 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
         public long? UnloadingQuantity { get; set; }
 
         /// <summary>
+        /// Количество товара по Акту корректировки, которое не входит в &#x60;acceptedQuantity&#x60;. Возвращается, если по товару есть расхождения, зафиксированные при приёмке
+        /// </summary>
+        /// <value>Количество товара по Акту корректировки, которое не входит в &#x60;acceptedQuantity&#x60;. Возвращается, если по товару есть расхождения, зафиксированные при приёмке</value>
+        [DataMember(Name = "correctedQuantity", EmitDefaultValue = false)]
+        public long CorrectedQuantity { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -166,6 +175,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbw.Model
             sb.Append("  ReadyForSaleQuantity: ").Append(ReadyForSaleQuantity).Append("\n");
             sb.Append("  AcceptedQuantity: ").Append(AcceptedQuantity).Append("\n");
             sb.Append("  UnloadingQuantity: ").Append(UnloadingQuantity).Append("\n");
+            sb.Append("  CorrectedQuantity: ").Append(CorrectedQuantity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

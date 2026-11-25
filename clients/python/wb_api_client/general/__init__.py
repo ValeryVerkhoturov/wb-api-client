@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "3.0.0"
+__version__ = "3.1.0"
 
 # import apis into sdk package
 from wb_api_client.general.api.general_api import GeneralApi

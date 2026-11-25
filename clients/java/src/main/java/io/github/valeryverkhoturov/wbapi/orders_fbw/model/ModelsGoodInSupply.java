@@ -105,6 +105,12 @@ public class ModelsGoodInSupply {
   @jakarta.annotation.Nullable
   private Long unloadingQuantity;
 
+  public static final String SERIALIZED_NAME_CORRECTED_QUANTITY = "correctedQuantity";
+
+  @SerializedName(SERIALIZED_NAME_CORRECTED_QUANTITY)
+  @jakarta.annotation.Nullable
+  private Long correctedQuantity;
+
   public ModelsGoodInSupply() {}
 
   public ModelsGoodInSupply barcode(@jakarta.annotation.Nullable String barcode) {
@@ -340,6 +346,26 @@ public class ModelsGoodInSupply {
     this.unloadingQuantity = unloadingQuantity;
   }
 
+  public ModelsGoodInSupply correctedQuantity(@jakarta.annotation.Nullable Long correctedQuantity) {
+    this.correctedQuantity = correctedQuantity;
+    return this;
+  }
+
+  /**
+   * Количество товара по Акту корректировки, которое не входит в &#x60;acceptedQuantity&#x60;.
+   * Возвращается, если по товару есть расхождения, зафиксированные при приёмке
+   *
+   * @return correctedQuantity
+   */
+  @jakarta.annotation.Nullable
+  public Long getCorrectedQuantity() {
+    return correctedQuantity;
+  }
+
+  public void setCorrectedQuantity(@jakarta.annotation.Nullable Long correctedQuantity) {
+    this.correctedQuantity = correctedQuantity;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -360,7 +386,8 @@ public class ModelsGoodInSupply {
         && Objects.equals(this.quantity, modelsGoodInSupply.quantity)
         && Objects.equals(this.readyForSaleQuantity, modelsGoodInSupply.readyForSaleQuantity)
         && Objects.equals(this.acceptedQuantity, modelsGoodInSupply.acceptedQuantity)
-        && Objects.equals(this.unloadingQuantity, modelsGoodInSupply.unloadingQuantity);
+        && Objects.equals(this.unloadingQuantity, modelsGoodInSupply.unloadingQuantity)
+        && Objects.equals(this.correctedQuantity, modelsGoodInSupply.correctedQuantity);
   }
 
   @Override
@@ -377,7 +404,8 @@ public class ModelsGoodInSupply {
         quantity,
         readyForSaleQuantity,
         acceptedQuantity,
-        unloadingQuantity);
+        unloadingQuantity,
+        correctedQuantity);
   }
 
   @Override
@@ -398,6 +426,7 @@ public class ModelsGoodInSupply {
         .append("\n");
     sb.append("    acceptedQuantity: ").append(toIndentedString(acceptedQuantity)).append("\n");
     sb.append("    unloadingQuantity: ").append(toIndentedString(unloadingQuantity)).append("\n");
+    sb.append("    correctedQuantity: ").append(toIndentedString(correctedQuantity)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -430,6 +459,7 @@ public class ModelsGoodInSupply {
     openapiFields.add("readyForSaleQuantity");
     openapiFields.add("acceptedQuantity");
     openapiFields.add("unloadingQuantity");
+    openapiFields.add("correctedQuantity");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

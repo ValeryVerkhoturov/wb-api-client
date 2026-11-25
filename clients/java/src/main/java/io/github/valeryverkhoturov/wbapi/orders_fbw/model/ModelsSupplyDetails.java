@@ -261,6 +261,12 @@ public class ModelsSupplyDetails {
   @jakarta.annotation.Nullable
   private Boolean isBoxOnPallet;
 
+  public static final String SERIALIZED_NAME_CORRECTED_QUANTITY = "correctedQuantity";
+
+  @SerializedName(SERIALIZED_NAME_CORRECTED_QUANTITY)
+  @jakarta.annotation.Nullable
+  private Long correctedQuantity;
+
   public ModelsSupplyDetails() {}
 
   public ModelsSupplyDetails phone(@jakarta.annotation.Nullable String phone) {
@@ -795,6 +801,27 @@ public class ModelsSupplyDetails {
     this.isBoxOnPallet = isBoxOnPallet;
   }
 
+  public ModelsSupplyDetails correctedQuantity(
+      @jakarta.annotation.Nullable Long correctedQuantity) {
+    this.correctedQuantity = correctedQuantity;
+    return this;
+  }
+
+  /**
+   * Количество товаров по Акту корректировки, которое не входит в &#x60;acceptedQuantity&#x60;.
+   * Возвращается, если есть расхождения, зафиксированные при приёмке поставки
+   *
+   * @return correctedQuantity
+   */
+  @jakarta.annotation.Nullable
+  public Long getCorrectedQuantity() {
+    return correctedQuantity;
+  }
+
+  public void setCorrectedQuantity(@jakarta.annotation.Nullable Long correctedQuantity) {
+    this.correctedQuantity = correctedQuantity;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -831,7 +858,8 @@ public class ModelsSupplyDetails {
         && Objects.equals(this.unloadingQuantity, modelsSupplyDetails.unloadingQuantity)
         && Objects.equals(this.depersonalizedQuantity, modelsSupplyDetails.depersonalizedQuantity)
         && Objects.equals(this.discrepancies, modelsSupplyDetails.discrepancies)
-        && Objects.equals(this.isBoxOnPallet, modelsSupplyDetails.isBoxOnPallet);
+        && Objects.equals(this.isBoxOnPallet, modelsSupplyDetails.isBoxOnPallet)
+        && Objects.equals(this.correctedQuantity, modelsSupplyDetails.correctedQuantity);
   }
 
   @Override
@@ -863,7 +891,8 @@ public class ModelsSupplyDetails {
         unloadingQuantity,
         depersonalizedQuantity,
         discrepancies,
-        isBoxOnPallet);
+        isBoxOnPallet,
+        correctedQuantity);
   }
 
   @Override
@@ -907,6 +936,7 @@ public class ModelsSupplyDetails {
         .append("\n");
     sb.append("    discrepancies: ").append(toIndentedString(discrepancies)).append("\n");
     sb.append("    isBoxOnPallet: ").append(toIndentedString(isBoxOnPallet)).append("\n");
+    sb.append("    correctedQuantity: ").append(toIndentedString(correctedQuantity)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -954,6 +984,7 @@ public class ModelsSupplyDetails {
     openapiFields.add("depersonalizedQuantity");
     openapiFields.add("discrepancies");
     openapiFields.add("isBoxOnPallet");
+    openapiFields.add("correctedQuantity");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

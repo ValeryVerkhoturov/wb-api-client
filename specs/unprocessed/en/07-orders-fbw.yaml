@@ -1637,7 +1637,7 @@ components:
           description: Packaging sticker ID
         quantity:
           type: integer
-          description: Total quantity of items in the package, pieces
+          description: Total quantity of items in the package, pcs
         barcodes:
           type: array
           description: List of packed items
@@ -1651,7 +1651,7 @@ components:
           description: Barcode
         quantity:
           type: integer
-          description: Quantity, pieces
+          description: Quantity, pcs
     models.SuppliesFiltersRequest:
       properties:
         dates:
@@ -1707,22 +1707,25 @@ components:
         supplierBoxAmount:
           type: integer
           nullable: true
-          description: Specified in the package, pieces
+          description: Specified in the package, pcs
         quantity:
           type: integer
-          description: Specified in the supply/order, pieces
+          description: Specified in the supply/order, pcs
         readyForSaleQuantity:
           type: integer
           nullable: true
-          description: Ready for sale, pieces
+          description: Ready for sale, pcs
         acceptedQuantity:
           type: integer
           nullable: true
-          description: Accepted, pieces
+          description: Accepted, pcs
         unloadingQuantity:
           type: integer
           nullable: true
-          description: Total items at putaway, pieces
+          description: Total items at putaway, pcs
+        correctedQuantity:
+          type: integer
+          description: Number of item per Adjustment Certificate that is not included in the `acceptedQuantity`.<br> Returned if discrepancies were found during the item acceptance
       example:
         barcode: '1234567891234'
         vendorCode: wb4sewt0vg
@@ -1736,6 +1739,7 @@ components:
         readyForSaleQuantity: 0
         unloadingQuantity: 0
         acceptedQuantity: 0
+        correctedQuantity: 1
     models.DateFilterRequest:
       properties:
         from:
@@ -1863,23 +1867,23 @@ components:
           nullable: true
         quantity:
           type: integer
-          description: Added to the supply/order, pieces
+          description: Added to the supply/order, pcs
         readyForSaleQuantity:
           type: integer
           nullable: false
-          description: Ready for sale, pieces
+          description: Ready for sale, pcs
         acceptedQuantity:
           type: integer
           nullable: false
-          description: Accepted, pieces
+          description: Accepted, pcs
         unloadingQuantity:
           type: integer
           nullable: false
-          description: Total items at putaway, pieces
+          description: Total items at putaway, pcs
         depersonalizedQuantity:
           type: integer
           nullable: true
-          description: Quantity of depersonalized items, pieces
+          description: Quantity of depersonalized items, pcs
         discrepancies:
           type: integer
           description: |
@@ -1894,6 +1898,9 @@ components:
               - `false` — no
 
               The field is returned only when `"boxTypeID": 2`
+        correctedQuantity:
+          type: integer
+          description: Number of items per Adjustment Certificate that is not included in the `acceptedQuantity`.<br> Returned if discrepancies were found during the acceptance of the supply
       example:
         phone: +7 903 *** 98 62
         statusID: 5
@@ -1921,6 +1928,7 @@ components:
         depersonalizedQuantity: 0
         discrepancies: 0
         isBoxOnPallet: true
+        correctedQuantity: 1
     models.HandySupplyStatus:
       enum:
         - 1

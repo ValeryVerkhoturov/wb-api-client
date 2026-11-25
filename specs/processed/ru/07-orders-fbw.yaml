@@ -1657,6 +1657,12 @@ components:
           nullable: true
           description: Количество товара на раскладке, шт
           format: int64
+        correctedQuantity:
+          type: integer
+          description: |-
+            Количество товара по Акту корректировки, которое не входит в `acceptedQuantity`.
+            Возвращается, если по товару есть расхождения, зафиксированные при приёмке
+          format: int64
       example:
         barcode: '1234567891234'
         vendorCode: wb4sewt0vg
@@ -1670,6 +1676,7 @@ components:
         readyForSaleQuantity: 0
         unloadingQuantity: 0
         acceptedQuantity: 0
+        correctedQuantity: 1
     models.DateFilterRequest:
       properties:
         from:
@@ -1840,6 +1847,12 @@ components:
               - `false` — нет
 
               Поле возвращается только при `"boxTypeID": 2`
+        correctedQuantity:
+          type: integer
+          description: |-
+            Количество товаров по Акту корректировки, которое не входит в `acceptedQuantity`.
+            Возвращается, если есть расхождения, зафиксированные при приёмке поставки
+          format: int64
       example:
         phone: +7 903 *** 98 62
         statusID: 5
@@ -1867,6 +1880,7 @@ components:
         depersonalizedQuantity: 0
         discrepancies: 0
         isBoxOnPallet: true
+        correctedQuantity: 1
     models.HandySupplyStatus:
       enum:
       - 1

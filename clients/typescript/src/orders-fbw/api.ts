@@ -623,6 +623,12 @@ export interface ModelsGoodInSupply {
    * @memberof ModelsGoodInSupply
    */
   unloadingQuantity?: number | null;
+  /**
+   * Количество товара по Акту корректировки, которое не входит в `acceptedQuantity`. Возвращается, если по товару есть расхождения, зафиксированные при приёмке
+   * @type {number}
+   * @memberof ModelsGoodInSupply
+   */
+  correctedQuantity?: number;
 }
 /**
  *
@@ -1199,6 +1205,12 @@ export interface ModelsSupplyDetails {
    * @memberof ModelsSupplyDetails
    */
   isBoxOnPallet?: boolean;
+  /**
+   * Количество товаров по Акту корректировки, которое не входит в `acceptedQuantity`. Возвращается, если есть расхождения, зафиксированные при приёмке поставки
+   * @type {number}
+   * @memberof ModelsSupplyDetails
+   */
+  correctedQuantity?: number;
 }
 
 export const ModelsSupplyDetailsStatusIDEnum = {
