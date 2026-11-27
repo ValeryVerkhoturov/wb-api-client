@@ -64,8 +64,8 @@ import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PutV3OrdersOrderIdMeta
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PutV3OrdersOrderIdMetaUinRequest;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.PutV3PassesPassIdRequest;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.Supply;
-import io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplyShippingPointsResponse;
-import io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdateSuppliesShippingMethodResponse;
+import io.github.valeryverkhoturov.wbapi.orders_fbs.model.SupplyDispatchPointsResponse;
+import io.github.valeryverkhoturov.wbapi.orders_fbs.model.UpdateSuppliesDispatchMethodResponse;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3ArchiveOrders;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3GetMetaMultiRequest;
 import io.github.valeryverkhoturov.wbapi.orders_fbs.model.V3OrdersMetaAPI;
@@ -1798,7 +1798,7 @@ public class OrdersFbsApi {
    *     Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+
    *     (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются
    *     только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)
-   * @return SupplyShippingPointsResponse
+   * @return SupplyDispatchPointsResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -1814,9 +1814,9 @@ public class OrdersFbsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public SupplyShippingPointsResponse getV3FbsSuppliesSupplyIdShippingPoints(
+  public SupplyDispatchPointsResponse getV3FbsSuppliesSupplyIdShippingPoints(
       String supplyId, String city, String officeType, String shippingDt) throws ApiException {
-    ApiResponse<SupplyShippingPointsResponse> localVarResp =
+    ApiResponse<SupplyDispatchPointsResponse> localVarResp =
         getV3FbsSuppliesSupplyIdShippingPointsWithHttpInfo(supplyId, city, officeType, shippingDt);
     return localVarResp.getData();
   }
@@ -1844,7 +1844,7 @@ public class OrdersFbsApi {
    *     Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+
    *     (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются
    *     только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)
-   * @return ApiResponse&lt;SupplyShippingPointsResponse&gt;
+   * @return ApiResponse&lt;SupplyDispatchPointsResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -1860,13 +1860,13 @@ public class OrdersFbsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<SupplyShippingPointsResponse>
+  public ApiResponse<SupplyDispatchPointsResponse>
       getV3FbsSuppliesSupplyIdShippingPointsWithHttpInfo(
           String supplyId, String city, String officeType, String shippingDt) throws ApiException {
     okhttp3.Call localVarCall =
         getV3FbsSuppliesSupplyIdShippingPointsValidateBeforeCall(
             supplyId, city, officeType, shippingDt, null);
-    Type localVarReturnType = new TypeToken<SupplyShippingPointsResponse>() {}.getType();
+    Type localVarReturnType = new TypeToken<SupplyDispatchPointsResponse>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -1914,13 +1914,13 @@ public class OrdersFbsApi {
       String city,
       String officeType,
       String shippingDt,
-      final ApiCallback<SupplyShippingPointsResponse> _callback)
+      final ApiCallback<SupplyDispatchPointsResponse> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         getV3FbsSuppliesSupplyIdShippingPointsValidateBeforeCall(
             supplyId, city, officeType, shippingDt, _callback);
-    Type localVarReturnType = new TypeToken<SupplyShippingPointsResponse>() {}.getType();
+    Type localVarReturnType = new TypeToken<SupplyDispatchPointsResponse>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -4520,7 +4520,7 @@ public class OrdersFbsApi {
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-shipping-method
    *
    * @param patchV3FbsSuppliesShippingMethodRequest (required)
-   * @return UpdateSuppliesShippingMethodResponse
+   * @return UpdateSuppliesDispatchMethodResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -4536,10 +4536,10 @@ public class OrdersFbsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public UpdateSuppliesShippingMethodResponse patchV3FbsSuppliesShippingMethod(
+  public UpdateSuppliesDispatchMethodResponse patchV3FbsSuppliesShippingMethod(
       PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest)
       throws ApiException {
-    ApiResponse<UpdateSuppliesShippingMethodResponse> localVarResp =
+    ApiResponse<UpdateSuppliesDispatchMethodResponse> localVarResp =
         patchV3FbsSuppliesShippingMethodWithHttpInfo(patchV3FbsSuppliesShippingMethodRequest);
     return localVarResp.getData();
   }
@@ -4559,7 +4559,7 @@ public class OrdersFbsApi {
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-shipping-method
    *
    * @param patchV3FbsSuppliesShippingMethodRequest (required)
-   * @return ApiResponse&lt;UpdateSuppliesShippingMethodResponse&gt;
+   * @return ApiResponse&lt;UpdateSuppliesDispatchMethodResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -4575,14 +4575,14 @@ public class OrdersFbsApi {
    * <tr><td> 429 </td><td> Слишком много запросов </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<UpdateSuppliesShippingMethodResponse>
+  public ApiResponse<UpdateSuppliesDispatchMethodResponse>
       patchV3FbsSuppliesShippingMethodWithHttpInfo(
           PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest)
           throws ApiException {
     okhttp3.Call localVarCall =
         patchV3FbsSuppliesShippingMethodValidateBeforeCall(
             patchV3FbsSuppliesShippingMethodRequest, null);
-    Type localVarReturnType = new TypeToken<UpdateSuppliesShippingMethodResponse>() {}.getType();
+    Type localVarReturnType = new TypeToken<UpdateSuppliesDispatchMethodResponse>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -4619,13 +4619,13 @@ public class OrdersFbsApi {
    */
   public okhttp3.Call patchV3FbsSuppliesShippingMethodAsync(
       PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest,
-      final ApiCallback<UpdateSuppliesShippingMethodResponse> _callback)
+      final ApiCallback<UpdateSuppliesDispatchMethodResponse> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         patchV3FbsSuppliesShippingMethodValidateBeforeCall(
             patchV3FbsSuppliesShippingMethodRequest, _callback);
-    Type localVarReturnType = new TypeToken<UpdateSuppliesShippingMethodResponse>() {}.getType();
+    Type localVarReturnType = new TypeToken<UpdateSuppliesDispatchMethodResponse>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }

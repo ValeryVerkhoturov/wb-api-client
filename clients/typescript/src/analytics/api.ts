@@ -40,6 +40,56 @@ import {
 } from "./base";
 
 /**
+ * Общие фильтры по регионам отгрузки
+ * @export
+ * @interface CommonDispatchOfficeFilters
+ */
+export interface CommonDispatchOfficeFilters {
+  /**
+   * Список артикулов WB для фильтрации
+   * @type {Array<number>}
+   * @memberof CommonDispatchOfficeFilters
+   */
+  nmIDs?: Array<number>;
+  /**
+   * Список ID предметов для фильтрации
+   * @type {Array<number>}
+   * @memberof CommonDispatchOfficeFilters
+   */
+  subjectIDs?: Array<number>;
+  /**
+   * Список брендов для фильтрации
+   * @type {Array<string>}
+   * @memberof CommonDispatchOfficeFilters
+   */
+  brandNames?: Array<string>;
+  /**
+   * Список ID ярлыков для фильтрации
+   * @type {Array<number>}
+   * @memberof CommonDispatchOfficeFilters
+   */
+  tagIDs?: Array<number>;
+  /**
+   *
+   * @type {PeriodInv}
+   * @memberof CommonDispatchOfficeFilters
+   */
+  currentPeriod: PeriodInv;
+  /**
+   *
+   * @type {StockType}
+   * @memberof CommonDispatchOfficeFilters
+   */
+  stockType: StockType;
+  /**
+   * Скрыть удалённые товары
+   * @type {boolean}
+   * @memberof CommonDispatchOfficeFilters
+   */
+  skipDeletedNm: boolean;
+}
+
+/**
  * Общая информация
  * @export
  * @interface CommonInfo
@@ -263,56 +313,6 @@ export interface CommonResponseProperties {
    */
   data?: object;
 }
-/**
- * Общие фильтры по регионам отгрузки
- * @export
- * @interface CommonShippingOfficeFilters
- */
-export interface CommonShippingOfficeFilters {
-  /**
-   * Список артикулов WB для фильтрации
-   * @type {Array<number>}
-   * @memberof CommonShippingOfficeFilters
-   */
-  nmIDs?: Array<number>;
-  /**
-   * Список ID предметов для фильтрации
-   * @type {Array<number>}
-   * @memberof CommonShippingOfficeFilters
-   */
-  subjectIDs?: Array<number>;
-  /**
-   * Список брендов для фильтрации
-   * @type {Array<string>}
-   * @memberof CommonShippingOfficeFilters
-   */
-  brandNames?: Array<string>;
-  /**
-   * Список ID ярлыков для фильтрации
-   * @type {Array<number>}
-   * @memberof CommonShippingOfficeFilters
-   */
-  tagIDs?: Array<number>;
-  /**
-   *
-   * @type {PeriodInv}
-   * @memberof CommonShippingOfficeFilters
-   */
-  currentPeriod: PeriodInv;
-  /**
-   *
-   * @type {StockType}
-   * @memberof CommonShippingOfficeFilters
-   */
-  stockType: StockType;
-  /**
-   * Скрыть удалённые товары
-   * @type {boolean}
-   * @memberof CommonShippingOfficeFilters
-   */
-  skipDeletedNm: boolean;
-}
-
 /**
  * Общие фильтры по размеру
  * @export
@@ -3327,10 +3327,10 @@ export interface PostV2SearchReportTableGroupsResponse200 {
 export interface PostV2StocksReportOfficesResponse200 {
   /**
    *
-   * @type {TableShippingOfficeResponse}
+   * @type {TableDispatchOfficeResponse}
    * @memberof PostV2StocksReportOfficesResponse200
    */
-  data?: TableShippingOfficeResponse;
+  data?: TableDispatchOfficeResponse;
 }
 /**
  *
@@ -5189,6 +5189,162 @@ export interface TableDetailsResponse {
   currency?: string;
 }
 /**
+ * Данные по региону отгрузки
+ * @export
+ * @interface TableDispatchOfficeItem
+ */
+export interface TableDispatchOfficeItem {
+  /**
+   * [Страна отгрузки](https://dev.wildberries.ru/release-notes?id=605)
+   * @type {string}
+   * @memberof TableDispatchOfficeItem
+   */
+  regionName?: string;
+  /**
+   * Метрики по региону
+   * @type {TableDispatchOfficeMetrics}
+   * @memberof TableDispatchOfficeItem
+   */
+  metrics?: TableDispatchOfficeMetrics;
+  /**
+   * [Данные по складам](https://dev.wildberries.ru/release-notes?id=605)
+   * @type {Array<TableDispatchOfficeItemOfficesInner>}
+   * @memberof TableDispatchOfficeItem
+   */
+  offices?: Array<TableDispatchOfficeItemOfficesInner>;
+}
+/**
+ *
+ * @export
+ * @interface TableDispatchOfficeItemOfficesInner
+ */
+export interface TableDispatchOfficeItemOfficesInner {
+  /**
+   * [ID склада](https://dev.wildberries.ru/release-notes?id=605)
+   * @type {number}
+   * @memberof TableDispatchOfficeItemOfficesInner
+   */
+  officeID?: number;
+  /**
+   * [Название склада](https://dev.wildberries.ru/release-notes?id=605)
+   * @type {string}
+   * @memberof TableDispatchOfficeItemOfficesInner
+   */
+  officeName?: string;
+  /**
+   * Метрики по складу
+   * @type {TableDispatchOfficeMetrics}
+   * @memberof TableDispatchOfficeItemOfficesInner
+   */
+  metrics?: TableDispatchOfficeMetrics;
+}
+/**
+ * Общие метрики по регионам/складам отгрузки
+ * @export
+ * @interface TableDispatchOfficeMetrics
+ */
+export interface TableDispatchOfficeMetrics {
+  /**
+   * Остатки на текущий день, шт.
+   * @type {number}
+   * @memberof TableDispatchOfficeMetrics
+   */
+  stockCount?: number;
+  /**
+   * Остатки на текущий день, сумма
+   * @type {number}
+   * @memberof TableDispatchOfficeMetrics
+   */
+  stockSum?: number;
+  /**
+   *
+   * @type {TableCommonMetricsSaleRate}
+   * @memberof TableDispatchOfficeMetrics
+   */
+  saleRate?: TableCommonMetricsSaleRate;
+  /**
+   * В пути к клиенту, шт.
+   * @type {number}
+   * @memberof TableDispatchOfficeMetrics
+   */
+  toClientCount?: number;
+  /**
+   * В пути от клиента, шт.
+   * @type {number}
+   * @memberof TableDispatchOfficeMetrics
+   */
+  fromClientCount?: number;
+}
+/**
+ *
+ * @export
+ * @interface TableDispatchOfficeRequest
+ */
+export interface TableDispatchOfficeRequest {
+  /**
+   * Список артикулов WB для фильтрации
+   * @type {Array<number>}
+   * @memberof TableDispatchOfficeRequest
+   */
+  nmIDs?: Array<number>;
+  /**
+   * Список ID предметов для фильтрации
+   * @type {Array<number>}
+   * @memberof TableDispatchOfficeRequest
+   */
+  subjectIDs?: Array<number>;
+  /**
+   * Список брендов для фильтрации
+   * @type {Array<string>}
+   * @memberof TableDispatchOfficeRequest
+   */
+  brandNames?: Array<string>;
+  /**
+   * Список ID ярлыков для фильтрации
+   * @type {Array<number>}
+   * @memberof TableDispatchOfficeRequest
+   */
+  tagIDs?: Array<number>;
+  /**
+   *
+   * @type {PeriodInv}
+   * @memberof TableDispatchOfficeRequest
+   */
+  currentPeriod: PeriodInv;
+  /**
+   *
+   * @type {StockType}
+   * @memberof TableDispatchOfficeRequest
+   */
+  stockType: StockType;
+  /**
+   * Скрыть удалённые товары
+   * @type {boolean}
+   * @memberof TableDispatchOfficeRequest
+   */
+  skipDeletedNm: boolean;
+}
+
+/**
+ *
+ * @export
+ * @interface TableDispatchOfficeResponse
+ */
+export interface TableDispatchOfficeResponse {
+  /**
+   * Множество данных по регионам отгрузки
+   * @type {Array<TableDispatchOfficeItem>}
+   * @memberof TableDispatchOfficeResponse
+   */
+  regions?: Array<TableDispatchOfficeItem>;
+  /**
+   * Валюта отчёта
+   * @type {string}
+   * @memberof TableDispatchOfficeResponse
+   */
+  currency?: string;
+}
+/**
  * Сортировка по полю:   - `ordersCount` — Заказы, шт.   - `ordersSum` — Заказы, сумма   - `avgOrders` — Среднее количество заказов в день   - `buyoutCount` — Выкупы, шт.   - `buyoutSum` — Выкупы, сумма   - `buyoutPercent` — Процент выкупа   - `stockCount` — Остатки на текущий день, шт.   - `stockSum` — Стоимость остатков на текущий день   - `saleRate` — Оборачиваемость текущих остатков   - `avgStockTurnover` — Оборачиваемость средних остатков   - `toClientCount` — В пути к клиенту, шт.   - `fromClientCount` — В пути от клиента, шт.   - `minPrice` — Минимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)   - `maxPrice` — Максимальная цена продавца со скидкой продавца (без учёта скидки WB Клуба)   - `officeMissingTime` — Время отсутствия товара на складе   - `lostOrdersCount` — Упущенные заказы, шт.   - `lostOrdersSum` — Упущенные заказы, сумма   - `lostBuyoutsCount` — Упущенные выкупы, шт.   - `lostBuyoutsSum` — Упущенные выкупы, сумма
  * @export
  * @enum {string}
@@ -6529,162 +6685,6 @@ export interface TableSearchTextItemAllOfVisibility {
   dynamics?: number;
 }
 /**
- * Данные по региону отгрузки
- * @export
- * @interface TableShippingOfficeItem
- */
-export interface TableShippingOfficeItem {
-  /**
-   * [Страна отгрузки](https://dev.wildberries.ru/release-notes?id=605)
-   * @type {string}
-   * @memberof TableShippingOfficeItem
-   */
-  regionName?: string;
-  /**
-   * Метрики по региону
-   * @type {TableShippingOfficeMetrics}
-   * @memberof TableShippingOfficeItem
-   */
-  metrics?: TableShippingOfficeMetrics;
-  /**
-   * [Данные по складам](https://dev.wildberries.ru/release-notes?id=605)
-   * @type {Array<TableShippingOfficeItemOfficesInner>}
-   * @memberof TableShippingOfficeItem
-   */
-  offices?: Array<TableShippingOfficeItemOfficesInner>;
-}
-/**
- *
- * @export
- * @interface TableShippingOfficeItemOfficesInner
- */
-export interface TableShippingOfficeItemOfficesInner {
-  /**
-   * [ID склада](https://dev.wildberries.ru/release-notes?id=605)
-   * @type {number}
-   * @memberof TableShippingOfficeItemOfficesInner
-   */
-  officeID?: number;
-  /**
-   * [Название склада](https://dev.wildberries.ru/release-notes?id=605)
-   * @type {string}
-   * @memberof TableShippingOfficeItemOfficesInner
-   */
-  officeName?: string;
-  /**
-   * Метрики по складу
-   * @type {TableShippingOfficeMetrics}
-   * @memberof TableShippingOfficeItemOfficesInner
-   */
-  metrics?: TableShippingOfficeMetrics;
-}
-/**
- * Общие метрики по регионам/складам отгрузки
- * @export
- * @interface TableShippingOfficeMetrics
- */
-export interface TableShippingOfficeMetrics {
-  /**
-   * Остатки на текущий день, шт.
-   * @type {number}
-   * @memberof TableShippingOfficeMetrics
-   */
-  stockCount?: number;
-  /**
-   * Остатки на текущий день, сумма
-   * @type {number}
-   * @memberof TableShippingOfficeMetrics
-   */
-  stockSum?: number;
-  /**
-   *
-   * @type {TableCommonMetricsSaleRate}
-   * @memberof TableShippingOfficeMetrics
-   */
-  saleRate?: TableCommonMetricsSaleRate;
-  /**
-   * В пути к клиенту, шт.
-   * @type {number}
-   * @memberof TableShippingOfficeMetrics
-   */
-  toClientCount?: number;
-  /**
-   * В пути от клиента, шт.
-   * @type {number}
-   * @memberof TableShippingOfficeMetrics
-   */
-  fromClientCount?: number;
-}
-/**
- *
- * @export
- * @interface TableShippingOfficeRequest
- */
-export interface TableShippingOfficeRequest {
-  /**
-   * Список артикулов WB для фильтрации
-   * @type {Array<number>}
-   * @memberof TableShippingOfficeRequest
-   */
-  nmIDs?: Array<number>;
-  /**
-   * Список ID предметов для фильтрации
-   * @type {Array<number>}
-   * @memberof TableShippingOfficeRequest
-   */
-  subjectIDs?: Array<number>;
-  /**
-   * Список брендов для фильтрации
-   * @type {Array<string>}
-   * @memberof TableShippingOfficeRequest
-   */
-  brandNames?: Array<string>;
-  /**
-   * Список ID ярлыков для фильтрации
-   * @type {Array<number>}
-   * @memberof TableShippingOfficeRequest
-   */
-  tagIDs?: Array<number>;
-  /**
-   *
-   * @type {PeriodInv}
-   * @memberof TableShippingOfficeRequest
-   */
-  currentPeriod: PeriodInv;
-  /**
-   *
-   * @type {StockType}
-   * @memberof TableShippingOfficeRequest
-   */
-  stockType: StockType;
-  /**
-   * Скрыть удалённые товары
-   * @type {boolean}
-   * @memberof TableShippingOfficeRequest
-   */
-  skipDeletedNm: boolean;
-}
-
-/**
- *
- * @export
- * @interface TableShippingOfficeResponse
- */
-export interface TableShippingOfficeResponse {
-  /**
-   * Множество данных по регионам отгрузки
-   * @type {Array<TableShippingOfficeItem>}
-   * @memberof TableShippingOfficeResponse
-   */
-  regions?: Array<TableShippingOfficeItem>;
-  /**
-   * Валюта отчёта
-   * @type {string}
-   * @memberof TableShippingOfficeResponse
-   */
-  currency?: string;
-}
-/**
  *
  * @export
  * @interface TableSizeRequest
@@ -7909,19 +7909,19 @@ export const AnalyticsApiAxiosParamCreator = function (
     /**
      * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
      * @summary Данные по складам
-     * @param {TableShippingOfficeRequest} tableShippingOfficeRequest
+     * @param {TableDispatchOfficeRequest} tableDispatchOfficeRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     postV2StocksReportOffices: async (
-      tableShippingOfficeRequest: TableShippingOfficeRequest,
+      tableDispatchOfficeRequest: TableDispatchOfficeRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
-      // verify required parameter 'tableShippingOfficeRequest' is not null or undefined
+      // verify required parameter 'tableDispatchOfficeRequest' is not null or undefined
       assertParamExists(
         "postV2StocksReportOffices",
-        "tableShippingOfficeRequest",
-        tableShippingOfficeRequest,
+        "tableDispatchOfficeRequest",
+        tableDispatchOfficeRequest,
       );
       const localVarPath = `/api/v2/stocks-report/offices`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -7954,7 +7954,7 @@ export const AnalyticsApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        tableShippingOfficeRequest,
+        tableDispatchOfficeRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -8764,12 +8764,12 @@ export const AnalyticsApiFp = function (configuration?: Configuration) {
     /**
      * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
      * @summary Данные по складам
-     * @param {TableShippingOfficeRequest} tableShippingOfficeRequest
+     * @param {TableDispatchOfficeRequest} tableDispatchOfficeRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async postV2StocksReportOffices(
-      tableShippingOfficeRequest: TableShippingOfficeRequest,
+      tableDispatchOfficeRequest: TableDispatchOfficeRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (
@@ -8779,7 +8779,7 @@ export const AnalyticsApiFp = function (configuration?: Configuration) {
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.postV2StocksReportOffices(
-          tableShippingOfficeRequest,
+          tableDispatchOfficeRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -9211,16 +9211,16 @@ export const AnalyticsApiFactory = function (
     /**
      * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
      * @summary Данные по складам
-     * @param {TableShippingOfficeRequest} tableShippingOfficeRequest
+     * @param {TableDispatchOfficeRequest} tableDispatchOfficeRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     postV2StocksReportOffices(
-      tableShippingOfficeRequest: TableShippingOfficeRequest,
+      tableDispatchOfficeRequest: TableDispatchOfficeRequest,
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<PostV2StocksReportOfficesResponse200> {
       return localVarFp
-        .postV2StocksReportOffices(tableShippingOfficeRequest, options)
+        .postV2StocksReportOffices(tableDispatchOfficeRequest, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -9494,13 +9494,13 @@ export interface AnalyticsApiInterface {
   /**
    * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
    * @summary Данные по складам
-   * @param {TableShippingOfficeRequest} tableShippingOfficeRequest
+   * @param {TableDispatchOfficeRequest} tableDispatchOfficeRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof AnalyticsApiInterface
    */
   postV2StocksReportOffices(
-    tableShippingOfficeRequest: TableShippingOfficeRequest,
+    tableDispatchOfficeRequest: TableDispatchOfficeRequest,
     options?: RawAxiosRequestConfig,
   ): AxiosPromise<PostV2StocksReportOfficesResponse200>;
 
@@ -9814,17 +9814,17 @@ export class AnalyticsApi extends BaseAPI implements AnalyticsApiInterface {
   /**
    * Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с `\"regionName\":\"Свой склад\"` или `\"regionName\":\"Свой склад СГТ\"` и `\"offices\":[]`.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | --- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
    * @summary Данные по складам
-   * @param {TableShippingOfficeRequest} tableShippingOfficeRequest
+   * @param {TableDispatchOfficeRequest} tableDispatchOfficeRequest
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof AnalyticsApi
    */
   public postV2StocksReportOffices(
-    tableShippingOfficeRequest: TableShippingOfficeRequest,
+    tableDispatchOfficeRequest: TableDispatchOfficeRequest,
     options?: RawAxiosRequestConfig,
   ) {
     return AnalyticsApiFp(this.configuration)
-      .postV2StocksReportOffices(tableShippingOfficeRequest, options)
+      .postV2StocksReportOffices(tableDispatchOfficeRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
 

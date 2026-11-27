@@ -161,10 +161,10 @@ class OrderNew(BaseModel):
         description="Признак заказа товара с нулевым остатком:   - `false` — заказ сделан на товар с ненулевым остатком   - `true` — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену ",
         alias="isZeroOrder",
     )
-    is_pickup_point_shipment_allowed: Optional[StrictBool] = Field(
+    is_pickup_point_dispatch_allowed: Optional[StrictBool] = Field(
         default=None,
         description="Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да ",
-        alias="isPickupPointShipmentAllowed",
+        alias="isPickupPointDispatchAllowed",
     )
     options: Optional[OrderOptions] = None
     __properties: ClassVar[List[str]] = [
@@ -198,7 +198,7 @@ class OrderNew(BaseModel):
         "cargoType",
         "crossBorderType",
         "isZeroOrder",
-        "isPickupPointShipmentAllowed",
+        "isPickupPointDispatchAllowed",
         "options",
     ]
 
@@ -357,7 +357,7 @@ class OrderNew(BaseModel):
                 "cargoType": obj.get("cargoType"),
                 "crossBorderType": obj.get("crossBorderType"),
                 "isZeroOrder": obj.get("isZeroOrder"),
-                "isPickupPointShipmentAllowed": obj.get("isPickupPointShipmentAllowed"),
+                "isPickupPointDispatchAllowed": obj.get("isPickupPointDispatchAllowed"),
                 "options": (
                     OrderOptions.from_dict(obj["options"])
                     if obj.get("options") is not None

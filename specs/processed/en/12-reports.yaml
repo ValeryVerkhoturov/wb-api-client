@@ -2081,7 +2081,7 @@ components:
         warehouseName:
           type: string
           maxLength: 50
-          description: Shipping warehouse name
+          description: Dispatch warehouse name
         warehouseType:
           type: string
           description: |
@@ -2192,7 +2192,7 @@ components:
         warehouseName:
           type: string
           maxLength: 50
-          description: Shipping warehouse
+          description: Dispatch warehouse
         warehouseType:
           type: string
           description: |
@@ -2762,11 +2762,11 @@ components:
             format: int64
           giCreateDate:
             type: string
-            description: Shipment creation date
+            description: Dispatch creation date
             example: '2025-03-04'
           incomeId:
             type: integer
-            description: Shipment number
+            description: Dispatch number
             example: 11834106
             format: int64
           nmID:
@@ -2809,7 +2809,7 @@ components:
             description: Storage coefficient
           giId:
             type: integer
-            description: Shipment ID
+            description: Dispatch ID
             format: int64
           chrtId:
             type: integer

@@ -50,10 +50,10 @@ import io.github.valeryverkhoturov.wbapi.analytics.model.PostV3SalesFunnelGroupe
 import io.github.valeryverkhoturov.wbapi.analytics.model.PostV3SalesFunnelProductsHistoryResponse200Inner;
 import io.github.valeryverkhoturov.wbapi.analytics.model.PostV3SalesFunnelProductsResponse200;
 import io.github.valeryverkhoturov.wbapi.analytics.model.TableDetailsRequest;
+import io.github.valeryverkhoturov.wbapi.analytics.model.TableDispatchOfficeRequest;
 import io.github.valeryverkhoturov.wbapi.analytics.model.TableGroupRequest;
 import io.github.valeryverkhoturov.wbapi.analytics.model.TableGroupRequestSt;
 import io.github.valeryverkhoturov.wbapi.analytics.model.TableItemRequest;
-import io.github.valeryverkhoturov.wbapi.analytics.model.TableShippingOfficeRequest;
 import io.github.valeryverkhoturov.wbapi.analytics.model.TableSizeRequest;
 import java.io.File;
 import java.lang.reflect.Type;
@@ -2775,7 +2775,7 @@ public class AnalyticsApi {
   /**
    * Build call for postV2StocksReportOffices
    *
-   * @param tableShippingOfficeRequest (required)
+   * @param tableDispatchOfficeRequest (required)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -2792,7 +2792,7 @@ public class AnalyticsApi {
    * </table>
    */
   public okhttp3.Call postV2StocksReportOfficesCall(
-      TableShippingOfficeRequest tableShippingOfficeRequest, final ApiCallback _callback)
+      TableDispatchOfficeRequest tableDispatchOfficeRequest, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -2807,7 +2807,7 @@ public class AnalyticsApi {
       basePath = null;
     }
 
-    Object localVarPostBody = tableShippingOfficeRequest;
+    Object localVarPostBody = tableDispatchOfficeRequest;
 
     // create path and map variables
     String localVarPath = "/api/v2/stocks-report/offices";
@@ -2848,15 +2848,15 @@ public class AnalyticsApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call postV2StocksReportOfficesValidateBeforeCall(
-      TableShippingOfficeRequest tableShippingOfficeRequest, final ApiCallback _callback)
+      TableDispatchOfficeRequest tableDispatchOfficeRequest, final ApiCallback _callback)
       throws ApiException {
-    // verify the required parameter 'tableShippingOfficeRequest' is set
-    if (tableShippingOfficeRequest == null) {
+    // verify the required parameter 'tableDispatchOfficeRequest' is set
+    if (tableDispatchOfficeRequest == null) {
       throw new ApiException(
-          "Missing the required parameter 'tableShippingOfficeRequest' when calling postV2StocksReportOffices(Async)");
+          "Missing the required parameter 'tableDispatchOfficeRequest' when calling postV2StocksReportOffices(Async)");
     }
 
-    return postV2StocksReportOfficesCall(tableShippingOfficeRequest, _callback);
+    return postV2StocksReportOfficesCall(tableDispatchOfficeRequest, _callback);
   }
 
   /**
@@ -2872,7 +2872,7 @@ public class AnalyticsApi {
    * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
    *
-   * @param tableShippingOfficeRequest (required)
+   * @param tableDispatchOfficeRequest (required)
    * @return PostV2StocksReportOfficesResponse200
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2889,9 +2889,9 @@ public class AnalyticsApi {
    * </table>
    */
   public PostV2StocksReportOfficesResponse200 postV2StocksReportOffices(
-      TableShippingOfficeRequest tableShippingOfficeRequest) throws ApiException {
+      TableDispatchOfficeRequest tableDispatchOfficeRequest) throws ApiException {
     ApiResponse<PostV2StocksReportOfficesResponse200> localVarResp =
-        postV2StocksReportOfficesWithHttpInfo(tableShippingOfficeRequest);
+        postV2StocksReportOfficesWithHttpInfo(tableDispatchOfficeRequest);
     return localVarResp.getData();
   }
 
@@ -2908,7 +2908,7 @@ public class AnalyticsApi {
    * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
    *
-   * @param tableShippingOfficeRequest (required)
+   * @param tableDispatchOfficeRequest (required)
    * @return ApiResponse&lt;PostV2StocksReportOfficesResponse200&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2925,9 +2925,9 @@ public class AnalyticsApi {
    * </table>
    */
   public ApiResponse<PostV2StocksReportOfficesResponse200> postV2StocksReportOfficesWithHttpInfo(
-      TableShippingOfficeRequest tableShippingOfficeRequest) throws ApiException {
+      TableDispatchOfficeRequest tableDispatchOfficeRequest) throws ApiException {
     okhttp3.Call localVarCall =
-        postV2StocksReportOfficesValidateBeforeCall(tableShippingOfficeRequest, null);
+        postV2StocksReportOfficesValidateBeforeCall(tableDispatchOfficeRequest, null);
     Type localVarReturnType = new TypeToken<PostV2StocksReportOfficesResponse200>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -2945,7 +2945,7 @@ public class AnalyticsApi {
    * | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос | Library doc:
    * https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
    *
-   * @param tableShippingOfficeRequest (required)
+   * @param tableDispatchOfficeRequest (required)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2962,12 +2962,12 @@ public class AnalyticsApi {
    * </table>
    */
   public okhttp3.Call postV2StocksReportOfficesAsync(
-      TableShippingOfficeRequest tableShippingOfficeRequest,
+      TableDispatchOfficeRequest tableDispatchOfficeRequest,
       final ApiCallback<PostV2StocksReportOfficesResponse200> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        postV2StocksReportOfficesValidateBeforeCall(tableShippingOfficeRequest, _callback);
+        postV2StocksReportOfficesValidateBeforeCall(tableDispatchOfficeRequest, _callback);
     Type localVarReturnType = new TypeToken<PostV2StocksReportOfficesResponse200>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;

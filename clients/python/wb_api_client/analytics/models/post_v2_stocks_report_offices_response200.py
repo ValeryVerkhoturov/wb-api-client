@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from wb_api_client.analytics.models.table_shipping_office_response import (
-    TableShippingOfficeResponse,
+from wb_api_client.analytics.models.table_dispatch_office_response import (
+    TableDispatchOfficeResponse,
 )
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +31,7 @@ class PostV2StocksReportOfficesResponse200(BaseModel):
     PostV2StocksReportOfficesResponse200
     """  # noqa: E501
 
-    data: Optional[TableShippingOfficeResponse] = None
+    data: Optional[TableDispatchOfficeResponse] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -88,7 +88,7 @@ class PostV2StocksReportOfficesResponse200(BaseModel):
         _obj = cls.model_validate(
             {
                 "data": (
-                    TableShippingOfficeResponse.from_dict(obj["data"])
+                    TableDispatchOfficeResponse.from_dict(obj["data"])
                     if obj.get("data") is not None
                     else None
                 )

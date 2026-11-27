@@ -1076,7 +1076,7 @@ export interface OrderNew {
    * @type {boolean}
    * @memberof OrderNew
    */
-  isPickupPointShipmentAllowed?: boolean;
+  isPickupPointDispatchAllowed?: boolean;
   /**
    *
    * @type {OrderOptions}
@@ -2121,7 +2121,7 @@ export interface Supply {
    * @type {boolean}
    * @memberof Supply
    */
-  isPickupPointShipmentAllowed?: boolean;
+  isPickupPointDispatchAllowed?: boolean;
   /**
    * Флаг закрытия поставки:   - `true` — закрыта   - `false` — открыта
    * @type {boolean}
@@ -2234,76 +2234,76 @@ export type SupplyShippingTypeEnum =
 /**
  * Данные пункта отгрузки
  * @export
- * @interface SupplyShippingPoint
+ * @interface SupplyDispatchPoint
  */
-export interface SupplyShippingPoint {
+export interface SupplyDispatchPoint {
   /**
    * ID пункта отгрузки
    * @type {number}
-   * @memberof SupplyShippingPoint
+   * @memberof SupplyDispatchPoint
    */
   id?: number;
   /**
    * Название
    * @type {string}
-   * @memberof SupplyShippingPoint
+   * @memberof SupplyDispatchPoint
    */
   name?: string;
   /**
    * Адрес
    * @type {string}
-   * @memberof SupplyShippingPoint
+   * @memberof SupplyDispatchPoint
    */
   address?: string;
   /**
    * Населённый пункт
    * @type {string}
-   * @memberof SupplyShippingPoint
+   * @memberof SupplyDispatchPoint
    */
   city?: string;
   /**
    * Тип пункта отгрузки:   - `sc` — сортировочный центр   - `sw` — склад   - `pp` — пункт выдачи заказов (ПВЗ)   - `pfc` — партнёрский фулфилмент-центр (ПФЦ)   - `gpp` — пункт приёма товаров (ППТ)
    * @type {string}
-   * @memberof SupplyShippingPoint
+   * @memberof SupplyDispatchPoint
    */
   officeType?: string;
   /**
    * Широта
    * @type {number}
-   * @memberof SupplyShippingPoint
+   * @memberof SupplyDispatchPoint
    */
   latitude?: number;
   /**
    * Долгота
    * @type {number}
-   * @memberof SupplyShippingPoint
+   * @memberof SupplyDispatchPoint
    */
   longitude?: number;
   /**
    * Услуга **Фулфилмент в СЦ** для поставки по модели FBS:   - `true` — доступна   - `false` — недоступна
    * @type {boolean}
-   * @memberof SupplyShippingPoint
+   * @memberof SupplyDispatchPoint
    */
   fulfillment?: boolean;
   /**
    * Доступен ли пункт для отгрузки поставки:   - `true` — доступен   - `false` — недоступен. Возвращается для ПВЗ, если ПВЗ перегружен в планируемую дату отгрузки
    * @type {boolean}
-   * @memberof SupplyShippingPoint
+   * @memberof SupplyDispatchPoint
    */
   available?: boolean;
 }
 /**
  *
  * @export
- * @interface SupplyShippingPointsResponse
+ * @interface SupplyDispatchPointsResponse
  */
-export interface SupplyShippingPointsResponse {
+export interface SupplyDispatchPointsResponse {
   /**
    * Список пунктов отгрузки для указанной поставки
-   * @type {Array<SupplyShippingPoint>}
-   * @memberof SupplyShippingPointsResponse
+   * @type {Array<SupplyDispatchPoint>}
+   * @memberof SupplyDispatchPointsResponse
    */
-  shippingPoints?: Array<SupplyShippingPoint>;
+  shippingPoints?: Array<SupplyDispatchPoint>;
 }
 /**
  *
@@ -2340,28 +2340,28 @@ export interface TrbxStickers {
 /**
  *
  * @export
- * @interface UpdateSuppliesShippingMethodRequest
+ * @interface UpdateSuppliesDispatchMethodRequest
  */
-export interface UpdateSuppliesShippingMethodRequest {
+export interface UpdateSuppliesDispatchMethodRequest {
   /**
    *
    * @type {Array<UpdateSupplyShippingMethod>}
-   * @memberof UpdateSuppliesShippingMethodRequest
+   * @memberof UpdateSuppliesDispatchMethodRequest
    */
   data: Array<UpdateSupplyShippingMethod>;
 }
 /**
  *
  * @export
- * @interface UpdateSuppliesShippingMethodResponse
+ * @interface UpdateSuppliesDispatchMethodResponse
  */
-export interface UpdateSuppliesShippingMethodResponse {
+export interface UpdateSuppliesDispatchMethodResponse {
   /**
    *
-   * @type {Array<UpdatedSuppliesShippingMethod>}
-   * @memberof UpdateSuppliesShippingMethodResponse
+   * @type {Array<UpdatedSuppliesDispatchMethod>}
+   * @memberof UpdateSuppliesDispatchMethodResponse
    */
-  results?: Array<UpdatedSuppliesShippingMethod>;
+  results?: Array<UpdatedSuppliesDispatchMethod>;
 }
 /**
  *
@@ -2406,44 +2406,44 @@ export type UpdateSupplyShippingMethodShippingTypeEnum =
 /**
  * Результат обработки запроса для одной поставки
  * @export
- * @interface UpdatedSuppliesShippingMethod
+ * @interface UpdatedSuppliesDispatchMethod
  */
-export interface UpdatedSuppliesShippingMethod {
+export interface UpdatedSuppliesDispatchMethod {
   /**
    *
-   * @type {UpdatedSuppliesShippingMethodError}
-   * @memberof UpdatedSuppliesShippingMethod
+   * @type {UpdatedSuppliesDispatchMethodError}
+   * @memberof UpdatedSuppliesDispatchMethod
    */
-  error?: UpdatedSuppliesShippingMethodError;
+  error?: UpdatedSuppliesDispatchMethodError;
   /**
    * Успешна ли обработка запроса для данной поставки. Может быть только `true`
    * @type {boolean}
-   * @memberof UpdatedSuppliesShippingMethod
+   * @memberof UpdatedSuppliesDispatchMethod
    */
   success?: boolean;
   /**
    * ID поставки
    * @type {string}
-   * @memberof UpdatedSuppliesShippingMethod
+   * @memberof UpdatedSuppliesDispatchMethod
    */
   supplyId?: string;
 }
 /**
  * Ошибка обработки запроса для поставки. Возможные варианты ошибок:   - `400 IncorrectRequestBody`:     - некорректный ID поставки     - место отгрузки не найдено     - склад назначения находится не в РФ     - неизвестный `shippingType`     - дата не соответствует формату `YYYY-MM-DD`   - `400 FulfillmentRequired` — в месте отгрузки недоступна услуга **Фулфилмент в СЦ**   - `404 NotFound` — поставка не найдена   - `409 SupplyAlreadyScanned` — поставка или её короба уже отсканированы в пункте отгрузки   - `409 InvalidShippingDt` — некорректная дата отгрузки поставки
  * @export
- * @interface UpdatedSuppliesShippingMethodError
+ * @interface UpdatedSuppliesDispatchMethodError
  */
-export interface UpdatedSuppliesShippingMethodError {
+export interface UpdatedSuppliesDispatchMethodError {
   /**
    * Код ошибки
    * @type {number}
-   * @memberof UpdatedSuppliesShippingMethodError
+   * @memberof UpdatedSuppliesDispatchMethodError
    */
   code?: number;
   /**
    * Дополнительная информация об ошибке
    * @type {string}
-   * @memberof UpdatedSuppliesShippingMethodError
+   * @memberof UpdatedSuppliesDispatchMethodError
    */
   detail?: string;
 }
@@ -5639,7 +5639,7 @@ export const OrdersFbsApiFp = function (configuration?: Configuration) {
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<SupplyShippingPointsResponse>
+      ) => AxiosPromise<SupplyDispatchPointsResponse>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.getV3FbsSuppliesSupplyIdShippingPoints(
@@ -6068,7 +6068,7 @@ export const OrdersFbsApiFp = function (configuration?: Configuration) {
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<UpdateSuppliesShippingMethodResponse>
+      ) => AxiosPromise<UpdateSuppliesDispatchMethodResponse>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.patchV3FbsSuppliesShippingMethod(
@@ -7002,7 +7002,7 @@ export const OrdersFbsApiFactory = function (
       officeType: string,
       shippingDt?: string,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<SupplyShippingPointsResponse> {
+    ): AxiosPromise<SupplyDispatchPointsResponse> {
       return localVarFp
         .getV3FbsSuppliesSupplyIdShippingPoints(
           supplyId,
@@ -7209,7 +7209,7 @@ export const OrdersFbsApiFactory = function (
     patchV3FbsSuppliesShippingMethod(
       patchV3FbsSuppliesShippingMethodRequest: PatchV3FbsSuppliesShippingMethodRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<UpdateSuppliesShippingMethodResponse> {
+    ): AxiosPromise<UpdateSuppliesDispatchMethodResponse> {
       return localVarFp
         .patchV3FbsSuppliesShippingMethod(
           patchV3FbsSuppliesShippingMethodRequest,
@@ -7757,7 +7757,7 @@ export interface OrdersFbsApiInterface {
     officeType: string,
     shippingDt?: string,
     options?: RawAxiosRequestConfig,
-  ): AxiosPromise<SupplyShippingPointsResponse>;
+  ): AxiosPromise<SupplyDispatchPointsResponse>;
 
   /**
    * Метод возвращает информацию о сборочных заданиях, созданных не более 3 месяцев назад, без их актуального [статуса](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus). Чтобы получить данные за период, укажите в запросе даты начала и окончания периода. Максимум 30 календарных дней одним запросом. В ответе метода будут сборочные задания, созданные в указанный период.  Чтобы получить сборочные задания, созданные более 3 месяцев назад, используйте метод получения [списка архивных заказов](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3FbsOrdersArchive).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов.  ---  В [песочнице](https://dev.wildberries.ru/sandbox) — максимум 1 запрос в секунду суммарно для всех методов **Маркетплейса**.  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-v3-orders
@@ -7926,7 +7926,7 @@ export interface OrdersFbsApiInterface {
   patchV3FbsSuppliesShippingMethod(
     patchV3FbsSuppliesShippingMethodRequest: PatchV3FbsSuppliesShippingMethodRequest,
     options?: RawAxiosRequestConfig,
-  ): AxiosPromise<UpdateSuppliesShippingMethodResponse>;
+  ): AxiosPromise<UpdateSuppliesDispatchMethodResponse>;
 
   /**
    * Метод переводит сборочные задания из статуса `complete` — в доставке в статус `confirm` — на сборке.  Используйте метод, чтобы переместить сборочное задание из закрытой поставки в открытую.  Сборочное задание можно перевести из доставки на сборку, если выполнены все условия: - сборочное задание находится в статусе `complete` — в доставке - поставка, в которую нужно перенести сборочное задание, [не передана в доставку](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver) - сборочное задание ранее не переносили из доставки на сборку Чтобы проверить, можно ли перевести сборочное задание из доставки на сборку, используйте [статусы сборочных заданий](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus), поле `isTransferable`.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-supplyid-orders-transfer

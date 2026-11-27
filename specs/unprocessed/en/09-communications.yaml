@@ -1860,7 +1860,7 @@ paths:
                         description: Is the item rating available to the seller (`true` - available, `false` - not available)
                         type: boolean
                       supplierProductValuation:
-                        description: Item rating left by the seller
+                        description: Key of the item issue
                         type: integer
                       isAbleReturnProductOrders:
                         description: |
@@ -3550,7 +3550,7 @@ components:
               Item issue
             type: boolean
           supplierProductValuation:
-            description: Item rating left by the seller
+            description: Key of the item issue
             type: integer
           isAbleReturnProductOrders:
             description: |

@@ -209,8 +209,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="officeType">Тип пункта отгрузки. Укажите значения через запятую:   - &#x60;sc&#x60; — сортировочный центр   - &#x60;sw&#x60; — склад   - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)   - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ)   - &#x60;gpp&#x60; — пункт приёма товаров (ППТ) </param>
         /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SupplyShippingPointsResponse</returns>
-        SupplyShippingPointsResponse GetV3FbsSuppliesSupplyIdShippingPoints(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0);
+        /// <returns>SupplyDispatchPointsResponse</returns>
+        SupplyDispatchPointsResponse GetV3FbsSuppliesSupplyIdShippingPoints(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Получить список пунктов отгрузки поставки
@@ -224,8 +224,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="officeType">Тип пункта отгрузки. Укажите значения через запятую:   - &#x60;sc&#x60; — сортировочный центр   - &#x60;sw&#x60; — склад   - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)   - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ)   - &#x60;gpp&#x60; — пункт приёма товаров (ППТ) </param>
         /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SupplyShippingPointsResponse</returns>
-        ApiResponse<SupplyShippingPointsResponse> GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfo(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of SupplyDispatchPointsResponse</returns>
+        ApiResponse<SupplyDispatchPointsResponse> GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfo(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0);
         /// <summary>
         /// Получить информацию о сборочных заданиях
         /// </summary>
@@ -513,8 +513,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="patchV3FbsSuppliesShippingMethodRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>UpdateSuppliesShippingMethodResponse</returns>
-        UpdateSuppliesShippingMethodResponse PatchV3FbsSuppliesShippingMethod(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0);
+        /// <returns>UpdateSuppliesDispatchMethodResponse</returns>
+        UpdateSuppliesDispatchMethodResponse PatchV3FbsSuppliesShippingMethod(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0);
 
         /// <summary>
         /// Установить параметры отгрузки поставок
@@ -525,8 +525,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="patchV3FbsSuppliesShippingMethodRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of UpdateSuppliesShippingMethodResponse</returns>
-        ApiResponse<UpdateSuppliesShippingMethodResponse> PatchV3FbsSuppliesShippingMethodWithHttpInfo(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0);
+        /// <returns>ApiResponse of UpdateSuppliesDispatchMethodResponse</returns>
+        ApiResponse<UpdateSuppliesDispatchMethodResponse> PatchV3FbsSuppliesShippingMethodWithHttpInfo(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0);
         /// <summary>
         /// Перевести сборочные задания из доставки на сборку
         /// </summary>
@@ -1270,8 +1270,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SupplyShippingPointsResponse</returns>
-        System.Threading.Tasks.Task<SupplyShippingPointsResponse> GetV3FbsSuppliesSupplyIdShippingPointsAsync(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of SupplyDispatchPointsResponse</returns>
+        System.Threading.Tasks.Task<SupplyDispatchPointsResponse> GetV3FbsSuppliesSupplyIdShippingPointsAsync(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Получить список пунктов отгрузки поставки
@@ -1286,8 +1286,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SupplyShippingPointsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SupplyShippingPointsResponse>> GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfoAsync(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (SupplyDispatchPointsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SupplyDispatchPointsResponse>> GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfoAsync(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Получить информацию о сборочных заданиях
         /// </summary>
@@ -1600,8 +1600,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="patchV3FbsSuppliesShippingMethodRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of UpdateSuppliesShippingMethodResponse</returns>
-        System.Threading.Tasks.Task<UpdateSuppliesShippingMethodResponse> PatchV3FbsSuppliesShippingMethodAsync(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of UpdateSuppliesDispatchMethodResponse</returns>
+        System.Threading.Tasks.Task<UpdateSuppliesDispatchMethodResponse> PatchV3FbsSuppliesShippingMethodAsync(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Установить параметры отгрузки поставок
@@ -1613,8 +1613,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="patchV3FbsSuppliesShippingMethodRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UpdateSuppliesShippingMethodResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpdateSuppliesShippingMethodResponse>> PatchV3FbsSuppliesShippingMethodWithHttpInfoAsync(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (UpdateSuppliesDispatchMethodResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UpdateSuppliesDispatchMethodResponse>> PatchV3FbsSuppliesShippingMethodWithHttpInfoAsync(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Перевести сборочные задания из доставки на сборку
         /// </summary>
@@ -3406,10 +3406,10 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="officeType">Тип пункта отгрузки. Укажите значения через запятую:   - &#x60;sc&#x60; — сортировочный центр   - &#x60;sw&#x60; — склад   - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)   - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ)   - &#x60;gpp&#x60; — пункт приёма товаров (ППТ) </param>
         /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SupplyShippingPointsResponse</returns>
-        public SupplyShippingPointsResponse GetV3FbsSuppliesSupplyIdShippingPoints(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0)
+        /// <returns>SupplyDispatchPointsResponse</returns>
+        public SupplyDispatchPointsResponse GetV3FbsSuppliesSupplyIdShippingPoints(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0)
         {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplyShippingPointsResponse> localVarResponse = GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfo(supplyId, city, officeType, shippingDt);
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplyDispatchPointsResponse> localVarResponse = GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfo(supplyId, city, officeType, shippingDt);
             return localVarResponse.Data;
         }
 
@@ -3422,8 +3422,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="officeType">Тип пункта отгрузки. Укажите значения через запятую:   - &#x60;sc&#x60; — сортировочный центр   - &#x60;sw&#x60; — склад   - &#x60;pp&#x60; — пункт выдачи заказов (ПВЗ)   - &#x60;pfc&#x60; — партнёрский фулфилмент-центр (ПФЦ)   - &#x60;gpp&#x60; — пункт приёма товаров (ППТ) </param>
         /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SupplyShippingPointsResponse</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplyShippingPointsResponse> GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfo(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of SupplyDispatchPointsResponse</returns>
+        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplyDispatchPointsResponse> GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfo(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'supplyId' is set
             if (supplyId == null)
@@ -3485,7 +3485,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<SupplyShippingPointsResponse>("/api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<SupplyDispatchPointsResponse>("/api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetV3FbsSuppliesSupplyIdShippingPoints", localVarResponse);
@@ -3508,10 +3508,10 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SupplyShippingPointsResponse</returns>
-        public async System.Threading.Tasks.Task<SupplyShippingPointsResponse> GetV3FbsSuppliesSupplyIdShippingPointsAsync(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of SupplyDispatchPointsResponse</returns>
+        public async System.Threading.Tasks.Task<SupplyDispatchPointsResponse> GetV3FbsSuppliesSupplyIdShippingPointsAsync(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplyShippingPointsResponse> localVarResponse = await GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfoAsync(supplyId, city, officeType, shippingDt, operationIndex, cancellationToken).ConfigureAwait(false);
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplyDispatchPointsResponse> localVarResponse = await GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfoAsync(supplyId, city, officeType, shippingDt, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3525,8 +3525,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="shippingDt">Планируемая дата отгрузки поставки в формате &#x60;YYYY-MM-DD&#x60;. Обязательно для заказов МГТ (&#x60;\&quot;cargoType\&quot;:1&#x60;) и КГТ+ (&#x60;\&quot;cargoType\&quot;:3&#x60;). Если значение передано, в ответе возвращаются только пункты отгрузки, в которые можно отгрузить поставку в указанную дату (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SupplyShippingPointsResponse)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplyShippingPointsResponse>> GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfoAsync(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (SupplyDispatchPointsResponse)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<SupplyDispatchPointsResponse>> GetV3FbsSuppliesSupplyIdShippingPointsWithHttpInfoAsync(string supplyId, string city, string officeType, string? shippingDt = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'supplyId' is set
             if (supplyId == null)
@@ -3589,7 +3589,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SupplyShippingPointsResponse>("/api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SupplyDispatchPointsResponse>("/api/marketplace/v3/fbs/supplies/{supplyId}/shipping-points", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -5441,10 +5441,10 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="patchV3FbsSuppliesShippingMethodRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>UpdateSuppliesShippingMethodResponse</returns>
-        public UpdateSuppliesShippingMethodResponse PatchV3FbsSuppliesShippingMethod(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0)
+        /// <returns>UpdateSuppliesDispatchMethodResponse</returns>
+        public UpdateSuppliesDispatchMethodResponse PatchV3FbsSuppliesShippingMethod(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0)
         {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<UpdateSuppliesShippingMethodResponse> localVarResponse = PatchV3FbsSuppliesShippingMethodWithHttpInfo(patchV3FbsSuppliesShippingMethodRequest);
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<UpdateSuppliesDispatchMethodResponse> localVarResponse = PatchV3FbsSuppliesShippingMethodWithHttpInfo(patchV3FbsSuppliesShippingMethodRequest);
             return localVarResponse.Data;
         }
 
@@ -5454,8 +5454,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <exception cref="ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="patchV3FbsSuppliesShippingMethodRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of UpdateSuppliesShippingMethodResponse</returns>
-        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<UpdateSuppliesShippingMethodResponse> PatchV3FbsSuppliesShippingMethodWithHttpInfo(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0)
+        /// <returns>ApiResponse of UpdateSuppliesDispatchMethodResponse</returns>
+        public ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<UpdateSuppliesDispatchMethodResponse> PatchV3FbsSuppliesShippingMethodWithHttpInfo(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0)
         {
             // verify the required parameter 'patchV3FbsSuppliesShippingMethodRequest' is set
             if (patchV3FbsSuppliesShippingMethodRequest == null)
@@ -5500,7 +5500,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Patch<UpdateSuppliesShippingMethodResponse>("/api/marketplace/v3/fbs/supplies/shipping-method", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Patch<UpdateSuppliesDispatchMethodResponse>("/api/marketplace/v3/fbs/supplies/shipping-method", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PatchV3FbsSuppliesShippingMethod", localVarResponse);
@@ -5520,10 +5520,10 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="patchV3FbsSuppliesShippingMethodRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of UpdateSuppliesShippingMethodResponse</returns>
-        public async System.Threading.Tasks.Task<UpdateSuppliesShippingMethodResponse> PatchV3FbsSuppliesShippingMethodAsync(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of UpdateSuppliesDispatchMethodResponse</returns>
+        public async System.Threading.Tasks.Task<UpdateSuppliesDispatchMethodResponse> PatchV3FbsSuppliesShippingMethodAsync(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<UpdateSuppliesShippingMethodResponse> localVarResponse = await PatchV3FbsSuppliesShippingMethodWithHttpInfoAsync(patchV3FbsSuppliesShippingMethodRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<UpdateSuppliesDispatchMethodResponse> localVarResponse = await PatchV3FbsSuppliesShippingMethodWithHttpInfoAsync(patchV3FbsSuppliesShippingMethodRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5534,8 +5534,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
         /// <param name="patchV3FbsSuppliesShippingMethodRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UpdateSuppliesShippingMethodResponse)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<UpdateSuppliesShippingMethodResponse>> PatchV3FbsSuppliesShippingMethodWithHttpInfoAsync(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (UpdateSuppliesDispatchMethodResponse)</returns>
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.OrdersFbs.Client.ApiResponse<UpdateSuppliesDispatchMethodResponse>> PatchV3FbsSuppliesShippingMethodWithHttpInfoAsync(PatchV3FbsSuppliesShippingMethodRequest patchV3FbsSuppliesShippingMethodRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'patchV3FbsSuppliesShippingMethodRequest' is set
             if (patchV3FbsSuppliesShippingMethodRequest == null)
@@ -5581,7 +5581,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PatchAsync<UpdateSuppliesShippingMethodResponse>("/api/marketplace/v3/fbs/supplies/shipping-method", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<UpdateSuppliesDispatchMethodResponse>("/api/marketplace/v3/fbs/supplies/shipping-method", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

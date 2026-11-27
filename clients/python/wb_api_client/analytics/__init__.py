@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "3.1.0"
+__version__ = "4.0.0"
 
 # import apis into sdk package
 from wb_api_client.analytics.api.analytics_api import AnalyticsApi
@@ -31,6 +31,9 @@ from wb_api_client.analytics.exceptions import ApiAttributeError
 from wb_api_client.analytics.exceptions import ApiException
 
 # import models into sdk package
+from wb_api_client.analytics.models.common_dispatch_office_filters import (
+    CommonDispatchOfficeFilters,
+)
 from wb_api_client.analytics.models.common_info import CommonInfo
 from wb_api_client.analytics.models.common_info_advertised_products import (
     CommonInfoAdvertisedProducts,
@@ -42,9 +45,6 @@ from wb_api_client.analytics.models.common_item_filters import CommonItemFilters
 from wb_api_client.analytics.models.common_report_filters import CommonReportFilters
 from wb_api_client.analytics.models.common_response_properties import (
     CommonResponseProperties,
-)
-from wb_api_client.analytics.models.common_shipping_office_filters import (
-    CommonShippingOfficeFilters,
 )
 from wb_api_client.analytics.models.common_size_filters import CommonSizeFilters
 from wb_api_client.analytics.models.comparison import Comparison
@@ -339,6 +339,21 @@ from wb_api_client.analytics.models.table_common_metrics_sale_rate import (
 )
 from wb_api_client.analytics.models.table_details_request import TableDetailsRequest
 from wb_api_client.analytics.models.table_details_response import TableDetailsResponse
+from wb_api_client.analytics.models.table_dispatch_office_item import (
+    TableDispatchOfficeItem,
+)
+from wb_api_client.analytics.models.table_dispatch_office_item_offices_inner import (
+    TableDispatchOfficeItemOfficesInner,
+)
+from wb_api_client.analytics.models.table_dispatch_office_metrics import (
+    TableDispatchOfficeMetrics,
+)
+from wb_api_client.analytics.models.table_dispatch_office_request import (
+    TableDispatchOfficeRequest,
+)
+from wb_api_client.analytics.models.table_dispatch_office_response import (
+    TableDispatchOfficeResponse,
+)
 from wb_api_client.analytics.models.table_group_field import TableGroupField
 from wb_api_client.analytics.models.table_group_item import TableGroupItem
 from wb_api_client.analytics.models.table_group_item_metrics import (
@@ -403,21 +418,6 @@ from wb_api_client.analytics.models.table_search_text_item_all_of_orders import 
 )
 from wb_api_client.analytics.models.table_search_text_item_all_of_visibility import (
     TableSearchTextItemAllOfVisibility,
-)
-from wb_api_client.analytics.models.table_shipping_office_item import (
-    TableShippingOfficeItem,
-)
-from wb_api_client.analytics.models.table_shipping_office_item_offices_inner import (
-    TableShippingOfficeItemOfficesInner,
-)
-from wb_api_client.analytics.models.table_shipping_office_metrics import (
-    TableShippingOfficeMetrics,
-)
-from wb_api_client.analytics.models.table_shipping_office_request import (
-    TableShippingOfficeRequest,
-)
-from wb_api_client.analytics.models.table_shipping_office_response import (
-    TableShippingOfficeResponse,
 )
 from wb_api_client.analytics.models.table_size_request import TableSizeRequest
 from wb_api_client.analytics.models.table_size_response import TableSizeResponse

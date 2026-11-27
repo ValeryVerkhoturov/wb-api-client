@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "3.1.0"
+__version__ = "4.0.0"
 
 # import apis into sdk package
 from wb_api_client.orders_fbs.api.orders_fbs_api import OrdersFbsApi
@@ -228,26 +228,26 @@ from wb_api_client.orders_fbs.models.put_v3_passes_pass_id_request import (
 )
 from wb_api_client.orders_fbs.models.response4_xx import Response4XX
 from wb_api_client.orders_fbs.models.supply import Supply
-from wb_api_client.orders_fbs.models.supply_shipping_point import SupplyShippingPoint
-from wb_api_client.orders_fbs.models.supply_shipping_points_response import (
-    SupplyShippingPointsResponse,
+from wb_api_client.orders_fbs.models.supply_dispatch_point import SupplyDispatchPoint
+from wb_api_client.orders_fbs.models.supply_dispatch_points_response import (
+    SupplyDispatchPointsResponse,
 )
 from wb_api_client.orders_fbs.models.supply_trbx import SupplyTrbx
 from wb_api_client.orders_fbs.models.trbx_stickers import TrbxStickers
-from wb_api_client.orders_fbs.models.update_supplies_shipping_method_request import (
-    UpdateSuppliesShippingMethodRequest,
+from wb_api_client.orders_fbs.models.update_supplies_dispatch_method_request import (
+    UpdateSuppliesDispatchMethodRequest,
 )
-from wb_api_client.orders_fbs.models.update_supplies_shipping_method_response import (
-    UpdateSuppliesShippingMethodResponse,
+from wb_api_client.orders_fbs.models.update_supplies_dispatch_method_response import (
+    UpdateSuppliesDispatchMethodResponse,
 )
 from wb_api_client.orders_fbs.models.update_supply_shipping_method import (
     UpdateSupplyShippingMethod,
 )
-from wb_api_client.orders_fbs.models.updated_supplies_shipping_method import (
-    UpdatedSuppliesShippingMethod,
+from wb_api_client.orders_fbs.models.updated_supplies_dispatch_method import (
+    UpdatedSuppliesDispatchMethod,
 )
-from wb_api_client.orders_fbs.models.updated_supplies_shipping_method_error import (
-    UpdatedSuppliesShippingMethodError,
+from wb_api_client.orders_fbs.models.updated_supplies_dispatch_method_error import (
+    UpdatedSuppliesDispatchMethodError,
 )
 from wb_api_client.orders_fbs.models.v3_api_error import V3APIError
 from wb_api_client.orders_fbs.models.v3_archive_order import V3ArchiveOrder

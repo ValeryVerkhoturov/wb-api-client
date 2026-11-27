@@ -332,10 +332,10 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
         /// Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; или &#x60;\&quot;regionName\&quot;:\&quot;Свой склад СГТ\&quot;&#x60; и &#x60;\&quot;offices\&quot;:[]&#x60;.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableShippingOfficeRequest"></param>
+        /// <param name="tableDispatchOfficeRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PostV2StocksReportOfficesResponse200</returns>
-        PostV2StocksReportOfficesResponse200 PostV2StocksReportOffices(TableShippingOfficeRequest tableShippingOfficeRequest, int operationIndex = 0);
+        PostV2StocksReportOfficesResponse200 PostV2StocksReportOffices(TableDispatchOfficeRequest tableDispatchOfficeRequest, int operationIndex = 0);
 
         /// <summary>
         /// Данные по складам
@@ -344,10 +344,10 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
         /// Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; или &#x60;\&quot;regionName\&quot;:\&quot;Свой склад СГТ\&quot;&#x60; и &#x60;\&quot;offices\&quot;:[]&#x60;.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableShippingOfficeRequest"></param>
+        /// <param name="tableDispatchOfficeRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostV2StocksReportOfficesResponse200</returns>
-        ApiResponse<PostV2StocksReportOfficesResponse200> PostV2StocksReportOfficesWithHttpInfo(TableShippingOfficeRequest tableShippingOfficeRequest, int operationIndex = 0);
+        ApiResponse<PostV2StocksReportOfficesResponse200> PostV2StocksReportOfficesWithHttpInfo(TableDispatchOfficeRequest tableDispatchOfficeRequest, int operationIndex = 0);
         /// <summary>
         /// Данные по группам
         /// </summary>
@@ -827,11 +827,11 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
         /// Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; или &#x60;\&quot;regionName\&quot;:\&quot;Свой склад СГТ\&quot;&#x60; и &#x60;\&quot;offices\&quot;:[]&#x60;.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableShippingOfficeRequest"></param>
+        /// <param name="tableDispatchOfficeRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PostV2StocksReportOfficesResponse200</returns>
-        System.Threading.Tasks.Task<PostV2StocksReportOfficesResponse200> PostV2StocksReportOfficesAsync(TableShippingOfficeRequest tableShippingOfficeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PostV2StocksReportOfficesResponse200> PostV2StocksReportOfficesAsync(TableDispatchOfficeRequest tableDispatchOfficeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Данные по складам
@@ -840,11 +840,11 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
         /// Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; или &#x60;\&quot;regionName\&quot;:\&quot;Свой склад СГТ\&quot;&#x60; и &#x60;\&quot;offices\&quot;:[]&#x60;.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
         /// </remarks>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableShippingOfficeRequest"></param>
+        /// <param name="tableDispatchOfficeRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostV2StocksReportOfficesResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostV2StocksReportOfficesResponse200>> PostV2StocksReportOfficesWithHttpInfoAsync(TableShippingOfficeRequest tableShippingOfficeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PostV2StocksReportOfficesResponse200>> PostV2StocksReportOfficesWithHttpInfoAsync(TableDispatchOfficeRequest tableDispatchOfficeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Данные по группам
         /// </summary>
@@ -3155,12 +3155,12 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
         /// Данные по складам Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; или &#x60;\&quot;regionName\&quot;:\&quot;Свой склад СГТ\&quot;&#x60; и &#x60;\&quot;offices\&quot;:[]&#x60;.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableShippingOfficeRequest"></param>
+        /// <param name="tableDispatchOfficeRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PostV2StocksReportOfficesResponse200</returns>
-        public PostV2StocksReportOfficesResponse200 PostV2StocksReportOffices(TableShippingOfficeRequest tableShippingOfficeRequest, int operationIndex = 0)
+        public PostV2StocksReportOfficesResponse200 PostV2StocksReportOffices(TableDispatchOfficeRequest tableDispatchOfficeRequest, int operationIndex = 0)
         {
-            ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostV2StocksReportOfficesResponse200> localVarResponse = PostV2StocksReportOfficesWithHttpInfo(tableShippingOfficeRequest);
+            ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostV2StocksReportOfficesResponse200> localVarResponse = PostV2StocksReportOfficesWithHttpInfo(tableDispatchOfficeRequest);
             return localVarResponse.Data;
         }
 
@@ -3168,15 +3168,15 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
         /// Данные по складам Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; или &#x60;\&quot;regionName\&quot;:\&quot;Свой склад СГТ\&quot;&#x60; и &#x60;\&quot;offices\&quot;:[]&#x60;.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableShippingOfficeRequest"></param>
+        /// <param name="tableDispatchOfficeRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostV2StocksReportOfficesResponse200</returns>
-        public ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostV2StocksReportOfficesResponse200> PostV2StocksReportOfficesWithHttpInfo(TableShippingOfficeRequest tableShippingOfficeRequest, int operationIndex = 0)
+        public ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostV2StocksReportOfficesResponse200> PostV2StocksReportOfficesWithHttpInfo(TableDispatchOfficeRequest tableDispatchOfficeRequest, int operationIndex = 0)
         {
-            // verify the required parameter 'tableShippingOfficeRequest' is set
-            if (tableShippingOfficeRequest == null)
+            // verify the required parameter 'tableDispatchOfficeRequest' is set
+            if (tableDispatchOfficeRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException(400, "Missing required parameter 'tableShippingOfficeRequest' when calling AnalyticsApi->PostV2StocksReportOffices");
+                throw new ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException(400, "Missing required parameter 'tableDispatchOfficeRequest' when calling AnalyticsApi->PostV2StocksReportOffices");
             }
 
             ValeryVerkhoturov.WbApiClient.Analytics.Client.RequestOptions localVarRequestOptions = new ValeryVerkhoturov.WbApiClient.Analytics.Client.RequestOptions();
@@ -3203,7 +3203,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = tableShippingOfficeRequest;
+            localVarRequestOptions.Data = tableDispatchOfficeRequest;
 
             localVarRequestOptions.Operation = "AnalyticsApi.PostV2StocksReportOffices";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3233,13 +3233,13 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
         /// Данные по складам Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; или &#x60;\&quot;regionName\&quot;:\&quot;Свой склад СГТ\&quot;&#x60; и &#x60;\&quot;offices\&quot;:[]&#x60;.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableShippingOfficeRequest"></param>
+        /// <param name="tableDispatchOfficeRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PostV2StocksReportOfficesResponse200</returns>
-        public async System.Threading.Tasks.Task<PostV2StocksReportOfficesResponse200> PostV2StocksReportOfficesAsync(TableShippingOfficeRequest tableShippingOfficeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PostV2StocksReportOfficesResponse200> PostV2StocksReportOfficesAsync(TableDispatchOfficeRequest tableDispatchOfficeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostV2StocksReportOfficesResponse200> localVarResponse = await PostV2StocksReportOfficesWithHttpInfoAsync(tableShippingOfficeRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostV2StocksReportOfficesResponse200> localVarResponse = await PostV2StocksReportOfficesWithHttpInfoAsync(tableDispatchOfficeRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3247,16 +3247,16 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
         /// Данные по складам Метод формирует набор данных об остатках по складам.  Данные по складам продавца приходят в агрегированном виде — без детализации по конкретным складам — эти записи будут с &#x60;\&quot;regionName\&quot;:\&quot;Свой склад\&quot;&#x60; или &#x60;\&quot;regionName\&quot;:\&quot;Свой склад СГТ\&quot;&#x60; и &#x60;\&quot;offices\&quot;:[]&#x60;.  Данные отчёта обновляются 1 раз в 2 часа.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца: | Тип | Период | Лимит | Интервал | Всплеск | | - -- | - -- | - -- | - -- | - -- | | Персональный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Сервисный | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый с секретом | 1 мин | 3 запроса | 20 сек | 3 запроса | | Базовый | 1 ч | 2 запроса | 30 мин | 1 запрос |  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/analytics/post-api-v2-stocks-report-offices
         /// </summary>
         /// <exception cref="ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableShippingOfficeRequest"></param>
+        /// <param name="tableDispatchOfficeRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostV2StocksReportOfficesResponse200)</returns>
-        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostV2StocksReportOfficesResponse200>> PostV2StocksReportOfficesWithHttpInfoAsync(TableShippingOfficeRequest tableShippingOfficeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiResponse<PostV2StocksReportOfficesResponse200>> PostV2StocksReportOfficesWithHttpInfoAsync(TableDispatchOfficeRequest tableDispatchOfficeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            // verify the required parameter 'tableShippingOfficeRequest' is set
-            if (tableShippingOfficeRequest == null)
+            // verify the required parameter 'tableDispatchOfficeRequest' is set
+            if (tableDispatchOfficeRequest == null)
             {
-                throw new ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException(400, "Missing required parameter 'tableShippingOfficeRequest' when calling AnalyticsApi->PostV2StocksReportOffices");
+                throw new ValeryVerkhoturov.WbApiClient.Analytics.Client.ApiException(400, "Missing required parameter 'tableDispatchOfficeRequest' when calling AnalyticsApi->PostV2StocksReportOffices");
             }
 
 
@@ -3284,7 +3284,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = tableShippingOfficeRequest;
+            localVarRequestOptions.Data = tableDispatchOfficeRequest;
 
             localVarRequestOptions.Operation = "AnalyticsApi.PostV2StocksReportOffices";
             localVarRequestOptions.OperationIndex = operationIndex;

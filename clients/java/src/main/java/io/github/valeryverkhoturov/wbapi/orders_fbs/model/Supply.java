@@ -46,12 +46,12 @@ public class Supply {
   @jakarta.annotation.Nullable
   private Boolean isB2b;
 
-  public static final String SERIALIZED_NAME_IS_PICKUP_POINT_SHIPMENT_ALLOWED =
-      "isPickupPointShipmentAllowed";
+  public static final String SERIALIZED_NAME_IS_PICKUP_POINT_DISPATCH_ALLOWED =
+      "isPickupPointDispatchAllowed";
 
-  @SerializedName(SERIALIZED_NAME_IS_PICKUP_POINT_SHIPMENT_ALLOWED)
+  @SerializedName(SERIALIZED_NAME_IS_PICKUP_POINT_DISPATCH_ALLOWED)
   @jakarta.annotation.Nullable
-  private Boolean isPickupPointShipmentAllowed;
+  private Boolean isPickupPointDispatchAllowed;
 
   public static final String SERIALIZED_NAME_DONE = "done";
 
@@ -342,25 +342,25 @@ public class Supply {
     this.isB2b = isB2b;
   }
 
-  public Supply isPickupPointShipmentAllowed(
-      @jakarta.annotation.Nullable Boolean isPickupPointShipmentAllowed) {
-    this.isPickupPointShipmentAllowed = isPickupPointShipmentAllowed;
+  public Supply isPickupPointDispatchAllowed(
+      @jakarta.annotation.Nullable Boolean isPickupPointDispatchAllowed) {
+    this.isPickupPointDispatchAllowed = isPickupPointDispatchAllowed;
     return this;
   }
 
   /**
    * Можно ли отгрузить заказ на ПВЗ: - &#x60;false&#x60; — нет - &#x60;true&#x60; — да
    *
-   * @return isPickupPointShipmentAllowed
+   * @return isPickupPointDispatchAllowed
    */
   @jakarta.annotation.Nullable
-  public Boolean getIsPickupPointShipmentAllowed() {
-    return isPickupPointShipmentAllowed;
+  public Boolean getIsPickupPointDispatchAllowed() {
+    return isPickupPointDispatchAllowed;
   }
 
-  public void setIsPickupPointShipmentAllowed(
-      @jakarta.annotation.Nullable Boolean isPickupPointShipmentAllowed) {
-    this.isPickupPointShipmentAllowed = isPickupPointShipmentAllowed;
+  public void setIsPickupPointDispatchAllowed(
+      @jakarta.annotation.Nullable Boolean isPickupPointDispatchAllowed) {
+    this.isPickupPointDispatchAllowed = isPickupPointDispatchAllowed;
   }
 
   public Supply done(@jakarta.annotation.Nullable Boolean done) {
@@ -648,7 +648,7 @@ public class Supply {
     Supply supply = (Supply) o;
     return Objects.equals(this.id, supply.id)
         && Objects.equals(this.isB2b, supply.isB2b)
-        && Objects.equals(this.isPickupPointShipmentAllowed, supply.isPickupPointShipmentAllowed)
+        && Objects.equals(this.isPickupPointDispatchAllowed, supply.isPickupPointDispatchAllowed)
         && Objects.equals(this.done, supply.done)
         && Objects.equals(this.createdAt, supply.createdAt)
         && Objects.equals(this.closedAt, supply.closedAt)
@@ -670,7 +670,7 @@ public class Supply {
     return Objects.hash(
         id,
         isB2b,
-        isPickupPointShipmentAllowed,
+        isPickupPointDispatchAllowed,
         done,
         createdAt,
         closedAt,
@@ -693,8 +693,8 @@ public class Supply {
     sb.append("class Supply {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isB2b: ").append(toIndentedString(isB2b)).append("\n");
-    sb.append("    isPickupPointShipmentAllowed: ")
-        .append(toIndentedString(isPickupPointShipmentAllowed))
+    sb.append("    isPickupPointDispatchAllowed: ")
+        .append(toIndentedString(isPickupPointDispatchAllowed))
         .append("\n");
     sb.append("    done: ").append(toIndentedString(done)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -734,7 +734,7 @@ public class Supply {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("isB2b");
-    openapiFields.add("isPickupPointShipmentAllowed");
+    openapiFields.add("isPickupPointDispatchAllowed");
     openapiFields.add("done");
     openapiFields.add("createdAt");
     openapiFields.add("closedAt");

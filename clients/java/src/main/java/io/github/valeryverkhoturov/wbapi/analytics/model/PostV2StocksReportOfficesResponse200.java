@@ -37,12 +37,12 @@ public class PostV2StocksReportOfficesResponse200 {
 
   @SerializedName(SERIALIZED_NAME_DATA)
   @jakarta.annotation.Nullable
-  private TableShippingOfficeResponse data;
+  private TableDispatchOfficeResponse data;
 
   public PostV2StocksReportOfficesResponse200() {}
 
   public PostV2StocksReportOfficesResponse200 data(
-      @jakarta.annotation.Nullable TableShippingOfficeResponse data) {
+      @jakarta.annotation.Nullable TableDispatchOfficeResponse data) {
     this.data = data;
     return this;
   }
@@ -53,11 +53,11 @@ public class PostV2StocksReportOfficesResponse200 {
    * @return data
    */
   @jakarta.annotation.Nullable
-  public TableShippingOfficeResponse getData() {
+  public TableDispatchOfficeResponse getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nullable TableShippingOfficeResponse data) {
+  public void setData(@jakarta.annotation.Nullable TableDispatchOfficeResponse data) {
     this.data = data;
   }
 
@@ -141,7 +141,7 @@ public class PostV2StocksReportOfficesResponse200 {
     JsonObject jsonObj = jsonElement.getAsJsonObject();
     // validate the optional field `data`
     if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-      TableShippingOfficeResponse.validateJsonElement(jsonObj.get("data"));
+      TableDispatchOfficeResponse.validateJsonElement(jsonObj.get("data"));
     }
   }
 

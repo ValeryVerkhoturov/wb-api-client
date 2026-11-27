@@ -1629,7 +1629,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TableShippingOfficeRequest'
+              $ref: '#/components/schemas/TableDispatchOfficeRequest'
       responses:
         '200':
           description: Success
@@ -4431,7 +4431,7 @@ components:
         regionName:
           type: string
           description: |
-            [Shipping country](https://dev.wildberries.ru/en/release-notes?id=605)
+            [Dispatch country](https://dev.wildberries.ru/en/release-notes?id=605)
           example: Россия
         officeID:
           type: integer
@@ -4448,13 +4448,13 @@ components:
           description: Warehouse metrics
           allOf:
           - $ref: '#/components/schemas/TableCommonMetrics'
-    TableShippingOfficeRequest:
+    TableDispatchOfficeRequest:
       allOf:
-      - $ref: '#/components/schemas/CommonShippingOfficeFilters'
+      - $ref: '#/components/schemas/CommonDispatchOfficeFilters'
       - description: Request parameters for inventory by warehouses
-    CommonShippingOfficeFilters:
+    CommonDispatchOfficeFilters:
       type: object
-      description: General filters by shipping region
+      description: General filters by dispatch region
       properties:
         nmIDs:
           type: array
@@ -4506,29 +4506,29 @@ components:
       - currentPeriod
       - stockType
       - skipDeletedNm
-    TableShippingOfficeResponse:
+    TableDispatchOfficeResponse:
       type: object
       properties:
         regions:
           type: array
-          description: Set of data on shipping regions
+          description: Set of data on dispatch regions
           items:
-            $ref: '#/components/schemas/TableShippingOfficeItem'
+            $ref: '#/components/schemas/TableDispatchOfficeItem'
         currency:
           $ref: '#/components/schemas/Currency'
-    TableShippingOfficeItem:
+    TableDispatchOfficeItem:
       type: object
-      description: Shipping region data
+      description: Dispatch region data
       properties:
         regionName:
           type: string
           description: |
-            [Shipping country](https://dev.wildberries.ru/release-notes?id=605)
+            [Dispatch country](https://dev.wildberries.ru/release-notes?id=605)
           example: Россия
         metrics:
           description: Metrics by region
           allOf:
-          - $ref: '#/components/schemas/TableShippingOfficeMetrics'
+          - $ref: '#/components/schemas/TableDispatchOfficeMetrics'
         offices:
           type: array
           description: |
@@ -4550,10 +4550,10 @@ components:
               metrics:
                 description: Warehouse metrics
                 allOf:
-                - $ref: '#/components/schemas/TableShippingOfficeMetrics'
-    TableShippingOfficeMetrics:
+                - $ref: '#/components/schemas/TableDispatchOfficeMetrics'
+    TableDispatchOfficeMetrics:
       type: object
-      description: General metrics by region/shipping warehouses
+      description: General metrics by region/dispatch warehouses
       properties:
         stockCount:
           type: integer
@@ -5386,7 +5386,7 @@ components:
               regionName:
                 type: string
                 description: |
-                  [Shipping country](https://dev.wildberries.ru/en/release-notes?id=605)
+                  [Dispatch country](https://dev.wildberries.ru/en/release-notes?id=605)
                 example: Россия
               quantity:
                 type: integer
@@ -5434,7 +5434,7 @@ components:
                 example: склад продавца Иркутск
               regionName:
                 type: string
-                description: Shipping region
+                description: Dispatch region
                 example: Дальневосточный и Сибирский
               quantity:
                 type: integer
@@ -6076,7 +6076,7 @@ components:
           example: Склад WB РФ
         warehouseRegion:
           type: string
-          description: Shipping region. If the warehouse belongs to WB or the seller is located outside Russia, the country is returned
+          description: Dispatch region. If the warehouse belongs to WB or the seller is located outside Russia, the country is returned
           example: Россия
         isMp:
           type: boolean
@@ -6302,7 +6302,7 @@ components:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/TableShippingOfficeResponse'
+          $ref: '#/components/schemas/TableDispatchOfficeResponse'
     PostV2ItemRatingResponse200:
       type: object
       properties:

@@ -56,21 +56,21 @@ tags:
 
       1. [Create a new supply](./orders-fbs#tag/fbsSupplies/operation/postV3Supplies). The ID of the created supply will be returned in the format `WB-GI-1234567`.
       1. In the current new supply, [add assembly orders](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders) that you will transport to the warehouse or pickup point. When adding assembly order to the supply, they will be moved to the `confirm` status — in assembly.
-      1. [Set the supply shipping method](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod). To do this, get the [list of supply shipping points](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints). Available only for sellers from the Russian Federation.<br>
+      1. [Set the supply dispatch method](./orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod). To do this, get the [list of supply dispatch points](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints). Available only for sellers from the Russian Federation.<br>
       
       1. [Create a shipping unit in the supply](./orders-fbs#tag/fbsSupplies/operation/postV3SuppliesSupplyIdTrbx).
       1. [Check the list of shipping units](./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdTrbx).
       1. [Get the shipping unit stickers](./orders-fbs#tag/fbsSupplies/operation/postV3SuppliesSupplyIdTrbxStickers), print them out and affix the stickers to the shipping units according to the orders distributed in them.
       1. After the supply has been equipped with the necessary assembly orders, it must [be handed over for delivery](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdDeliver). If the supply is not handed over for delivery, accepting the first item at the pickup point will automatically close the supply. When handing over assembly order for delivery, they will automatically be assembled and moved to the `complete` status — in delivery.
       
-      1. If a supply was scanned at the acceptance point but still has unscanned items, after a certain time, you must deliver them again. Check [all assembly order requiring reshipment at this time](./orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment). [These assembly order can be transferred to another active supply](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders). The assembly order will also be moved to the `confirm` status — in assembly.
+      1. If a supply was scanned at the acceptance point but still has unscanned items, after a certain time, you must deliver them again. Check [all assembly order requiring redispatch at this time](./orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment). [These assembly order can be transferred to another active supply](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders). The assembly order will also be moved to the `confirm` status — in assembly.
 
       You can also:
       - [remove a shipping unit from the supply](./orders-fbs#tag/fbsSupplies/operation/deleteV3SuppliesSupplyIdTrbx), but only while the supply is still in assembly
       - [get all assembly order IDs added to the supply](./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdOrderIds)
       - get information [about all the seller supplies](./orders-fbs#tag/fbsSupplies/operation/getV3Supplies) or [about a specific supply](./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId)
       - [delete a supply](./orders-fbs#tag/fbsSupplies/operation/deleteV3SuppliesSupplyId) provided that it is active and not tied to any assembly orders
-      - [move assembly orders between active supplies](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders). You cannot move an assembly order from a supply that is already closed, unless it requires reshipment
+      - [move assembly orders between active supplies](./orders-fbs#tag/fbsSupplies/operation/patchV3SuppliesSupplyIdOrders). You cannot move an assembly order from a supply that is already closed, unless it requires redispatch
       - [get the supply's QR code](./orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyIdBarcode) in SVG, ZPL, or PNG formats. Available only after the supply has been handed over for delivery
 - name: FBS Passes
   x-displayName: FBS Passes
@@ -798,9 +798,9 @@ paths:
       - BearerAuth: []
       tags:
       - OrdersFbs
-      summary: Get All Assembly Orders for Re-shipment
+      summary: Get All Assembly Orders for Redispatch
       description: |-
-        Returns all assembly orders that require re-shipment
+        Returns all assembly orders that require redispatch
 
         [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for **FBS assembly orders, supplies, passes and auto-return settings** methods:
         | Period | Limit | Interval | Burst |
@@ -2450,7 +2450,7 @@ paths:
         The method adds up to 100 [assembly orders](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3Orders) to the supply and moves it to the `confirm` [status](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/postV3OrdersStatus).
         It can also move the assembly orders:
         - between active supplies
-        - from a closed to an active supply, if the assembly order requires [reshipment](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment).
+        - from a closed to an active supply, if the assembly order requires [redispatch](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsAssemblyOrders/operation/getV3SuppliesOrdersReshipment).
 
         You can add any assembly orders that arrived at the same warehouse to an empty supply.
         The supply acquires the attributes of the first assembly order added to it from the [fields](https://dev.wildberries.ru/en/docs/openapi/orders-fbs#tag/fbsSupplies/operation/getV3SuppliesSupplyId):
@@ -2878,10 +2878,10 @@ paths:
       - BearerAuth: []
       tags:
       - OrdersFbs
-      summary: Get Supply Shipping Points
+      summary: Get Supply Dispatch Points
       description: |-
-        The method returns shipping points available for the supply.
-        Intended for sellers from Russia. Use this method data to set [supply shipping methods](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
+        The method returns dispatch points available for the supply.
+        Intended for sellers from Russia. Use this method data to set [supply dispatch methods](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).
 
         [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for **FBS assembly orders, supplies, passes and auto-return settings** methods:
         | Period | Limit | Interval | Burst |
@@ -2900,7 +2900,7 @@ paths:
           type: string
       - name: city
         in: query
-        description: Locality for shipping the supply, Cyrillic
+        description: Locality for supply dispatch, Cyrillic
         required: true
         example: Москва
         schema:
@@ -2910,7 +2910,7 @@ paths:
         required: true
         example: sc,pp
         description: |
-          Shipping point type:
+          Dispatch point type:
             - `sc` — sorting center
             - `sw` — warehouse
             - `pp` — pickup point
@@ -2922,9 +2922,9 @@ paths:
         in: query
         example: '2026-08-31'
         description: |-
-          Planned supply shipping date, format `YYYY-MM-DD`.
+          Planned supply dispatch date, format `YYYY-MM-DD`.
           Required for orders for small-sized items (`"cargoType":1`) and dimensional cargo+ (`"cargoType":3`).
-          If the value passed, you will get only the shipping points where the supply can be shipped on the specified date
+          If the value passed, you will get only the dispatch points where the supply can be dispatched on the specified date
         schema:
           type: string
       responses:
@@ -2933,7 +2933,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SupplyShippingPointsResponse'
+                $ref: '#/components/schemas/SupplyDispatchPointsResponse'
         '400':
           description: Bad request
           content:
@@ -2943,8 +2943,8 @@ paths:
               examples:
                 IncorrectParameter:
                   $ref: '#/components/examples/IncorrectParameter'
-                ShippingDtRequired:
-                  $ref: '#/components/examples/ShippingDtRequired'
+                DispatchDtRequired:
+                  $ref: '#/components/examples/DispatchDtRequired'
         '401':
           $ref: '#/components/responses/401-2'
         '403':
@@ -2985,11 +2985,11 @@ paths:
       - BearerAuth: []
       tags:
       - OrdersFbs
-      summary: Set Supply Shipping Method
+      summary: Set Supply Dispatch Method
       description: |-
-        The method sets shipping method, shipping date, and shipping point for the supplies.
+        The method sets dispatch method, dispatch date, and dispatch point for the supplies.
 
-        The shipping method must be specified before transferring supply to delivery. You can update the shipping method until the supply and its boxes are scanned at the shipping point. Once the supply has been scanned, this method will start returning a `409` error.
+        The dispatch method must be specified before transferring supply to delivery. You can update the dispatch method until the supply and its boxes are scanned at the dispatch point. Once the supply has been scanned, this method will start returning a `409` error.
 
         You can specify a maximum of 100 supplies per request. The processing result is returned for each supply separately.
 
@@ -3008,18 +3008,18 @@ paths:
           application/json:
             schema:
               allOf:
-              - $ref: '#/components/schemas/UpdateSuppliesShippingMethodRequest'
-              - description: Supply shipping method
+              - $ref: '#/components/schemas/UpdateSuppliesDispatchMethodRequest'
+              - description: Supply dispatch method
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UpdateSuppliesShippingMethodResponse'
+                $ref: '#/components/schemas/UpdateSuppliesDispatchMethodResponse'
               examples:
-                UpdatedSuppliesShippingMethod:
-                  $ref: '#/components/examples/UpdatedSuppliesShippingMethod'
+                UpdatedSuppliesDispatchMethod:
+                  $ref: '#/components/examples/UpdatedSuppliesDispatchMethod'
         '400':
           description: Bad request
           content:
@@ -3093,7 +3093,7 @@ paths:
         - required labeling is specified for all assembly orders
         - labeling of all assembly orders passed validation
         If the supply contains assembly orders with required UIN, make sure that you have created and uploaded the Delivery Contract Specification in advance. The [GIIS DMDK](https://minfin.gov.ru/ru/perfomance/jewels/dmdk) takes about 30 minutes to process changes in UIN statuses.
-        It is required to [specify the shipping parameters](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) for supplies from Russian sellers to Russia shipping points. If the shipping method, shipping date, or shipping point is not specified, a `409` error is returned.
+        It is required to [specify the dispatch parameters](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod) for supplies from Russian sellers to Russia dispatch points. If the dispatch method, dispatch date, or dispatch point is not specified, a `409` error is returned.
 
         [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for **FBS assembly orders, supplies, passes and auto-return settings** methods:
         | Period | Limit | Interval | Burst |
@@ -3154,8 +3154,8 @@ paths:
                   $ref: '#/components/examples/MetaValidationFail'
                 FulfillmentSupplyBoxesRequired:
                   $ref: '#/components/examples/FulfillmentSupplyBoxesRequired'
-                SupplyShippingRequired:
-                  $ref: '#/components/examples/SupplyShippingRequired'
+                SupplyDispatchRequired:
+                  $ref: '#/components/examples/SupplyDispatchRequired'
         '429':
           $ref: '#/components/responses/429'
       x-tagKey: fbsSupplies
@@ -3345,7 +3345,7 @@ paths:
       description: |-
         Adds the required number of shipping units to the supply.
 
-        You should add shipping units only to supplies shipped to the pickup points.
+        You should add shipping units only to supplies dispatched to the pickup points.
         You can add shipping units to an open supply only. One shipping unit can contain several orders. For example, if a supply has 10 orders, distribute them into boxes: the system will allow creating no more than 5 shipping units. For 20 orders — no more than 10 shipping units, for 100 — no more than 50.
 
         [Request limit](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Rate-Limits) per one seller account for **FBS assembly orders, supplies, passes and auto-return settings** methods:
@@ -4092,8 +4092,8 @@ components:
       value:
         code: CustomsDeclarationIsRequired
         message: Customs declaration is required
-    ShippingDtRequired:
-      description: Specify the planned supply shipping date for orders for small-sized items (`"cargoType":1`) and dimensional cargo+ (`"cargoType":3`)
+    DispatchDtRequired:
+      description: Specify the planned supply dispatch date for orders for small-sized items (`"cargoType":1`) and dimensional cargo+ (`"cargoType":3`)
       value:
         code: ShippingDtRequired
         message: Shipping date is required for MGT and KGT supplies
@@ -4176,7 +4176,7 @@ components:
         requestId: a0b5907c-2978-4db6-9a59-00666e8b8d54
         status: 403
         title: AccessDenied
-    UpdatedSuppliesShippingMethod:
+    UpdatedSuppliesDispatchMethod:
       value:
         results:
         - supplyId: WB-GI-100
@@ -4205,7 +4205,7 @@ components:
       value:
         code: WaybillUUIDConflict
         message: Waybill UUID is already used
-    SupplyShippingRequired:
+    SupplyDispatchRequired:
       value:
         code: SupplyShippingRequired
         message: Specify shipping point, type and date to close the supply
@@ -4702,7 +4702,7 @@ components:
           type: string
           nullable: true
         warehouseId:
-          description: ID of the seller warehouse from which the item was shipped
+          description: ID of the seller warehouse from which the item was dispatched
           example: 55684681
           type: integer
           format: int64
@@ -5023,7 +5023,7 @@ components:
               - `true` — B2B sale
               - `false` — not B2B sale
               - `null` — no value, no assembly orders added to the supply
-        isPickupPointShipmentAllowed:
+        isPickupPointDispatchAllowed:
           type: boolean
           nullable: false
           example: true
@@ -5100,20 +5100,20 @@ components:
           example: 123569
         shippingDt:
           nullable: true
-          description: Planned supply shipping date, format `YYYY-MM-DD`
+          description: Planned supply dispatch date, format `YYYY-MM-DD`
           type: string
           example: '2026-08-31'
         shippingPointId:
           nullable: true
-          description: Shipping point ID. You can get it using a method for getting [supply shipping points](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints)
+          description: Dispatch point ID. You can get it using a method for getting [supply dispatch points](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints)
           type: integer
           example: 100
           format: int64
         shippingType:
           nullable: true
           description: |
-            Type of shipping to the shipping point:
-              - `selfShipping` — shipping at the seller's expense
+            Type of dispatch to the dispatch point:
+              - `selfShipping` — dispatch at the seller's expense
               - `transportCompany` — delivery via a transport company
           type: string
           example: selfShipping
@@ -5362,7 +5362,7 @@ components:
               - `false` — the order is made for a item with a non-zero inventory
               - `true` — the order is made for a item with zero inventory. Such an order can be canceled without a cancellation fee
           example: false
-        isPickupPointShipmentAllowed:
+        isPickupPointDispatchAllowed:
           type: boolean
           nullable: false
           example: true
@@ -5564,7 +5564,7 @@ components:
         data:
           type: object
           description: Additional data for the error
-    UpdateSuppliesShippingMethodRequest:
+    UpdateSuppliesDispatchMethodRequest:
       type: object
       required:
       - data
@@ -5575,13 +5575,13 @@ components:
           maxItems: 100
           items:
             $ref: '#/components/schemas/UpdateSupplyShippingMethod'
-    UpdateSuppliesShippingMethodResponse:
+    UpdateSuppliesDispatchMethodResponse:
       type: object
       properties:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/UpdatedSuppliesShippingMethod'
+            $ref: '#/components/schemas/UpdatedSuppliesDispatchMethod'
     UpdateSupplyShippingMethod:
       type: object
       required:
@@ -5591,18 +5591,18 @@ components:
       - supplyId
       properties:
         shippingDt:
-          description: Planned supply shipping date, format `YYYY-MM-DD`
+          description: Planned supply dispatch date, format `YYYY-MM-DD`
           type: string
           example: '2026-08-31'
         shippingPointId:
-          description: Shipping point ID. You can get it using a [separate method](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints)
+          description: Dispatch point ID. You can get it using a [separate method](./orders-fbs#tag/fbsSupplies/operation/getV3FbsShippingPoints)
           type: integer
           example: 100
           format: int64
         shippingType:
           description: |
-            Type of shipping to the shipping point:
-              - `selfShipping` — shipping at the seller's expense
+            Type of dispatch to the dispatch point:
+              - `selfShipping` — dispatch at the seller's expense
               - `transportCompany` — delivery via a transport company
           type: string
           example: selfShipping
@@ -5613,7 +5613,7 @@ components:
           example: WB-GI-100
           type: string
           description: Supply ID
-    UpdatedSuppliesShippingMethod:
+    UpdatedSuppliesDispatchMethod:
       description: Результат обработки запроса для одной поставки
       type: object
       properties:
@@ -5622,14 +5622,14 @@ components:
             Error processing the request for the supply. Possible errors:
               - `400 IncorrectRequestBody`:
                 - incorrect supply ID
-                - shipping point not found
+                - dispatch point not found
                 - destination warehouse is not located in the Russian Federation
                 - unknown `shippingType`
                 - date does not match the `YYYY-MM-DD` format
-              - `400 FulfillmentRequired` — the **Fulfillment at SC** service is not available at the shipping point
+              - `400 FulfillmentRequired` — the **Fulfillment at SC** service is not available at the dispatch point
               - `404 NotFound` — supply not found
-              - `409 SupplyAlreadyScanned` — the supply or its boxes have already been scanned at the shipping point
-              - `409 InvalidShippingDt` — invalid supply shipping date
+              - `409 SupplyAlreadyScanned` — the supply or its boxes have already been scanned at the dispatch point
+              - `409 InvalidShippingDt` — invalid supply dispatch date
           type: object
           properties:
             code:
@@ -5646,15 +5646,15 @@ components:
         supplyId:
           type: string
           description: Supply ID
-    SupplyShippingPoint:
-      description: Shipping point data
+    SupplyDispatchPoint:
+      description: Dispatch point data
       type: object
       properties:
         id:
           format: int64
           type: integer
           example: 100
-          description: Shipping point ID
+          description: Dispatch point ID
         name:
           type: string
           description: Name
@@ -5671,7 +5671,7 @@ components:
           type: string
           example: pp
           description: |
-            Shipping point type:
+            Dispatch point type:
               - `sc` — sorting center
               - `sw` — warehouse
               - `pp` — pickup point
@@ -5695,18 +5695,18 @@ components:
         available:
           type: boolean
           description: |
-            Whether the shipping point is available for the supply:
+            Whether the dispatch point is available for the supply:
               - `true` — available
-              - `false` — unavailable. Returns for the pickup point if it is overloaded on the planned supply shipping date
+              - `false` — unavailable. Returns for the pickup point if it is overloaded on the planned supply dispatch date
           example: true
-    SupplyShippingPointsResponse:
+    SupplyDispatchPointsResponse:
       type: object
       properties:
         shippingPoints:
-          description: Shipping points list for the supply
+          description: Dispatch points list for the supply
           type: array
           items:
-            $ref: '#/components/schemas/SupplyShippingPoint'
+            $ref: '#/components/schemas/SupplyDispatchPoint'
     Response4XX:
       type: object
       properties:
@@ -6056,16 +6056,16 @@ components:
                           - `assembled` — Assembled at the warehouse
                           - `sorted` — Sorted
                           - `replaced_at_warehouse` — Replaced at the warehouse
-                          - `prepared_for_shipment` — Prepared for shipment
+                          - `prepared_for_shipment` — Prepared for dispatch
                           - `in_search` — In search
                           - `arrived_at_dct` — Arrived at the distribution center-transit
                           - `arrived_at_sct` — Arrived at the sorting center-transit
                           - `arrived_at_dc` — Arrived at the distribution center
                           - `arrived_at_sc` — Arrived at the sorting center
-                          - `prepared_for_shipment_at_sc` — Prepared for shipment at the sorting center
-                          - `shipped_at_sc` — Shipped by the sorting center
-                          - `shipped_at_dct` — Shipped by the distribution center — transit
-                          - `shipped_at_dc` — Shipped by the distribution center
+                          - `prepared_for_shipment_at_sc` — Prepared for dispatch at the sorting center
+                          - `shipped_at_sc` — Dispatched by the sorting center
+                          - `shipped_at_dct` — Dispatched by the distribution center — transit
+                          - `shipped_at_dc` — Dispatched by the distribution center
                           - `delivered_at_sc` — Delivered to the SC/DC
                           - `on_way_to_sc` — En route to the sorting center
                           - `on_way_to_dc` — En route to the distribution center
@@ -6083,7 +6083,7 @@ components:
                           - `accepted_for_return` — Accepted for return at the pickup point
                           - `created` — Created
                           - `canceled_by_seller` — Canceled by the seller
-                          - `dispatched_by_seller` — Shipped according to seller data
+                          - `dispatched_by_seller` — Dispatched according to seller data
                           - `delivered` — Order issued
                           - `on_way` — En route
                           - `arrived_at_wb_wh` — Arrived at the WB warehouse

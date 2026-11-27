@@ -1673,7 +1673,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TableShippingOfficeRequest'
+              $ref: '#/components/schemas/TableDispatchOfficeRequest'
       responses:
         '200':
           description: Успешно
@@ -4490,11 +4490,11 @@ components:
           description: Метрики склада
           allOf:
           - $ref: '#/components/schemas/TableCommonMetrics'
-    TableShippingOfficeRequest:
+    TableDispatchOfficeRequest:
       allOf:
-      - $ref: '#/components/schemas/CommonShippingOfficeFilters'
+      - $ref: '#/components/schemas/CommonDispatchOfficeFilters'
       - description: Параметры запроса об остатках по складам
-    CommonShippingOfficeFilters:
+    CommonDispatchOfficeFilters:
       type: object
       description: Общие фильтры по регионам отгрузки
       properties:
@@ -4548,17 +4548,17 @@ components:
       - currentPeriod
       - stockType
       - skipDeletedNm
-    TableShippingOfficeResponse:
+    TableDispatchOfficeResponse:
       type: object
       properties:
         regions:
           type: array
           description: Множество данных по регионам отгрузки
           items:
-            $ref: '#/components/schemas/TableShippingOfficeItem'
+            $ref: '#/components/schemas/TableDispatchOfficeItem'
         currency:
           $ref: '#/components/schemas/Currency'
-    TableShippingOfficeItem:
+    TableDispatchOfficeItem:
       type: object
       description: Данные по региону отгрузки
       properties:
@@ -4570,7 +4570,7 @@ components:
         metrics:
           description: Метрики по региону
           allOf:
-          - $ref: '#/components/schemas/TableShippingOfficeMetrics'
+          - $ref: '#/components/schemas/TableDispatchOfficeMetrics'
         offices:
           type: array
           description: |
@@ -4592,8 +4592,8 @@ components:
               metrics:
                 description: Метрики по складу
                 allOf:
-                - $ref: '#/components/schemas/TableShippingOfficeMetrics'
-    TableShippingOfficeMetrics:
+                - $ref: '#/components/schemas/TableDispatchOfficeMetrics'
+    TableDispatchOfficeMetrics:
       type: object
       description: Общие метрики по регионам/складам отгрузки
       properties:
@@ -6344,7 +6344,7 @@ components:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/TableShippingOfficeResponse'
+          $ref: '#/components/schemas/TableDispatchOfficeResponse'
     PostV2ItemRatingResponse200:
       type: object
       properties:

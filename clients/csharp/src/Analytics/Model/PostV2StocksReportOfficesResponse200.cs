@@ -35,7 +35,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Initializes a new instance of the <see cref="PostV2StocksReportOfficesResponse200" /> class.
         /// </summary>
         /// <param name="data">data.</param>
-        public PostV2StocksReportOfficesResponse200(TableShippingOfficeResponse data = default(TableShippingOfficeResponse))
+        public PostV2StocksReportOfficesResponse200(TableDispatchOfficeResponse data = default(TableDispatchOfficeResponse))
         {
             this.Data = data;
         }
@@ -44,7 +44,7 @@ namespace ValeryVerkhoturov.WbApiClient.Analytics.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public TableShippingOfficeResponse Data { get; set; }
+        public TableDispatchOfficeResponse Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

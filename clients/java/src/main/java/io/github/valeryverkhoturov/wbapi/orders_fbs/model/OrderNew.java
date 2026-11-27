@@ -376,12 +376,12 @@ public class OrderNew {
   @jakarta.annotation.Nullable
   private Boolean isZeroOrder;
 
-  public static final String SERIALIZED_NAME_IS_PICKUP_POINT_SHIPMENT_ALLOWED =
-      "isPickupPointShipmentAllowed";
+  public static final String SERIALIZED_NAME_IS_PICKUP_POINT_DISPATCH_ALLOWED =
+      "isPickupPointDispatchAllowed";
 
-  @SerializedName(SERIALIZED_NAME_IS_PICKUP_POINT_SHIPMENT_ALLOWED)
+  @SerializedName(SERIALIZED_NAME_IS_PICKUP_POINT_DISPATCH_ALLOWED)
   @jakarta.annotation.Nullable
-  private Boolean isPickupPointShipmentAllowed;
+  private Boolean isPickupPointDispatchAllowed;
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
 
@@ -1029,25 +1029,25 @@ public class OrderNew {
     this.isZeroOrder = isZeroOrder;
   }
 
-  public OrderNew isPickupPointShipmentAllowed(
-      @jakarta.annotation.Nullable Boolean isPickupPointShipmentAllowed) {
-    this.isPickupPointShipmentAllowed = isPickupPointShipmentAllowed;
+  public OrderNew isPickupPointDispatchAllowed(
+      @jakarta.annotation.Nullable Boolean isPickupPointDispatchAllowed) {
+    this.isPickupPointDispatchAllowed = isPickupPointDispatchAllowed;
     return this;
   }
 
   /**
    * Можно ли отгрузить заказ на ПВЗ: - &#x60;false&#x60; — нет - &#x60;true&#x60; — да
    *
-   * @return isPickupPointShipmentAllowed
+   * @return isPickupPointDispatchAllowed
    */
   @jakarta.annotation.Nullable
-  public Boolean getIsPickupPointShipmentAllowed() {
-    return isPickupPointShipmentAllowed;
+  public Boolean getIsPickupPointDispatchAllowed() {
+    return isPickupPointDispatchAllowed;
   }
 
-  public void setIsPickupPointShipmentAllowed(
-      @jakarta.annotation.Nullable Boolean isPickupPointShipmentAllowed) {
-    this.isPickupPointShipmentAllowed = isPickupPointShipmentAllowed;
+  public void setIsPickupPointDispatchAllowed(
+      @jakarta.annotation.Nullable Boolean isPickupPointDispatchAllowed) {
+    this.isPickupPointDispatchAllowed = isPickupPointDispatchAllowed;
   }
 
   public OrderNew options(@jakarta.annotation.Nullable OrderOptions options) {
@@ -1108,7 +1108,7 @@ public class OrderNew {
         && Objects.equals(this.cargoType, orderNew.cargoType)
         && Objects.equals(this.crossBorderType, orderNew.crossBorderType)
         && Objects.equals(this.isZeroOrder, orderNew.isZeroOrder)
-        && Objects.equals(this.isPickupPointShipmentAllowed, orderNew.isPickupPointShipmentAllowed)
+        && Objects.equals(this.isPickupPointDispatchAllowed, orderNew.isPickupPointDispatchAllowed)
         && Objects.equals(this.options, orderNew.options);
   }
 
@@ -1145,7 +1145,7 @@ public class OrderNew {
         cargoType,
         crossBorderType,
         isZeroOrder,
-        isPickupPointShipmentAllowed,
+        isPickupPointDispatchAllowed,
         options);
   }
 
@@ -1187,8 +1187,8 @@ public class OrderNew {
     sb.append("    cargoType: ").append(toIndentedString(cargoType)).append("\n");
     sb.append("    crossBorderType: ").append(toIndentedString(crossBorderType)).append("\n");
     sb.append("    isZeroOrder: ").append(toIndentedString(isZeroOrder)).append("\n");
-    sb.append("    isPickupPointShipmentAllowed: ")
-        .append(toIndentedString(isPickupPointShipmentAllowed))
+    sb.append("    isPickupPointDispatchAllowed: ")
+        .append(toIndentedString(isPickupPointDispatchAllowed))
         .append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("}");
@@ -1241,7 +1241,7 @@ public class OrderNew {
     openapiFields.add("cargoType");
     openapiFields.add("crossBorderType");
     openapiFields.add("isZeroOrder");
-    openapiFields.add("isPickupPointShipmentAllowed");
+    openapiFields.add("isPickupPointDispatchAllowed");
     openapiFields.add("options");
 
     // a set of required properties/fields (JSON key names)

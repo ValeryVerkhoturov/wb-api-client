@@ -144,11 +144,11 @@ from wb_api_client.orders_fbs.models.put_v3_passes_pass_id_request import (
     PutV3PassesPassIdRequest,
 )
 from wb_api_client.orders_fbs.models.supply import Supply
-from wb_api_client.orders_fbs.models.supply_shipping_points_response import (
-    SupplyShippingPointsResponse,
+from wb_api_client.orders_fbs.models.supply_dispatch_points_response import (
+    SupplyDispatchPointsResponse,
 )
-from wb_api_client.orders_fbs.models.update_supplies_shipping_method_response import (
-    UpdateSuppliesShippingMethodResponse,
+from wb_api_client.orders_fbs.models.update_supplies_dispatch_method_response import (
+    UpdateSuppliesDispatchMethodResponse,
 )
 from wb_api_client.orders_fbs.models.v3_archive_orders import V3ArchiveOrders
 from wb_api_client.orders_fbs.models.v3_get_meta_multi_request import (
@@ -2248,7 +2248,7 @@ class OrdersFbsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> SupplyShippingPointsResponse:
+    ) -> SupplyDispatchPointsResponse:
         """Получить список пунктов отгрузки поставки
 
         Метод возвращает доступные пункты отгрузки для указанной поставки. Предназначен для продавцов из РФ. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
@@ -2295,7 +2295,7 @@ class OrdersFbsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "SupplyShippingPointsResponse",
+            "200": "SupplyDispatchPointsResponse",
             "400": "Error",
             "401": "GetV3PassesOffices401Response",
             "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
@@ -2343,7 +2343,7 @@ class OrdersFbsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[SupplyShippingPointsResponse]:
+    ) -> ApiResponse[SupplyDispatchPointsResponse]:
         """Получить список пунктов отгрузки поставки
 
         Метод возвращает доступные пункты отгрузки для указанной поставки. Предназначен для продавцов из РФ. Используйте данные этого метода, чтобы устанавливать [параметры отгрузки поставок](https://dev.wildberries.ru/openapi/orders-fbs#tag/fbsSupplies/operation/patchV3FbsSuppliesShippingMethod).  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/get-api-marketplace-v3-fbs-supplies-supplyid-shipping-points
@@ -2390,7 +2390,7 @@ class OrdersFbsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "SupplyShippingPointsResponse",
+            "200": "SupplyDispatchPointsResponse",
             "400": "Error",
             "401": "GetV3PassesOffices401Response",
             "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
@@ -2485,7 +2485,7 @@ class OrdersFbsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "SupplyShippingPointsResponse",
+            "200": "SupplyDispatchPointsResponse",
             "400": "Error",
             "401": "GetV3PassesOffices401Response",
             "403": "GetV3FbsSuppliesSupplyIdShippingPoints403Response",
@@ -5884,7 +5884,7 @@ class OrdersFbsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> UpdateSuppliesShippingMethodResponse:
+    ) -> UpdateSuppliesDispatchMethodResponse:
         """Установить параметры отгрузки поставок
 
         Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.  Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-shipping-method
@@ -5922,7 +5922,7 @@ class OrdersFbsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "UpdateSuppliesShippingMethodResponse",
+            "200": "UpdateSuppliesDispatchMethodResponse",
             "400": "Error",
             "401": "GetV3PassesOffices401Response",
             "402": "GetV3PassesOffices402Response",
@@ -5954,7 +5954,7 @@ class OrdersFbsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[UpdateSuppliesShippingMethodResponse]:
+    ) -> ApiResponse[UpdateSuppliesDispatchMethodResponse]:
         """Установить параметры отгрузки поставок
 
         Метод устанавливает способ доставки, дату и пункт отгрузки у поставок.  Параметры отгрузки нужно указать до передачи поставки в доставку. Вы можете обновлять параметры отгрузки до сканирования поставки и её коробов в пункте отгрузки. Когда поставка будет отсканирована, метод начнёт возвращать ошибку `409`.  В запросе можно указать максимум 100 поставок. Результат обработки возвращается для каждой поставки отдельно.  Доступно только для продавцов из РФ.  [Лимит запросов](https://dev.wildberries.ru/openapi/api-information#tag/introduction/Limity-zaprosov) на один профиль продавца для методов **сборочных заданий, поставок, пропусков и настроек автовозврата FBS**: | Период | Лимит | Интервал | Всплеск | | --- | --- | --- | --- | | 1 мин | 300 запросов | 200 мс | 20 запросов | Один запрос с кодами ответов `4XX` учитывается как 10 запросов  Library doc: https://valeryverkhoturov.github.io/wb-api-client-docs/reference/api/orders-fbs/patch-api-marketplace-v3-fbs-supplies-shipping-method
@@ -5992,7 +5992,7 @@ class OrdersFbsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "UpdateSuppliesShippingMethodResponse",
+            "200": "UpdateSuppliesDispatchMethodResponse",
             "400": "Error",
             "401": "GetV3PassesOffices401Response",
             "402": "GetV3PassesOffices402Response",
@@ -6062,7 +6062,7 @@ class OrdersFbsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "UpdateSuppliesShippingMethodResponse",
+            "200": "UpdateSuppliesDispatchMethodResponse",
             "400": "Error",
             "401": "GetV3PassesOffices401Response",
             "402": "GetV3PassesOffices402Response",

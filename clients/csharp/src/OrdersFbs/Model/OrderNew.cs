@@ -141,9 +141,9 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="cargoType">Тип товара:   - &#x60;1&#x60; — малогабаритный товар (МГТ)   - &#x60;2&#x60; — сверхгабаритный товар (СГТ)   - &#x60;3&#x60; — крупногабаритный товар (КГТ+) .</param>
         /// <param name="crossBorderType">Тип сборочного задания:   - &#x60;0&#x60; — внутренняя поставка   - &#x60;1&#x60; — трансграничная поставка .</param>
         /// <param name="isZeroOrder">Признак заказа товара с нулевым остатком:   - &#x60;false&#x60; — заказ сделан на товар с ненулевым остатком   - &#x60;true&#x60; — заказ сделан на товар с нулевым остатком. Такой заказ можно отменить без штрафа за отмену .</param>
-        /// <param name="isPickupPointShipmentAllowed">Можно ли отгрузить заказ на ПВЗ:   - &#x60;false&#x60; — нет   - &#x60;true&#x60; — да .</param>
+        /// <param name="isPickupPointDispatchAllowed">Можно ли отгрузить заказ на ПВЗ:   - &#x60;false&#x60; — нет   - &#x60;true&#x60; — да .</param>
         /// <param name="options">options.</param>
-        public OrderNew(OrderNewAddress address = default(OrderNewAddress), string ddate = default(string), string sellerDate = default(string), long? salePrice = default(long?), List<string> requiredMeta = default(List<string>), List<string> optionalMeta = default(List<string>), DeliveryTypeEnum? deliveryType = default(DeliveryTypeEnum?), string comment = default(string), decimal? scanPrice = default(decimal?), string orderUid = default(string), string article = default(string), string colorCode = default(string), string rid = default(string), string createdAt = default(string), List<string> offices = default(List<string>), List<string> skus = default(List<string>), long id = default(long), long warehouseId = default(long), long officeId = default(long), long nmId = default(long), long chrtId = default(long), long price = default(long), long finalPrice = default(long), long convertedPrice = default(long), long convertedFinalPrice = default(long), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), bool isZeroOrder = default(bool), bool isPickupPointShipmentAllowed = default(bool), OrderOptions options = default(OrderOptions))
+        public OrderNew(OrderNewAddress address = default(OrderNewAddress), string ddate = default(string), string sellerDate = default(string), long? salePrice = default(long?), List<string> requiredMeta = default(List<string>), List<string> optionalMeta = default(List<string>), DeliveryTypeEnum? deliveryType = default(DeliveryTypeEnum?), string comment = default(string), decimal? scanPrice = default(decimal?), string orderUid = default(string), string article = default(string), string colorCode = default(string), string rid = default(string), string createdAt = default(string), List<string> offices = default(List<string>), List<string> skus = default(List<string>), long id = default(long), long warehouseId = default(long), long officeId = default(long), long nmId = default(long), long chrtId = default(long), long price = default(long), long finalPrice = default(long), long convertedPrice = default(long), long convertedFinalPrice = default(long), int currencyCode = default(int), int convertedCurrencyCode = default(int), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), bool isZeroOrder = default(bool), bool isPickupPointDispatchAllowed = default(bool), OrderOptions options = default(OrderOptions))
         {
             this.Address = address;
             this.Ddate = ddate;
@@ -175,7 +175,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             this.CargoType = cargoType;
             this.CrossBorderType = crossBorderType;
             this.IsZeroOrder = isZeroOrder;
-            this.IsPickupPointShipmentAllowed = isPickupPointShipmentAllowed;
+            this.IsPickupPointDispatchAllowed = isPickupPointDispatchAllowed;
             this.Options = options;
         }
 
@@ -443,8 +443,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isPickupPointShipmentAllowed", EmitDefaultValue = true)]
-        public bool IsPickupPointShipmentAllowed { get; set; }
+        [DataMember(Name = "isPickupPointDispatchAllowed", EmitDefaultValue = true)]
+        public bool IsPickupPointDispatchAllowed { get; set; }
 
         /// <summary>
         /// Gets or Sets Options
@@ -490,7 +490,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             sb.Append("  CargoType: ").Append(CargoType).Append("\n");
             sb.Append("  CrossBorderType: ").Append(CrossBorderType).Append("\n");
             sb.Append("  IsZeroOrder: ").Append(IsZeroOrder).Append("\n");
-            sb.Append("  IsPickupPointShipmentAllowed: ").Append(IsPickupPointShipmentAllowed).Append("\n");
+            sb.Append("  IsPickupPointDispatchAllowed: ").Append(IsPickupPointDispatchAllowed).Append("\n");
             sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

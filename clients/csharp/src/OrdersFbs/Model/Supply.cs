@@ -122,7 +122,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// </summary>
         /// <param name="id">ID поставки.</param>
         /// <param name="isB2b">Признак B2B-продажи:   - &#x60;true&#x60; — B2B-продажа   - &#x60;false&#x60; — не B2B-продажа   - &#x60;null&#x60; — признак отсутствует, сборочные задания не добавлены к поставке .</param>
-        /// <param name="isPickupPointShipmentAllowed">Можно ли отгрузить заказ на ПВЗ:   - &#x60;false&#x60; — нет   - &#x60;true&#x60; — да .</param>
+        /// <param name="isPickupPointDispatchAllowed">Можно ли отгрузить заказ на ПВЗ:   - &#x60;false&#x60; — нет   - &#x60;true&#x60; — да .</param>
         /// <param name="done">Флаг закрытия поставки:   - &#x60;true&#x60; — закрыта   - &#x60;false&#x60; — открыта .</param>
         /// <param name="createdAt">Дата создания поставки (RFC3339).</param>
         /// <param name="closedAt">Дата закрытия поставки (RFC3339).</param>
@@ -137,11 +137,11 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /// <param name="shippingType">Способ доставки до пункта отгрузки:   - &#x60;selfShipping&#x60; — доставка силами продавца   - &#x60;transportCompany&#x60; — доставка через транспортную компанию .</param>
         /// <param name="waybillUuid">ID ЭТрН — электронной транспортной накладной.</param>
         /// <param name="spotAvailable">Доступен ли СПОТ для этой поставки:   - &#x60;true&#x60; — да   - &#x60;false&#x60; — нет .</param>
-        public Supply(string id = default(string), bool? isB2b = default(bool?), bool isPickupPointShipmentAllowed = default(bool), bool done = default(bool), string createdAt = default(string), string closedAt = default(string), string scanDt = default(string), string name = default(string), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), long? destinationOfficeId = default(long?), long recommendedWhId = default(long), string shippingDt = default(string), long? shippingPointId = default(long?), ShippingTypeEnum? shippingType = default(ShippingTypeEnum?), string waybillUuid = default(string), bool spotAvailable = default(bool))
+        public Supply(string id = default(string), bool? isB2b = default(bool?), bool isPickupPointDispatchAllowed = default(bool), bool done = default(bool), string createdAt = default(string), string closedAt = default(string), string scanDt = default(string), string name = default(string), CargoTypeEnum? cargoType = default(CargoTypeEnum?), CrossBorderTypeEnum? crossBorderType = default(CrossBorderTypeEnum?), long? destinationOfficeId = default(long?), long recommendedWhId = default(long), string shippingDt = default(string), long? shippingPointId = default(long?), ShippingTypeEnum? shippingType = default(ShippingTypeEnum?), string waybillUuid = default(string), bool spotAvailable = default(bool))
         {
             this.Id = id;
             this.IsB2b = isB2b;
-            this.IsPickupPointShipmentAllowed = isPickupPointShipmentAllowed;
+            this.IsPickupPointDispatchAllowed = isPickupPointDispatchAllowed;
             this.Done = done;
             this.CreatedAt = createdAt;
             this.ClosedAt = closedAt;
@@ -182,8 +182,8 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isPickupPointShipmentAllowed", EmitDefaultValue = true)]
-        public bool IsPickupPointShipmentAllowed { get; set; }
+        [DataMember(Name = "isPickupPointDispatchAllowed", EmitDefaultValue = true)]
+        public bool IsPickupPointDispatchAllowed { get; set; }
 
         /// <summary>
         /// Флаг закрытия поставки:   - &#x60;true&#x60; — закрыта   - &#x60;false&#x60; — открыта 
@@ -302,7 +302,7 @@ namespace ValeryVerkhoturov.WbApiClient.OrdersFbs.Model
             sb.Append("class Supply {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  IsB2b: ").Append(IsB2b).Append("\n");
-            sb.Append("  IsPickupPointShipmentAllowed: ").Append(IsPickupPointShipmentAllowed).Append("\n");
+            sb.Append("  IsPickupPointDispatchAllowed: ").Append(IsPickupPointDispatchAllowed).Append("\n");
             sb.Append("  Done: ").Append(Done).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  ClosedAt: ").Append(ClosedAt).Append("\n");

@@ -1334,11 +1334,11 @@ components:
         giId:
           example: 123456
           type: integer
-          description: Shipment ID
+          description: Dispatch ID
         dlvPrc:
           example: 1.8
           type: number
-          description: Fixed warehouse multiplier for shipments
+          description: Fixed warehouse multiplier for dispatches
         fixTariffDateFrom:
           example: '2026-03-18'
           type: string

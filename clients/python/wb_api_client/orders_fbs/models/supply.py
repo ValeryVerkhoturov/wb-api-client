@@ -42,10 +42,10 @@ class Supply(BaseModel):
         description="Признак B2B-продажи:   - `true` — B2B-продажа   - `false` — не B2B-продажа   - `null` — признак отсутствует, сборочные задания не добавлены к поставке ",
         alias="isB2b",
     )
-    is_pickup_point_shipment_allowed: Optional[StrictBool] = Field(
+    is_pickup_point_dispatch_allowed: Optional[StrictBool] = Field(
         default=None,
         description="Можно ли отгрузить заказ на ПВЗ:   - `false` — нет   - `true` — да ",
-        alias="isPickupPointShipmentAllowed",
+        alias="isPickupPointDispatchAllowed",
     )
     done: Optional[StrictBool] = Field(
         default=None,
@@ -111,7 +111,7 @@ class Supply(BaseModel):
     __properties: ClassVar[List[str]] = [
         "id",
         "isB2b",
-        "isPickupPointShipmentAllowed",
+        "isPickupPointDispatchAllowed",
         "done",
         "createdAt",
         "closedAt",
@@ -266,7 +266,7 @@ class Supply(BaseModel):
             {
                 "id": obj.get("id"),
                 "isB2b": obj.get("isB2b"),
-                "isPickupPointShipmentAllowed": obj.get("isPickupPointShipmentAllowed"),
+                "isPickupPointDispatchAllowed": obj.get("isPickupPointDispatchAllowed"),
                 "done": obj.get("done"),
                 "createdAt": obj.get("createdAt"),
                 "closedAt": obj.get("closedAt"),
